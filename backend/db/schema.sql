@@ -15,7 +15,7 @@ CREATE TABLE friends (
 	user2id INTEGER,
 	PRIMARY KEY(user1id,user2id),
 	FOREIGN KEY(user1id) REFERENCES users(uid),
-    FOREIGN KEY(user2id) REFERENCES users(uid)
+	FOREIGN KEY(user2id) REFERENCES users(uid)
 );
 
 CREATE TABLE bets (
@@ -23,7 +23,7 @@ CREATE TABLE bets (
 	cid INTEGER NOT NULL,
 	value FLOAT NOT NULL, 
 	user1id INTEGER NOT NULL,
-	user2id INT,
+	user2id INTEGER,
 	sport VARCHAR(50) NOT NULL,
 	timeplaced DATE NOT NULL,
 	timeaccepted DATE,
