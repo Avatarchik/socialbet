@@ -2,13 +2,13 @@ SocialBet
 ==============
 
 ***Team***
-Alexander Chapp
-Chris Terech
-Ittai Svidler
-John Krieg
-Nick Cargill
-Ryan Shelly
-Trevor Swartz
+- Alexander Chapp
+- Chris Terech
+- Ittai Svidler
+- John Krieg
+- Nick Cargill
+- Ryan Shelly
+- Trevor Swartz
 
 ***Directory Contents:***
 Readme: what you are currently reading
