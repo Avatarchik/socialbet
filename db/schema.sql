@@ -14,20 +14,20 @@ CREATE TABLE users (
 CREATE TABLE friends ( 
 	user1id INT NOT NULL,
 	user2id INT,
-	PRIMARY KEY(user1,user2),
+	PRIMARY KEY(user1id,user2id),
 	FOREIGN KEY(user1id) REFERENCES users(uid)
 );
 
 CREATE TABLE bets (
 	bid INT NOT NULL,
 	cid INT NOT NULL,
-	value  NOT NULL, 
+	value DOUBLE(10,2) NOT NULL, 
 	user1id INT NOT NULL,
 	user2id INT,
 	sport VARCHAR(50) NOT NULL,
 	timeplaced DATE NOT NULL,
 	timeaccepted DATE,
-	PRIMARY KEY(obid),
+	PRIMARY KEY(bid),
 	FOREIGN KEY(user1id) REFERENCES users(uid),
 	FOREIGN KEY(user2id) REFERENCES users(uid)
 );
