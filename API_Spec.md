@@ -6,6 +6,8 @@ The socialbet API is the corpus callosum connecting the frontend iOS application
 
 This API works via HTTP requests. The mobile application will query the server using HTTP requests in the form of JSON objects. The responses from the server will also be in the form of JSON objects and will be used to render the service on the mobile application.
 
+*Note: these API calls rely on a user-held cookie. The information in this cookie is set on login and presented on every API call in the URI as a query string in the form of* `uid=<logged_in_user_id>&auth=<SHA256(logged_in_user_password)>`. *For sake of brevity, the term `COOKIE` will be used interchangably with the cookie query string.*
+
 | Method      |  URL                        | Action |
 |-------------|-----------------------------|--------|
 | POST        | `/api/v1/login`             |        |
@@ -17,51 +19,215 @@ This API works via HTTP requests. The mobile application will query the server u
 This section describes the contents necessary for each object type. The four main objects that the API must deliver are as follows:
 
 **Bet**
-TODO create JSON object
+User 1: id, name
+User 2: id, name
+Value: null or $ amount
+Bet_ID
+Timestamp
+Game: Time, Teams, Path to Logos, Home/Away
+\# of Likes
+\# of Comments
+Description
+Live bool
+Public/Private
 
 **Comment**
-TODO create JSON object
+Comment ID
+Content of comment
+User_ID
+Timestamp
+\# of likes
 
 **Game**
-TODO create JSON object
+Sport
+DateTime
+Home Team: Name, Score, IconPath
+Away Team: Name, Score, IconPath
+Location
 
 **Profile**
-TODO create JSON object
+User: ID, Name, Handle
+Favorite Team
 
 ***
 ***
 # Application Technical Flow
 
-This section describes the mobile application frontend in terms of the subprocesses that will allow the pages to be rendered.
+This section describes each of the app's page's interactions with the API through each of the the various functions in the app.
 
 **Splash screen**
-* When the application has finished loading it will automatically redirect to the **User Login** page
+* When the application has finished loading it will automatically redirect to the **User Login** page.
+
 
 **User Login**
-* A user can submit login credentials via a `POST` request to `/api/v1/login/`. 
-    * On success, the API will respond with HTTP code `200 SUCCESS` and the application will store the username and password hash locally as a cookie for authentication for all further requests. The application will automatically redirect to the **Live Bets** page
-    * On failure, the API will respond with HTTP code `401 UNAUTHORIZED` and the application will alert the user that an incorrect username/password was provided and prompt the user to `try again`.
-        * If the user selects `try again` the page will refresh.
-* A user can click the register button to redirect to the **Account Builder** page.
+INITIAL RENDER
+
+PAGE UPDATES
+* The user can enter their credentials and click submit to send a `POST` request to `/api/v1/accounts/login/`.
+	* On success, the API will respond with HTTP code `200 SUCCESS` and the application will store the username and password hash locally as a cookie for authentication for all further requests. The application will automatically redirect to the **Live Bets** page.
+	* On failure, the API will respond with HTTP code `401 UNAUTHORIZED` and the application will alert the user that an incorrect username/password was provided and prompt the user to `try again`.
+		* If the user clicks `try again`, the page will be refreshed.
+
+LINKS
+* The user can click the help button to redirect to the **Help** page.
+* The user can click the register button to redirect to the **Account Builder** page.
+
+**Help**
+INITIAL RENDER
+* The application will send a `GET` request to `/api/v1/version/`.
+	* On success, the API will respond with HTTP code `200 SUCCESS` and the API version information
+
+PAGE UPDATES
+
+LINKS
+* The user can click the back button to redirect to the **User Login** page.
 
 **Account builder**
-* If the user provides matching passwords along with their username, the application will send the username and password in a `POST` request to `/api/v1/accounts/create/`.
-    * On success -- the username is unique and the passwords match -- the API will respond with HTTP code `200 SUCCESS` and the application will redirect to the contact scraper page.
-    * On failure -- the username is taken -- the API will respond with HTTP code `400 BAD REQUEST` and the page will alert the user that this username is taken and prompt the user to `try again`.
-        * If the user selects `try again` the page will refresh.
+* The user can register an account by providing a username, password, password confirmation, and phone number. The application will submit the information in a `POST` request to `/api/v1/accounts/create/`.
+	* On success -- the username is unique -- the API will respond with HTTP code `200 SUCCESS` and the application will store the username and password hash locally as a cookie for authentication for all further requests. The application will then redirect to the contact scraper page.
+	* On failure -- the username is taken -- the API will respond with HTTP code `400 BAD REQUEST` and the page will alert the user that this username is taken and prompt the user to `try again`.
+		* If the user selects `try again` the page will refresh.
+	* TODO phone number confirmation. Maybe a URI call or a confirmation code?
+
 
 **Contact Scraper**
-* Gist/TBD: the contacts will be sent in a `POST` request to `/api/v1/accounts/import/` and the API will automatically establish friendships based on shared contacts.
-* On success, the server will respond with HTTP code `200 SUCCESS` and the application will redirect to the **Live Bets** page.
+INITIAL RENDER
+
+PAGE UPDATES
+* TODO how are we going to scrape the phone numbers from the phone?
+* Assuming we have the phone numbers, we will submit them in a JSON object (list of phone numbers) via a `POST` request to `/api/v1/accounts/friends/?COOKIE`
+	* On success, the API will respond with HTTP code `200 SUCCESS` and the application will redirect to the `Friends` Tab.
+
+LINKS
+
 
 **Live Bets**
-*  The application will send a `GET` request to `/api/v1/live/?loguser=<id>&auth=<pwhash>`
-    *  On success, the API will respond with HTTP code `200 SUCCESS` and the data necessary to render the page.
-* Once rendered, if the user selects a bet event they will be redirected to the **Bet Viewer** Page.
-* Once rendered, the user may click the favorite icon on a bet event and a `POST` request will be sent to `/api/v1/likes/<postid>?loguser=<id>&auth=<pwhash>`
-    * On success, the API will respond with HTTP code `200 SUCCESS` and the application will rerender the bet to reflect the change.
-* Once rendered, the user may click `add a comment` and a comment box will appear. When the user has finished crafting a comment, they can hit submit and the comment will be sent via a `POST request to `/api/v1/comments/?betid=<id>`
-    * On success, the API will respond with HTTP code `200 SUCCESS` and the application will rerender the bet to reflect the change.
+INITIAL RENDER
+* The application will send a `GET` request to `/api/v1/live/?COOKIE&qty=10`.
+	* On success, the API will respond with HTTP code `200 SUCCESS` and the data necessary to render the bets.
+
+PAGE UPDATES
+* The user can click the favorite button on a bet by sending a `POST` request to `/api/v1/likes/?betid=<bet id>`.
+	* On success, the API will respond with HTTP code `200 SUCCESS` and a **bet** JSON object. Then the application will rerender the bet.
+
+LINKS
+* The user can refresh the page by pulling down on the UI. The application will start over with another initial render.
+* The user can click a bet event to navigate to the `Bet Viewer` Page.
+* The user can click a profile picture on a bet event to navigate to that user's profile page. The application will redirect to the `Profile` Page.
+
+**Open Bets**
+INITIAL RENDER
+* The application will send a `GET` request to `/api/v1/open/?COOKIE&qty=10`.
+	* On success, the API will respond with HTTP code `200 SUCCESS` and the data necessary to render the bets.
+
+PAGE UPDATES
+* The user can click the favorite button on a bet by sending a `POST` request to `/api/v1/likes/?betid=<bet id>`.
+	* On success, the API will respond with HTTP code `200 SUCCESS` and a **bet** JSON object. Then the application will rerender the bet.
+
+LINKS
+* The user can refresh the page by pulling down on the UI. The application will start over with another initial render.
+* The user can click a bet event to navigate to the `Bet Viewer` Page.
+* The user can click a bet event's handshake icon to initiate accepting the bet. The application will redirect to the `Accept Bet` Page.
+* The user can click a profile picture on a bet event to navigate to that user's profile page. The application will redirect to the `Profile` Page.
+
+**Games**
+INITIAL RENDER
+
+PAGE UPDATES
+* If the user selects a sport, the applicaion will send a 'GET' request to `/api/v1/games/?sport=<sport id>&start=<today>&end=<period end>&qty=10?COOKIE`
+	* On success, the API will respond with HTTP code `200 SUCCESS` and all of the games with the provided sport id in the timeframe specified. The application will rerended the page to reflect these changes.
+
+LINKS
+* The user can refresh the page by pulling down on the UI. The application will start over with another initial render.
+* The user can click `View Open Bets` 
+* The user can click `View Live Bets`
+* The user can click `Create an Open Bet`
+* The user can click `Create an DM Bet`
+
+**Bet Viewer**
+INITIAL RENDER
+* The application will send a `GET` request to `/api/v1/bets/?COOKIE`.
+	* On success, the API will respond with HTTP code `200 SUCCESS` and a **bet* JSON object. Then the application will render the bet.
+* The application will send a `GET` request to `/api/v1/comments/?betid=<bet id>`.
+	* On success, the API will respond with HTTP code `200 SUCCESS` and a list of **comment** JSON objects. Then the application will render the comments for infinite scrolling.
+
+PAGE UPDATES
+* The user can click the favorite button on a bet by sending a `POST` request to `/api/v1/likes/?betid=<bet id>`.
+	* On success, the API will respond with HTTP code `200 SUCCESS` and a **bet** JSON object. Then the application will rerender the bet.
+* The user can click the favorite button on a comment by sending a `POST` request to `/api/v1/likes/?commentid=<comment id>`.
+	* On success, the API will respond with HTTP code `200 SUCCESS` and a **comment** JSON object. Then the application will rerender the comment.
+* The user can add a comment by filling in the comment box at the bottom of the page and clicking `submit`. This will send a `POST` request to `/api/v1/comments/?betid=<bet id>`.
+	* On success, the API will respond with HTTP code `200 SUCCESS` and a **comment** JSON object. Then the application will rerender the comment list.
+
+LINKS
+* The user can refresh the page by pulling down on the UI. The application will start over with another initial render.
+* The user can click the handshake icon to initiate accepting the bet. The application will redirect to the `Accept Bet` Page.
+* The user can click a profile picture to navigate to that user's profile page. The application will redirect to the `Profile` Page.
+
+**Accept Bet**
+INITIAL RENDER
+* The application will send a `GET` request to `/api/v1/bets/?COOKIE`.
+	* On success, the API will respond with HTTP code `200 SUCCESS` and a **bet* JSON object. Then the application will render the bet.
+
+
+PAGE UPDATES
+* The user can accept a bet by sending a `POST` request to `API/v1/bets/accept/?betid=<bet id>`.
+	* On success, the API will respond with HTTP code `200 SUCCESS` and a **bet** JSON object. Then the application will rerender the bet.
+* The user can decline a bet by sending a `POST` request to `API/v1/bets/decline/?betid=<bet id>`.
+	* On success, the API will respond with HTTP code `200 SUCCESS` and a **bet** JSON object. Then the application will rerender the bet and 
+
+LINKS
+
+
+**Bet Builder**
+INITIAL RENDER
+
+PAGE UPDATES
+
+LINKS
+
+**Options Tab**
+
+**Profile**
+INITIAL RENDER
+* The application will send a GET request to `/api/v1/profile/pid?COOKIE`.
+	* On success, the the API will respond with HTTP code `200 SUCCESS` and a **profile** JSON object. The application will then render the profile.
+* The application will send a `GET` request to `/api/v1/live/uid?COOKIE`.
+	* On success, the the API will respond with HTTP code `200 SUCCESS` and a list of **bet** JSON objects. The application will then render the bet list.
+
+PAGE UPDATES
+* The user can click the `Live Bets` Tab by sending a `POST` request to `/api/v1/live/uid?COOKIE`.
+	* On success, the the API will respond with HTTP code `200 SUCCESS` and a list of **bet** JSON objects. The application will then render the bet list.
+* The user can click the `Open Bets` Tab by sending a `POST` request to `/api/v1/open/uid?COOKIE`.
+	* On success, the the API will respond with HTTP code `200 SUCCESS` and a list of **bet** JSON objects. The application will then render the bet list.
+* If the user is viewing a friend's profile, they can click the `Between Us` Tab by sending a `POST` request to `/api/v1/profile/between_us/uid?COOKIE`.
+	* On success, the the API will respond with HTTP code `200 SUCCESS` and a list of **bet** JSON objects. The application will then render the bet list.
+* If the user is viewing their profile, they can click the `History` Tab by sending a `POST` request to `/api/v1/profile/history?COOKIE`.
+	* On success, the the API will respond with HTTP code `200 SUCCESS` and a list of **bet** JSON objects. The application will then render the bet list.
+
+LINKS
+* The user can refresh the page by pulling down on the UI. The application will start over with another initial render.
+* The user can click their friend's count to view their friends list. The application will redirect to the `Friends` page.
+* The user can click a bet event to navigate to the bet viewer. The application will redirect to the `Bet Viewer` Page
+* The user can click the handshake icon to initiate accepting an open bet. The application will redirect to the `Accept Bet` Page.
+* The user can click the back button to exit the `Profile` page. The application will redirect to the previous page.
+* The user can click a profile picture to navigate to that user's profile page. The application will redirect to the `Profile` Page.
+
+**Find a friend**
+
+**Friends**
+INITIAL RENDER
+
+PAGE UPDATES
+
+LINKS
+
+**Find Friends**
+INITIAL RENDER
+
+PAGE UPDATES
+
+LINKS
 
 ***
 ***
