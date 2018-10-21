@@ -133,6 +133,8 @@ LINKS
 {session_id:""}
 
 *Response JSON*
+*Note:* This JSON returns the information required for *Design 2*. `user1` will be the left hand user in the UI/UX design, and `user2` will be the right hand user.
+
 {
 	bets: [
 		{
@@ -174,6 +176,10 @@ LINKS
 * The user can click a bet event to navigate to the `Bet Viewer` Page.
 * The user can click a bet event's handshake icon to initiate accepting the bet. The application will redirect to the `Accept Bet` Page.
 * The user can click a profile picture on a bet event to navigate to that user's profile page. The application will redirect to the `Profile` Page.
+
+*Request JSON*
+
+*Response JSON*
 
 **Games**
 INITIAL RENDER
