@@ -67,6 +67,12 @@ PAGE UPDATES
 	* On success, the API will respond with HTTP code `200 SUCCESS` and the application will store the username and password hash locally as a cookie for authentication for all further requests. The application will automatically redirect to the **Live Bets** page.
 	* On failure, the API will respond with HTTP code `401 UNAUTHORIZED` and the application will alert the user that an incorrect username/password was provided and prompt the user to `try again`.
 		* If the user clicks `try again`, the page will be refreshed.
+		
+*Request JSON*
+{username:"", password: ""}
+
+*Success Response JSON*
+{success_status: "<true/false>", session_id: ""}
 
 LINKS
 * The user can click the help button to redirect to the **Help** page.
@@ -89,6 +95,11 @@ LINKS
 		* If the user selects `try again` the page will refresh.
 	* TODO phone number confirmation. Maybe a URI call or a confirmation code?
 
+*Requestion JSON*
+{username: "", password: "", confirm_password: "", phone_number: "", first_name: "", last_name: ""}
+
+*Response JSON*
+{success_status: "", errors: [string]}
 
 **Contact Scraper**
 INITIAL RENDER
@@ -98,8 +109,11 @@ PAGE UPDATES
 * Assuming we have the phone numbers, we will submit them in a JSON object (list of phone numbers) via a `POST` request to `/api/v1/accounts/friends/?COOKIE`
 	* On success, the API will respond with HTTP code `200 SUCCESS` and the application will redirect to the `Friends` Tab.
 
-LINKS
+*Requestion JSON*
+{phone_numbers: [string], session_id: ""}
 
+*Response JSON* 
+{success_status: "", errors:[string]}
 
 **Live Bets**
 INITIAL RENDER
@@ -114,6 +128,37 @@ LINKS
 * The user can refresh the page by pulling down on the UI. The application will start over with another initial render.
 * The user can click a bet event to navigate to the `Bet Viewer` Page.
 * The user can click a profile picture on a bet event to navigate to that user's profile page. The application will redirect to the `Profile` Page.
+
+*Requestion JSON*
+{session_id:""}
+
+*Response JSON*
+{
+	bets: [
+		{
+			time_placed: "",
+			game_time: "",
+			num_comments: int,
+			num_likes: int,
+			message: "",
+			user1: {
+				first_name: "",
+				last_name: "",
+				profile_pic_url: "",
+				team: "",
+				team_logo_url: ""
+			},
+			user2: {
+				first_name: "",
+				last_name: "",
+				profile_pic_url: "",
+				team: "",
+				team_logo_url: ""
+			}
+		}
+	]
+
+}
 
 **Open Bets**
 INITIAL RENDER
