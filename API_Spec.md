@@ -138,6 +138,7 @@ LINKS
 {
 	bets: [
 		{
+			bet_id: "",
 			time_placed: "",
 			game_time: "",
 			num_comments: int,
@@ -162,6 +163,53 @@ LINKS
 
 }
 
+**Individual Live Bet**
+INITIAL RENDER
+* The application will send a `GET` request to `/api/v1/live/?bet=<bet_id>`.
+	* On success, the API will respond with HTTP code `200 SUCCESS` and the data necessary to render the bets.
+
+*Requestion JSON*
+{session_id:""}
+
+*Response JSON*
+*Note:* This JSON returns the information required for *Design 2*. `user1` will be the left hand user in the UI/UX design, and `user2` will be the right hand user.
+
+{
+	bets: [
+		{
+			bet_id: "",
+			time_placed: "",
+			game_time: "",
+			num_comments: int,
+			num_likes: int,
+			message: "",
+			user1: {
+				first_name: "",
+				last_name: "",
+				profile_pic_url: "",
+				team: "",
+				team_logo_url: ""
+			},
+			user2: {
+				first_name: "",
+				last_name: "",
+				profile_pic_url: "",
+				team: "",
+				team_logo_url: ""
+			},
+			comments: [
+				{
+					first_name: "",
+					last_name: "",
+					time_commented: "",
+					message: "",
+					profile_pic_url: ""
+				}
+			]
+		}
+	]
+
+}
 **Open Bets**
 INITIAL RENDER
 * The application will send a `GET` request to `/api/v1/open/?COOKIE&qty=10`.
@@ -177,9 +225,35 @@ LINKS
 * The user can click a bet event's handshake icon to initiate accepting the bet. The application will redirect to the `Accept Bet` Page.
 * The user can click a profile picture on a bet event to navigate to that user's profile page. The application will redirect to the `Profile` Page.
 
-*Request JSON*
+*Requestion JSON*
+{session_id:""}
 
 *Response JSON*
+*Note:* This JSON returns the information required for *Design 2*. `user` will be the user who placed the open bet in the UI/UX design.
+
+{
+	bets: [
+		{
+			bet_id: "",
+			time_made: "",
+			game_time: "",
+			num_comments: int,
+			num_likes: int,
+			message: "",
+			amount: int,
+			user: {
+				first_name: "",
+				last_name: "",
+				profile_pic_url: "",
+				team: "",
+				team_logo_url: ""
+			},
+			other_team: "",
+			other_team_logo_url: ""
+		}
+	]
+
+}
 
 **Games**
 INITIAL RENDER
@@ -195,20 +269,58 @@ LINKS
 * The user can click `Create an Open Bet`
 * The user can click `Create an DM Bet`
 
-**Bet Viewer**
-INITIAL RENDER
-* The application will send a `GET` request to `/api/v1/bets/?COOKIE`.
-	* On success, the API will respond with HTTP code `200 SUCCESS` and a **bet* JSON object. Then the application will render the bet.
-* The application will send a `GET` request to `/api/v1/comments/?betid=<bet id>`.
-	* On success, the API will respond with HTTP code `200 SUCCESS` and a list of **comment** JSON objects. Then the application will render the comments for infinite scrolling.
+*Request JSON*
+{session_id:""}
 
-PAGE UPDATES
-* The user can click the favorite button on a bet by sending a `POST` request to `/api/v1/likes/?betid=<bet id>`.
+*Response JSON*
+{games: [
+	{
+		date: "", 
+		games: [
+			{
+				home_team: {
+					name: "",
+					wins: int,
+					losses: int,
+					team_logo_url: ""
+				},
+				away_team: {
+					name: "",
+					wins: int,
+					losses: int,
+					team_logo_url: ""
+				}
+			}
+		]
+	}
+]
+}
+
+**"Like" a live bet**
+* The user can click the favorite button on a bet by sending a `POST` request to `/api/v1/likes/`.
 	* On success, the API will respond with HTTP code `200 SUCCESS` and a **bet** JSON object. Then the application will rerender the bet.
-* The user can click the favorite button on a comment by sending a `POST` request to `/api/v1/likes/?commentid=<comment id>`.
-	* On success, the API will respond with HTTP code `200 SUCCESS` and a **comment** JSON object. Then the application will rerender the comment.
-* The user can add a comment by filling in the comment box at the bottom of the page and clicking `submit`. This will send a `POST` request to `/api/v1/comments/?betid=<bet id>`.
+
+*Requestion JSON*
+{session_id: "", bet_id: int}
+
+*Response JSON*
+{success_status: ""}
+
+**Comment on a live bet**
+* The user can add a comment by filling in the comment box at the bottom of the page and clicking `submit`. This will send a `POST` request to `/api/v1/comment/`.
+
 	* On success, the API will respond with HTTP code `200 SUCCESS` and a **comment** JSON object. Then the application will rerender the comment list.
+*Request JSON*
+{session_id: "", bet_id:"", message: ""}
+
+*Response JSON*
+{
+	first_name: "",
+	last_name: "",
+	time_commented: "",
+	message: "",
+	profile_pic_url: ""
+}
 
 LINKS
 * The user can refresh the page by pulling down on the UI. The application will start over with another initial render.
