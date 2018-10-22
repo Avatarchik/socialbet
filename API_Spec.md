@@ -15,7 +15,7 @@ This API works via HTTP requests. The mobile application will query the server u
 ***
 ***
 # JSON Communications Standard
-
+*** NOTE: we dont think we ever need the session ID in the JSON requests (thanks to flask-login) ***
 This section describes the contents necessary for each object type. The four main objects that the API must deliver are as follows:
 
 **Bet**
