@@ -55,11 +55,11 @@ Favorite Team
 
 This section describes each of the app's page's interactions with the API through each of the the various functions in the app.
 
-**Splash screen**
+## Splash screen
 * When the application has finished loading it will automatically redirect to the **User Login** page.
 
 
-**User Login**
+## User Login
 INITIAL RENDER
 
 PAGE UPDATES
@@ -78,7 +78,7 @@ LINKS
 * The user can click the help button to redirect to the **Help** page.
 * The user can click the register button to redirect to the **Account Builder** page.
 
-**Help**
+## Help
 INITIAL RENDER
 * The application will send a `GET` request to `/api/v1/version/`.
 	* On success, the API will respond with HTTP code `200 SUCCESS` and the API version information
@@ -88,7 +88,7 @@ PAGE UPDATES
 LINKS
 * The user can click the back button to redirect to the **User Login** page.
 
-**Account builder**
+## Account builder
 * The user can register an account by providing a username, password, password confirmation, and phone number. The application will submit the information in a `POST` request to `/api/v1/accounts/create/`.
 	* On success -- the username is unique -- the API will respond with HTTP code `200 SUCCESS` and the application will store the username and password hash locally as a cookie for authentication for all further requests. The application will then redirect to the contact scraper page.
 	* On failure -- the username is taken -- the API will respond with HTTP code `400 BAD REQUEST` and the page will alert the user that this username is taken and prompt the user to `try again`.
@@ -101,7 +101,7 @@ LINKS
 *Response JSON*
 {success_status: "", errors: [string]}
 
-**Contact Scraper**
+##Contact Scraper
 INITIAL RENDER
 
 PAGE UPDATES
@@ -115,7 +115,7 @@ PAGE UPDATES
 *Response JSON* 
 {success_status: "", errors:[string]}
 
-**Live Bets**
+##Live Bets
 INITIAL RENDER
 * The application will send a `GET` request to `/api/v1/live/?COOKIE&qty=10`.
 	* On success, the API will respond with HTTP code `200 SUCCESS` and the data necessary to render the bets.
@@ -163,7 +163,7 @@ LINKS
 
 }
 
-**Individual Live Bet**
+##Individual Live Bet
 INITIAL RENDER
 * The application will send a `GET` request to `/api/v1/live/?bet=<bet_id>`.
 	* On success, the API will respond with HTTP code `200 SUCCESS` and the data necessary to render the bets.
@@ -210,7 +210,7 @@ INITIAL RENDER
 	]
 
 }
-**Open Bets**
+## Open Bets
 INITIAL RENDER
 * The application will send a `GET` request to `/api/v1/open/?COOKIE&qty=10`.
 	* On success, the API will respond with HTTP code `200 SUCCESS` and the data necessary to render the bets.
@@ -255,7 +255,7 @@ LINKS
 
 }
 
-**Games**
+## Games
 INITIAL RENDER
 
 PAGE UPDATES
@@ -296,7 +296,7 @@ LINKS
 ]
 }
 
-**"Like" a live bet**
+## "Like" a live bet**
 * The user can click the favorite button on a bet by sending a `POST` request to `/api/v1/likes/`.
 	* On success, the API will respond with HTTP code `200 SUCCESS` and a **bet** JSON object. Then the application will rerender the bet.
 
@@ -306,7 +306,7 @@ LINKS
 *Response JSON*
 {success_status: ""}
 
-**Comment on a live bet**
+## Comment on a live bet**
 * The user can add a comment by filling in the comment box at the bottom of the page and clicking `submit`. This will send a `POST` request to `/api/v1/comment/`.
 
 	* On success, the API will respond with HTTP code `200 SUCCESS` and a **comment** JSON object. Then the application will rerender the comment list.
@@ -327,31 +327,38 @@ LINKS
 * The user can click the handshake icon to initiate accepting the bet. The application will redirect to the `Accept Bet` Page.
 * The user can click a profile picture to navigate to that user's profile page. The application will redirect to the `Profile` Page.
 
-**Accept Bet**
+## Accept or decline Bet
 INITIAL RENDER
 * The application will send a `GET` request to `/api/v1/bets/?COOKIE`.
 	* On success, the API will respond with HTTP code `200 SUCCESS` and a **bet* JSON object. Then the application will render the bet.
 
-
 PAGE UPDATES
-* The user can accept a bet by sending a `POST` request to `API/v1/bets/accept/?betid=<bet id>`.
+* The user can accept or decline a bet by sending a `POST` request to `API/v1/bets/accept/`.
 	* On success, the API will respond with HTTP code `200 SUCCESS` and a **bet** JSON object. Then the application will rerender the bet.
-* The user can decline a bet by sending a `POST` request to `API/v1/bets/decline/?betid=<bet id>`.
-	* On success, the API will respond with HTTP code `200 SUCCESS` and a **bet** JSON object. Then the application will rerender the bet and 
 
-LINKS
+*Request JSON*
+{session_id: "", bet_id: int, accept: "<True/False>"}
 
+*Response JSON*
+{success_status: "", errors: []}
 
-**Bet Builder**
+## Bet Builder
 INITIAL RENDER
 
 PAGE UPDATES
 
 LINKS
 
-**Options Tab**
+* The user can accept or decline a bet by sending a `POST` request to `API/v1/bets/place/`.
 
-**Profile**
+*Request JSON*
+{sesssion_id: "", game_id: "", amount: int, user_id: int, open_bet: "True/False"}
+
+*Response JSON*
+{bet_id: int}
+
+## Profile
+
 INITIAL RENDER
 * The application will send a GET request to `/api/v1/profile/pid?COOKIE`.
 	* On success, the the API will respond with HTTP code `200 SUCCESS` and a **profile** JSON object. The application will then render the profile.
@@ -376,16 +383,16 @@ LINKS
 * The user can click the back button to exit the `Profile` page. The application will redirect to the previous page.
 * The user can click a profile picture to navigate to that user's profile page. The application will redirect to the `Profile` Page.
 
-**Find a friend**
+## Find a friend
 
-**Friends**
+## Friends
 INITIAL RENDER
 
 PAGE UPDATES
 
 LINKS
 
-**Find Friends**
+## Find Friends
 INITIAL RENDER
 
 PAGE UPDATES
