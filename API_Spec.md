@@ -283,6 +283,7 @@ LINKS
 	{
 		date: "", 
 		games: [
+			event_id: int,
 			{
 				home_team: {
 					name: "",
@@ -359,7 +360,7 @@ LINKS
 * The user can accept or decline a bet by sending a `POST` request to `API/v1/bets/place/`.
 
 *Request JSON*
-{sesssion_id: "", game_id: "", amount: int, user_id: int, open_bet: "True/False"}
+{sesssion_id: "", event_id: "", amount: int, user_id: float, open_bet: "True/False", proposed_team: ""}
 
 *Response JSON*
 {bet_id: int}
@@ -389,6 +390,7 @@ LINKS
 * The user can click the handshake icon to initiate accepting an open bet. The application will redirect to the `Accept Bet` Page.
 * The user can click the back button to exit the `Profile` page. The application will redirect to the previous page.
 * The user can click a profile picture to navigate to that user's profile page. The application will redirect to the `Profile` Page.
+* To propose direct bet against this user, send POST request to `API/v1/bets/place/`
 
 *Request JSON*
 {session_id: "", user_id: int}
@@ -403,24 +405,19 @@ PAGE UPDATES
 
 LINKS
 *Request JSON*
-{session_id: "", user_id: int}
+{session_id: ""}
 
 *Response JSON*
-{friends{
-	user_id: int,
-	first_name: "",
-	last_name: "",
-	user_name: "",
-	profile_pic_url: ""
+{friends: [
+	{
+		user_id: int,
+		first_name: "",
+		last_name: "",
+		user_name: "",
+		profile_pic_url: ""
 	}
+	]
 }
-
-## Find Friends
-INITIAL RENDER
-
-PAGE UPDATES
-
-LINKS
 
 ***
 ***
