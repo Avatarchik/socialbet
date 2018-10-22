@@ -145,6 +145,7 @@ LINKS
 			num_likes: int,
 			message: "",
 			user1: {
+				user_id: int,
 				first_name: "",
 				last_name: "",
 				profile_pic_url: "",
@@ -152,6 +153,7 @@ LINKS
 				team_logo_url: ""
 			},
 			user2: {
+				user_id: int,
 				first_name: "",
 				last_name: "",
 				profile_pic_url: "",
@@ -184,6 +186,7 @@ INITIAL RENDER
 			num_likes: int,
 			message: "",
 			user1: {
+				user_id: int,
 				first_name: "",
 				last_name: "",
 				profile_pic_url: "",
@@ -191,6 +194,7 @@ INITIAL RENDER
 				team_logo_url: ""
 			},
 			user2: {
+				user_id: int,
 				first_name: "",
 				last_name: "",
 				profile_pic_url: "",
@@ -199,6 +203,7 @@ INITIAL RENDER
 			},
 			comments: [
 				{
+					user_id: int,
 					first_name: "",
 					last_name: "",
 					time_commented: "",
@@ -242,6 +247,7 @@ LINKS
 			message: "",
 			amount: int,
 			user: {
+				user_id: int,
 				first_name: "",
 				last_name: "",
 				profile_pic_url: "",
@@ -315,6 +321,7 @@ LINKS
 
 *Response JSON*
 {
+	user_id: int,
 	first_name: "",
 	last_name: "",
 	time_commented: "",
@@ -383,7 +390,11 @@ LINKS
 * The user can click the back button to exit the `Profile` page. The application will redirect to the previous page.
 * The user can click a profile picture to navigate to that user's profile page. The application will redirect to the `Profile` Page.
 
-## Find a friend
+*Request JSON*
+{session_id: "", user_id: int}
+
+*Response JSON*
+{first_name: "", last_name: "", user_name: "", profile_pic_url: ""}
 
 ## Friends
 INITIAL RENDER
@@ -391,6 +402,18 @@ INITIAL RENDER
 PAGE UPDATES
 
 LINKS
+*Request JSON*
+{session_id: "", user_id: int}
+
+*Response JSON*
+{friends{
+	user_id: int,
+	first_name: "",
+	last_name: "",
+	user_name: "",
+	profile_pic_url: ""
+	}
+}
 
 ## Find Friends
 INITIAL RENDER
