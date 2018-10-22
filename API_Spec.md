@@ -101,7 +101,7 @@ LINKS
 *Response JSON*
 {success_status: "", errors: [string]}
 
-##Contact Scraper
+## Contact Scraper
 INITIAL RENDER
 
 PAGE UPDATES
@@ -115,7 +115,7 @@ PAGE UPDATES
 *Response JSON* 
 {success_status: "", errors:[string]}
 
-##Live Bets
+## Live Bets
 INITIAL RENDER
 * The application will send a `GET` request to `/api/v1/live/?COOKIE&qty=10`.
 	* On success, the API will respond with HTTP code `200 SUCCESS` and the data necessary to render the bets.
@@ -165,7 +165,7 @@ LINKS
 
 }
 
-##Individual Live Bet
+## Individual Live Bet
 INITIAL RENDER
 * The application will send a `GET` request to `/api/v1/live/?bet=<bet_id>`.
 	* On success, the API will respond with HTTP code `200 SUCCESS` and the data necessary to render the bets.
