@@ -16,9 +16,20 @@ class Registration: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    
+    @IBOutlet weak var RegistrationUsername: UITextField!
+    @IBOutlet weak var RegistrationPassword: UITextField!
+    @IBOutlet weak var RegistrationConfirmPassword: UITextField!
+    @IBOutlet weak var RegistrationPhoneNumber: UITextField!
+    @IBOutlet weak var RegistrationFirstName: UITextField!
+    @IBOutlet weak var RegistrationLastName: UITextField!
+    
+    @IBAction func RegistrationSubmit(_ sender: Any) {
+        //TODO - Send contents of text boxes for confirmation
+        //and account creation
+    }
     /*
-    // MARK: - Navigation
+     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
