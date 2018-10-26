@@ -14,6 +14,7 @@
 		01F20EE3217A67F700F2F713 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01F20EE1217A67F700F2F713 /* LaunchScreen.storyboard */; };
 		01F20EEE217A67F700F2F713 /* SocialBetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F20EED217A67F700F2F713 /* SocialBetTests.swift */; };
 		01F20EF9217A67F700F2F713 /* SocialBetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F20EF8217A67F700F2F713 /* SocialBetUITests.swift */; };
+		A3443AC12182CE98005037BA /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3443AC02182CE98005037BA /* Registration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		01F20EF4217A67F700F2F713 /* SocialBetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocialBetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		01F20EF8217A67F700F2F713 /* SocialBetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialBetUITests.swift; sourceTree = "<group>"; };
 		01F20EFA217A67F700F2F713 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3443AC02182CE98005037BA /* Registration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				01F20ED8217A67F500F2F713 /* AppDelegate.swift */,
 				01F20EDA217A67F500F2F713 /* ViewController.swift */,
 				01F20EDC217A67F500F2F713 /* Main.storyboard */,
+				A3443AC02182CE98005037BA /* Registration.swift */,
 				01F20EDF217A67F700F2F713 /* Assets.xcassets */,
 				01F20EE1217A67F700F2F713 /* LaunchScreen.storyboard */,
 				01F20EE4217A67F700F2F713 /* Info.plist */,
@@ -257,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01F20EDB217A67F500F2F713 /* ViewController.swift in Sources */,
+				A3443AC12182CE98005037BA /* Registration.swift in Sources */,
 				01F20ED9217A67F500F2F713 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
