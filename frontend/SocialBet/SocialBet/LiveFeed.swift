@@ -64,7 +64,7 @@ class LiveFeed: UIViewController {
         
         loadProfileInfo();
         // Do any additional setup after loading the view.
-        ProfilePic.image = UIImage(named: "./sample_data/Chapptain_America.png");
+        ProfilePic.image = UIImage(named: "");
     }
     
     @IBAction func GamesButton(_ sender: Any) {

@@ -17,7 +17,6 @@
 		A3443AC12182CE98005037BA /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3443AC02182CE98005037BA /* Registration.swift */; };
 		A3BF735C2187600A00CF7F62 /* LiveFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BF735B2187600A00CF7F62 /* LiveFeedCell.swift */; };
 		A3CD977E218613B8003740C2 /* LiveFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CD977D218613B8003740C2 /* LiveFeed.swift */; };
-		A3CD97832186959A003740C2 /* Chapptain_America.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CD978221869599003740C2 /* Chapptain_America.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +53,6 @@
 		A3443AC02182CE98005037BA /* Registration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
 		A3BF735B2187600A00CF7F62 /* LiveFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveFeedCell.swift; sourceTree = "<group>"; };
 		A3CD977D218613B8003740C2 /* LiveFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveFeed.swift; sourceTree = "<group>"; };
-		A3CD978221869599003740C2 /* Chapptain_America.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Chapptain_America.png; path = ../../../../../../../Downloads/Chapptain_America.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +112,6 @@
 				01F20EDF217A67F700F2F713 /* Assets.xcassets */,
 				01F20EE1217A67F700F2F713 /* LaunchScreen.storyboard */,
 				01F20EE4217A67F700F2F713 /* Info.plist */,
-				A3CD977F21869290003740C2 /* sample_data */,
 			);
 			path = SocialBet;
 			sourceTree = "<group>";
@@ -135,14 +132,6 @@
 				01F20EFA217A67F700F2F713 /* Info.plist */,
 			);
 			path = SocialBetUITests;
-			sourceTree = "<group>";
-		};
-		A3CD977F21869290003740C2 /* sample_data */ = {
-			isa = PBXGroup;
-			children = (
-				A3CD978221869599003740C2 /* Chapptain_America.png */,
-			);
-			path = sample_data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,7 +239,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				01F20EE3217A67F700F2F713 /* LaunchScreen.storyboard in Resources */,
-				A3CD97832186959A003740C2 /* Chapptain_America.png in Resources */,
 				01F20EE0217A67F700F2F713 /* Assets.xcassets in Resources */,
 				01F20EDE217A67F500F2F713 /* Main.storyboard in Resources */,
 			);
