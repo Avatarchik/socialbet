@@ -73,7 +73,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="dgd-zf-exj" kind="presentation" id="uZU-9n-5RK"/>
+                                    <segue destination="dgd-zf-exj" kind="presentation" id="3Rp-RD-smh"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -195,7 +195,7 @@
                                 </state>
                                 <connections>
                                     <action selector="RegistrationSubmit:" destination="dgd-zf-exj" eventType="touchUpInside" id="415-ux-FjV"/>
-                                    <segue destination="Jwj-S7-5gy" kind="presentation" id="bEi-MZ-PuA"/>
+                                    <segue destination="Jwj-S7-5gy" kind="presentation" id="Yd9-kU-874"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZKr-8T-loC">
@@ -210,7 +210,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" id="sW3-7G-VWY"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" id="L2v-FB-K4N"/>
                                 </connections>
                             </button>
                         </subviews>
