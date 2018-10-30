@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 import db
 import json
+from .api_utils import create_http_response
 
 app = Flask(__name__)
 
@@ -23,11 +24,11 @@ def place_bet():
 	bet_id = db.place_bet(data)
 
 	# Respond with bet id
-	response = {
+	response_data = {
 		'bet_id': bet_id
 	}
 
-	return jsonify(response, status_code=200)
+	return create_http_response(data=response_data)
 
 @app.route('/api/betting/accept_bet', methods=['POST'])
 def accept_bet():
@@ -47,13 +48,7 @@ def accept_bet():
 	# Insert bet into mysql db
 	db.accept_bet(data)
 
-	# Respond with status
-	response = {
-		'success_status': 'successful',
-		'errors': []
-	}
-
-	return jsonify(response, status_code=200)
+	return create_http_response()
 
 
 @app.route('/api/betting/cancel_bet', methods=['POST'])
@@ -77,9 +72,5 @@ def cancel_bet():
 	db.cancel_bet(bet_id)
 
 	# Respond with status
-	response = {
-		'success_status': 'successful',
-		'errors': []
-	}
-	return jsonify(response, status_code=200)
+	return create_http_response()
 
