@@ -28,6 +28,10 @@ class Registration: UIViewController {
         //TODO - Send contents of text boxes for confirmation
         //and account creation
     }
+    
+     @IBAction func GoToLogin(_ sender: Any) {
+        performSegue(withIdentifier: "RegistrationToLogin", sender: self)
+     }
     /*
      // MARK: - Navigation
 

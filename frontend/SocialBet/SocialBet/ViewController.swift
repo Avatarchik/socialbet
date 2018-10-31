@@ -23,5 +23,13 @@ class ViewController: UIViewController {
     @IBAction func LoginSubmit(_ sender: Any) {
         //TODO - Send LoginUsername and LoginPassword for confirmation
     }
+    
+    @IBAction func LoginHelp(_ sender: Any) {
+    }
+    
+    
+    @IBAction func GoToRegistration(_ sender: Any) {
+        performSegue(withIdentifier: "LoginToRegistration", sender: self)
+    }
 }
 

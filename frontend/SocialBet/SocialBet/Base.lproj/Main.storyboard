@@ -27,9 +27,6 @@
                                         <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="LoginUsername:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="v2c-zY-P9d"/>
-                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1H8-Qn-f3A">
                                 <rect key="frame" x="47" y="343.5" width="281" height="30"/>
@@ -41,9 +38,6 @@
                                         <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="LoginPassword:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="nF9-fP-4Uw"/>
-                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mlp-hl-PM8">
                                 <rect key="frame" x="149" y="260" width="77" height="37"/>
@@ -56,6 +50,9 @@
                                 <state key="normal" title="Help">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="LoginHelp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="li3-Qw-gND"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YLo-sm-IPL">
                                 <rect key="frame" x="279" y="381" width="49" height="30"/>
@@ -67,13 +64,13 @@
                                     <action selector="LoginSubmit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1hv-6n-oaP"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ud-bW-DlX">
-                                <rect key="frame" x="95" y="507" width="185" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OY0-Gy-3aB">
+                                <rect key="frame" x="95" y="557" width="185" height="30"/>
                                 <state key="normal" title="New to SocialBet? Register">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="dgd-zf-exj" kind="presentation" id="3Rp-RD-smh"/>
+                                    <action selector="GoToRegistration:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Yj-hw-Sbl"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -83,13 +80,13 @@
                             <constraint firstItem="s6V-Gj-bpq" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.75" id="8XL-6H-07f"/>
                             <constraint firstItem="YLo-sm-IPL" firstAttribute="trailing" secondItem="1H8-Qn-f3A" secondAttribute="trailing" id="9wj-4y-Xsm"/>
                             <constraint firstItem="L5k-97-CcY" firstAttribute="top" secondItem="1H8-Qn-f3A" secondAttribute="bottom" constant="7.5" id="GZG-EU-XoY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OY0-Gy-3aB" secondAttribute="bottom" constant="80" id="Jge-Ni-2UX"/>
                             <constraint firstItem="YLo-sm-IPL" firstAttribute="top" secondItem="1H8-Qn-f3A" secondAttribute="bottom" constant="7.5" id="Kub-b0-Fga"/>
-                            <constraint firstItem="0Ud-bW-DlX" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="M5x-KF-83P"/>
                             <constraint firstItem="1H8-Qn-f3A" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="QTh-08-6RY"/>
                             <constraint firstItem="YLo-sm-IPL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" symbolic="YES" id="XWc-59-ax0"/>
                             <constraint firstItem="1H8-Qn-f3A" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Ywz-AJ-0Tn"/>
                             <constraint firstItem="mlp-hl-PM8" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ayz-nw-pax"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0Ud-bW-DlX" secondAttribute="bottom" constant="130" id="jvv-2h-T65"/>
+                            <constraint firstItem="OY0-Gy-3aB" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="eeL-on-baz"/>
                             <constraint firstItem="L5k-97-CcY" firstAttribute="leading" secondItem="1H8-Qn-f3A" secondAttribute="leading" id="m4s-Lg-A7w"/>
                             <constraint firstItem="L5k-97-CcY" firstAttribute="leading" secondItem="1H8-Qn-f3A" secondAttribute="leading" id="nDu-gO-yZV"/>
                             <constraint firstItem="s6V-Gj-bpq" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="o7F-Zq-qPb"/>
@@ -101,6 +98,7 @@
                     <connections>
                         <outlet property="LoginPassword" destination="1H8-Qn-f3A" id="ykH-ys-YtR"/>
                         <outlet property="LoginUsername" destination="s6V-Gj-bpq" id="Juq-jH-gXl"/>
+                        <segue destination="dgd-zf-exj" kind="presentation" identifier="LoginToRegistration" id="6mP-n1-EiA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -195,7 +193,6 @@
                                 </state>
                                 <connections>
                                     <action selector="RegistrationSubmit:" destination="dgd-zf-exj" eventType="touchUpInside" id="415-ux-FjV"/>
-                                    <segue destination="Jwj-S7-5gy" kind="presentation" id="Yd9-kU-874"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZKr-8T-loC">
@@ -210,7 +207,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" id="L2v-FB-K4N"/>
+                                    <action selector="GoToLogin:" destination="dgd-zf-exj" eventType="touchUpInside" id="B8T-FN-LJh"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -254,7 +251,7 @@
                         <outlet property="RegistrationPassword" destination="3SJ-b7-2Ll" id="Wuy-v3-Y5w"/>
                         <outlet property="RegistrationPhoneNumber" destination="j4G-4K-c6A" id="7sC-Yb-Jsv"/>
                         <outlet property="RegistrationUsername" destination="yAg-iT-8s2" id="v6v-s2-Mjn"/>
-                        <outletCollection property="RegistrationFields" destination="yAg-iT-8s2" collectionClass="NSMutableArray" id="iGv-NB-oEn"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="RegistrationToLogin" id="Wmj-1f-KHp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mcw-Hq-hTY" userLabel="First Responder" sceneMemberID="firstResponder"/>
