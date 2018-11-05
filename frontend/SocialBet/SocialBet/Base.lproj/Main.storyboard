@@ -252,6 +252,7 @@
                         <outlet property="RegistrationPhoneNumber" destination="j4G-4K-c6A" id="7sC-Yb-Jsv"/>
                         <outlet property="RegistrationUsername" destination="yAg-iT-8s2" id="v6v-s2-Mjn"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="RegistrationToLogin" id="Wmj-1f-KHp"/>
+                        <segue destination="Jwj-S7-5gy" kind="presentation" identifier="RegistrationToLiveFeed" id="MEj-Ag-D1p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mcw-Hq-hTY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -797,22 +798,8 @@
             </objects>
             <point key="canvasLocation" x="2846" y="134"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="ptD-vc-Elk">
-            <objects>
-                <viewController id="1ye-VE-BtC" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="R1C-6s-YbP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="qIM-VX-F3h"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zlF-RX-0wy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="D0F-yp-B9b"/>
+        <segue reference="Wmj-1f-KHp"/>
     </inferredMetricsTieBreakers>
 </document>
