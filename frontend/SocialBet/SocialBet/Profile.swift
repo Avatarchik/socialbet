@@ -16,11 +16,8 @@ class Profile: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBOutlet weak var ProfilePicture: UIImageView!
     
-    @IBAction func Test(_ sender: Any) {
-        performSegue(withIdentifier: "gotologinfromprofile", sender: self)
-    }
+    
     /*
     // MARK: - Navigation
 
