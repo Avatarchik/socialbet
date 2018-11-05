@@ -27,6 +27,7 @@ class Registration: UIViewController {
     @IBAction func RegistrationSubmit(_ sender: Any) {
         //TODO - Send contents of text boxes for confirmation
         //and account creation
+        performSegue(withIdentifier: "RegistrationToLiveFeed", sender: self);
     }
     
      @IBAction func GoToLogin(_ sender: Any) {
