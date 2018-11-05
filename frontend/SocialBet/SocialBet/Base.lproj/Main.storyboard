@@ -700,10 +700,6 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="Jwj-S7-5gy" id="btd-Zk-fKI"/>
-                                    <outlet property="delegate" destination="Jwj-S7-5gy" id="UQh-CB-yt2"/>
-                                </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2n8-xa-YUO">
                                 <rect key="frame" x="0.0" y="70" width="125" height="30"/>
@@ -756,7 +752,7 @@
                         <viewLayoutGuide key="safeArea" id="2AS-rN-cx8"/>
                     </view>
                     <connections>
-                        <outlet property="LiveBetsCollection" destination="gwO-tn-ZWu" id="txn-0y-y8s"/>
+                        <outlet property="Collection" destination="gwO-tn-ZWu" id="gG9-Hw-4Tx"/>
                         <outlet property="ProfilePic" destination="8Rh-Lb-fKy" id="gFT-7I-NM5"/>
                         <outlet property="TopBar" destination="EX3-3S-igz" id="H7R-FG-O1b"/>
                     </connections>

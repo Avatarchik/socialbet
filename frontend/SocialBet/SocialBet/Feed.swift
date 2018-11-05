@@ -101,7 +101,7 @@ class Feed: UIViewController {
     
     @IBOutlet weak var TopBar: UIView!
     @IBOutlet weak var ProfilePic: UIImageView!
-    @IBOutlet weak var LiveBetsCollection: UICollectionView!
+    @IBOutlet weak var Collection: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -116,17 +116,17 @@ class Feed: UIViewController {
     
     @IBAction func GamesButton(_ sender: Any) {
         feedType = .games;
-        self.LiveBetsCollection.reloadData();
+        self.Collection.reloadData();
     }
     
     @IBAction func OpenBetsButton(_ sender: Any) {
         feedType = .open;
-        self.LiveBetsCollection.reloadData();
+        self.Collection.reloadData();
     }
     
     @IBAction func LiveBetsButton(_ sender: Any) {
         feedType = .live;
-        self.LiveBetsCollection.reloadData();
+        self.Collection.reloadData();
     }
     
     func loadProfileInfo() {
@@ -149,7 +149,7 @@ class Feed: UIViewController {
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        switch feedType {
+        /*switch feedType {
         case .live:
             let data: Data = Data(); //TODO - Load the correct data with API call for live feed
             guard let feed = try? JSONDecoder().decode(LiveBetFeed.self, from: data)
@@ -177,7 +177,8 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
                     return 0;
             }
             return feed.games.count;
-        }
+        }*/
+        return 4;
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
