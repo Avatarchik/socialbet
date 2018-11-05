@@ -97,7 +97,7 @@ func getImageFromUrl(urlString: String) -> UIImage {
     return image;
 }
 
-class LiveFeed: UIViewController {
+class Feed: UIViewController {
     
     @IBOutlet weak var TopBar: UIView!
     @IBOutlet weak var ProfilePic: UIImageView!

@@ -258,10 +258,10 @@
             </objects>
             <point key="canvasLocation" x="857" y="135"/>
         </scene>
-        <!--Live Feed-->
+        <!--Feed-->
         <scene sceneID="eRl-GW-xP2">
             <objects>
-                <viewController id="Jwj-S7-5gy" customClass="LiveFeed" customModule="SocialBet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Jwj-S7-5gy" customClass="Feed" customModule="SocialBet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="X30-1L-gRy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

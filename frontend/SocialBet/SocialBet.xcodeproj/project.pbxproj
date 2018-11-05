@@ -18,7 +18,7 @@
 		A39C104C218F9B49005DAAD6 /* GamesFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39C104B218F9B49005DAAD6 /* GamesFeedCell.swift */; };
 		A39C104E218FB730005DAAD6 /* OpenFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39C104D218FB730005DAAD6 /* OpenFeedCell.swift */; };
 		A3BF735C2187600A00CF7F62 /* LiveFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BF735B2187600A00CF7F62 /* LiveFeedCell.swift */; };
-		A3CD977E218613B8003740C2 /* LiveFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CD977D218613B8003740C2 /* LiveFeed.swift */; };
+		A3CD977E218613B8003740C2 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CD977D218613B8003740C2 /* Feed.swift */; };
 		F47654E9218A816C0010D208 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47654E8218A816C0010D208 /* Profile.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,7 +57,7 @@
 		A39C104B218F9B49005DAAD6 /* GamesFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesFeedCell.swift; sourceTree = "<group>"; };
 		A39C104D218FB730005DAAD6 /* OpenFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenFeedCell.swift; sourceTree = "<group>"; };
 		A3BF735B2187600A00CF7F62 /* LiveFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveFeedCell.swift; sourceTree = "<group>"; };
-		A3CD977D218613B8003740C2 /* LiveFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveFeed.swift; sourceTree = "<group>"; };
+		A3CD977D218613B8003740C2 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		F47654E8218A816C0010D208 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,7 +113,7 @@
 				A3443AC02182CE98005037BA /* Registration.swift */,
 				01F20ED8217A67F500F2F713 /* AppDelegate.swift */,
 				01F20EDA217A67F500F2F713 /* ViewController.swift */,
-				A3CD977D218613B8003740C2 /* LiveFeed.swift */,
+				A3CD977D218613B8003740C2 /* Feed.swift */,
 				A3BF735B2187600A00CF7F62 /* LiveFeedCell.swift */,
 				A39C104B218F9B49005DAAD6 /* GamesFeedCell.swift */,
 				A39C104D218FB730005DAAD6 /* OpenFeedCell.swift */,
@@ -276,7 +276,7 @@
 			files = (
 				01F20EDB217A67F500F2F713 /* ViewController.swift in Sources */,
 				F47654E9218A816C0010D208 /* Profile.swift in Sources */,
-				A3CD977E218613B8003740C2 /* LiveFeed.swift in Sources */,
+				A3CD977E218613B8003740C2 /* Feed.swift in Sources */,
 				A39C104E218FB730005DAAD6 /* OpenFeedCell.swift in Sources */,
 				A39C104C218F9B49005DAAD6 /* GamesFeedCell.swift in Sources */,
 				A3443AC12182CE98005037BA /* Registration.swift in Sources */,
