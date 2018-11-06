@@ -1,5 +1,5 @@
 # USERS
-INSERT INTO users (uid, firstname, lastname, birthdate, phone)
+INSERT INTO users (user_id, firstname, lastname, birthdate, phone)
 VALUES (1,'Chris','Terech','05/25/1997','734-417-6331');
 INSERT INTO users (uid, firstname, lastname, birthdate, phone)
 VALUES (2,'Ryan','Shelly','09/22/1996','949-290-6670');

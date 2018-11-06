@@ -4,14 +4,14 @@ CREATE TABLE users (
 	lastname VARCHAR(20) NOT NULL,
 	birthdate VARCHAR(20) NOT NULL,
 	phone VARCHAR(12),
-	PRIMARY KEY(uid)
+	PRIMARY KEY(user_id)
 );
 
 CREATE TABLE friends ( 
 	user1 INT NOT NULL,
 	user2 INT,
 	PRIMARY KEY(user1,user2),
-	FOREIGN KEY(user1) REFERENCES users(uid)
+	FOREIGN KEY(user1) REFERENCES users(user_id)
 );
 
 CREATE TABLE games (
@@ -34,7 +34,7 @@ CREATE TABLE bets (
 	user2 INTEGER,
     direct INTEGER NOT NULL,
     accepted INTEGER NOT NULL,
-	PRIMARY KEY(bid),
-	FOREIGN KEY(user1) REFERENCES users(uid),
-	FOREIGN KEY(user2) REFERENCES users(uid)
+	PRIMARY KEY(bet_id),
+	FOREIGN KEY(user1) REFERENCES users(user_id),
+	FOREIGN KEY(user2) REFERENCES users(user_id)
 );
