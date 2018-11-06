@@ -47,5 +47,4 @@ VALUES (3, 'Miami Dolphins', 'New Orleans Saints', '11/18/2018 1:00PM');
 
 # BETS
 INSERT INTO bets (bet_id, contest_id, time_placed, game_time, num_comments, message, ammount, user1, user2, direct, accepted)
-VALUES (1,1,'11/16/2018 3:52PM', '11/18/2018 1:00PM', 0, 'Nick is going down!', 50.0, 1, 3, 1, 1),
-VALUES (2,3,'11/16/2018 4:19PM', '11/18/2018 1:00PM', 0, 'Ittai is going down!', 100.0, 6, 4, 0, 1);
+VALUES (1,1,'11/16/2018 3:52PM', '11/18/2018 1:00PM', 0, 'Nick is going down!', 50.0, 1, 3, 1, 1), (2,3,'11/16/2018 4:19PM', '11/18/2018 1:00PM', 0, 'Ittai is going down!', 100.0, 6, 4, 0, 1);
