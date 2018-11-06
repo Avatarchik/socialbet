@@ -1,6 +1,3 @@
-# Social Bet Database
-USE socialbetdb;
-
 CREATE TABLE users (
 	uid INTEGER NOT NULL,
 	firstname VARCHAR(20) NOT NULL,
@@ -11,21 +8,29 @@ CREATE TABLE users (
 );
 
 CREATE TABLE friends ( 
-	user1id INT NOT NULL,
-	user2id INT,
+	user1 INT NOT NULL,
+	user2 INT,
 	PRIMARY KEY(user1id,user2id),
 	FOREIGN KEY(user1id) REFERENCES users(uid)
 );
 
-CREATE TABLE bets (
-	bid INTEGER NOT NULL,
+CREATE TABLE games (
 	cid INTEGER NOT NULL,
-	value FLOAT NOT NULL, 
-	user1id INTEGER NOT NULL,
-	user2id INTEGER,
-	sport VARCHAR(50) NOT NULL,
-	timeplaced DATE NOT NULL,
-	timeaccepted DATE,
+	team1 VARCHAR(50) NOT NULL,
+	team2 VARCHAR(50) NOT NULL,
+	gametime VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE bets (
+	bet_id INTEGER NOT NULL,
+	contest_id INTEGER NOT NULL,
+	time_placed VARCHAR(50) NOT NULL,
+	game_time VARCHAR(50) NOT NULL,
+	num_comments INT NOT NULL,
+	message VARCHAR(50) NOT NULL,
+	ammount FLOAT NOT NULL, 
+	user1 INTEGER NOT NULL,
+	user2 INTEGER,
     direct INTEGER NOT NULL,
     accepted INTEGER NOT NULL,
 	PRIMARY KEY(bid),
