@@ -9,6 +9,8 @@
 import UIKit
 import Foundation
 
+//TODO - Move all these JSON decodables into some sort of global file (John is creating such a file already)
+
 struct LiveBetFeed: Decodable {
     let bets: [LiveBet]
 }
@@ -19,6 +21,10 @@ struct OpenBetFeed: Decodable {
 
 struct GamesFeed: Decodable {
     let games: [Game]
+}
+
+struct ClosedBetFeed: Decodable {
+    let bets: [ClosedBet]
 }
 
 struct LiveBet: Decodable {
@@ -48,6 +54,16 @@ struct OpenBet: Decodable {
 struct Game: Decodable {
     let date: String
     let games: [InnerGame]
+}
+
+struct ClosedBet: Decodable {
+    let bet_id: String
+    let game_time: String
+    let num_comments: Int
+    let num_likes: Int
+    let winningUser: User
+    let losingUser: User
+    let finalScore: String
 }
 
 struct User: Decodable {

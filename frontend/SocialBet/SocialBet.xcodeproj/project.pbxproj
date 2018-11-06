@@ -20,6 +20,8 @@
 		A39C1056219126FD005DAAD6 /* LiveFeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A39C1055219126FD005DAAD6 /* LiveFeedCell.xib */; };
 		A39C10582191411D005DAAD6 /* OpenFeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A39C10572191411D005DAAD6 /* OpenFeedCell.xib */; };
 		A39C105A21915036005DAAD6 /* GamesFeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A39C105921915036005DAAD6 /* GamesFeedCell.xib */; };
+		A39E26AF21924B0C00612E81 /* ClosedFeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A39E26AE21924B0C00612E81 /* ClosedFeedCell.xib */; };
+		A39E26B121924B4200612E81 /* ClosedFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E26B021924B4200612E81 /* ClosedFeedCell.swift */; };
 		A3BF735C2187600A00CF7F62 /* LiveFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BF735B2187600A00CF7F62 /* LiveFeedCell.swift */; };
 		A3CD977E218613B8003740C2 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CD977D218613B8003740C2 /* Feed.swift */; };
 		F47654E9218A816C0010D208 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47654E8218A816C0010D208 /* Profile.swift */; };
@@ -62,6 +64,8 @@
 		A39C1055219126FD005DAAD6 /* LiveFeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LiveFeedCell.xib; sourceTree = "<group>"; };
 		A39C10572191411D005DAAD6 /* OpenFeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OpenFeedCell.xib; sourceTree = "<group>"; };
 		A39C105921915036005DAAD6 /* GamesFeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GamesFeedCell.xib; sourceTree = "<group>"; };
+		A39E26AE21924B0C00612E81 /* ClosedFeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClosedFeedCell.xib; sourceTree = "<group>"; };
+		A39E26B021924B4200612E81 /* ClosedFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosedFeedCell.swift; sourceTree = "<group>"; };
 		A3BF735B2187600A00CF7F62 /* LiveFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveFeedCell.swift; sourceTree = "<group>"; };
 		A3CD977D218613B8003740C2 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		F47654E8218A816C0010D208 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
@@ -116,6 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				F47654E8218A816C0010D208 /* Profile.swift */,
+				A39E26B021924B4200612E81 /* ClosedFeedCell.swift */,
+				A39E26AE21924B0C00612E81 /* ClosedFeedCell.xib */,
 				A3443AC02182CE98005037BA /* Registration.swift */,
 				01F20ED8217A67F500F2F713 /* AppDelegate.swift */,
 				01F20EDA217A67F500F2F713 /* ViewController.swift */,
@@ -260,6 +266,7 @@
 				A39C10582191411D005DAAD6 /* OpenFeedCell.xib in Resources */,
 				A39C1056219126FD005DAAD6 /* LiveFeedCell.xib in Resources */,
 				A39C105A21915036005DAAD6 /* GamesFeedCell.xib in Resources */,
+				A39E26AF21924B0C00612E81 /* ClosedFeedCell.xib in Resources */,
 				01F20EE0217A67F700F2F713 /* Assets.xcassets in Resources */,
 				01F20EDE217A67F500F2F713 /* Main.storyboard in Resources */,
 			);
@@ -287,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01F20EDB217A67F500F2F713 /* ViewController.swift in Sources */,
+				A39E26B121924B4200612E81 /* ClosedFeedCell.swift in Sources */,
 				F47654E9218A816C0010D208 /* Profile.swift in Sources */,
 				A3CD977E218613B8003740C2 /* Feed.swift in Sources */,
 				A39C104E218FB730005DAAD6 /* OpenFeedCell.swift in Sources */,
