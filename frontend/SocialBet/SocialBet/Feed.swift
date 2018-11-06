@@ -100,18 +100,20 @@ func getImageFromUrl(urlString: String) -> UIImage {
 class Feed: UIViewController {
     
     @IBOutlet weak var TopBar: UIView!
-    @IBOutlet weak var ProfilePic: UIImageView!
     @IBOutlet weak var Collection: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad();
         
-        ProfilePic.layer.cornerRadius = ProfilePic.frame.size.width / 2;
-        ProfilePic.clipsToBounds = true;
-        
         loadProfileInfo();
-        // Do any additional setup after loading the view.
-        ProfilePic.image = UIImage(named: "");
+        
+        self.Collection.register(UINib(nibName: "LiveFeedCell", bundle:nil), forCellWithReuseIdentifier: "LiveFeedCell");
+        self.Collection.register(UINib(nibName: "OpenFeedCell", bundle:nil), forCellWithReuseIdentifier: "OpenFeedCell");
+        self.Collection.register(UINib(nibName: "GamesFeedCell", bundle:nil), forCellWithReuseIdentifier: "GamesFeedCell");
+        
+        
+        
+        
     }
     
     @IBAction func GamesButton(_ sender: Any) {
@@ -207,7 +209,6 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
             cell?.TeamName2.text = thisBet.user2.team;
             cell?.Message.text = thisBet.message;
             cell?.GameTime.text = thisBet.game_time;
-            cell?.BetTime.text = thisBet.time_placed;
             
             return cell!;
             
