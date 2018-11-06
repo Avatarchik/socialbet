@@ -1,17 +1,17 @@
 # USERS
 INSERT INTO users (user_id, firstname, lastname, birthdate, phone)
 VALUES (1,'Chris','Terech','05/25/1997','734-417-6331');
-INSERT INTO users (uid, firstname, lastname, birthdate, phone)
+INSERT INTO users (user_id, firstname, lastname, birthdate, phone)
 VALUES (2,'Ryan','Shelly','09/22/1996','949-290-6670');
-INSERT INTO users (uid, firstname, lastname, birthdate, phone)
+INSERT INTO users (user_id, firstname, lastname, birthdate, phone)
 VALUES (3,'Nick','Cargill','01/20/1996','914-479-2054');
-INSERT INTO users (uid, firstname, lastname, birthdate, phone)
+INSERT INTO users (user_id, firstname, lastname, birthdate, phone)
 VALUES (4,'Ittai','Svilder','02/20/1995','912-409-0127');
-INSERT INTO users (uid, firstname, lastname, birthdate, phone)
+INSERT INTO users (user_id, firstname, lastname, birthdate, phone)
 VALUES (5,'Alex','Chapp','12/12/1996','734-498-0573');
-INSERT INTO users (uid, firstname, lastname, birthdate, phone)
+INSERT INTO users (user_id, firstname, lastname, birthdate, phone)
 VALUES (6,'John','Krieg','09/22/1997','734-201-9423');
-INSERT INTO users (uid, firstname, lastname, birthdate, phone)
+INSERT INTO users (user_id, firstname, lastname, birthdate, phone)
 VALUES (7,'Trevor','Schwartz','10/21/1995','914-479-2054');
 
 # FRIENDS
