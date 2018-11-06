@@ -129,6 +129,9 @@ LINKS
 * The user can click a bet event to navigate to the `Bet Viewer` Page.
 * The user can click a profile picture on a bet event to navigate to that user's profile page. The application will redirect to the `Profile` Page.
 
+*Endpoint*
+`/api/feeds/live_bets/`
+
 *Requestion JSON*
 {session_id:""}
 
@@ -215,7 +218,7 @@ INITIAL RENDER
 	]
 
 }
-## Open Bets
+## Closed Bets
 INITIAL RENDER
 * The application will send a `GET` request to `/api/v1/open/?COOKIE&qty=10`.
 	* On success, the API will respond with HTTP code `200 SUCCESS` and the data necessary to render the bets.
@@ -229,6 +232,9 @@ LINKS
 * The user can click a bet event to navigate to the `Bet Viewer` Page.
 * The user can click a bet event's handshake icon to initiate accepting the bet. The application will redirect to the `Accept Bet` Page.
 * The user can click a profile picture on a bet event to navigate to that user's profile page. The application will redirect to the `Profile` Page.
+
+**Endpoints**
+`/api/feeds/closed_bets`
 
 *Requestion JSON*
 {session_id:""}
