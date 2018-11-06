@@ -20,6 +20,5 @@ class LiveFeedCell: UICollectionViewCell {
     @IBOutlet weak var TeamName1: UILabel!
     @IBOutlet weak var TeamName2: UILabel!
     @IBOutlet weak var GameTime: UILabel!
-    @IBOutlet weak var BetTime: UILabel!    
     
 }
