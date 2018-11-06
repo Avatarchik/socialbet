@@ -9,7 +9,33 @@
 import UIKit
 
 class Profile: UIViewController {
-
+    
+    @IBOutlet weak var ProfilePic: UIImageView!
+    @IBOutlet weak var UserName: UILabel!
+    @IBOutlet weak var UserHandle: UILabel!
+    @IBOutlet weak var ProfileBetFeed: UICollectionView!
+    
+    @IBAction func InitiateBet(_ sender: Any) {
+        
+    }
+    
+    @IBAction func LiveBets(_ sender: Any) {
+        feedType = .live;
+        self.ProfileBetFeed.reloadData();
+    }
+    
+    @IBAction func OpenBets(_ sender: Any) {
+        feedType = .open;
+        self.ProfileBetFeed.reloadData();
+    }
+    
+    
+    @IBAction func BetweenUs(_ sender: Any) {
+        feedType = .live; //Note, I should probably create a fourth bet type - closed
+        self.ProfileBetFeed.reloadData();
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
