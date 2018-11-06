@@ -1,5 +1,4 @@
-USE socialbetdb;
-
-DROP TABLE bets;
-DROP TABLE friends;
-DROP TABLE users;
+DELETE FROM bets;
+DELETE FROM games;
+DELETE FROM friends;
+DELETE FROM users;
