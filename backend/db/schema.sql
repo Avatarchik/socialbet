@@ -1,5 +1,5 @@
 CREATE TABLE users (
-	uid INTEGER NOT NULL,
+	user_id INTEGER NOT NULL,
 	firstname VARCHAR(20) NOT NULL,
 	lastname VARCHAR(20) NOT NULL,
 	birthdate VARCHAR(20) NOT NULL,
