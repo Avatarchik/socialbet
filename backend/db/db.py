@@ -9,21 +9,18 @@ def get_users(data):
 	# Open database connection
 	db_config = get_db_config()
 	db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
-
-	# prepare a cursor object using cursor() method
 	cursor = db.cursor()
+	
+	sql = "SELECT * FROM users"
+	cursor.execute(sql)
 
-	# execute SQL query using execute() method.
-	# TODO:
-	cursor.execute("SELECT * FROM users")
-
-	# Fetch a single row using fetchone() method.
-	data = cursor.fetchone()
-	print ("Database version : %s " % data)
+	res = []
+	for row in cursor:
+		res.append(row)
 
 	# disconnect from server
 	db.close()
-	pass
+	return res
 
 
 # functions for user information
@@ -36,8 +33,6 @@ def create_user(data):
 
 	# prepare a cursor object using cursor() method
 	cursor = db.cursor()
-
-	
 
 	pass
 
