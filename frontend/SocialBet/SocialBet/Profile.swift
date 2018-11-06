@@ -148,11 +148,10 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             return cell!;
             
         case .closed:
-            //TODO - Fix this once you created a closed bet cell template
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GamesCell", for: indexPath) as? GamesFeedCell;
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ClosedFeedCell", for: indexPath) as? ClosedFeedCell;
             
             let data: Data = Data(); //TODO - Load the correct data with API call
-            guard let feed = try? JSONDecoder().decode(GamesFeed.self, from: data)
+            guard let feed = try? JSONDecoder().decode(ClosedBetFeed.self, from: data)
                 else {
                     print("Error decoding data");
                     return cell!;
@@ -160,15 +159,18 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             
             //TODO - Figure out how to correctly use this indexPath thing for nested arrays
             
-            let theseGames = feed.games[indexPath.row];
-            let thisGame = theseGames.games[indexPath.item];
+            let thisBet = feed.bets[indexPath.row];
             
-            cell?.HomeTeamLogo.image = getImageFromUrl(urlString: thisGame.home_team.team_logo_url);
-            cell?.AwayTeamLogo.image = getImageFromUrl(urlString: thisGame.away_team.team_logo_url);
-            cell?.HomeTeamName.text = thisGame.home_team.name;
-            cell?.AwayTeamName.text = thisGame.away_team.name;
-            cell?.HomeTeamRecord.text = String(thisGame.home_team.wins) + "-" + String(thisGame.home_team.losses);
-            cell?.AwayTeamRecord.text = String(thisGame.away_team.wins) + "-" + String(thisGame.away_team.losses);
+            cell?.WinningTeamLogo.image = getImageFromUrl(urlString: thisBet.winningUser.team_logo_url);
+            cell?.WinningTeamName.text = thisBet.winningUser.team;
+            cell?.LosingTeamLogo.image = getImageFromUrl(urlString: thisBet.losingUser.team_logo_url);
+            cell?.LosingTeamName.text = thisBet.losingUser.team;
+            cell?.FinalScore.text = thisBet.finalScore;
+            cell?.GameDateTime.text = thisBet.game_time;
+            cell?.WinningUserPic.image = getImageFromUrl(urlString: thisBet.winningUser.profile_pic_url);
+            cell?.WinningUserName.text = thisBet.winningUser.first_name + " " + thisBet.winningUser.last_name;
+            cell?.LosingUserPic.image = getImageFromUrl(urlString: thisBet.losingUser.profile_pic_url);
+            cell?.LosingUserName.text = thisBet.losingUser.first_name + " " + thisBet.losingUser.last_name;
             
             return cell!;
         }        
