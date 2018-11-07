@@ -79,7 +79,7 @@ def list_direct_bets_pending():
 	pass
 
 @app.route('/api/feeds/past_bets')
-def list_closed_bets():
+def list_past_bets():
 	direct = True
 	accepted = True
 
