@@ -6,7 +6,7 @@ app = Flask(__name__)
 feeds = Blueprint('feeds', __name__)
 
 
-@app.route('/api/feeds/open_bets/')
+@feeds.route('/api/feeds/open_bets/')
 def list_open_bets():
 	direct = False
 	accepted = False
@@ -35,7 +35,7 @@ def list_open_bets():
 	}
 	return create_http_response(result)
 
-@app.route('/api/feeds/live_bets/')
+@feeds.route('/api/feeds/live_bets/')
 def list_closed_bets():
 	direct = True
 	accepted = True
@@ -74,11 +74,11 @@ def list_closed_bets():
 
 	return create_http_response(result)
 
-@app.route('/api/feeds/direct_bets_pending')
+@feeds.route('/api/feeds/direct_bets_pending')
 def list_direct_bets_pending():
 	pass
 
-@app.route('/api/feeds/past_bets')
+@feeds.route('/api/feeds/past_bets')
 def list_past_bets():
 	direct = True
 	accepted = True
