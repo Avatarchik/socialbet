@@ -23,6 +23,8 @@
 		A3BF735C2187600A00CF7F62 /* LiveFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BF735B2187600A00CF7F62 /* LiveFeedCell.swift */; };
 		A3CD977E218613B8003740C2 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CD977D218613B8003740C2 /* Feed.swift */; };
 		F47654E9218A816C0010D208 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47654E8218A816C0010D208 /* Profile.swift */; };
+		F484C0932192A15E009A2726 /* config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F484C0922192A15E009A2726 /* config.swift */; };
+		F484C0962192A7FF009A2726 /* networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F484C0952192A7FF009A2726 /* networking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		A3BF735B2187600A00CF7F62 /* LiveFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveFeedCell.swift; sourceTree = "<group>"; };
 		A3CD977D218613B8003740C2 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		F47654E8218A816C0010D208 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		F484C0922192A15E009A2726 /* config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = config.swift; sourceTree = "<group>"; };
+		F484C0952192A7FF009A2726 /* networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = networking.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +134,8 @@
 				01F20EDF217A67F700F2F713 /* Assets.xcassets */,
 				01F20EE1217A67F700F2F713 /* LaunchScreen.storyboard */,
 				01F20EE4217A67F700F2F713 /* Info.plist */,
+				F484C0922192A15E009A2726 /* config.swift */,
+				F484C0952192A7FF009A2726 /* networking.swift */,
 			);
 			path = SocialBet;
 			sourceTree = "<group>";
@@ -287,11 +293,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				01F20EDB217A67F500F2F713 /* ViewController.swift in Sources */,
+				F484C0962192A7FF009A2726 /* networking.swift in Sources */,
 				F47654E9218A816C0010D208 /* Profile.swift in Sources */,
 				A3CD977E218613B8003740C2 /* Feed.swift in Sources */,
 				A39C104E218FB730005DAAD6 /* OpenFeedCell.swift in Sources */,
 				A39C104C218F9B49005DAAD6 /* GamesFeedCell.swift in Sources */,
 				A3443AC12182CE98005037BA /* Registration.swift in Sources */,
+				F484C0932192A15E009A2726 /* config.swift in Sources */,
 				01F20ED9217A67F500F2F713 /* AppDelegate.swift in Sources */,
 				A3BF735C2187600A00CF7F62 /* LiveFeedCell.swift in Sources */,
 			);
