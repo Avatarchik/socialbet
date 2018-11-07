@@ -25,7 +25,16 @@ INSERT INTO games(cid, team1, team2, gametime)
 VALUES 
 (1, 'Detroit Lions', 'Chicago Bears', '11/18/2018 1:00PM'),
 (2, 'New England Patriots', 'Philadelphia Eagles', '11/18/2018 1:00PM'), 
-(3, 'Miami Dolphins', 'New Orleans Saints', '11/18/2018 1:00PM');
+(3, 'Miami Dolphins', 'New Orleans Saints', '11/18/2018 1:00PM'),
+(4, 'Pittsburgh Steelers', 'New York Giants', '11/18/2018 3:00PM'),
+(5, 'Atlanta Falcons', 'Houston Texans', '11/18/2018 3:00PM'),
+(6, 'Detroit Lions', 'Chicago Bears', '11/22/2018 12:30PM'),
+(7, 'New York Giants', 'Philadelphia Eagles', '11/25/2018 1:00PM'),
+(8, 'Seattle Seahawks', 'Carolina Panthers', '11/25/2018 1:00PM'),
+(9, 'Oakland Raiders', 'Baltimore Ravens', '11/25/2018 1:00PM'),
+(10, 'Green Bay Packers', 'Minnesota Vikings', '11/25/2018 8:20PM'),
+(11, 'Cincinnati Bengals', 'Baltimore Ravens', '11/18/2018 1:00PM'),
+(12, 'Denver Broncos', 'Los Angeles Chargers', '11/18/2018 4:05PM'); 
 
 # BETS
 INSERT INTO bets (bet_id, contest_id, time_placed, game_time, num_comments, message, ammount, user1, user2, direct, accepted)
