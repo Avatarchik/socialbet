@@ -1,3 +1,5 @@
+USE socialbetdb
+
 # USERS
 INSERT INTO users (user_id, firstname, lastname, birthdate, phone)
 VALUES 
