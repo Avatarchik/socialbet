@@ -1,3 +1,5 @@
+USE socialbetdb;
+
 CREATE TABLE users (
 	user_id INTEGER NOT NULL,
 	firstname VARCHAR(20) NOT NULL,
