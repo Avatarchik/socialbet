@@ -3,7 +3,6 @@ import db
 from .api_utils import create_http_response
 
 app = Flask(__name__)
-app.register_blueprint()
 feeds = Blueprint('feeds', __name__)
 
 

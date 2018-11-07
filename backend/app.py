@@ -1,6 +1,6 @@
 from flask import Flask
 import os
-from .api import betting, feeds, games, users
+from api import betting, feeds, games, users
 
 app = Flask(__name__, instance_relative_config=True)
 app.register_blueprint(betting.betting)
