@@ -1,7 +1,4 @@
 from flask import Flask, request, jsonify
-import db
-import json
-from .api_utils import create_http_response
 
 app = Flask(__name__)
 

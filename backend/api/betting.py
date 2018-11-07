@@ -1,9 +1,10 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, Blueprint
 import db
 import json
 from .api_utils import create_http_response
 
 app = Flask(__name__)
+betting = Blueprint('betting', __name__)
 
 
 @app.route('/api/betting/place_bet', methods=['POST'])

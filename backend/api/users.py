@@ -1,8 +1,10 @@
-from flask import Flask
+from flask import Flask, Blueprint
 import db
 from .api_utils import create_http_response
 
 app = Flask(__name__)
+users = Blueprint('users', __name__)
+
 
 @app.route('/api/users/list')
 def list_users():

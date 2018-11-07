@@ -1,8 +1,11 @@
-from flask import Flask
+from flask import Flask, Blueprint
 import db
 from .api_utils import create_http_response
 
 app = Flask(__name__)
+app.register_blueprint()
+feeds = Blueprint('feeds', __name__)
+
 
 @app.route('/api/feeds/open_bets/')
 def list_open_bets():
@@ -74,7 +77,7 @@ def list_closed_bets():
 
 @app.route('/api/feeds/direct_bets_pending')
 def list_direct_bets_pending():
-
+	pass
 
 @app.route('/api/feeds/past_bets')
 def list_closed_bets():
