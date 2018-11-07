@@ -1,12 +1,11 @@
 from flask import Flask
 import os
 
-app = Flask(__name__)
+app = Flask(__name__, instance_relative_config=True)
 
 # Create flask app
 def create_app(test_config=None):
 	# create and configure the app
-	app = Flask(__name__, instance_relative_config=True)
 	app.config.from_mapping(
 		SECRET_KEY='dev',
 	)
@@ -24,10 +23,11 @@ def create_app(test_config=None):
 		os.makedirs(app.instance_path)
 	except OSError:
 		pass
-	app.run()
 
 if __name__ == '__main__':
 	test_config = {
 
 	}
 	create_app()
+
+	app.run()
