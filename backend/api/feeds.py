@@ -35,7 +35,7 @@ def list_open_bets():
 	}
 	return create_http_response(result)
 
-@app.route('/api/feeds/live_bets')
+@app.route('/api/feeds/live_bets/')
 def list_closed_bets():
 	direct = True
 	accepted = True
