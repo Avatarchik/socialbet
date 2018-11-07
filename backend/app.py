@@ -1,6 +1,7 @@
 from flask import Flask
 import os
 from api import betting, feeds, games, users
+import logging
 
 app = Flask(__name__, instance_relative_config=True)
 app.register_blueprint(betting.betting)
@@ -28,6 +29,11 @@ def create_app(test_config=None):
 		os.makedirs(app.instance_path)
 	except OSError:
 		pass
+
+if __name__ != '__main__':
+	gunicorn_logger = logging.getLogger('gunicorn.error')
+	app.logger.handlers = gunicorn_logger.handlers
+	app.logger.setLevel(gunicorn_logger.level)
 
 if __name__ == '__main__':
 	test_config = {
