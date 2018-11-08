@@ -473,7 +473,7 @@
                         <outlet property="ProfilePic" destination="seY-FA-c8m" id="M3t-DO-wPG"/>
                         <outlet property="UserHandle" destination="fMx-81-JQe" id="5qf-kC-HQZ"/>
                         <outlet property="UserName" destination="3a4-cN-fj5" id="eaU-Uo-zAp"/>
-                        <segue destination="b1v-3P-q1q" kind="presentation" identifier="FakeProfToMidBuild" id="11x-bk-kMc"/>
+                        <segue destination="BKB-KX-fQi" kind="presentation" identifier="FakeProfileToOpponentSelect" id="Kfi-hp-Jka"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i3x-aK-dDC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -519,6 +519,7 @@
                     </view>
                     <connections>
                         <outlet property="BuilderGamesFeed" destination="Qt6-X5-fNi" id="Vai-LU-T1C"/>
+                        <segue destination="b1v-3P-q1q" kind="presentation" identifier="GameSelectToTeamSelect" id="t70-Af-w4T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yzI-Gi-fah" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -634,10 +635,10 @@
             </objects>
             <point key="canvasLocation" x="4055" y="143"/>
         </scene>
-        <!--View Controller-->
+        <!--Bet Builder Opponent Selection-->
         <scene sceneID="1es-MJ-fej">
             <objects>
-                <viewController id="BKB-KX-fQi" sceneMemberID="viewController">
+                <viewController id="BKB-KX-fQi" customClass="BetBuilderOpponentSelection" customModule="SocialBet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ueg-Q0-9h7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -648,55 +649,64 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laM-OK-UY1">
-                                <rect key="frame" x="175.5" y="312.5" width="24" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lAD-kq-Gfx">
-                                <rect key="frame" x="115" y="261.5" width="145" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Create Open Bet"/>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Opponent Handle" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ado-46-iOk">
-                                <rect key="frame" x="120" y="348.5" width="135" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I9E-Z2-7Gz">
-                                <rect key="frame" x="113.5" y="388.5" width="148" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Create Direct Bet"/>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rgs-dE-wE3">
                                 <rect key="frame" x="37.5" y="243.5" width="300" height="200"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lAD-kq-Gfx">
+                                        <rect key="frame" x="77.5" y="18" width="145" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Create Open Bet"/>
+                                        <connections>
+                                            <action selector="CreateOpenBet:" destination="BKB-KX-fQi" eventType="touchUpInside" id="cGn-FI-XOH"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Opponent Handle" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ado-46-iOk">
+                                        <rect key="frame" x="82.5" y="110" width="135" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laM-OK-UY1">
+                                        <rect key="frame" x="138" y="69" width="24" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I9E-Z2-7Gz">
+                                        <rect key="frame" x="76" y="150" width="148" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Create Direct Bet"/>
+                                        <connections>
+                                            <action selector="CreateDirectBet:" destination="BKB-KX-fQi" eventType="touchUpInside" id="xzP-18-SwP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="0eq-wA-Li6"/>
+                                    <constraint firstItem="lAD-kq-Gfx" firstAttribute="centerX" secondItem="rgs-dE-wE3" secondAttribute="centerX" id="9YR-fQ-6pC"/>
+                                    <constraint firstItem="I9E-Z2-7Gz" firstAttribute="top" secondItem="ado-46-iOk" secondAttribute="bottom" constant="10" id="DDt-1p-8GP"/>
+                                    <constraint firstItem="laM-OK-UY1" firstAttribute="bottom" secondItem="rgs-dE-wE3" secondAttribute="centerY" constant="-10" id="MAE-Up-lr0"/>
+                                    <constraint firstItem="laM-OK-UY1" firstAttribute="top" secondItem="lAD-kq-Gfx" secondAttribute="bottom" constant="15" id="avB-tW-KYQ"/>
                                     <constraint firstAttribute="width" constant="300" id="ofa-qB-kJo"/>
+                                    <constraint firstItem="ado-46-iOk" firstAttribute="centerX" secondItem="rgs-dE-wE3" secondAttribute="centerX" id="tmP-q2-UPb"/>
+                                    <constraint firstItem="laM-OK-UY1" firstAttribute="centerX" secondItem="rgs-dE-wE3" secondAttribute="centerX" id="vPX-pn-NdJ"/>
+                                    <constraint firstItem="ado-46-iOk" firstAttribute="top" secondItem="laM-OK-UY1" secondAttribute="bottom" constant="20" id="w5S-fk-m2P"/>
+                                    <constraint firstItem="I9E-Z2-7Gz" firstAttribute="centerX" secondItem="rgs-dE-wE3" secondAttribute="centerX" id="wGQ-CL-tPg"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="laM-OK-UY1" firstAttribute="centerX" secondItem="rgs-dE-wE3" secondAttribute="centerX" id="3Dg-U7-TiE"/>
-                            <constraint firstItem="ado-46-iOk" firstAttribute="top" secondItem="laM-OK-UY1" secondAttribute="bottom" constant="15" id="4nx-dk-CG0"/>
-                            <constraint firstItem="I9E-Z2-7Gz" firstAttribute="top" secondItem="ado-46-iOk" secondAttribute="bottom" constant="10" id="AKd-5z-rIe"/>
-                            <constraint firstItem="laM-OK-UY1" firstAttribute="bottom" secondItem="rgs-dE-wE3" secondAttribute="centerY" constant="-10" id="J0W-u9-Rue"/>
                             <constraint firstItem="5wl-4J-aq5" firstAttribute="centerX" secondItem="qnt-8u-465" secondAttribute="centerX" id="JUO-v7-Zl9"/>
-                            <constraint firstItem="laM-OK-UY1" firstAttribute="top" secondItem="lAD-kq-Gfx" secondAttribute="bottom" constant="15" id="PF3-Bm-XGX"/>
                             <constraint firstItem="rgs-dE-wE3" firstAttribute="centerY" secondItem="qnt-8u-465" secondAttribute="centerY" id="R0D-gy-3qc"/>
-                            <constraint firstItem="I9E-Z2-7Gz" firstAttribute="centerX" secondItem="ado-46-iOk" secondAttribute="centerX" id="SC1-6R-21y"/>
                             <constraint firstItem="rgs-dE-wE3" firstAttribute="centerX" secondItem="qnt-8u-465" secondAttribute="centerX" id="YUw-mB-byy"/>
-                            <constraint firstItem="lAD-kq-Gfx" firstAttribute="centerX" secondItem="rgs-dE-wE3" secondAttribute="centerX" id="jkv-Xt-Tuf"/>
                             <constraint firstItem="5wl-4J-aq5" firstAttribute="top" secondItem="qnt-8u-465" secondAttribute="top" constant="60" id="ogO-xf-RIg"/>
-                            <constraint firstItem="ado-46-iOk" firstAttribute="centerX" secondItem="rgs-dE-wE3" secondAttribute="centerX" id="xPa-zD-obL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qnt-8u-465"/>
                     </view>
                     <connections>
+                        <outlet property="OpponentHandle" destination="ado-46-iOk" id="T4L-hG-xCc"/>
                         <segue destination="drK-px-ahE" kind="presentation" identifier="OpponentSelectToGameSelect" id="Fcy-jZ-kMu"/>
                     </connections>
                 </viewController>

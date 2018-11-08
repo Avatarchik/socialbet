@@ -26,7 +26,8 @@ class BetBuilderTeamSelection: UIViewController {
         print("Bet Cancelled");
     }
     
-    
+    var selected_game_id: Int?;
+    var selected_opponent: String?;
     @IBOutlet weak var TeamOneLogo: UIImageView!
     
     @IBOutlet weak var TeamTwoLogo: UIImageView!

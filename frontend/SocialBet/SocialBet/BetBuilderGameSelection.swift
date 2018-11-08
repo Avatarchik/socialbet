@@ -10,7 +10,8 @@ import UIKit
 
 class BetBuilderGameSelection: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    
+    var selectedOpponent: String?;
+    var selectedGame: Int?;
     @IBOutlet weak var BuilderGamesFeed: UICollectionView!
     
     override func viewDidLoad() {
@@ -19,6 +20,18 @@ class BetBuilderGameSelection: UIViewController, UICollectionViewDataSource, UIC
         self.BuilderGamesFeed.register(UINib(nibName: "GamesFeedCell", bundle:nil), forCellWithReuseIdentifier: "GamesFeedCell");
 
         // Do any additional setup after loading the view.
+        print("Opponent Handle: " + self.selectedOpponent!);
+        
+    }
+    
+    //Use this function to pass data through segues
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        print("Override Works!");
+        //if going to next stage of bet builder
+        if let vc = segue.destination as? BetBuilderTeamSelection{
+            vc.selected_game_id = self.selectedGame;
+            vc.selected_opponent = self.selectedOpponent;
+        }
     }
     
 
@@ -75,6 +88,12 @@ class BetBuilderGameSelection: UIViewController, UICollectionViewDataSource, UIC
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath){
         //TODO - store the selected event_ID and bring up next screen with that game loaded
+        if let indexPath = self.BuilderGamesFeed.indexPathsForSelectedItems?.first{
+            let cell = self.BuilderGamesFeed.cellForItem(at: indexPath) as? GamesFeedCell;
+            self.selectedGame = cell?.event_id;
+            performSegue(withIdentifier: "GameSelectToTeamSelect", sender: self);
+        }
+        
     }
     
     

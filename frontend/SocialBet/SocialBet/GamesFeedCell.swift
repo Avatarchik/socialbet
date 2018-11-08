@@ -10,6 +10,7 @@ import UIKit
 
 class GamesFeedCell: UICollectionViewCell {
     
+    var event_id: Int?;
     @IBOutlet weak var HomeTeamLogo: UIImageView!
     
     @IBOutlet weak var AwayTeamLogo: UIImageView!

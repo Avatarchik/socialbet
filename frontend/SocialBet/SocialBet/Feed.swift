@@ -265,6 +265,7 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             cell?.AwayTeamName.text = thisGame.away_team.name;
             cell?.HomeTeamRecord.text = String(thisGame.home_team.wins) + "-" + String(thisGame.home_team.losses);
             cell?.AwayTeamRecord.text = String(thisGame.away_team.wins) + "-" + String(thisGame.away_team.losses);
+            cell?.event_id = thisGame.event_id;
             
             return cell!;
         }

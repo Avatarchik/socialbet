@@ -24,7 +24,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     var feedType = ProfileFeedTypes.live;
     
     @IBAction func InitiateBet(_ sender: Any) {
-        performSegue(withIdentifier: "FakeProfToMidBuild", sender: self);
+        performSegue(withIdentifier: "FakeProfileToOpponentSelect", sender: self);
     }
     
     @IBAction func LiveBets(_ sender: Any) {
