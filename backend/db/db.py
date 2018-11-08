@@ -2,7 +2,8 @@
 from .db_config import get_db_config
 import pymysql
 
-
+########################## USERS ###########################################################
+# I DONT NEED ANYTHING
 def get_users():
 	db_config = get_db_config()
 	db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
@@ -19,6 +20,7 @@ def get_users():
 	db.close()
 	return res
 
+# I NEED USER_ID
 def get_user(data):
 	db_config = get_db_config()
 	db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
@@ -37,24 +39,6 @@ def get_user(data):
 
 	return res
 
-def get_bets(direct, live):
-	db_config = get_db_config()
-	db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
-	cursor = db.cursor()
-
-	sql = "SELECT * FROM bets WHERE direct= " + direct + " " + "and live = " + live + ";"
-	cursor.execute(sql)
-
-	res = []
-	for row in cursor:
-		res.append(row)
-
-
-	db.close()
-
-	return res
-
-# functions for user information
 # I NEED ALL USER INFO
 def create_user(data):
 	db_config = get_db_config()
@@ -80,6 +64,7 @@ def create_user(data):
 
 	return res
 
+# I NEED ONLY USER_ID
 def drop_user(data):
 	db_config = get_db_config()
 	db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
@@ -98,7 +83,68 @@ def drop_user(data):
 
 	return res
 
-# functions for bet information
+########################## FRIENDS ###########################################################
+# I NEED USER_ID ONLY
+def get_friends(data):
+	db_config = get_db_config()
+	db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
+	cursor = db.cursor()
+	
+	user_id = data['user_id']
+
+	sql = "SELECT user2 FROM friends WHERE user1 = " + user_id + ";"
+
+	cursor.execute(sql)
+
+	res = []
+	for row in cursor:
+		res.append(row)
+
+
+	db.close()
+
+	return res
+
+########################## GAMES ###########################################################
+# I NEED NOTHING
+def get_games(data):
+	db_config = get_db_config()
+	db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
+	cursor = db.cursor()
+	
+	user_id = data['user_id']
+
+	sql = "SELECT * FROM games;"
+
+	cursor.execute(sql)
+
+	res = []
+	for row in cursor:
+		res.append(row)
+
+
+	db.close()
+
+	return res
+
+########################## BETS ###########################################################
+def get_bets(direct, live):
+	db_config = get_db_config()
+	db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
+	cursor = db.cursor()
+
+	sql = "SELECT * FROM bets WHERE direct= " + direct + " " + "and live = " + live + ";"
+	cursor.execute(sql)
+
+	res = []
+	for row in cursor:
+		res.append(row)
+
+
+	db.close()
+
+	return res
+
 # I NEED ALL BET INFO
 def place_bet(data):
 	db_config = get_db_config()
@@ -131,29 +177,3 @@ def place_bet(data):
 	db.close()
 
 	return res
-
-# functions for friends information
-# I NEED: user_id ONLY
-def get_friends(data):
-	db_config = get_db_config()
-	db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
-	cursor = db.cursor()
-	
-	user_id = data['user_id']
-
-	sql = "SELECT user2 FROM friends WHERE user1 = " + user_id + ";"
-
-	cursor.execute(sql)
-
-	res = []
-	for row in cursor:
-		res.append(row)
-
-
-	db.close()
-
-	return res
-
-
-
-
