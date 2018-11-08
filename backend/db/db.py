@@ -10,7 +10,7 @@ def get_users():
 	db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
 	cursor = db.cursor()
 	
-	sql = "SELECT * FROM users"
+	sql = "SELECT * FROM users;"
 	cursor.execute(sql)
 
 
@@ -28,7 +28,7 @@ def get_user(data):
 	db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
 	cursor = db.cursor()
 	
-	sql = "SELECT * FROM users WHERE uid = " + user_id
+	sql = "SELECT * FROM users WHERE uid = " + user_id + ";"
 	cursor.execute(sql)
 
 	res = []
@@ -46,7 +46,7 @@ def get_bets(direct, live):
 
 	cursor = db.cursor()
 
-	sql = "SELECT * FROM bets WHERE direct= " + direct + " " + "and live = " + live
+	sql = "SELECT * FROM bets WHERE direct= " + direct + " " + "and live = " + live + ";"
 	cursor.execute(sql)
 
 	res = []
@@ -67,13 +67,19 @@ def create_user(data):
 
 	user_id = data['user_id']
 	first_name = data['first_name']
-	sql = "INSERT INTO users VALUES ( " + user_id + "," + 
+	last_name = data['last_name']
+	birthdate = data['birthdate']
+	phone = data['phone']
+	sql = "INSERT INTO users VALUES ( " + user_id + "," + first_name + "," + last_name + ","
+	+ birthdate + "," + phone + ";"
 
-
-	pass
+	cursor.execute(sql)
+	db.close()
 
 def drop_user(data):
-	#TODO
+	db_config = get_db_config()
+	db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
+	cursor = db.cursor()
 	pass
 
 # functions for bet information
