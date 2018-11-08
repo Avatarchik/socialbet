@@ -6,7 +6,7 @@ app = Flask(__name__)
 users = Blueprint('users', __name__)
 
 
-@app.route('/api/users/list')
+@users.route('/api/users/list')
 def list_users():
 	# TODO
 
@@ -14,14 +14,14 @@ def list_users():
 
 	return create_http_response()
 
-@app.route('/api/users/find')
+@users.route('/api/users/find')
 def get_user():
 
 	# TODO
 	return create_http_response()
 
 
-@app.route('/api/users/create')
+@users.route('/api/users/create')
 def create_user():
 
 	#TODO
