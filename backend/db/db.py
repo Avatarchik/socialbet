@@ -80,7 +80,12 @@ def drop_user(data):
 	db_config = get_db_config()
 	db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
 	cursor = db.cursor()
-	pass
+
+	user_id = data['user_id']
+	sql = "DELETE FROM users WHERE user_id = " + user_id + ";"
+	
+	cursor.execute(sql)
+	db.close()
 
 # functions for bet information
 def place_bet(data):
