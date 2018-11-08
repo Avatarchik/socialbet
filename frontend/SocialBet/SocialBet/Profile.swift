@@ -24,7 +24,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     var feedType = ProfileFeedTypes.live;
     
     @IBAction func InitiateBet(_ sender: Any) {
-        
+        performSegue(withIdentifier: "FakeProfToMidBuild", sender: self);
     }
     
     @IBAction func LiveBets(_ sender: Any) {
@@ -46,6 +46,10 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.ProfileBetFeed.register(UINib(nibName: "LiveFeedCell", bundle:nil), forCellWithReuseIdentifier: "LiveFeedCell");
+        self.ProfileBetFeed.register(UINib(nibName: "OpenFeedCell", bundle:nil), forCellWithReuseIdentifier: "OpenFeedCell");
+        self.ProfileBetFeed.register(UINib(nibName: "ClosedFeedCell", bundle:nil), forCellWithReuseIdentifier: "ClosedFeedCell");
 
         // Do any additional setup after loading the view.
     }
@@ -100,7 +104,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         switch feedType {
             
         case .live:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LiveCell", for: indexPath) as? LiveFeedCell;
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LiveFeedCell", for: indexPath) as? LiveFeedCell;
             
             let data: Data = Data(); //TODO - Load the correct data with API call
             guard let feed = try? JSONDecoder().decode(LiveBetFeed.self, from: data)
@@ -125,7 +129,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             return cell!;
             
         case .open:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OpenCell", for: indexPath) as? OpenFeedCell;
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OpenFeedCell", for: indexPath) as? OpenFeedCell;
             
             let data: Data = Data(); //TODO - Load the correct data with API call
             guard let feed = try? JSONDecoder().decode(OpenBetFeed.self, from: data)

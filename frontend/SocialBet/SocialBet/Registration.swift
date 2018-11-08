@@ -33,6 +33,11 @@ class Registration: UIViewController {
      @IBAction func GoToLogin(_ sender: Any) {
         performSegue(withIdentifier: "RegistrationToLogin", sender: self)
      }
+    
+    @IBAction func GoToHelp(_ sender: Any) {
+        performSegue(withIdentifier: "FakeRegToProf", sender: self);
+    }
+    
     /*
      // MARK: - Navigation
 
@@ -42,5 +47,7 @@ class Registration: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
 
 }
