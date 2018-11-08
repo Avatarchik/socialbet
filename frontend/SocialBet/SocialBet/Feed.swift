@@ -197,7 +197,7 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
         switch self.feedType {
             
         case .live:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LiveCell", for: indexPath) as? LiveFeedCell;
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LiveFeedCell", for: indexPath) as? LiveFeedCell;
             
             let data: Data = Data(); //TODO - Load the correct data with API call
             guard let feed = try? JSONDecoder().decode(LiveBetFeed.self, from: data)
@@ -222,7 +222,7 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             return cell!;
             
         case .open:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OpenCell", for: indexPath) as? OpenFeedCell;
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OpenFeedCell", for: indexPath) as? OpenFeedCell;
             
             let data: Data = Data(); //TODO - Load the correct data with API call
             guard let feed = try? JSONDecoder().decode(OpenBetFeed.self, from: data)
@@ -245,7 +245,7 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             return cell!;
             
         case .games:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GamesCell", for: indexPath) as? GamesFeedCell;
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GamesFeedCell", for: indexPath) as? GamesFeedCell;
             
             let data: Data = Data(); //TODO - Load the correct data with API call
             guard let feed = try? JSONDecoder().decode(GamesFeed.self, from: data)

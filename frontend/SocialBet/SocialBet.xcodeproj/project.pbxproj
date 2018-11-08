@@ -20,8 +20,10 @@
 		A39C1056219126FD005DAAD6 /* LiveFeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A39C1055219126FD005DAAD6 /* LiveFeedCell.xib */; };
 		A39C10582191411D005DAAD6 /* OpenFeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A39C10572191411D005DAAD6 /* OpenFeedCell.xib */; };
 		A39C105A21915036005DAAD6 /* GamesFeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A39C105921915036005DAAD6 /* GamesFeedCell.xib */; };
+		A39CE53621936E74000B9EE1 /* BetBuilderTeamSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39CE53521936E74000B9EE1 /* BetBuilderTeamSelection.swift */; };
 		A39E26AF21924B0C00612E81 /* ClosedFeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A39E26AE21924B0C00612E81 /* ClosedFeedCell.xib */; };
 		A39E26B121924B4200612E81 /* ClosedFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E26B021924B4200612E81 /* ClosedFeedCell.swift */; };
+		A39E26B52193535000612E81 /* BetBuilderGameSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E26B42193535000612E81 /* BetBuilderGameSelection.swift */; };
 		A3BF735C2187600A00CF7F62 /* LiveFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BF735B2187600A00CF7F62 /* LiveFeedCell.swift */; };
 		A3CD977E218613B8003740C2 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CD977D218613B8003740C2 /* Feed.swift */; };
 		F47654E9218A816C0010D208 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47654E8218A816C0010D208 /* Profile.swift */; };
@@ -64,8 +66,10 @@
 		A39C1055219126FD005DAAD6 /* LiveFeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LiveFeedCell.xib; sourceTree = "<group>"; };
 		A39C10572191411D005DAAD6 /* OpenFeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OpenFeedCell.xib; sourceTree = "<group>"; };
 		A39C105921915036005DAAD6 /* GamesFeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GamesFeedCell.xib; sourceTree = "<group>"; };
+		A39CE53521936E74000B9EE1 /* BetBuilderTeamSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetBuilderTeamSelection.swift; sourceTree = "<group>"; };
 		A39E26AE21924B0C00612E81 /* ClosedFeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClosedFeedCell.xib; sourceTree = "<group>"; };
 		A39E26B021924B4200612E81 /* ClosedFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosedFeedCell.swift; sourceTree = "<group>"; };
+		A39E26B42193535000612E81 /* BetBuilderGameSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetBuilderGameSelection.swift; sourceTree = "<group>"; };
 		A3BF735B2187600A00CF7F62 /* LiveFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveFeedCell.swift; sourceTree = "<group>"; };
 		A3CD977D218613B8003740C2 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		F47654E8218A816C0010D208 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
@@ -123,6 +127,7 @@
 				A39E26B021924B4200612E81 /* ClosedFeedCell.swift */,
 				A39E26AE21924B0C00612E81 /* ClosedFeedCell.xib */,
 				A3443AC02182CE98005037BA /* Registration.swift */,
+				A39E26B42193535000612E81 /* BetBuilderGameSelection.swift */,
 				01F20ED8217A67F500F2F713 /* AppDelegate.swift */,
 				01F20EDA217A67F500F2F713 /* ViewController.swift */,
 				A3CD977D218613B8003740C2 /* Feed.swift */,
@@ -133,6 +138,7 @@
 				A39C104D218FB730005DAAD6 /* OpenFeedCell.swift */,
 				A39C10572191411D005DAAD6 /* OpenFeedCell.xib */,
 				01F20EDC217A67F500F2F713 /* Main.storyboard */,
+				A39CE53521936E74000B9EE1 /* BetBuilderTeamSelection.swift */,
 				01F20EDF217A67F700F2F713 /* Assets.xcassets */,
 				01F20EE1217A67F700F2F713 /* LaunchScreen.storyboard */,
 				01F20EE4217A67F700F2F713 /* Info.plist */,
@@ -294,7 +300,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				01F20EDB217A67F500F2F713 /* ViewController.swift in Sources */,
+				A39CE53621936E74000B9EE1 /* BetBuilderTeamSelection.swift in Sources */,
 				A39E26B121924B4200612E81 /* ClosedFeedCell.swift in Sources */,
+				A39E26B52193535000612E81 /* BetBuilderGameSelection.swift in Sources */,
 				F47654E9218A816C0010D208 /* Profile.swift in Sources */,
 				A3CD977E218613B8003740C2 /* Feed.swift in Sources */,
 				A39C104E218FB730005DAAD6 /* OpenFeedCell.swift in Sources */,
