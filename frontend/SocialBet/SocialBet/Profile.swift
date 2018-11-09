@@ -2,9 +2,7 @@
 //  Profile.swift
 //  SocialBet
 //
-//  Created by John Krieg on 10/31/18.
-//  Copyright © 2018 Nick Cargill. All rights reserved.
-//
+
 
 import UIKit
 

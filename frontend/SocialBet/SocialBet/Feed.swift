@@ -1,9 +1,6 @@
 //
-//  LiveFeed.swift
+//  Feed.swift
 //  SocialBet
-//
-//  Created by Alex Chapp on 10/28/18.
-//  Copyright © 2018 Nick Cargill. All rights reserved.
 //
 
 import UIKit

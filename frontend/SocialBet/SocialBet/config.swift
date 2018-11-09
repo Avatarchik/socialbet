@@ -1,9 +1,6 @@
 //
-//  File.swift
+//  config.swift
 //  SocialBet
-//
-//  Created by John Krieg on 11/4/18.
-//  Copyright © 2018 Nick Cargill. All rights reserved.
 //
 
 import Foundation

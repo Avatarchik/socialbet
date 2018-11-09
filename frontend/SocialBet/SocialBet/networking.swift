@@ -2,9 +2,6 @@
 //  networking.swift
 //  SocialBet
 //
-//  Created by John Krieg on 11/6/18.
-//  Copyright © 2018 Nick Cargill. All rights reserved.
-//
 
 // This file contains helper functions for sending GET and POST requests
 

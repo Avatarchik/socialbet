@@ -1,5 +1,5 @@
 //
-//  Notifications.swift
+//  MyBets.swift
 //  SocialBet
 //
 //  Created by Alex Chapp on 11/8/18.

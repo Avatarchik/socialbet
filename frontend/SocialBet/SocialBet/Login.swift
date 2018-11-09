@@ -1,10 +1,8 @@
 //
-//  ViewController.swift
+//  Login.swift
 //  SocialBet
 //
-//  Created by Nick Cargill on 10/19/18.
-//  Copyright © 2018 Nick Cargill. All rights reserved.
-//
+
 
 import UIKit
 
@@ -52,6 +50,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func LoginHelp(_ sender: Any) {
+        // TODO - Create help page
     }
     
     
