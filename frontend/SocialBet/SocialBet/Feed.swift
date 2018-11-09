@@ -27,6 +27,12 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
     
     @IBOutlet weak var TopBar: UIView!
     @IBOutlet weak var Collection: UICollectionView!
+    @IBOutlet weak var GamesObject: UIButton!
+    @IBOutlet weak var OpenBetsObject: UIButton!
+    @IBOutlet weak var LiveBetsObject: UIButton!
+    
+    
+    
     
     @IBOutlet weak var SideMenuConstraint: NSLayoutConstraint!
     var sideMenuOpen = false
@@ -90,6 +96,9 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             self.alert(message: "There was an error processing your request.", title: "Network Error")
         }
         
+        self.LiveBetsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
+        self.OpenBetsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
+        self.GamesObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
         self.feedType = .live;
         self.Collection.reloadData();
     }
@@ -111,6 +120,10 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             self.alert(message: "There was an error processing your request.", title: "Network Error")
         }
         
+        
+        self.OpenBetsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
+        self.LiveBetsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
+        self.GamesObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
         self.feedType = .open;
         self.Collection.reloadData();
     }
@@ -132,6 +145,9 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             self.alert(message: "There was an error processing your request.", title: "Network Error")
         }
         
+        self.GamesObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
+        self.OpenBetsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
+        self.LiveBetsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
         self.feedType = .games;
         self.Collection.reloadData();
     }
