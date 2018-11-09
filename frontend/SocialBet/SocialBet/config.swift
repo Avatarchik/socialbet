@@ -10,6 +10,7 @@ import CommonCrypto
 // global variables
 
 let domain = "socialbet.jpkrieg.com"
+let port = "5000"
 var username = "default"
 var pwhash = "default"
 
