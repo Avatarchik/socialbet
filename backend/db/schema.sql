@@ -11,7 +11,7 @@ CREATE TABLE friends (
 	user1 VARCHAR(20) NOT NULL,
 	user2 VARCHAR(20) NOT NULL,
 	PRIMARY KEY(user1,user2),
-	FOREIGN KEY(user1) REFERENCES users(user_id)
+	FOREIGN KEY(user1) REFERENCES users(user_name)
 );
 
 CREATE TABLE games (
