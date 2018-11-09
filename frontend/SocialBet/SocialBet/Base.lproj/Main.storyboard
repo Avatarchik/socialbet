@@ -916,5 +916,64 @@
             </objects>
             <point key="canvasLocation" x="6090" y="143"/>
         </scene>
+        <!--Settings-->
+        <scene sceneID="sxa-bM-ULz">
+            <objects>
+                <viewController id="pUr-gZ-3Sg" customClass="Settings" customModule="SocialBet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZpP-fS-25n">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fci-Le-2tE">
+                                <rect key="frame" x="151.5" y="40" width="72" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bfh-Vy-RWo">
+                                <rect key="frame" x="37.5" y="243.5" width="300" height="200"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile Picture:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GOC-2X-11X">
+                                        <rect key="frame" x="30" y="10" width="112" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="GOC-2X-11X" firstAttribute="leading" secondItem="bfh-Vy-RWo" secondAttribute="leading" constant="30" id="4gI-eg-20y"/>
+                                    <constraint firstItem="GOC-2X-11X" firstAttribute="top" secondItem="bfh-Vy-RWo" secondAttribute="top" constant="10" id="6vg-jQ-Uaw"/>
+                                    <constraint firstAttribute="width" constant="300" id="M0T-DS-dFU"/>
+                                    <constraint firstAttribute="height" constant="200" id="qOC-E4-Jqp"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r7M-VB-nVO">
+                                <rect key="frame" x="252.5" y="253.5" width="55" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="AZo-6d-k2L"/>
+                                    <constraint firstAttribute="width" constant="55" id="zCS-IF-NOf"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="r7M-VB-nVO" firstAttribute="trailing" secondItem="bfh-Vy-RWo" secondAttribute="trailing" constant="-30" id="0ED-GV-ZXu"/>
+                            <constraint firstItem="bfh-Vy-RWo" firstAttribute="centerX" secondItem="eUS-R5-mVR" secondAttribute="centerX" id="ANq-H9-H5c"/>
+                            <constraint firstItem="bfh-Vy-RWo" firstAttribute="centerY" secondItem="eUS-R5-mVR" secondAttribute="centerY" id="QvV-NX-jBW"/>
+                            <constraint firstItem="r7M-VB-nVO" firstAttribute="top" secondItem="GOC-2X-11X" secondAttribute="top" id="ZGx-FI-605"/>
+                            <constraint firstItem="Fci-Le-2tE" firstAttribute="top" secondItem="eUS-R5-mVR" secondAttribute="top" constant="20" id="cG8-Lg-bHI"/>
+                            <constraint firstItem="Fci-Le-2tE" firstAttribute="centerX" secondItem="eUS-R5-mVR" secondAttribute="centerX" id="tKI-YL-SYC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="eUS-R5-mVR"/>
+                    </view>
+                    <connections>
+                        <outlet property="ProfilePic" destination="r7M-VB-nVO" id="ehK-v7-6dD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YLj-lH-ccK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6542" y="143"/>
+        </scene>
     </scenes>
 </document>
