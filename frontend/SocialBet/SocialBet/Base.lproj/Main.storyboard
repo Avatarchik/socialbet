@@ -803,10 +803,10 @@
             </objects>
             <point key="canvasLocation" x="5777" y="143"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings-->
         <scene sceneID="sxa-bM-ULz">
             <objects>
-                <viewController id="pUr-gZ-3Sg" sceneMemberID="viewController">
+                <viewController id="pUr-gZ-3Sg" customClass="Settings" customModule="SocialBet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZpP-fS-25n">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -854,6 +854,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eUS-R5-mVR"/>
                     </view>
+                    <connections>
+                        <outlet property="ProfilePic" destination="r7M-VB-nVO" id="ehK-v7-6dD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YLj-lH-ccK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
