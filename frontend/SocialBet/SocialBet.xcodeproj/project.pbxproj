@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0151BC8D2195458C00736C6C /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0151BC8C2195458C00736C6C /* SideMenu.swift */; };
 		01F20ED9217A67F500F2F713 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F20ED8217A67F500F2F713 /* AppDelegate.swift */; };
 		01F20EDB217A67F500F2F713 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F20EDA217A67F500F2F713 /* Login.swift */; };
 		01F20EDE217A67F500F2F713 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01F20EDC217A67F500F2F713 /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0151BC8C2195458C00736C6C /* SideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
 		01F20ED5217A67F500F2F713 /* SocialBet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialBet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01F20ED8217A67F500F2F713 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01F20EDA217A67F500F2F713 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				A39C104D218FB730005DAAD6 /* OpenFeedCell.swift */,
 				F47654E8218A816C0010D208 /* Profile.swift */,
 				A3443AC02182CE98005037BA /* Registration.swift */,
+				0151BC8C2195458C00736C6C /* SideMenu.swift */,
 				01F20EDF217A67F700F2F713 /* Assets.xcassets */,
 				A39E26AE21924B0C00612E81 /* ClosedFeedCell.xib */,
 				A39C105921915036005DAAD6 /* GamesFeedCell.xib */,
@@ -326,6 +329,7 @@
 				A39E26B52193535000612E81 /* BetBuilderGameSelection.swift in Sources */,
 				F47654E9218A816C0010D208 /* Profile.swift in Sources */,
 				A39CE53E219432C8000B9EE1 /* MyBets.swift in Sources */,
+				0151BC8D2195458C00736C6C /* SideMenu.swift in Sources */,
 				A39CE5382194088E000B9EE1 /* BetBuilderOpponentSelection.swift in Sources */,
 				A3CD977E218613B8003740C2 /* Feed.swift in Sources */,
 				A39C104E218FB730005DAAD6 /* OpenFeedCell.swift in Sources */,
