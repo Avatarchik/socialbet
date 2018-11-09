@@ -5,9 +5,16 @@ import pymysql
 def authenticate(username, auth):
     # check to see if this {username, auth} tuple is in the db
     # TODO: Chris
-    
-    if TODO:
-        return true
+    db_config = get_db_config()
+    db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
+    cursor = db.cursor()
+   
+    sql = "SELECT user_name FROM users WHERE user_name = " + username + "AND auth = " + auth
+    cursor.execute(sql)
+
+    for row in cursor:
+        if row == username
+            return True
 
     return False
 
