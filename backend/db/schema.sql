@@ -1,5 +1,3 @@
-USE socialbetdb;
-
 CREATE TABLE users (
 	user_name VARCCHAR(50) NOT NULL,
 	first_name VARCHAR(20) NOT NULL,
@@ -35,8 +33,8 @@ CREATE TABLE bets (
 	message VARCHAR(50) NOT NULL,
 	ammount FLOAT NOT NULL, 
 	user1 VARCHAR(50) NOT NULL,
-	team1 VARCHAR(50),
-	team2 VARCHAR(50),
+	team1 VARCHAR(50) NOT NULL,
+	team2 VARCHAR(50) NOT NULL,
 	user2 VARCHAR(50),
     direct INTEGER NOT NULL,
     accepted INTEGER NOT NULL,
