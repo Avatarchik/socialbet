@@ -41,5 +41,5 @@ VALUES
 # BETS
 INSERT INTO bets (bet_id, game_id, time_placed, game_time, num_comments, message, ammount, user1, user2, direct, accepted)
 VALUES
-(1,1,'11/16/2018 3:52PM', '11/18/2018 1:00PM', 0, 'Nick is going down!', 50.0, 'achapp', 'cterech', 'Detroit Lions', 'Chicago Bears' 1, 1), 
+(1,1,'11/16/2018 3:52PM', '11/18/2018 1:00PM', 0, 'Nick is going down!', 50.0, 'achapp', 'cterech', 'Detroit Lions', 'Chicago Bears', 1, 1), 
 (2,3,'11/16/2018 4:19PM', '11/18/2018 1:00PM', 0, 'Ittai is going down!', 100.0, 'achapp', 'jkrieg','Miami Dolphins', 'New Orleans Saints', 1, 1);
