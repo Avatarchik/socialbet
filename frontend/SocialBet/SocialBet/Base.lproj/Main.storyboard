@@ -557,6 +557,14 @@
                                     <action selector="BetweenUs:" destination="uc1-GC-PZb" eventType="touchUpInside" id="aaB-Ix-HX6"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jb-ZP-SUS">
+                                <rect key="frame" x="19" y="50" width="41" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Home"/>
+                                <connections>
+                                    <action selector="returnHome" destination="uc1-GC-PZb" eventType="touchUpInside" id="1dG-Ww-26c"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -591,6 +599,7 @@
                         <outlet property="UserHandle" destination="fMx-81-JQe" id="5qf-kC-HQZ"/>
                         <outlet property="UserName" destination="3a4-cN-fj5" id="eaU-Uo-zAp"/>
                         <segue destination="BKB-KX-fQi" kind="presentation" identifier="FakeProfileToOpponentSelect" id="Kfi-hp-Jka"/>
+                        <segue destination="Jwj-S7-5gy" kind="presentation" identifier="ProfileToHome" id="LZe-Ez-tcL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i3x-aK-dDC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -888,6 +897,16 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cMd-vC-gYN">
+                                <rect key="frame" x="7" y="37" width="41" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Home">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="notificationsToHome" destination="esZ-pB-MIY" eventType="touchUpInside" id="Idq-cQ-ci2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -914,6 +933,7 @@
                     </view>
                     <connections>
                         <outlet property="MyFeed" destination="euA-gJ-wi7" id="9tE-LT-uWq"/>
+                        <segue destination="Jwj-S7-5gy" kind="presentation" identifier="NotificationsToHome" id="qax-4x-ibi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E4H-cU-d8J" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -923,5 +943,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="C4C-SM-klp"/>
+        <segue reference="LZe-Ez-tcL"/>
     </inferredMetricsTieBreakers>
 </document>
