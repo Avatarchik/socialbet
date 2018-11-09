@@ -28,6 +28,27 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
     @IBOutlet weak var TopBar: UIView!
     @IBOutlet weak var Collection: UICollectionView!
     
+    @IBOutlet weak var SideMenuConstraint: NSLayoutConstraint!
+    var sideMenuOpen = false
+    
+    func toggleSideMenu() {
+        if (sideMenuOpen) {
+            SideMenuConstraint.constant = -200
+            sideMenuOpen = false
+        } else {
+            SideMenuConstraint.constant = 0
+            sideMenuOpen = true
+        }
+    }
+    
+    
+    
+    @IBAction func menuTapped() {
+        toggleSideMenu()
+    }
+    
+    
+    
     enum FeedTypes{
         case live
         case open
@@ -49,6 +70,7 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
         self.Collection.register(UINib(nibName: "LiveFeedCell", bundle:nil), forCellWithReuseIdentifier: "LiveFeedCell");
         self.Collection.register(UINib(nibName: "OpenFeedCell", bundle:nil), forCellWithReuseIdentifier: "OpenFeedCell");
         self.Collection.register(UINib(nibName: "GamesFeedCell", bundle:nil), forCellWithReuseIdentifier: "GamesFeedCell");
+        
     }
     
     @IBAction func LiveBetsButton(_ sender: Any) {

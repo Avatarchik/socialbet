@@ -6,7 +6,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class Login: UIViewController {
     
     // PAGE DATA ///////////////////////////////////////////////////////////////////////////////////
     
@@ -19,8 +19,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         // reset the credentials
-        LoginUsername.text = ""
-        LoginPassword.text = ""
+        self.LoginUsername.text = ""
+        self.LoginPassword.text = ""
     }
 
     // PAGE INTERACTION METHODS ////////////////////////////////////////////////////////////////////
@@ -35,7 +35,7 @@ class ViewController: UIViewController {
         
         // create a dictionary to pass the parameters in
         let parameters = ["username": submitusername, "password": submitpassword] as! Dictionary<String, String>
-
+        
         // create and send a POST request
         let response = sendPOST(uri: "/api/v1/accounts/login/", parameters: parameters)
         
@@ -54,7 +54,6 @@ class ViewController: UIViewController {
     @IBAction func LoginHelp(_ sender: Any) {
         // TODO - Create help page
     }
-    
     
     @IBAction func GoToRegistration(_ sender: Any) {
         performSegue(withIdentifier: "LoginToRegistration", sender: self)

@@ -16,6 +16,10 @@ class MyBets: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func notificationsToHome() {
+        performSegue(withIdentifier: "NotificationsToHome", sender: self)
+    }
+    
     @IBAction func Live(_ sender: Any) {
         
     }
