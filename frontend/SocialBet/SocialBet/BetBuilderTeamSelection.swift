@@ -76,6 +76,12 @@ class BetBuilderTeamSelection: UIViewController, UIGestureRecognizerDelegate {
         alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel it"), style: .default, handler: cancelBet))
         self.present(alert, animated: true, completion: nil)
         
+        //TODO - Get wallclock time for time placed
+        //TODO - Get game time and pass that too
+        //TODO - Get Message from user
+        //TODO - Send NOT accepted, YES direct
+        
+        
     }
     
     /*
