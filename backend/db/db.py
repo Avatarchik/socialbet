@@ -9,7 +9,7 @@ def get_users():
 	db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
 	cursor = db.cursor()
 	
-	sql = ""SELECT * FROM users;""
+	sql = "SELECT * FROM users;"
 	cursor.execute(sql)
 
 
@@ -26,9 +26,9 @@ def get_user(data):
 	db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
 	cursor = db.cursor()
 	
-	user_id = data['user_id']
+	user_name = data['user_name']
 
-	sql = "SELECT * FROM users WHERE uid = " + user_id + ";"
+	sql = "SELECT * FROM users WHERE user_name = " + user_name + ";"
 	cursor.execute(sql)
 
 	res = []
@@ -46,13 +46,13 @@ def create_user(data):
 	cursor = db.cursor()
 
 
-	user_id = data['user_id']
+	user_name = data['user_name']
 	first_name = data['first_name']
 	last_name = data['last_name']
-	birthdate = data['birthdate']
+	birthdate = data['birth_date']
 	phone = data['phone']
-	sql = "INSERT INTO users VALUES ( " + user_id + ", " + first_name + ", " + last_name + ", " + 
-	birthdate + ","  + phone + ");"
+	sql = "INSERT INTO users VALUES ( " + user_name + ", " + first_name + ", " + last_name + ", " + 
+	birthdate + ", "  + phone + ");"
 
 	cursor.execute(sql)
 	res = []
@@ -70,8 +70,8 @@ def drop_user(data):
 	db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
 	cursor = db.cursor()
 
-	user_id = data['user_id']
-	sql = "DELETE FROM users WHERE user_id = " + user_id + ";"
+	user_id = data['user_name']
+	sql = "DELETE FROM users WHERE user_name = " + user_name + ";"
 	
 	cursor.execute(sql)
 	res = []
@@ -91,9 +91,9 @@ def get_friends(data):
 	db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
 	cursor = db.cursor()
 	
-	user_id = data['user_id']
+	user_name = data['user_name']
 
-	sql = "SELECT user2 FROM friends WHERE user1 = " + user_id + ";"
+	sql = "SELECT user2 FROM friends WHERE user1 = " + user_name + ";"
 
 	cursor.execute(sql)
 
@@ -107,14 +107,11 @@ def get_friends(data):
 	return res
 
 ########################## GAMES ###########################################################
-# I NEED NOTHING
-def get_games(data):
+def get_games():
 	db_config = get_db_config()
 	db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
 	cursor = db.cursor()
 	
-	user_id = data['user_id']
-
 	sql = "SELECT * FROM games;"
 
 	cursor.execute(sql)
@@ -136,7 +133,9 @@ def get_live_bets(data):
 	db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
 	cursor = db.cursor()
 
-	sql = "SELECT * FROM bets WHERE direct= " + direct + " " + "and live = " + live + ";"
+	user_name = data['user_name']
+
+	sql = "SELECT * FROM bets WHERE user1 = (SELECT user2 FROM friends WHERE user1 = " user_name " " + ") AND accepted=1;"
 	cursor.execute(sql)
 
 	res = []
@@ -153,7 +152,8 @@ def get_open_bets(data):
 	db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
 	cursor = db.cursor()
 
-	sql = "SELECT * FROM bets WHERE direct= " + direct + " " + "and live = " + live + ";"
+	sql = "SELECT * FROM bets WHERE user1 = (SELECT user2 FROM friends WHERE user1 = " user_name " " + ") AND accepted=0;"
+
 	cursor.execute(sql)
 
 	res = []
@@ -178,8 +178,8 @@ def place_bet(data):
 	ammount = data['ammount']
 	user1 = data['user1']
 	user2 = data['user2']
-	team1 = data["team1"]
-	team2 = data["team2"]
+	team1 = data['team1']
+	team2 = data['team2']
     direct = data['direct']
     accepted = data['accepted']
 
