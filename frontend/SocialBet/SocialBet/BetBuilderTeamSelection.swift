@@ -2,9 +2,6 @@
 //  BetBuilderTeamSelection.swift
 //  SocialBet
 //
-//  Created by Alex Chapp on 11/7/18.
-//  Copyright © 2018 Nick Cargill. All rights reserved.
-//
 
 import UIKit
 
