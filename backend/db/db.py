@@ -85,6 +85,7 @@ def drop_user(data):
 
 ########################## FRIENDS ###########################################################
 # I NEED USER_ID ONLY
+# WE ARE SHIFTING OVER TO USING USERNAME AS IDENTIFIER
 def get_friends(data):
 	db_config = get_db_config()
 	db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
@@ -128,6 +129,8 @@ def get_games(data):
 	return res
 
 ########################## BETS ###########################################################
+# THEY WILL PASS ME A USERID, I WILL RETURN ALL OF THE USERS BETS AND THE USERS FRIENDS BETS
+# GET ONE FOR LIVE BETS AND ONE FOR OPEN BETS
 def get_bets(direct, live):
 	db_config = get_db_config()
 	db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
@@ -146,16 +149,17 @@ def get_bets(direct, live):
 	return res
 
 # I NEED ALL BET INFO
+# JUST GETTING TWO TEAMS
 def place_bet(data):
 	db_config = get_db_config()
 	db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
 	cursor = db.cursor()
 
-	bet_id = data['bet_id']
-	contest_id = data['contest_id']
+	# GENERATE MY OWN bet_id = data['bet_id']
+	# contest_id = data['contest_id']
+
 	time_placed = data['time_placed']
 	game_time = data['game_time']
-	num_comments = data['num_comments']
 	message = data['message']
 	ammount = data['ammount']
 	user1 = data['user1']
