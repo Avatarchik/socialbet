@@ -115,7 +115,6 @@
 				01F20EEC217A67F700F2F713 /* SocialBetTests */,
 				01F20EF7217A67F700F2F713 /* SocialBetUITests */,
 				01F20ED6217A67F500F2F713 /* Products */,
-				F4F1EF6F2195322E0038A0B5 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,29 +131,32 @@
 		01F20ED7217A67F500F2F713 /* SocialBet */ = {
 			isa = PBXGroup;
 			children = (
-				01F20EE4217A67F700F2F713 /* Info.plist */,
-				01F20ED8217A67F500F2F713 /* AppDelegate.swift */,
+				F47654E8218A816C0010D208 /* Profile.swift */,
+				A39E26B021924B4200612E81 /* ClosedFeedCell.swift */,
+				A39E26AE21924B0C00612E81 /* ClosedFeedCell.xib */,
+				A3443AC02182CE98005037BA /* Registration.swift */,
 				A39E26B42193535000612E81 /* BetBuilderGameSelection.swift */,
+				01F20ED8217A67F500F2F713 /* AppDelegate.swift */,
+				01F20EDA217A67F500F2F713 /* Login.swift */,
+				A3CD977D218613B8003740C2 /* Feed.swift */,
+				A3BF735B2187600A00CF7F62 /* LiveFeedCell.swift */,
+				A39C1055219126FD005DAAD6 /* LiveFeedCell.xib */,
+				A39C104B218F9B49005DAAD6 /* GamesFeedCell.swift */,
+				A39C105921915036005DAAD6 /* GamesFeedCell.xib */,
+				A39C104D218FB730005DAAD6 /* OpenFeedCell.swift */,
+				A39C10572191411D005DAAD6 /* OpenFeedCell.xib */,
+				A39CE53D219432C8000B9EE1 /* MyBets.swift */,
 				A39CE5372194088E000B9EE1 /* BetBuilderOpponentSelection.swift */,
 				A39CE53521936E74000B9EE1 /* BetBuilderTeamSelection.swift */,
-				A39E26B021924B4200612E81 /* ClosedFeedCell.swift */,
-				F484C0922192A15E009A2726 /* config.swift */,
-				A3CD977D218613B8003740C2 /* Feed.swift */,
-				A39C104B218F9B49005DAAD6 /* GamesFeedCell.swift */,
-				A3BF735B2187600A00CF7F62 /* LiveFeedCell.swift */,
-				01F20EDA217A67F500F2F713 /* Login.swift */,
-				A39CE53D219432C8000B9EE1 /* MyBets.swift */,
-				F484C0952192A7FF009A2726 /* networking.swift */,
-				A39C104D218FB730005DAAD6 /* OpenFeedCell.swift */,
-				F47654E8218A816C0010D208 /* Profile.swift */,
-				A3443AC02182CE98005037BA /* Registration.swift */,
 				01F20EDF217A67F700F2F713 /* Assets.xcassets */,
-				A39E26AE21924B0C00612E81 /* ClosedFeedCell.xib */,
-				A39C105921915036005DAAD6 /* GamesFeedCell.xib */,
-				A39C1055219126FD005DAAD6 /* LiveFeedCell.xib */,
-				A39C10572191411D005DAAD6 /* OpenFeedCell.xib */,
-				01F20EDC217A67F500F2F713 /* Main.storyboard */,
 				01F20EE1217A67F700F2F713 /* LaunchScreen.storyboard */,
+				01F20EE4217A67F700F2F713 /* Info.plist */,
+<<<<<<< HEAD
+				01F20EDC217A67F500F2F713 /* Main.storyboard */,
+=======
+				F484C0922192A15E009A2726 /* config.swift */,
+				F484C0952192A7FF009A2726 /* networking.swift */,
+>>>>>>> 70
 			);
 			path = SocialBet;
 			sourceTree = "<group>";
@@ -175,13 +177,6 @@
 				01F20EFA217A67F700F2F713 /* Info.plist */,
 			);
 			path = SocialBetUITests;
-			sourceTree = "<group>";
-		};
-		F4F1EF6F2195322E0038A0B5 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,7 +243,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1000;
 				LastUpgradeCheck = 1000;
-				ORGANIZATIONNAME = SocialBet;
+				ORGANIZATIONNAME = "Nick Cargill";
 				TargetAttributes = {
 					01F20ED4217A67F500F2F713 = {
 						CreatedOnToolsVersion = 10.0;
@@ -319,11 +314,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01F20EDB217A67F500F2F713 /* Login.swift in Sources */,
-				F484C0962192A7FF009A2726 /* networking.swift in Sources */,
+<<<<<<< HEAD
+				01F20EDB217A67F500F2F713 /* ViewController.swift in Sources */,
 				A39CE53621936E74000B9EE1 /* BetBuilderTeamSelection.swift in Sources */,
 				A39E26B121924B4200612E81 /* ClosedFeedCell.swift in Sources */,
 				A39E26B52193535000612E81 /* BetBuilderGameSelection.swift in Sources */,
+=======
+				01F20EDB217A67F500F2F713 /* Login.swift in Sources */,
+				F484C0962192A7FF009A2726 /* networking.swift in Sources */,
+>>>>>>> 70
 				F47654E9218A816C0010D208 /* Profile.swift in Sources */,
 				A39CE53E219432C8000B9EE1 /* MyBets.swift in Sources */,
 				A39CE5382194088E000B9EE1 /* BetBuilderOpponentSelection.swift in Sources */,
@@ -508,9 +507,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SocialBet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -518,7 +515,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = SocialBet.SocialBet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -528,9 +524,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SocialBet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -538,7 +532,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = SocialBet.SocialBet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
