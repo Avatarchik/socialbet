@@ -32,9 +32,9 @@ class Login: UIViewController {
         // get the user credentials from the textboxes
         let submitusername = LoginUsername.text
         let submitpassword = LoginPassword.text
-        
+        let auth = sha256(data: (submitpassword!).data(using: String.Encoding.utf8)! as NSData);
         // create a dictionary to pass the parameters in
-        let parameters = ["username": submitusername, "password": submitpassword] as! Dictionary<String, String>
+        let parameters = ["username": submitusername, "auth": auth] as! Dictionary<String, String>
         
         // create and send a POST request
         let response = sendPOST(uri: "/api/v1/accounts/login/", parameters: parameters)

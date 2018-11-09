@@ -1,5 +1,5 @@
 //
-//  config.swift
+//  Common.swift
 //  SocialBet
 //
 
@@ -21,6 +21,19 @@ extension UIViewController {
         alertController.addAction(OKAction)
         self.present(alertController, animated: true, completion: nil)
     }
+}
+
+func sha256(data : NSData) -> String {
+    
+    let res = NSMutableData(length: Int(CC_SHA256_DIGEST_LENGTH))
+    
+    let rawPtr = UnsafeMutableRawPointer(res!.mutableBytes);
+    let opaquePtr = OpaquePointer(rawPtr);
+    
+    CC_SHA256(data.bytes, CC_LONG(data.length), UnsafeMutablePointer(opaquePtr));
+    
+    return "\(res!)".replacingOccurrences(of: "", with: "").replacingOccurrences(of: " ", with: "");
+    
 }
 
 // data structure definitions
