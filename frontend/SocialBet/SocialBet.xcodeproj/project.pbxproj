@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		01F20ED9217A67F500F2F713 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F20ED8217A67F500F2F713 /* AppDelegate.swift */; };
-		01F20EDB217A67F500F2F713 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F20EDA217A67F500F2F713 /* ViewController.swift */; };
+		01F20EDB217A67F500F2F713 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F20EDA217A67F500F2F713 /* Login.swift */; };
 		01F20EDE217A67F500F2F713 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01F20EDC217A67F500F2F713 /* Main.storyboard */; };
 		01F20EE0217A67F700F2F713 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01F20EDF217A67F700F2F713 /* Assets.xcassets */; };
 		01F20EE3217A67F700F2F713 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01F20EE1217A67F700F2F713 /* LaunchScreen.storyboard */; };
@@ -29,6 +29,8 @@
 		A3BF735C2187600A00CF7F62 /* LiveFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BF735B2187600A00CF7F62 /* LiveFeedCell.swift */; };
 		A3CD977E218613B8003740C2 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CD977D218613B8003740C2 /* Feed.swift */; };
 		F47654E9218A816C0010D208 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47654E8218A816C0010D208 /* Profile.swift */; };
+		F484C0932192A15E009A2726 /* config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F484C0922192A15E009A2726 /* config.swift */; };
+		F484C0962192A7FF009A2726 /* networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F484C0952192A7FF009A2726 /* networking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +53,7 @@
 /* Begin PBXFileReference section */
 		01F20ED5217A67F500F2F713 /* SocialBet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialBet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01F20ED8217A67F500F2F713 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		01F20EDA217A67F500F2F713 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		01F20EDA217A67F500F2F713 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		01F20EDD217A67F500F2F713 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		01F20EDF217A67F700F2F713 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		01F20EE2217A67F700F2F713 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -77,6 +79,8 @@
 		A3BF735B2187600A00CF7F62 /* LiveFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveFeedCell.swift; sourceTree = "<group>"; };
 		A3CD977D218613B8003740C2 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		F47654E8218A816C0010D208 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		F484C0922192A15E009A2726 /* config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = config.swift; sourceTree = "<group>"; };
+		F484C0952192A7FF009A2726 /* networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = networking.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,7 +137,7 @@
 				A3443AC02182CE98005037BA /* Registration.swift */,
 				A39E26B42193535000612E81 /* BetBuilderGameSelection.swift */,
 				01F20ED8217A67F500F2F713 /* AppDelegate.swift */,
-				01F20EDA217A67F500F2F713 /* ViewController.swift */,
+				01F20EDA217A67F500F2F713 /* Login.swift */,
 				A3CD977D218613B8003740C2 /* Feed.swift */,
 				A3BF735B2187600A00CF7F62 /* LiveFeedCell.swift */,
 				A39C1055219126FD005DAAD6 /* LiveFeedCell.xib */,
@@ -147,7 +151,8 @@
 				01F20EDF217A67F700F2F713 /* Assets.xcassets */,
 				01F20EE1217A67F700F2F713 /* LaunchScreen.storyboard */,
 				01F20EE4217A67F700F2F713 /* Info.plist */,
-				01F20EDC217A67F500F2F713 /* Main.storyboard */,
+				F484C0922192A15E009A2726 /* config.swift */,
+				F484C0952192A7FF009A2726 /* networking.swift */,
 			);
 			path = SocialBet;
 			sourceTree = "<group>";
@@ -305,8 +310,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01F20EDB217A67F500F2F713 /* ViewController.swift in Sources */,
-				A39CE53621936E74000B9EE1 /* BetBuilderTeamSelection.swift in Sources */,
+				01F20EDB217A67F500F2F713 /* Login.swift in Sources */,
+				F484C0962192A7FF009A2726 /* networking.swift in Sources */,
+                A39CE53621936E74000B9EE1 /* BetBuilderTeamSelection.swift in Sources */,
 				A39E26B121924B4200612E81 /* ClosedFeedCell.swift in Sources */,
 				A39E26B52193535000612E81 /* BetBuilderGameSelection.swift in Sources */,
 				F47654E9218A816C0010D208 /* Profile.swift in Sources */,
@@ -316,6 +322,7 @@
 				A39C104E218FB730005DAAD6 /* OpenFeedCell.swift in Sources */,
 				A39C104C218F9B49005DAAD6 /* GamesFeedCell.swift in Sources */,
 				A3443AC12182CE98005037BA /* Registration.swift in Sources */,
+				F484C0932192A15E009A2726 /* config.swift in Sources */,
 				01F20ED9217A67F500F2F713 /* AppDelegate.swift in Sources */,
 				A3BF735C2187600A00CF7F62 /* LiveFeedCell.swift in Sources */,
 			);
