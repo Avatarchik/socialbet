@@ -38,15 +38,6 @@ class Notifications: UIViewController {
     
     @IBOutlet weak var NotificationFeed: UICollectionView!
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
     /*
     // MARK: - Navigation
