@@ -2,9 +2,6 @@
 //  AppDelegate.swift
 //  SocialBet
 //
-//  Created by Nick Cargill on 10/19/18.
-//  Copyright © 2018 Nick Cargill. All rights reserved.
-//
 
 import UIKit
 

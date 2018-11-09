@@ -1,14 +1,14 @@
 //
-//  Notifications.swift
+//  Settings.swift
 //  SocialBet
 //
-//  Created by Alex Chapp on 11/8/18.
-//  Copyright © 2018 Nick Cargill. All rights reserved.
+//  Created by Alex Chapp on 11/9/18.
+//  Copyright © 2018 SocialBet. All rights reserved.
 //
 
 import UIKit
 
-class Notifications: UIViewController {
+class Settings: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,29 +16,8 @@ class Notifications: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBOutlet weak var ProfilePic: UIImageView!
     
-    @IBAction func Accepted(_ sender: Any) {
-        
-    }
-    
-    @IBAction func Declined(_ sender: Any) {
-        
-    }
-    
-    
-    @IBAction func Requests(_ sender: Any) {
-        
-    }
-    
-    
-    @IBAction func Results(_ sender: Any) {
-        
-    }
-    
-    
-    @IBOutlet weak var NotificationFeed: UICollectionView!
-    
-
     /*
     // MARK: - Navigation
 

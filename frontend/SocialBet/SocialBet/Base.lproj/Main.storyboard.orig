@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.30.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.19.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -388,9 +388,6 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="Collection" destination="gwO-tn-ZWu" id="gG9-Hw-4Tx"/>
-                        <outlet property="GamesObject" destination="2n8-xa-YUO" id="GeR-Mf-5nS"/>
-                        <outlet property="LiveBetsObject" destination="Weh-Xe-WAv" id="lcl-f9-amQ"/>
-                        <outlet property="OpenBetsObject" destination="zn2-qz-h3f" id="rGs-55-jfu"/>
                         <outlet property="SideMenuConstraint" destination="arg-sX-ADp" id="O9L-2C-JRu"/>
                         <outlet property="TopBar" destination="EX3-3S-igz" id="H7R-FG-O1b"/>
                     </connections>
@@ -598,9 +595,6 @@
                         <viewLayoutGuide key="safeArea" id="pKH-oH-D9S"/>
                     </view>
                     <connections>
-                        <outlet property="BetweenUsObject" destination="yie-Qk-Ciz" id="eaZ-rL-bY3"/>
-                        <outlet property="LiveBetsObject" destination="1bE-Uo-hGA" id="V1j-B9-2B4"/>
-                        <outlet property="OpenBetsObject" destination="fiB-fn-M3C" id="Mfg-Ts-FBp"/>
                         <outlet property="ProfileBetFeed" destination="ce3-u4-apo" id="5F2-g2-lNa"/>
                         <outlet property="ProfilePic" destination="seY-FA-c8m" id="M3t-DO-wPG"/>
                         <outlet property="UserHandle" destination="fMx-81-JQe" id="5qf-kC-HQZ"/>
@@ -890,7 +884,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Results"/>
                                 <connections>
-                                    <action selector="Results:" destination="esZ-pB-MIY" eventType="touchUpInside" id="l9S-mA-gbw"/>
+                                    <action selector="Results:" destination="esZ-pB-MIY" eventType="touchUpInside" id="aa2-Ft-EFa"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="euA-gJ-wi7">
@@ -939,11 +933,7 @@
                         <viewLayoutGuide key="safeArea" id="Lwl-ui-o5s"/>
                     </view>
                     <connections>
-                        <outlet property="LiveObject" destination="sEj-NY-5C7" id="aIN-J6-faG"/>
                         <outlet property="MyFeed" destination="euA-gJ-wi7" id="9tE-LT-uWq"/>
-                        <outlet property="OpenObject" destination="tBn-6T-ta5" id="zmS-Be-6rB"/>
-                        <outlet property="RequestsObject" destination="MzH-mR-J3P" id="wSI-h1-O7u"/>
-                        <outlet property="ResultsObject" destination="6uX-qj-iCk" id="boA-uD-Svs"/>
                         <segue destination="Jwj-S7-5gy" kind="presentation" identifier="NotificationsToHome" id="qax-4x-ibi"/>
                     </connections>
                 </viewController>
@@ -1008,11 +998,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YLj-lH-ccK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6740" y="194"/>
+            <point key="canvasLocation" x="6542" y="143"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+<<<<<<< HEAD
+        <segue reference="PP5-gq-E7h"/>
+=======
         <segue reference="C4C-SM-klp"/>
-        <segue reference="qax-4x-ibi"/>
+        <segue reference="LZe-Ez-tcL"/>
+>>>>>>> 3c3397e4069f84c5096e549efa6a7023ede958b7
     </inferredMetricsTieBreakers>
 </document>

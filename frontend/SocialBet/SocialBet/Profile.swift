@@ -2,9 +2,7 @@
 //  Profile.swift
 //  SocialBet
 //
-//  Created by John Krieg on 10/31/18.
-//  Copyright © 2018 Nick Cargill. All rights reserved.
-//
+
 
 import UIKit
 
@@ -14,6 +12,15 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     @IBOutlet weak var UserName: UILabel!
     @IBOutlet weak var UserHandle: UILabel!
     @IBOutlet weak var ProfileBetFeed: UICollectionView!
+    
+    @IBOutlet weak var BetweenUsObject: UIButton!
+    @IBOutlet weak var OpenBetsObject: UIButton!
+    @IBOutlet weak var LiveBetsObject: UIButton!
+    
+    
+    @IBAction func returnHome() {
+        performSegue(withIdentifier: "ProfileToHome", sender: self)
+    }
     
     enum ProfileFeedTypes{
         case live
@@ -28,17 +35,26 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     }
     
     @IBAction func LiveBets(_ sender: Any) {
+        self.LiveBetsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
+        self.OpenBetsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
+        self.BetweenUsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
         feedType = .live;
         self.ProfileBetFeed.reloadData();
     }
     
     @IBAction func OpenBets(_ sender: Any) {
+        self.OpenBetsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
+        self.LiveBetsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
+        self.BetweenUsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
         feedType = .open;
         self.ProfileBetFeed.reloadData();
     }
     
     
     @IBAction func BetweenUs(_ sender: Any) {
+        self.BetweenUsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
+        self.OpenBetsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
+        self.LiveBetsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
         feedType = .closed;
         self.ProfileBetFeed.reloadData();
     }

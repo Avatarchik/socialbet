@@ -2,9 +2,6 @@
 //  BetBuilderOpponentSelection.swift
 //  SocialBet
 //
-//  Created by Alex Chapp on 11/8/18.
-//  Copyright © 2018 Nick Cargill. All rights reserved.
-//
 
 import UIKit
 
