@@ -131,7 +131,24 @@ def get_games(data):
 ########################## BETS ###########################################################
 # THEY WILL PASS ME A USERID, I WILL RETURN ALL OF THE USERS BETS AND THE USERS FRIENDS BETS
 # GET ONE FOR LIVE BETS AND ONE FOR OPEN BETS
-def get_bets(direct, live):
+def get_live_bets(data):
+	db_config = get_db_config()
+	db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
+	cursor = db.cursor()
+
+	sql = "SELECT * FROM bets WHERE direct= " + direct + " " + "and live = " + live + ";"
+	cursor.execute(sql)
+
+	res = []
+	for row in cursor:
+		res.append(row)
+
+
+	db.close()
+
+	return res
+
+def get_open_bets(data):
 	db_config = get_db_config()
 	db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
 	cursor = db.cursor()
@@ -155,29 +172,23 @@ def place_bet(data):
 	db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
 	cursor = db.cursor()
 
-	# GENERATE MY OWN bet_id = data['bet_id']
-	# contest_id = data['contest_id']
-
 	time_placed = data['time_placed']
 	game_time = data['game_time']
 	message = data['message']
 	ammount = data['ammount']
 	user1 = data['user1']
 	user2 = data['user2']
+	team1 = data["team1"]
+	team2 = data["team2"]
     direct = data['direct']
     accepted = data['accepted']
 
-    sql = "INSERT INTO bets VALUES ( " + 
-    bet_id + ", " + contest_id + ", " + time_placed + ", " + game_time + ", " + num_comments + ", " + 
-    message + ", " + ammount + ", " + user1 + ", "+ user2 + ", " + direct + ", " + accepted + ";"
+    sql = "INSERT INTO bets VALUES ( NEWID()" + ", "
+    time_placed + ", " + game_time + ", "
+    message + ", " + ammount + ", " + user1 + ", "+ user2 + ", " 
+    team1 + ", " + team2 + ", " + direct + ", " + accepted + ";"
 
 	cursor.execute(sql)
-	
-	res = []
-	for row in cursor:
-		res.append(row)
-
-
 	db.close()
 
-	return res
+	return
