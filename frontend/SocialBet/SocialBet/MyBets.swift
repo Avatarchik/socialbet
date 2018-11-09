@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Notifications: UIViewController {
+class MyBets: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,29 +16,25 @@ class Notifications: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    
-    @IBAction func Accepted(_ sender: Any) {
+    @IBAction func Live(_ sender: Any) {
         
     }
     
-    @IBAction func Declined(_ sender: Any) {
+    @IBAction func Open(_ sender: Any) {
         
     }
-    
     
     @IBAction func Requests(_ sender: Any) {
         
     }
-    
     
     @IBAction func Results(_ sender: Any) {
         
     }
     
     
-    @IBOutlet weak var NotificationFeed: UICollectionView!
+    @IBOutlet weak var MyFeed: UICollectionView!
     
-
     /*
     // MARK: - Navigation
 
