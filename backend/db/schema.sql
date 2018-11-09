@@ -1,5 +1,5 @@
 CREATE TABLE users (
-	user_name VARCCHAR(50) NOT NULL,
+	user_name VARCHAR(50) NOT NULL,
 	first_name VARCHAR(20) NOT NULL,
 	last_name VARCHAR(20) NOT NULL,
 	birth_date VARCHAR(20) NOT NULL,
