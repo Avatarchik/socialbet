@@ -13,6 +13,10 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     @IBOutlet weak var UserHandle: UILabel!
     @IBOutlet weak var ProfileBetFeed: UICollectionView!
     
+    @IBAction func returnHome() {
+        performSegue(withIdentifier: "ProfileToHome", sender: self)
+    }
+    
     enum ProfileFeedTypes{
         case live
         case open
