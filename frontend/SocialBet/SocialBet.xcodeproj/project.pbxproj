@@ -31,7 +31,7 @@
 		A3CD977E218613B8003740C2 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CD977D218613B8003740C2 /* Feed.swift */; };
 		A3F9C801219560DA00D97BBE /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F9C800219560DA00D97BBE /* Settings.swift */; };
 		F47654E9218A816C0010D208 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47654E8218A816C0010D208 /* Profile.swift */; };
-		F484C0932192A15E009A2726 /* config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F484C0922192A15E009A2726 /* config.swift */; };
+		F484C0932192A15E009A2726 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = F484C0922192A15E009A2726 /* Common.swift */; };
 		F484C0962192A7FF009A2726 /* networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F484C0952192A7FF009A2726 /* networking.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,11 +79,12 @@
 		A39E26AE21924B0C00612E81 /* ClosedFeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClosedFeedCell.xib; sourceTree = "<group>"; };
 		A39E26B021924B4200612E81 /* ClosedFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosedFeedCell.swift; sourceTree = "<group>"; };
 		A39E26B42193535000612E81 /* BetBuilderGameSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetBuilderGameSelection.swift; sourceTree = "<group>"; };
+		A3A2F2D32195FEA8001240E5 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		A3BF735B2187600A00CF7F62 /* LiveFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveFeedCell.swift; sourceTree = "<group>"; };
 		A3CD977D218613B8003740C2 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		A3F9C800219560DA00D97BBE /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		F47654E8218A816C0010D208 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
-		F484C0922192A15E009A2726 /* config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = config.swift; sourceTree = "<group>"; };
+		F484C0922192A15E009A2726 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		F484C0952192A7FF009A2726 /* networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = networking.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,7 +143,7 @@
 				A39CE5372194088E000B9EE1 /* BetBuilderOpponentSelection.swift */,
 				A39CE53521936E74000B9EE1 /* BetBuilderTeamSelection.swift */,
 				A39E26B021924B4200612E81 /* ClosedFeedCell.swift */,
-				F484C0922192A15E009A2726 /* config.swift */,
+				F484C0922192A15E009A2726 /* Common.swift */,
 				A3CD977D218613B8003740C2 /* Feed.swift */,
 				A39C104B218F9B49005DAAD6 /* GamesFeedCell.swift */,
 				A3BF735B2187600A00CF7F62 /* LiveFeedCell.swift */,
@@ -159,6 +160,7 @@
 				A39C1055219126FD005DAAD6 /* LiveFeedCell.xib */,
 				A39C10572191411D005DAAD6 /* OpenFeedCell.xib */,
 				01F20EDC217A67F500F2F713 /* Main.storyboard */,
+				A3A2F2D32195FEA8001240E5 /* Bridging-Header.h */,
 				A3F9C800219560DA00D97BBE /* Settings.swift */,
 				01F20EE1217A67F700F2F713 /* LaunchScreen.storyboard */,
 			);
@@ -339,7 +341,7 @@
 				A3F9C801219560DA00D97BBE /* Settings.swift in Sources */,
 				A39C104C218F9B49005DAAD6 /* GamesFeedCell.swift in Sources */,
 				A3443AC12182CE98005037BA /* Registration.swift in Sources */,
-				F484C0932192A15E009A2726 /* config.swift in Sources */,
+				F484C0932192A15E009A2726 /* Common.swift in Sources */,
 				01F20ED9217A67F500F2F713 /* AppDelegate.swift in Sources */,
 				A3BF735C2187600A00CF7F62 /* LiveFeedCell.swift in Sources */,
 			);
@@ -527,6 +529,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = SocialBet.SocialBet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "SocialBet/Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -547,6 +550,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = SocialBet.SocialBet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "SocialBet/Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
