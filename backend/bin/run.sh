@@ -5,5 +5,9 @@
 export FLASK_DEBUG=True
 export FLASK_APP=api
 
-# run the development server on port 8000
-flask run --host 0.0.0.0 --port 8000
+# stop the server if it is running already
+pkill gunicorn
+lsof -i :5000
+
+# (re)run the development server on port 8000
+gunicorn --bind 0.0.0.0:5000 app:app --log-level=debug
