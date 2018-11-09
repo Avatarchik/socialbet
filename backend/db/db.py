@@ -2,6 +2,15 @@
 from .db_config import get_db_config
 import pymysql
 
+def authenticate(username, auth):
+    # check to see if this {username, auth} tuple is in the db
+    # TODO: Chris
+    
+    if TODO:
+        return true
+
+    return False
+
 ########################## USERS ###########################################################
 # I DONT NEED ANYTHING
 def get_users():

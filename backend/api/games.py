@@ -4,8 +4,17 @@ from .api_utils import create_http_response
 app = Flask(__name__)
 games = Blueprint('games', __name__)
 
-@games.route('/api/games/get_games/')
+@games.route('/api/v1/games/')
 def get_games():
-	# TODO
+	# TODO: create games json object and return it
 
-	return create_http_response()
+
+    # check authentication
+
+    # make query    
+
+    # JSONify query
+
+    # return
+
+	return "Hello Games!"
