@@ -1,4 +1,4 @@
-DELETE FROM bets;
-DELETE FROM games;
-DELETE FROM friends;
-DELETE FROM users;
+DROP TABLE bets;
+DROP TABLE games;
+DROP TABLE friends;
+DROP TABLE users;
