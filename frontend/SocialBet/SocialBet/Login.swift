@@ -40,11 +40,13 @@ class ViewController: UIViewController {
         let response = sendPOST(uri: "/api/v1/accounts/login/", parameters: parameters)
         
         // alert the user of success/failure, and either navigate away or refresh the page
-        if response.error != nil {
-            performSegue(withIdentifier: "LoginToRegistration", sender: self)
+        if response.error == nil {
+            // TODO: error isn't being handled properly, figure out
+            performSegue(withIdentifier: "LoginToFeed", sender: self)
         }
         else{
-            alert(title: "Authentication Error", message: "The provided username and password pair wasn't recognized. Try again.")
+            // TODO: check HTML error codes
+            self.alert(message: "The provided username and password pair wasn't recognized. Try again.", title: "Authentication Error")
             viewDidLoad()
         }
     }
@@ -56,17 +58,6 @@ class ViewController: UIViewController {
     
     @IBAction func GoToRegistration(_ sender: Any) {
         performSegue(withIdentifier: "LoginToRegistration", sender: self)
-    }
-    
-    // HELPER METHODS //////////////////////////////////////////////////////////////////////////////
-    
-    // the following are global functions
-    func alert(title: String, message: String){
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action) in alert.dismiss(animated: true, completion: nil)}))
-        
-        self.present (alert, animated: true, completion: nil)
     }
 }
 

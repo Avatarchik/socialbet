@@ -99,6 +99,7 @@
                         <outlet property="LoginPassword" destination="1H8-Qn-f3A" id="ykH-ys-YtR"/>
                         <outlet property="LoginUsername" destination="s6V-Gj-bpq" id="Juq-jH-gXl"/>
                         <segue destination="dgd-zf-exj" kind="presentation" identifier="LoginToRegistration" id="6mP-n1-EiA"/>
+                        <segue destination="Jwj-S7-5gy" kind="presentation" identifier="LoginToFeed" id="PP5-gq-E7h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -804,4 +805,7 @@
             <point key="canvasLocation" x="5777" y="143"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="PP5-gq-E7h"/>
+    </inferredMetricsTieBreakers>
 </document>

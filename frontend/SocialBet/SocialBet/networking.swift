@@ -9,14 +9,14 @@ import Foundation
 
 struct GETResponse {
     var error: Error? = nil
-    var data: Data? = nil
-    var response: URLResponse? = nil
+    var data: Data? = nil               // the parsed response
+    var response: URLResponse? = nil    // the unparsed response
 }
 
 struct POSTResponse {
     var error: Error? = nil
-    var data: Data? = nil
-    var response: URLResponse? = nil
+    var data: Data? = nil               // the parsed response
+    var response: URLResponse? = nil    // the unparsed response
 }
 
 // sends a GET request to the provided URI

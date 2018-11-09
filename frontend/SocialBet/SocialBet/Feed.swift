@@ -6,85 +6,6 @@
 import UIKit
 import Foundation
 
-//TODO - Move all these JSON decodables into some sort of global file (John is creating such a file already)
-
-struct LiveBetFeed: Decodable {
-    let bets: [LiveBet]
-}
-
-struct OpenBetFeed: Decodable {
-    let bets: [OpenBet]
-}
-
-struct GamesFeed: Decodable {
-    let games: [Game]
-}
-
-struct ClosedBetFeed: Decodable {
-    let bets: [ClosedBet]
-}
-
-struct LiveBet: Decodable {
-    let bet_id: String
-    let time_placed: String
-    let game_time: String
-    let num_comments: Int
-    let num_likes: Int
-    let message: String
-    let user1: User
-    let user2: User
-}
-
-struct OpenBet: Decodable {
-    let bet_id: String
-    let time_made: String
-    let game_time: String
-    let num_comments: Int
-    let num_likes: Int
-    let message: String
-    let amount: Int
-    let user: User
-    let other_team: String
-    let other_team_logo_url: String
-}
-
-struct Game: Decodable {
-    let date: String
-    let games: [InnerGame]
-}
-
-struct ClosedBet: Decodable {
-    let bet_id: String
-    let game_time: String
-    let num_comments: Int
-    let num_likes: Int
-    let winningUser: User
-    let losingUser: User
-    let finalScore: String
-}
-
-struct User: Decodable {
-    let user_id: Int
-    let first_name: String
-    let last_name: String
-    let profile_pic_url: String
-    let team: String
-    let team_logo_url: String
-}
-
-struct InnerGame: Decodable {
-    let event_id: Int
-    let home_team: Team
-    let away_team: Team
-}
-
-struct Team: Decodable {
-    let name: String
-    let wins: Int
-    let losses: Int
-    let team_logo_url: String
-}
-
 func getImageFromUrl(urlString: String) -> UIImage {
     var image: UIImage = UIImage();
     let url:URL = URL(string: urlString)!;
@@ -114,79 +35,91 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
     }
     
     var feedType = FeedTypes.live;
+    var feedData = Data()
+    var feedCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad();
         
         loadProfileInfo();
         
+        // default to live bets view
+        LiveBetsButton(self)
+        
         self.Collection.register(UINib(nibName: "LiveFeedCell", bundle:nil), forCellWithReuseIdentifier: "LiveFeedCell");
         self.Collection.register(UINib(nibName: "OpenFeedCell", bundle:nil), forCellWithReuseIdentifier: "OpenFeedCell");
         self.Collection.register(UINib(nibName: "GamesFeedCell", bundle:nil), forCellWithReuseIdentifier: "GamesFeedCell");
     }
     
-    @IBAction func GamesButton(_ sender: Any) {
-        self.feedType = .games;
-        self.Collection.reloadData();
-    }
-    
-    @IBAction func OpenBetsButton(_ sender: Any) {
-        self.feedType = .open;
-        self.Collection.reloadData();
-    }
-    
     @IBAction func LiveBetsButton(_ sender: Any) {
+        // submit a GET request to get the live feed object
+        let response: GETResponse? = sendGET(uri:"/api/v1/live/")
+        let data: Data! = response?.data
+        
+        // decode the information recieved
+        if response?.error != nil {
+            guard let feedData = try? JSONDecoder().decode(LiveBetFeed.self, from: data)
+            else {
+                self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
+                return
+            }
+            feedCount = feedData.bets.count;
+        } else{
+            self.alert(message: "There was an error processing your request.", title: "Network Error")
+        }
+        
         self.feedType = .live;
         self.Collection.reloadData();
     }
     
+    @IBAction func OpenBetsButton(_ sender: Any) {
+        // submit a GET request to get the open feed object
+        let response: GETResponse? = sendGET(uri:"/api/v1/open/")
+        let data: Data! = response?.data
+        
+        // decode the information recieved
+        if response?.error != nil {
+            guard let feedData = try? JSONDecoder().decode(OpenBetFeed.self, from: data)
+                else {
+                    self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
+                    return
+            }
+            feedCount = feedData.bets.count;
+        } else{
+            self.alert(message: "There was an error processing your request.", title: "Network Error")
+        }
+        
+        self.feedType = .open;
+        self.Collection.reloadData();
+    }
+    
+    @IBAction func GamesButton(_ sender: Any) {
+        // submit a GET request to get the game feed object
+        let response: GETResponse? = sendGET(uri:"/api/v1/games/")
+        let data: Data! = response?.data
+        
+        // decode the information recieved
+        if response?.error != nil {
+            guard let feedData = try? JSONDecoder().decode(GamesFeed.self, from: data)
+                else {
+                    self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
+                    return
+            }
+            feedCount = feedData.games.count;
+        } else{
+            self.alert(message: "There was an error processing your request.", title: "Network Error")
+        }
+        
+        self.feedType = .games;
+        self.Collection.reloadData();
+    }
+    
     func loadProfileInfo() {
-        //TODO - Get the info for this user and use
-        //it to populate the profile pic and events
-    }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
+        //TODO - Get the info for this user and use it to populate the profile pic and events
+    }    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        /*switch feedType {
-         case .live:
-         let data: Data = Data(); //TODO - Load the correct data with API call for live feed
-         guard let feed = try? JSONDecoder().decode(LiveBetFeed.self, from: data)
-         else {
-         print("Error decoding data");
-         return 0;
-         }
-         return feed.bets.count;
-         
-         
-         case .open:
-         let data: Data = Data(); //TODO - Load the correct data with API call for open feed
-         guard let feed = try? JSONDecoder().decode(OpenBetFeed.self, from: data)
-         else {
-         print("Error decoding data");
-         return 0;
-         }
-         return feed.bets.count;
-         
-         case .games:
-         let data: Data = Data(); //TODO - Load the correct data with API call for games feed
-         guard let feed = try? JSONDecoder().decode(GamesFeed.self, from: data)
-         else {
-         print("Error decoding data");
-         return 0;
-         }
-         return feed.games.count;
-         }*/
-        return 4;
+        return feedCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -196,8 +129,7 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
         case .live:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LiveFeedCell", for: indexPath) as? LiveFeedCell;
             
-            let data: Data = Data(); //TODO - Load the correct data with API call
-            guard let feed = try? JSONDecoder().decode(LiveBetFeed.self, from: data)
+            guard let feed = try? JSONDecoder().decode(LiveBetFeed.self, from: feedData)
                 else {
                     print("Error decoding data");
                     return cell!;
@@ -221,8 +153,7 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
         case .open:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OpenFeedCell", for: indexPath) as? OpenFeedCell;
             
-            let data: Data = Data(); //TODO - Load the correct data with API call
-            guard let feed = try? JSONDecoder().decode(OpenBetFeed.self, from: data)
+            guard let feed = try? JSONDecoder().decode(OpenBetFeed.self, from: feedData)
                 else {
                     print("Error decoding data");
                     return cell!;
@@ -244,8 +175,7 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
         case .games:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GamesFeedCell", for: indexPath) as? GamesFeedCell;
             
-            let data: Data = Data(); //TODO - Load the correct data with API call
-            guard let feed = try? JSONDecoder().decode(GamesFeed.self, from: data)
+            guard let feed = try? JSONDecoder().decode(GamesFeed.self, from: feedData)
                 else {
                     print("Error decoding data");
                     return cell!;
@@ -269,6 +199,3 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
     }
 
 }
-
-
-
