@@ -1,9 +1,11 @@
+USE socialbetdb;
+
 CREATE TABLE users (
 	user_name VARCHAR(50) NOT NULL,
 	first_name VARCHAR(20) NOT NULL,
 	last_name VARCHAR(20) NOT NULL,
-	birth_date VARCHAR(20) NOT NULL,
 	phone VARCHAR(12),
+    auth VARCHAR(64) NOT NULL,
 	PRIMARY KEY(user_name)
 );
 

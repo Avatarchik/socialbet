@@ -1,15 +1,15 @@
 USE socialbetdb
 
 # USERS
-INSERT INTO users (user_name, first_name, last_name, birth_date, phone)
+INSERT INTO users (user_name, first_name, last_name, phone, auth)
 VALUES
-('cterech', 'Chris','Terech','05/25/1997','734-417-6331'), 
-('rshelly','Ryan','Shelly','09/22/1996','949-290-6670'),
-('ncargill','Nick','Cargill','01/20/1996','914-479-2054'),
-('isvidler','Ittai','Svilder','02/20/1995','912-409-0127'),
-('achapp','Alex','Chapp','12/12/1996','734-498-0573'),
-('jkrieg','John','Krieg','09/22/1997','734-201-9423'),
-('tschwartz','Trevor','Schwartz','10/21/1995','914-479-2054');
+('cterech', 'Chris','Terech','734-417-6331','HIEOS3753H83FHFKS'), 
+('rshelly','Ryan','Shelly','949-290-6670','SDJEI3752E7EFH381J4G9'),
+('ncargill','Nick','Cargill','914-479-2054','H3829HVVUELAW8572'),
+('isvidler','Ittai','Svilder','912-409-0127', '382HF89EHN29E9321AA'),
+('achapp','Alex','Chapp','734-498-0573','3UF920927201F0OSPEU33'),
+('jkrieg','John','Krieg','734-201-9423','29720JSWO37GHEBMXNW'),
+('tschwartz','Trevor','Swartz','914-479-2054','19VUE3HS0HEJ37F35PW0');
 
 # FRIENDS
 INSERT INTO friends (user1,user2)

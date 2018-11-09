@@ -1,3 +1,5 @@
+USE socialbetdb;
+
 DROP TABLE bets;
 DROP TABLE games;
 DROP TABLE friends;
