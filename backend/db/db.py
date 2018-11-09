@@ -183,10 +183,14 @@ def place_bet(data):
     direct = data['direct']
     accepted = data['accepted']
 
-    sql = "INSERT INTO bets VALUES ( NEWID()" + ", "
+    sql = "SELECT game_id FROM games WHERE team1 = " + team1 + " AND team2 = " + team2 ";"
+    cursor.execute(sql)
+    game_id = cursor.fetchall()
+
+    sql = "INSERT INTO bets VALUES ( NEWID()" + ", " + game_id + ", "
     time_placed + ", " + game_time + ", "
     message + ", " + ammount + ", " + user1 + ", "+ user2 + ", " 
-    team1 + ", " + team2 + ", " + direct + ", " + accepted + ";"
+    team1 + ", " + team2 + ", " + direct + ", " + accepted + ");"
 
 	cursor.execute(sql)
 	db.close()
