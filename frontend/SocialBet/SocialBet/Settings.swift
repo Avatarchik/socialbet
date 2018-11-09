@@ -18,6 +18,10 @@ class Settings: UIViewController {
     
     @IBOutlet weak var ProfilePic: UIImageView!
     
+    @IBAction func settingsToHome() {
+        performSegue(withIdentifier: "SettingsToHome", sender: self)
+    }
+    
     /*
     // MARK: - Navigation
 

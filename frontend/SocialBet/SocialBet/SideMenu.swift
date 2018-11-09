@@ -31,7 +31,7 @@ class SideMenu: UITableViewController {
     }
     
     @IBAction func toSettings() {
-        
+        performSegue(withIdentifier: "MenuToSettings", sender: self)
     }
     
     
