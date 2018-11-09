@@ -26,7 +26,7 @@ func sendGET(uri: String) -> GETResponse {
     var getresponse = GETResponse()
     
     // perform the GET request and populate the return object
-    guard let url = URL(string: domain + uri) else { return GETResponse() }
+    guard let url = URL(string: domain + port + uri) else { return GETResponse() }
     
     let session = URLSession.shared
     session.dataTask(with: url) { (data, response, error) in
@@ -61,7 +61,7 @@ func sendPOST(uri: String, parameters: Dictionary<String, String>) ->  POSTRespo
     var postresponse = POSTResponse()
     
     // perform the POST request and populate the return object
-    guard let url = URL(string: domain + uri) else { return POSTResponse() }
+    guard let url = URL(string: domain + ":" + port + uri) else { return POSTResponse() }
     var request = URLRequest(url: url)
     request.httpMethod = "POST"
     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
