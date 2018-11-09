@@ -23,9 +23,36 @@ class Registration: UIViewController {
     @IBOutlet weak var RegistrationLastName: UITextField!
     
     @IBAction func RegistrationSubmit(_ sender: Any) {
-        //TODO - Send contents of text boxes for confirmation
-        //and account creation
-        performSegue(withIdentifier: "RegistrationToLiveFeed", sender: self);
+        let username = RegistrationUsername.text;
+        let password = RegistrationPassword.text;
+        let confirmPassword = RegistrationConfirmPassword.text;
+        let phoneNumber = RegistrationPhoneNumber.text;
+        let firstName = RegistrationFirstName.text;
+        let lastName = RegistrationLastName.text;
+        
+        if (password != confirmPassword){
+            self.alert(message: "The password and ConfirmPassword fields must match", title: "Registration Error")
+            return;
+        }
+        
+        let auth = sha256(data: (password!).data(using: String.Encoding.utf8)! as NSData);
+        
+        let parameters = ["username": username, "auth": auth, "phoneNumber": phoneNumber, "firstName": firstName, "lastName": lastName] as! Dictionary<String, String>
+        
+        // create and send a POST request
+        let response = sendPOST(uri: "/api/v1/accounts/create/", parameters: parameters)
+        
+        // alert the user of success/failure, and either navigate away or refresh the page
+        if response.error == nil {
+            // TODO: error isn't being handled properly, figure out
+            performSegue(withIdentifier: "RegistrationToLiveFeed", sender: self);
+        }
+        else{
+            // TODO: check HTML error codes
+            self.alert(message: "Error creating account. Try again.", title: "Account Creation Error")
+            viewDidLoad()
+        }
+        
     }
     
      @IBAction func GoToLogin(_ sender: Any) {
@@ -33,6 +60,7 @@ class Registration: UIViewController {
      }
     
     @IBAction func GoToHelp(_ sender: Any) {
+        //TODO - Rip this out...just here for testing views
         performSegue(withIdentifier: "FakeRegToProf", sender: self);
     }
     
