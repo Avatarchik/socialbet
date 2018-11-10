@@ -17,6 +17,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     @IBOutlet weak var OpenBetsObject: UIButton!
     @IBOutlet weak var LiveBetsObject: UIButton!
     
+    var username: String?
     
     @IBAction func returnHome() {
         performSegue(withIdentifier: "ProfileToHome", sender: self)

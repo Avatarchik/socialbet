@@ -10,31 +10,56 @@ import UIKit
 
 class SideMenu: UITableViewController {
 
+    @IBOutlet weak var enteredHandle: UITextField!
+    var searched_user: String?
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
         switch indexPath.row {
-        case 0: print("Add search bar functionality")
-        case 1: toProfile()
-        case 2: toNotifications()
-        case 3: toSettings()
+        case 0: toFriendsProfile()
+        case 1: toFriendsProfile()
+        case 2: toProfile()
+        case 3: toMyBets()
+        case 4: toSettings()
         default: break
         }
     }
     
     
-    @IBAction func toProfile() {
+    @IBAction func toFriendsProfile() {
+        self.searched_user = enteredHandle.text;
         performSegue(withIdentifier: "ToProfile", sender: self)
     }
     
-    @IBAction func toNotifications() {
-        performSegue(withIdentifier: "ToNotifications", sender: self)
+    
+    @IBAction func toProfile() {
+        self.searched_user = username
+        performSegue(withIdentifier: "ToProfile", sender: self)
+    }
+    
+    @IBAction func toMyBets() {
+        performSegue(withIdentifier: "ToMyBets", sender: self)
     }
     
     @IBAction func toSettings() {
-        performSegue(withIdentifier: "MenuToSettings", sender: self)
+        performSegue(withIdentifier: "ToSettings", sender: self)
     }
     
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("Override works!")
+        if let vc = segue.destination as? Profile{
+            if (isValidHandle(handle: self.searched_user)) {
+                vc.username = self.searched_user;
+            }
+        }
+    }
+    
+    
+    func isValidHandle(handle: String?) -> Bool{
+        //TODO - Check this handle against all handles in db to find a match
+        return true; //TODO - Change this! Just a placeholder
+    }
     
     
 }
