@@ -69,19 +69,10 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         self.ProfileBetFeed.register(UINib(nibName: "ClosedFeedCell", bundle:nil), forCellWithReuseIdentifier: "ClosedFeedCell");
 
         // Do any additional setup after loading the view.
+        
+        self.loadProfileInfo();
+        
     }
-    
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         /*switch feedType {
@@ -196,6 +187,24 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             return cell!;
         }        
         
+    }
+    
+    func loadProfileInfo(){
+        let response = sendGET(uri: "/api/users/find") //TODO - Add username of target profile to GET request params
+        let data: Data! = response.data
+        
+        if response.error == nil {
+            guard let userData = try? JSONDecoder().decode(User.self, from: data)
+                else {
+                    self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
+                    return
+            }
+            self.ProfilePic.image = getImageFromUrl(urlString: userData.profile_pic_url)
+            self.UserHandle.text = userData.username;
+            self.UserName.text = userData.first_name + " " + userData.last_name;
+        } else{
+            self.alert(message: "There was an error processing your request.", title: "Network Error")
+        }
     }
 
 

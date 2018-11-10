@@ -13,6 +13,8 @@ class Login: UIViewController {
     @IBOutlet weak var LoginUsername: UITextField!
     @IBOutlet weak var LoginPassword: UITextField!
     
+    let parameters: Dictionary<String, String> = [:];
+    
     // PAGE MANAGEMENT METHODS /////////////////////////////////////////////////////////////////////
     
     override func viewDidLoad() {
@@ -24,10 +26,6 @@ class Login: UIViewController {
     }
 
     // PAGE INTERACTION METHODS ////////////////////////////////////////////////////////////////////
-    
-    // Login Button
-    // Send a POST request to /api/v1/accounts/login/
-    // {username:"", pwhash:""}
     @IBAction func LoginSubmit(_ sender: Any) {
         // get the user credentials from the textboxes
         let submitusername = LoginUsername.text

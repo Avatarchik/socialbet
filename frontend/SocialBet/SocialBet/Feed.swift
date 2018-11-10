@@ -32,8 +32,6 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
     @IBOutlet weak var LiveBetsObject: UIButton!
     
     
-    
-    
     @IBOutlet weak var SideMenuConstraint: NSLayoutConstraint!
     var sideMenuOpen = false
     
@@ -67,8 +65,6 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad();
-        
-        loadProfileInfo();
         
         // default to live bets view
         LiveBetsButton(self)
@@ -151,10 +147,6 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
         self.feedType = .games;
         self.Collection.reloadData();
     }
-    
-    func loadProfileInfo() {
-        //TODO - Get the info for this user and use it to populate the profile pic and events
-    }    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return feedCount

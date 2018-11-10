@@ -94,7 +94,7 @@ struct ClosedBet: Decodable {
 }
 
 struct User: Decodable {
-    let user_id: Int
+    let username: String
     let first_name: String
     let last_name: String
     let profile_pic_url: String
