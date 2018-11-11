@@ -38,6 +38,15 @@ class BetBuilderTeamSelection: UIViewController, UIGestureRecognizerDelegate {
     
     func submitBet(alert: UIAlertAction!) {
         //TODO - Finalize the bet as user has confirmed. Will need to add parameters, just not sure what we will need yet.
+        
+        let gameTime = self.selected_game_id
+        
+        let parameters = ["loguser": submitusername, "auth": auth] as! Dictionary<String, String>
+        
+        sendPOST(uri: "/api/betting/place_bet", parameters: parameters)
+        
+        
+        
         print("Bet Submitted!");
     }
     
