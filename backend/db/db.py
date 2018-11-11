@@ -213,3 +213,73 @@ def place_bet(data):
     db.close()
 
     return
+
+# I NEED ALL BET INFO
+# JUST GETTING TWO TEAMS
+def place_bet(data):
+    db_config = get_db_config()
+    db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
+    cursor = db.cursor()
+
+    time_placed = data['time_placed']
+    game_time = data['game_time']
+    message = data['message']
+    amount = data['amount']
+    user1 = data['user1']
+    user2 = data['user2']
+    team1 = data['team1']
+    team2 = data['team2']
+
+    direct = data['direct']
+    accepted = data['accepted']
+
+    sql = "SELECT game_id FROM games WHERE team1 = " + team1 + " AND team2 = " + team2  + ";"
+    cursor.execute(sql)
+    game_id = cursor.fetchall()
+
+    sql = "INSERT INTO bets VALUES ( NEWID()" + ", " + game_id + ", " + \
+        time_placed + ", " + game_time + ", " + \
+        message + ", " + amount + ", " + user1 + ", "+ user2 + ", " + \
+        team1 + ", " + team2 + ", " + direct + ", " + accepted + ");"
+
+    cursor.execute(sql)
+    db.close()
+
+    return
+
+def get_bet(bet_id):
+
+    db_config = get_db_config()
+    db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
+    cursor = db.cursor()
+    sql = 'SELECT * FROM bets WHERE bet_id=\"' + bet_id+ '\";'
+    cursor.execute(sql)
+    bet = cursor.fetch_one()
+    db.close()
+
+    return bet
+
+def accept_bet(data):
+    bet_id = data['bet_id']
+    user_id = data['user_id']
+
+    # Determine if direct or open bet
+    bet = get_bet(bet_id)
+    direct_bet = bet['direct']
+
+    sql = 'UPDATE bets SET accepted=1'
+
+    # open bet sql
+    if not direct_bet:
+        sql += ', user2=\"' + user_id + '\"'
+
+    sql += ' WHERE bet_id=' + bet_id+ ';'
+
+    db_config = get_db_config()
+    db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
+    cursor = db.cursor()
+    cursor.execute(sql)
+    db.close()
+
+    return
+
