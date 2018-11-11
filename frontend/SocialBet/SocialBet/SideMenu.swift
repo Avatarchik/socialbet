@@ -49,16 +49,10 @@ class SideMenu: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("Override works!")
         if let vc = segue.destination as? Profile{
-            if (isValidHandle(handle: self.searched_user)) {
+            if (isValidHandle(handle: self.searched_user, friends: false)) {
                 vc.searchedUser = self.searched_user!;
             }
         }
-    }
-    
-    
-    func isValidHandle(handle: String?) -> Bool{
-        //TODO - Check this handle against all handles in db to find a match
-        return true; //TODO - Change this! Just a placeholder
     }
     
     
