@@ -125,10 +125,10 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             
             cell?.User1Name.text = thisBet.user1.first_name + " " + thisBet.user1.last_name;
             cell?.User2Name.text = thisBet.user2.first_name + " " + thisBet.user2.last_name;
-            cell?.User1Image.image = getImageFromUrl(urlString: thisBet.user1.profile_pic_url);
-            cell?.User2Image.image = getImageFromUrl(urlString: thisBet.user2.profile_pic_url);
-            cell?.Team1Image.image = getImageFromUrl(urlString: thisBet.user1.team_logo_url);
-            cell?.Team2Image.image = getImageFromUrl(urlString: thisBet.user2.team_logo_url);
+            getImageFromUrl(urlString: thisBet.user1.profile_pic_url, imageView: (cell?.User1Image)!);
+            getImageFromUrl(urlString: thisBet.user2.profile_pic_url, imageView: (cell?.User2Image)!);
+            getImageFromUrl(urlString: thisBet.user1.team_logo_url, imageView: (cell?.Team1Image)!);
+            getImageFromUrl(urlString: thisBet.user2.team_logo_url, imageView: (cell?.Team2Image)!);
             cell?.TeamName1.text = thisBet.user1.team;
             cell?.TeamName2.text = thisBet.user2.team;
             cell?.Message.text = thisBet.message;
@@ -150,9 +150,9 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             
             cell?.UserName.text = thisBet.user.first_name + " " + thisBet.user.last_name;
             cell?.UserTeamName.text = thisBet.user.team;
-            cell?.UserTeamLogo.image = getImageFromUrl(urlString: thisBet.user.team_logo_url);
+            getImageFromUrl(urlString: thisBet.user.team_logo_url, imageView: (cell?.UserTeamLogo)!);
             cell?.UserTeamLowerText.text = thisBet.user.team;
-            cell?.OtherTeamLogo.image = getImageFromUrl(urlString: thisBet.other_team_logo_url);
+            getImageFromUrl(urlString: thisBet.other_team_logo_url, imageView: (cell?.OtherTeamLogo)!);
             cell?.OtherTeamLowerText.text = thisBet.other_team;
             cell?.BetAmount.text = "Amount: $" + String(thisBet.amount);
             cell?.GameTime.text = thisBet.game_time;
@@ -173,15 +173,15 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             
             let thisBet = feed.bets[indexPath.row];
             
-            cell?.WinningTeamLogo.image = getImageFromUrl(urlString: thisBet.winningUser.team_logo_url);
+            getImageFromUrl(urlString: thisBet.winningUser.team_logo_url, imageView: (cell?.WinningTeamLogo)!);
             cell?.WinningTeamName.text = thisBet.winningUser.team;
-            cell?.LosingTeamLogo.image = getImageFromUrl(urlString: thisBet.losingUser.team_logo_url);
+            getImageFromUrl(urlString: thisBet.losingUser.team_logo_url, imageView: (cell?.LosingTeamLogo)!);
             cell?.LosingTeamName.text = thisBet.losingUser.team;
             cell?.FinalScore.text = thisBet.finalScore;
             cell?.GameDateTime.text = thisBet.game_time;
-            cell?.WinningUserPic.image = getImageFromUrl(urlString: thisBet.winningUser.profile_pic_url);
+            getImageFromUrl(urlString: thisBet.winningUser.profile_pic_url, imageView: (cell?.WinningUserPic)!);
             cell?.WinningUserName.text = thisBet.winningUser.first_name + " " + thisBet.winningUser.last_name;
-            cell?.LosingUserPic.image = getImageFromUrl(urlString: thisBet.losingUser.profile_pic_url);
+            getImageFromUrl(urlString: thisBet.losingUser.profile_pic_url, imageView: (cell?.LosingUserPic)!);
             cell?.LosingUserName.text = thisBet.losingUser.first_name + " " + thisBet.losingUser.last_name;
             
             return cell!;
@@ -199,7 +199,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
                     self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
                     return
             }
-            self.ProfilePic.image = getImageFromUrl(urlString: userData.profile_pic_url)
+            getImageFromUrl(urlString: userData.profile_pic_url, imageView: self.ProfilePic!);
             self.UserHandle.text = userData.username;
             self.UserName.text = userData.first_name + " " + userData.last_name;
         } else{

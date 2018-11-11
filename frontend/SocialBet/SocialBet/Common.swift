@@ -37,6 +37,17 @@ func sha256(data : NSData) -> String {
     
 }
 
+func getImageFromUrl(urlString: String, imageView: UIImageView) {
+    let url = URL(string: urlString)
+    
+    DispatchQueue.global().async {
+        let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+        DispatchQueue.main.async {
+            imageView.image = UIImage(data: data!)
+        }
+    }
+}
+
 // data structure definitions
 struct LiveBetFeed: Decodable {
     let bets: [LiveBet]

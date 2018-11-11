@@ -4,24 +4,6 @@
 //
 
 import UIKit
-import Foundation
-
-func getImageFromUrl(urlString: String) -> UIImage {
-    var image: UIImage = UIImage();
-    let url:URL = URL(string: urlString)!;
-    DispatchQueue.global(qos: .userInitiated).async {
-        if let data:NSData = try? NSData(contentsOf: url){
-            DispatchQueue.main.async {
-                image = UIImage(data: data as Data)!;
-            }
-        }
-        else{
-            print("Error loading images");
-        }
-    }
-    
-    return image;
-}
 
 class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
@@ -169,10 +151,10 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             
             cell?.User1Name.text = thisBet.user1.first_name + " " + thisBet.user1.last_name;
             cell?.User2Name.text = thisBet.user2.first_name + " " + thisBet.user2.last_name;
-            cell?.User1Image.image = getImageFromUrl(urlString: thisBet.user1.profile_pic_url);
-            cell?.User2Image.image = getImageFromUrl(urlString: thisBet.user2.profile_pic_url);
-            cell?.Team1Image.image = getImageFromUrl(urlString: thisBet.user1.team_logo_url);
-            cell?.Team2Image.image = getImageFromUrl(urlString: thisBet.user2.team_logo_url);
+            getImageFromUrl(urlString: thisBet.user1.profile_pic_url, imageView: (cell?.User1Image)!);
+            getImageFromUrl(urlString: thisBet.user2.profile_pic_url, imageView: (cell?.User2Image)!);
+            getImageFromUrl(urlString: thisBet.user1.team_logo_url, imageView: (cell?.Team1Image)!);
+            getImageFromUrl(urlString: thisBet.user2.team_logo_url, imageView: (cell?.Team2Image)!);
             cell?.TeamName1.text = thisBet.user1.team;
             cell?.TeamName2.text = thisBet.user2.team;
             cell?.Message.text = thisBet.message;
@@ -193,9 +175,9 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             
             cell?.UserName.text = thisBet.user.first_name + " " + thisBet.user.last_name;
             cell?.UserTeamName.text = thisBet.user.team;
-            cell?.UserTeamLogo.image = getImageFromUrl(urlString: thisBet.user.team_logo_url);
+            getImageFromUrl(urlString: thisBet.user.team_logo_url, imageView: (cell?.UserTeamLogo)!);
             cell?.UserTeamLowerText.text = thisBet.user.team;
-            cell?.OtherTeamLogo.image = getImageFromUrl(urlString: thisBet.other_team_logo_url);
+            getImageFromUrl(urlString: thisBet.other_team_logo_url, imageView: (cell?.OtherTeamLogo)!);
             cell?.OtherTeamLowerText.text = thisBet.other_team;
             cell?.BetAmount.text = "Amount: $" + String(thisBet.amount);
             cell?.GameTime.text = thisBet.game_time;
@@ -216,8 +198,8 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             let theseGames = feed.games[indexPath.row];
             let thisGame = theseGames.games[indexPath.item];
             
-            cell?.HomeTeamLogo.image = getImageFromUrl(urlString: thisGame.home_team.team_logo_url);
-            cell?.AwayTeamLogo.image = getImageFromUrl(urlString: thisGame.away_team.team_logo_url);
+            getImageFromUrl(urlString: thisGame.home_team.team_logo_url, imageView: (cell?.HomeTeamLogo)!);
+            getImageFromUrl(urlString: thisGame.away_team.team_logo_url, imageView: (cell?.AwayTeamLogo)!);
             cell?.HomeTeamName.text = thisGame.home_team.name;
             cell?.AwayTeamName.text = thisGame.away_team.name;
             cell?.HomeTeamRecord.text = String(thisGame.home_team.wins) + "-" + String(thisGame.home_team.losses);
