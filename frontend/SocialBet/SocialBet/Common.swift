@@ -135,6 +135,8 @@ struct ClosedBet: Decodable {
     let num_likes: Int
     let winningUser: User
     let losingUser: User
+    let winningTeam: Team
+    let losingTeam: Team
     let finalScore: String
 }
 
