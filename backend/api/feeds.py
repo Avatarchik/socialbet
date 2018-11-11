@@ -1,5 +1,5 @@
 from flask import Flask, Blueprint
-import db
+from db import db
 from .api_utils import create_http_response
 
 app = Flask(__name__)

@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify, Blueprint
-import db
+from db import db
 import json
 from .api_utils import create_http_response
 

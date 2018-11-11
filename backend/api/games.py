@@ -1,7 +1,7 @@
 from flask import Flask, Blueprint
 from .api_utils import create_http_response
 from flask import request
-import db
+from db import db
 
 app = Flask(__name__)
 games = Blueprint('games', __name__)
