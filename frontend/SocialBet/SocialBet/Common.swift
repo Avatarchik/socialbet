@@ -57,6 +57,28 @@ func addGETParams(path: String, search: String, needsUsername: Bool) -> String {
     return fullString;
 }
 
+func isValidHandle(handle: String?, friends: Bool) -> Bool{
+    var fullURI = addGETParams(path: "/api/users/exist", search: handle!, needsUsername: true)
+    if (friends){
+        fullURI = fullURI + "&friends=true";
+    }
+    else{
+        fullURI = fullURI + "&friends=false";
+    }
+    let response: GETResponse? = sendGET(uri: fullURI);
+    let data: Data! = response?.data
+    // decode the information recieved
+    if response?.error != nil {
+        guard let feedData = try? JSONDecoder().decode(Existance.self, from: data)
+            else {
+                return false;
+        }
+        return feedData.value;
+    } else{
+        return false;
+    }
+}
+
 // data structure definitions
 struct LiveBetFeed: Decodable {
     let bets: [LiveBet]
@@ -83,6 +105,8 @@ struct LiveBet: Decodable {
     let message: String
     let user1: User
     let user2: User
+    let user1_team: Team
+    let user2_team: Team
 }
 
 struct OpenBet: Decodable {
@@ -94,8 +118,8 @@ struct OpenBet: Decodable {
     let message: String
     let amount: Int
     let user: User
-    let other_team: String
-    let other_team_logo_url: String
+    let user_team: Team
+    let other_team: Team
 }
 
 struct Game: Decodable {
@@ -118,8 +142,6 @@ struct User: Decodable {
     let first_name: String
     let last_name: String
     let profile_pic_url: String
-    let team: String
-    let team_logo_url: String
 }
 
 struct InnerGame: Decodable {
@@ -133,4 +155,8 @@ struct Team: Decodable {
     let wins: Int
     let losses: Int
     let team_logo_url: String
+}
+
+struct Existance: Decodable {
+    let value: Bool
 }

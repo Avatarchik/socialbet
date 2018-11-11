@@ -33,8 +33,6 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
         toggleSideMenu()
     }
     
-    
-    
     enum FeedTypes{
         case live
         case open

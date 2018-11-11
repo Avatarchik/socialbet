@@ -23,11 +23,6 @@ class BetBuilderOpponentSelection: UIViewController {
         }
     }
     
-    func isValidHandle(handle: String?) -> Bool{
-        //TODO - use endpoint to check if this username exists in FRIENDS of logged in user
-        return true; //TODO - Change this. Just a placeholder
-    }
-    
     var entered_handle: String?;
     @IBOutlet weak var OpponentHandle: UITextField!
     
@@ -38,7 +33,7 @@ class BetBuilderOpponentSelection: UIViewController {
     
     @IBAction func CreateDirectBet(_ sender: Any) {
         self.entered_handle = self.OpponentHandle.text;
-        if (isValidHandle(handle: self.entered_handle)){
+        if (isValidHandle(handle: self.entered_handle, friends: true)){
             performSegue(withIdentifier: "OpponentSelectToGameSelect", sender: self);
         }
         else{
