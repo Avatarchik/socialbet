@@ -20,12 +20,14 @@ class Settings: UIViewController, UIGestureRecognizerDelegate, UINavigationContr
         
         let firstRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.profilePicPressed(sender:)))
         firstRecognizer.delegate = self
+        self.ProfilePic.isUserInteractionEnabled = true;
         self.ProfilePic.addGestureRecognizer(firstRecognizer)
         
     }
     
     @objc func profilePicPressed(sender: AnyObject) {
         // TO DO ADD THE PROFILE PIC
+        print("Profile Pic PRESSED");
         if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
             print("Button capture")
             
