@@ -227,7 +227,7 @@ def user_exist(data):
 
     cursor.execute(sql)
 
-    count = cursor.fetch_one()
+    count = cursor.fetchone()
     if count is not None:
         return True
     else:
@@ -273,7 +273,7 @@ def get_bet(bet_id):
     cursor = db.cursor()
     sql = 'SELECT * FROM bets WHERE bet_id=\"' + bet_id+ '\";'
     cursor.execute(sql)
-    bet = cursor.fetch_one()
+    bet = cursor.fetchone()
     db.close()
 
     return bet
