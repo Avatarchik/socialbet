@@ -9,15 +9,15 @@ betting = Blueprint('betting', __name__)
 
 @betting.route('/api/betting/place_bet', methods=['POST'])
 def place_bet():
-	'''
-	Places a bet into the database, and returns success message
-	:return:
-	'''
+    '''
+    Places a bet into the database, and returns success message
+    :return:
+    '''
 
-	# Load request json data as dict
-	data = json.loads(request.args)
+    # Load request json data as dict
+    data = json.loads(request.args)
 
-	response_data = {}
+    response_data = {}
 
     # Authenticating user and building response_data accordingly
     auth = db.authenticate(data['loguser'], data['auth'])
@@ -30,22 +30,22 @@ def place_bet():
         response_data['errors'] = []
         response_data['errors'].append('unauthenticated user')
 
-	return create_http_response(data=response_data, errors=response_data['errors'])
+    return create_http_response(data=response_data, errors=response_data['errors'])
 
 @betting.route('/api/betting/accept_bet', methods=['POST'])
 def accept_bet():
-	'''
-	Accepts bet
+    '''
+    Accepts bet
 
-	:return:
-	'''
+    :return:
+    '''
 
-	# Load request json data as dict
-	data = json.loads(request.data)
+    # Load request json data as dict
+    data = json.loads(request.data)
 
     response_data = {}
-	# TODO: Authenticate user
-	auth = db.authenticate(data['loguser'], data['auth'])
+    # TODO: Authenticate user
+    auth = db.authenticate(data['loguser'], data['auth'])
     if (auth):
         db.accept_bet(data)
         return create_http_response()
@@ -57,19 +57,19 @@ def accept_bet():
 
 @betting.route('/api/betting/cancel_bet', methods=['POST'])
 def cancel_bet():
-	'''
-	Cancel's a bet by
-		1) Removing it from mysql database
-		2) Cancelling smart contract
-	:return:
-	'''
+    '''
+    Cancel's a bet by
+        1) Removing it from mysql database
+        2) Cancelling smart contract
+    :return:
+    '''
 
-	# Load request json data as dict
-	data = json.loads(request.data)
-	bet_id = data['bet_id']
+    # Load request json data as dict
+    data = json.loads(request.data)
+    bet_id = data['bet_id']
 
-	# TODO: Authenticate user
-	auth = db.authenticate(data['loguser'], data['auth'])
+    # TODO: Authenticate user
+    auth = db.authenticate(data['loguser'], data['auth'])
     if auth:
         db.cancel_bet(bet_id)
         return create_http_response()
@@ -78,6 +78,6 @@ def cancel_bet():
     response_data['errors'] = []
     response_data['errors'].append('unauthenticated user')
 
-	# Respond with status
-	return create_http_response(errors=response_data['errors'])
+    # Respond with status
+    return create_http_response(errors=response_data['errors'])
 
