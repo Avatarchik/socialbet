@@ -9,7 +9,7 @@ VALUES
 ('isvidler','Ittai','Svilder','912-409-0127', '382HF89EHN29E9321AA'),
 ('achapp','Alex','Chapp','734-498-0573','3UF920927201F0OSPEU33'),
 ('jkrieg','John','Krieg','734-201-9423','29720JSWO37GHEBMXNW'),
-('tschwartz','Trevor','Swartz','914-479-2054','19VUE3HS0HEJ37F35PW0');
+('taswartz','Trevor','Swartz','914-479-2054','19VUE3HS0HEJ37F35PW0');
 
 # FRIENDS
 INSERT INTO friends (user1,user2)
