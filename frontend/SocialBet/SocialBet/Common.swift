@@ -48,6 +48,15 @@ func getImageFromUrl(urlString: String, imageView: UIImageView) {
     }
 }
 
+func addGETParams(path: String, search: String, needsUsername: Bool) -> String {
+    let params = "?loguser=" + username + "&auth=" + pwhash;
+    var fullString = path + params;
+    if (needsUsername){
+        fullString = fullString + "&username=" + search;
+    }    
+    return fullString;
+}
+
 // data structure definitions
 struct LiveBetFeed: Decodable {
     let bets: [LiveBet]

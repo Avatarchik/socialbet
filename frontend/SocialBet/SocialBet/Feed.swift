@@ -59,7 +59,8 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
     
     @IBAction func LiveBetsButton(_ sender: Any) {
         // submit a GET request to get the live feed object
-        let response: GETResponse? = sendGET(uri:"/api/v1/live/")
+        let fullURI = addGETParams(path: "/api/live/", search: "", needsUsername: false)
+        let response: GETResponse? = sendGET(uri: fullURI);
         let data: Data! = response?.data
         
         // decode the information recieved
@@ -75,15 +76,16 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
         }
         
         self.LiveBetsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
-        self.OpenBetsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
-        self.GamesObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
+        self.OpenBetsObject.titleLabel?.font = UIFont.systemFont(ofSize: 15);
+        self.GamesObject.titleLabel?.font = UIFont.systemFont(ofSize: 15);
         self.feedType = .live;
         self.Collection.reloadData();
     }
     
     @IBAction func OpenBetsButton(_ sender: Any) {
         // submit a GET request to get the open feed object
-        let response: GETResponse? = sendGET(uri:"/api/v1/open/")
+        let fullURI = addGETParams(path: "/api/open/", search: "", needsUsername: false)
+        let response: GETResponse? = sendGET(uri: fullURI);
         let data: Data! = response?.data
         
         // decode the information recieved
@@ -100,15 +102,16 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
         
         
         self.OpenBetsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
-        self.LiveBetsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
-        self.GamesObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
+        self.LiveBetsObject.titleLabel?.font = UIFont.systemFont(ofSize: 15);
+        self.GamesObject.titleLabel?.font = UIFont.systemFont(ofSize: 15);
         self.feedType = .open;
         self.Collection.reloadData();
     }
     
     @IBAction func GamesButton(_ sender: Any) {
         // submit a GET request to get the game feed object
-        let response: GETResponse? = sendGET(uri:"/api/v1/games/")
+        let fullURI = addGETParams(path: "/api/games/", search: "", needsUsername: false)
+        let response: GETResponse? = sendGET(uri: fullURI);
         let data: Data! = response?.data
         
         // decode the information recieved
@@ -124,8 +127,8 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
         }
         
         self.GamesObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
-        self.OpenBetsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
-        self.LiveBetsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
+        self.OpenBetsObject.titleLabel?.font = UIFont.systemFont(ofSize: 15);
+        self.LiveBetsObject.titleLabel?.font = UIFont.systemFont(ofSize: 15);
         self.feedType = .games;
         self.Collection.reloadData();
     }
