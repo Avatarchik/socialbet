@@ -18,29 +18,27 @@ def check_user():
 		return create_http_response(data=result, errors=result['errors'])
 
 	is_friend = request.args.get('friends')
+	response = {}
 	if is_friend:
 		data = {}
 		data['user_name'] = log_user
 		all_friends = db.get_friends(data)
-
+		count = 0
+		for friend in all_friends:
+			if friend['user2'] == request.args.get('username'):
+				break
+			count += 1
+		if count == len(all_friends):
+			response['value'] = False
+		else:
+			response['value'] = True
 	else:
-		
+		data = {}
+		data['user_name'] = request.args.get('username')
+		response['value'] = db.user_exist(data)
 
+	return create_http_response(data=response)
 
-@users.route('/api/users/list')
-def list_users():
-	log_user = request.args.get('loguser')
-	auth = request.args.get('auth')
-	auth_ = db.authenticate(log_user, auth)
-	if not auth_:
-		result = {}
-		result['errors'] = []
-		result['errors'].append('unauthenticated user')
-		return create_http_response(data=result, errors=result['errors'])
-
-	user = db.get_users()
-
-	return create_http_response()
 
 @users.route('/api/users/find')
 def get_user():
@@ -52,21 +50,42 @@ def get_user():
 		result['errors'] = []
 		result['errors'].append('unauthenticated user')
 		return create_http_response(data=result, errors=result['errors'])
-	# TODO
-	return create_http_response()
-
-
-@users.route('/api/users/create')
-def create_user():
-	log_user = request.args.get('loguser')
-	auth = request.args.get('auth')
-	auth_ = db.authenticate(log_user, auth)
-	if not auth_:
+	
+	result = {}
+	data = {}
+	data['user_name'] = request.args.get('username')
+	users = db.get_user(data)
+	if len(users) == 0:
 		result = {}
 		result['errors'] = []
-		result['errors'].append('unauthenticated user')
+		result['errors'].append('username does not exist')
 		return create_http_response(data=result, errors=result['errors'])
-	#TODO
+	elif len(users) > 1:
+		result = {}
+		result['errors'] = []
+		result['errors'].append('multiple identical usernames found')
+		return create_http_response(data=result, errors=result['errors'])
+
+	result['username'] = users[0]['user_name']
+	result['first_name'] = users[0]['first_name']
+	result['last_name'] = users[0]['last_name']
+	result['profile_pic_url'] = users[0]['profile_pic_url']
+
+	return create_http_response(data=result)
+
+
+@users.route('/api/users/create', methods=["POST"])
+def create_user():
+	data = json.loads(request.args)
+
+	user_info = {}
+	user_info['user_name'] = data['username']
+	user_info['auth'] = data['auth']
+	user_info['first_name'] = data['first_name']
+	user_info['last_name'] = data['last_name']
+	user_info['phone_number'] = data['phone_number']
+
+	db.create_user(user_info)
 
 	return create_http_response()
 
