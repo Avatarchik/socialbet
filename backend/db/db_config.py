@@ -1,4 +1,4 @@
-from .. import config
+import config
 
 # TODO: Update parameters
 production_db = {
@@ -11,9 +11,9 @@ production_db = {
 # TODO: Update parameters
 test_db = {
 	'host': 'localhost',
-	'username': '<username>',
-	'password': '<password>',
-	'database_name': '<database name>'
+	'username': 'socialbet',
+	'password': 'socialbet',
+	'database_name': 'socialbetdb'
 }
 
 def get_db_config():
