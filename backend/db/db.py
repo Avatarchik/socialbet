@@ -13,7 +13,7 @@ def authenticate(log_user, auth):
     sql = "SELECT user_name FROM users WHERE user_name=\"" + log_user + "\" AND auth=\"" + auth + "\";"
     cursor.execute(sql)
 
-    account = cursor.fetch_one()
+    account = cursor.fetchone()
     if account is not None:
         return True
 
