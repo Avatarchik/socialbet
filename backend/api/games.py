@@ -11,14 +11,11 @@ def get_games():
     # TODO: create games json object and return it
     # check authentication
     log_user = request.args.get('loguser')
-    auth = request.args.get('auth')
-    auth_ = db.authenticate(log_user, auth)
-    if not auth_:
-	   result = {}
-	   result['errors'] = []
-	   result['errors'].append('unauthenticated user')
-	   return create_http_response(data=result, errors=result['errors'])
-	
+    auth_token = request.args.get('auth')
+    authenticated = db.authenticate(log_user, auth_token)
+    if not authenticated:
+       return create_http_response(errors=['unauthenticated user'])
+
     # make query
     games = {
         'games': db.get_games()
