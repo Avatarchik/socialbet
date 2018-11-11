@@ -2,6 +2,9 @@ from .db_config import get_db_config
 import pymysql
 
 def authenticate(log_user, auth):
+    if log_user is None or auth is None:
+        return False
+
     # check to see if this {username, auth} tuple is in the db
     db_config = get_db_config()
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
