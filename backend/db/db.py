@@ -72,15 +72,15 @@ def create_user(data):
     sql = "INSERT INTO users VALUES ( " + user_name + ", " + first_name + ", " + last_name + ", " + \
         phone + ", " + auth + ", " + prof_pic ");"
 
-    cursor.execute(sql)
-    res = []
-    for row in cursor:
-        res.append(row)
-
+    worked = True
+    try:
+        cursor.execute(sql)
+    except:
+        worked = False
 
     db.close()
 
-    return res
+    return worked
 
 # I NEED ONLY user_name
 def drop_user(data):

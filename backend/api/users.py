@@ -86,7 +86,12 @@ def create_user():
 	user_info['phone_number'] = data['phone_number']
 	user_info['prof_pic'] = data['profile_pic_url']
 
-	db.create_user(user_info)
-
-	return create_http_response()
+	worked = db.create_user(user_info)
+	if worked:
+		return create_http_response()
+	else:
+		result = {}
+		result['errors'] = []
+		result['errors'].append('username already in use')
+		return create_http_response(data=result, errors=result['errors'])
 
