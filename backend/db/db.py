@@ -37,7 +37,7 @@ def get_users():
     db.close()
     return res
 
-# I NEED USER_ID
+# I NEED user_name
 def get_user(data):
     db_config = get_db_config()
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
@@ -81,14 +81,14 @@ def create_user(data):
 
     return res
 
-# I NEED ONLY USER_ID
+# I NEED ONLY user_name
 def drop_user(data):
     db_config = get_db_config()
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
     cursor = db.cursor()
 
-    user_id = data['user_id']
-    sql = "DELETE FROM users WHERE user_name = " + user_id + ";"
+    user_name = data['user_name']
+    sql = "DELETE FROM users WHERE user_name = " + user_name + ";"
 
     cursor.execute(sql)
     res = []
@@ -101,7 +101,7 @@ def drop_user(data):
     return res
 
 ########################## FRIENDS ###########################################################
-# I NEED USER_ID ONLY
+# I NEED user_name ONLY
 # WE ARE SHIFTING OVER TO USING USERNAME AS IDENTIFIER
 def get_friends(data):
     db_config = get_db_config()
@@ -150,9 +150,9 @@ def get_live_bets(data):
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
     cursor = db.cursor()
 
-    user_id = data['user_id']
+    user_name = data['user_name']
 
-    sql = "SELECT * FROM bets WHERE user1 = (SELECT user2 FROM friends WHERE user1 = " + user_id + " " + ") AND accepted=1;"
+    sql = "SELECT * FROM bets WHERE user1 = (SELECT user2 FROM friends WHERE user1 = " + user_name + " " + ") AND accepted=1;"
     cursor.execute(sql)
 
     res = []
@@ -169,9 +169,9 @@ def get_open_bets(data):
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
     cursor = db.cursor()
 
-    user_id = data['user_id']
+    user_name = data['user_name']
 
-    sql = "SELECT * FROM bets WHERE user1 = (SELECT user2 FROM friends WHERE user1 = " + user_id + " " + ") AND accepted=0;"
+    sql = "SELECT * FROM bets WHERE user1 = (SELECT user2 FROM friends WHERE user1 = " + user_name + " " + ") AND accepted=0;"
 
     cursor.execute(sql)
 
@@ -217,7 +217,7 @@ def place_bet(data):
 
     return
 
-# Returns True if count(user_id) > 0 otherwise false
+# Returns True if count(user_name) > 0 otherwise false
 def user_exist(data):
     db_config = get_db_config()
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
@@ -280,7 +280,7 @@ def get_bet(bet_id):
 
 def accept_bet(data):
     bet_id = data['bet_id']
-    user_id = data['user_id']
+    user_name = data['user_name']
 
     # Determine if direct or open bet
     bet = get_bet(bet_id)
@@ -290,7 +290,7 @@ def accept_bet(data):
 
     # open bet sql
     if not direct_bet:
-        sql += ', user2=\"' + user_id + '\"'
+        sql += ', user2=\"' + user_name + '\"'
 
     sql += ' WHERE bet_id=' + bet_id+ ';'
 
