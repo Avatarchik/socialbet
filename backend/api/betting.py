@@ -15,7 +15,7 @@ def place_bet():
 	'''
 
 	# Load request json data as dict
-	data = json.loads(request.data)
+	data = json.loads(request.args)
 
 	# TODO: Authenticate user
 	pass
