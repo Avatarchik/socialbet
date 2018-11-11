@@ -17,7 +17,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     @IBOutlet weak var OpenBetsObject: UIButton!
     @IBOutlet weak var LiveBetsObject: UIButton!
     
-    var username: String?
+    var searchedUser: String = ""
     
     @IBAction func returnHome() {
         performSegue(withIdentifier: "ProfileToHome", sender: self)
@@ -37,16 +37,16 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     
     @IBAction func LiveBets(_ sender: Any) {
         self.LiveBetsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
-        self.OpenBetsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
-        self.BetweenUsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
+        self.OpenBetsObject.titleLabel?.font = UIFont.systemFont(ofSize: 15);
+        self.BetweenUsObject.titleLabel?.font = UIFont.systemFont(ofSize: 15);
         feedType = .live;
         self.ProfileBetFeed.reloadData();
     }
     
     @IBAction func OpenBets(_ sender: Any) {
         self.OpenBetsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
-        self.LiveBetsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
-        self.BetweenUsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
+        self.LiveBetsObject.titleLabel?.font = UIFont.systemFont(ofSize: 15);
+        self.BetweenUsObject.titleLabel?.font = UIFont.systemFont(ofSize: 15);
         feedType = .open;
         self.ProfileBetFeed.reloadData();
     }
@@ -54,8 +54,8 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     
     @IBAction func BetweenUs(_ sender: Any) {
         self.BetweenUsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
-        self.OpenBetsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
-        self.LiveBetsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
+        self.OpenBetsObject.titleLabel?.font = UIFont.systemFont(ofSize: 15);
+        self.LiveBetsObject.titleLabel?.font = UIFont.systemFont(ofSize: 15);
         feedType = .closed;
         self.ProfileBetFeed.reloadData();
     }
@@ -190,7 +190,8 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     }
     
     func loadProfileInfo(){
-        let response = sendGET(uri: "/api/users/find") //TODO - Add username of target profile to GET request params
+        let fullURI = addGETParams(path: "/api/users/find/", search: self.searchedUser, needsUsername: true)
+        let response = sendGET(uri: fullURI)
         let data: Data! = response.data
         
         if response.error == nil {

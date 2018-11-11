@@ -50,7 +50,7 @@ class SideMenu: UITableViewController {
         print("Override works!")
         if let vc = segue.destination as? Profile{
             if (isValidHandle(handle: self.searched_user)) {
-                vc.username = self.searched_user;
+                vc.searchedUser = self.searched_user!;
             }
         }
     }
