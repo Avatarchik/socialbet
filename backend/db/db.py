@@ -66,10 +66,11 @@ def create_user(data):
     user_name = data['user_name']
     first_name = data['first_name']
     last_name = data['last_name']
-    birthdate = data['birth_date']
+    auth = data['auth']
     phone = data['phone']
+    prof_pic = data['prof_pic']
     sql = "INSERT INTO users VALUES ( " + user_name + ", " + first_name + ", " + last_name + ", " + \
-        birthdate + ", "  + phone + ");"
+        phone + ", " + auth + ", " + prof_pic ");"
 
     cursor.execute(sql)
     res = []

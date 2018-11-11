@@ -84,6 +84,7 @@ def create_user():
 	user_info['first_name'] = data['first_name']
 	user_info['last_name'] = data['last_name']
 	user_info['phone_number'] = data['phone_number']
+	user_info['prof_pic'] = data['profile_pic_url']
 
 	db.create_user(user_info)
 
