@@ -19,19 +19,13 @@ class BetBuilderOpponentSelection: UIViewController {
         
         //If going to next stage of bet builder
         if let vc = segue.destination as? BetBuilderGameSelection{
-            if (self.isValidHandle(handle: self.entered_handle)){
-                vc.selectedOpponent = self.entered_handle;
-            }
-            else{
-                //TODO - Print some error message about invalid handle
-            }
-            
+            vc.selectedOpponent = self.entered_handle;
         }
     }
     
     func isValidHandle(handle: String?) -> Bool{
-        //TODO - Check this handle against all handles in db to find a match
-        return true; //TODO - Change this! Just a placeholder
+        //TODO - use endpoint to check if this username exists in FRIENDS of logged in user
+        return true; //TODO - Change this. Just a placeholder
     }
     
     var entered_handle: String?;
@@ -44,20 +38,12 @@ class BetBuilderOpponentSelection: UIViewController {
     
     @IBAction func CreateDirectBet(_ sender: Any) {
         self.entered_handle = self.OpponentHandle.text;
-        performSegue(withIdentifier: "OpponentSelectToGameSelect", sender: self);
+        if (isValidHandle(handle: self.entered_handle)){
+            performSegue(withIdentifier: "OpponentSelectToGameSelect", sender: self);
+        }
+        else{
+            self.alert(message: "The username entered does not match any of your friends. Please try again.");
+        }
+        
     }
-    
-    
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
