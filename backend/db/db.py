@@ -10,7 +10,7 @@ def authenticate(log_user, auth):
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
     cursor = db.cursor()
    
-    sql = "SELECT user_name FROM users WHERE user_name = " + log_user + "AND auth = " + auth
+    sql = "SELECT user_name FROM users WHERE user_name=\"" + log_user + "\" AND auth=\"" + auth + "\";"
     cursor.execute(sql)
 
     account = cursor.fetch_one()
