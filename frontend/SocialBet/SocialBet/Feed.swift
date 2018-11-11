@@ -42,7 +42,9 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
     }
     
     var feedType = FeedTypes.live;
-    var feedData = Data()
+    var liveData: LiveBetFeed?;
+    var openData: OpenBetFeed?;
+    var gamesData: GamesFeed?;
     var feedCount = 0
     
     override func viewDidLoad() {
@@ -70,7 +72,8 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
                 self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
                 return
             }
-            feedCount = feedData.bets.count;
+            self.liveData = feedData;
+            feedCount = self.liveData!.bets.count;
         } else{
             self.alert(message: "There was an error processing your request.", title: "Network Error")
         }
@@ -95,6 +98,7 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
                     self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
                     return
             }
+            self.openData = feedData;
             feedCount = feedData.bets.count;
         } else{
             self.alert(message: "There was an error processing your request.", title: "Network Error")
@@ -121,6 +125,7 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
                     self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
                     return
             }
+            self.gamesData = feedData;
             feedCount = feedData.games.count;
         } else{
             self.alert(message: "There was an error processing your request.", title: "Network Error")
@@ -134,7 +139,7 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return feedCount
+        return self.feedCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -144,13 +149,7 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
         case .live:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LiveFeedCell", for: indexPath) as? LiveFeedCell;
             
-            guard let feed = try? JSONDecoder().decode(LiveBetFeed.self, from: feedData)
-                else {
-                    print("Error decoding data");
-                    return cell!;
-            }
-            
-            let thisBet = feed.bets[indexPath.row];
+            let thisBet = self.liveData!.bets[indexPath.row];
             
             cell?.User1Name.text = thisBet.user1.first_name + " " + thisBet.user1.last_name;
             cell?.User2Name.text = thisBet.user2.first_name + " " + thisBet.user2.last_name;
@@ -168,13 +167,7 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
         case .open:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OpenFeedCell", for: indexPath) as? OpenFeedCell;
             
-            guard let feed = try? JSONDecoder().decode(OpenBetFeed.self, from: feedData)
-                else {
-                    print("Error decoding data");
-                    return cell!;
-            }
-            
-            let thisBet = feed.bets[indexPath.row];
+            let thisBet = self.openData!.bets[indexPath.row];
             
             cell?.UserName.text = thisBet.user.first_name + " " + thisBet.user.last_name;
             cell?.UserTeamName.text = thisBet.user.team;
@@ -190,15 +183,9 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
         case .games:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GamesFeedCell", for: indexPath) as? GamesFeedCell;
             
-            guard let feed = try? JSONDecoder().decode(GamesFeed.self, from: feedData)
-                else {
-                    print("Error decoding data");
-                    return cell!;
-            }
-            
             //TODO - Figure out how to correctly use this indexPath thing for nested arrays
             
-            let theseGames = feed.games[indexPath.row];
+            let theseGames = gamesData!.games[indexPath.row];
             let thisGame = theseGames.games[indexPath.item];
             
             getImageFromUrl(urlString: thisGame.home_team.team_logo_url, imageView: (cell?.HomeTeamLogo)!);
