@@ -12,6 +12,9 @@ class BetBuilderTeamSelection: UIViewController, UIGestureRecognizerDelegate {
 
         // Do any additional setup after loading the view.
         
+        self.TeamOneLogo.isUserInteractionEnabled = true;
+        self.TeamTwoLogo.isUserInteractionEnabled = true;
+        
         let firstRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.teamOneSelected(sender:)))
         firstRecognizer.delegate = self
         let secondRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.teamTwoSelected(sender:)))
