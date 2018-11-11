@@ -31,6 +31,10 @@ This step is still very nebular. We will update this with database, web serving,
 3. **Run flask app with guincorn**
 
     `gunicorn --bind 0.0.0.0:5000 app:app --log-level=debug`
+    
+    _OR_
+    
+    `./run_server.sh`
 
     Now, you should be able to make requests. Make sure to send requests to port 5000.
 
