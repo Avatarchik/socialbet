@@ -20,7 +20,7 @@ def place_bet():
 	response_data = {}
 
     # Authenticating user and building response_data accordingly
-    auth = db.authenticate(data['username'], data['auth'])
+    auth = db.authenticate(data['loguser'], data['auth'])
     if (auth):
         # add bet to db and give bet_id in response
         bet_id = db.place_bet(data)
@@ -45,7 +45,7 @@ def accept_bet():
 
     response_data = {}
 	# TODO: Authenticate user
-	auth = db.authenticate(data['username'], data['auth'])
+	auth = db.authenticate(data['loguser'], data['auth'])
     if (auth):
         db.accept_bet(data)
         return create_http_response()
@@ -69,7 +69,7 @@ def cancel_bet():
 	bet_id = data['bet_id']
 
 	# TODO: Authenticate user
-	auth = db.authenticate(data['username'], data['auth'])
+	auth = db.authenticate(data['loguser'], data['auth'])
     if auth:
         db.cancel_bet(bet_id)
         return create_http_response()

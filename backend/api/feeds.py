@@ -8,6 +8,15 @@ feeds = Blueprint('feeds', __name__)
 
 @feeds.route('/api/feeds/open_bets/')
 def list_open_bets():
+	log_user = request.args.get('loguser')
+	auth = request.args.get('auth')
+	auth_ = db.authenticate(log_user, auth)
+	if not auth_:
+		result = {}
+		result['errors'] = []
+		result['errors'].append('unauthenticated user')
+		return create_http_response(data=result, errors=result['errors'])
+
 	direct = False
 	accepted = False
 
@@ -33,10 +42,19 @@ def list_open_bets():
 	result = {
 		'bets': bets
 	}
-	return create_http_response(result)
+	return create_http_response(data=result)
 
 @feeds.route('/api/feeds/live_bets/')
 def list_closed_bets():
+	log_user = request.args.get('loguser')
+	auth = request.args.get('auth')
+	auth_ = db.authenticate(log_user, auth)
+	if not auth_:
+		result = {}
+		result['errors'] = []
+		result['errors'].append('unauthenticated user')
+		return create_http_response(data=result, errors=result['errors'])
+	
 	direct = True
 	accepted = True
 
@@ -72,7 +90,7 @@ def list_closed_bets():
 		'bets': bets
 	}
 
-	return create_http_response(result)
+	return create_http_response(data=result)
 
 @feeds.route('/api/feeds/direct_bets_pending')
 def list_direct_bets_pending():
@@ -80,6 +98,15 @@ def list_direct_bets_pending():
 
 @feeds.route('/api/feeds/past_bets')
 def list_past_bets():
+	log_user = request.args.get('loguser')
+	auth = request.args.get('auth')
+	auth_ = db.authenticate(log_user, auth)
+	if not auth_:
+		result = {}
+		result['errors'] = []
+		result['errors'].append('unauthenticated user')
+		return create_http_response(data=result, errors=result['errors'])
+
 	direct = True
 	accepted = True
 
@@ -116,5 +143,5 @@ def list_past_bets():
 		'bets': bets
 	}
 
-	return create_http_response(result)
+	return create_http_response(data=result)
 
