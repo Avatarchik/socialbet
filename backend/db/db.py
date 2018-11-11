@@ -2,14 +2,13 @@
 from .db_config import get_db_config
 import pymysql
 
-def authenticate(username, auth):
+def authenticate(log_user, auth):
     # check to see if this {username, auth} tuple is in the db
-    # TODO: Chris
     db_config = get_db_config()
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
     cursor = db.cursor()
    
-    sql = "SELECT user_name FROM users WHERE user_name = " + username + "AND auth = " + auth
+    sql = "SELECT user_name FROM users WHERE user_name = " + log_user + "AND auth = " + auth
     cursor.execute(sql)
 
     for row in cursor:
