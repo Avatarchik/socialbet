@@ -14,11 +14,11 @@ def get_games():
     auth = request.args.get('auth')
     auth_ = db.authenticate(log_user, auth)
     if not auth_:
-	   result = {}
-	   result['errors'] = []
-	   result['errors'].append('unauthenticated user')
-	   return create_http_response(data=result, errors=result['errors'])
-	
+       result = {}
+       result['errors'] = []
+       result['errors'].append('unauthenticated user')
+       return create_http_response(data=result, errors=result['errors'])
+
     # make query
     games = {
         'games': db.get_games()
