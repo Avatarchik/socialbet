@@ -192,7 +192,6 @@ def place_bet(data):
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
     cursor = db.cursor()
 
-    time_placed = data['time_placed']
     game_time = data['game_time']
     message = data['message']
     amount = data['amount']
@@ -209,7 +208,7 @@ def place_bet(data):
     game_id = cursor.fetchall()
 
     sql = "INSERT INTO bets VALUES ( NEWID()" + ", " + game_id + ", " + \
-        time_placed + ", " + game_time + ", " + \
+        "NOW(), " + game_time + ", " + \
         message + ", " + amount + ", " + user1 + ", "+ user2 + ", " + \
         team1 + ", " + team2 + ", " + direct + ", " + accepted + ");"
 

@@ -95,3 +95,18 @@ def create_user():
 		result['errors'].append('username already in use')
 		return create_http_response(data=result, errors=result['errors'])
 
+
+@users.route('/api/users/login', methods=["POST"])
+def login_user():
+	data = json.loads(request.args)
+	username = data['username']
+	auth = data['auth']
+	auth_ = db.authenticate(username, auth)
+	if not auth_:
+		result = {}
+		result['errors'] = []
+		result['errors'].append('username and auth dont match up')
+		return create_http_response(data=result, errors=result['errors'])
+
+	return create_http_response()
+
