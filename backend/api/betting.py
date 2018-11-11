@@ -17,19 +17,20 @@ def place_bet():
 	# Load request json data as dict
 	data = json.loads(request.args)
 
-	# TODO: Authenticate user
-	pass
+	response_data = {}
 
+    # Authenticating user and building response_data accordingly
+    auth = db.authenticate(data['loguser'], data['auth'])
+    if (auth):
+        # add bet to db and give bet_id in response
+        bet_id = db.place_bet(data)
+        response_data['bet_id'] = bet_id
+    else:
+        # give unauthenticated error
+        response_data['errors'] = []
+        response_data['errors'].append('unauthenticated user')
 
-	# Insert bet into mysql db
-	bet_id = db.place_bet(data)
-
-	# Respond with bet id
-	response_data = {
-		'bet_id': bet_id
-	}
-
-	return create_http_response(data=response_data)
+	return create_http_response(data=response_data, errors=response_data['errors'])
 
 @betting.route('/api/betting/accept_bet', methods=['POST'])
 def accept_bet():
@@ -42,14 +43,16 @@ def accept_bet():
 	# Load request json data as dict
 	data = json.loads(request.data)
 
+    response_data = {}
 	# TODO: Authenticate user
-	pass
-
-
-	# Insert bet into mysql db
-	db.accept_bet(data)
-
-	return create_http_response()
+	auth = db.authenticate(data['loguser'], data['auth'])
+    if (auth):
+        db.accept_bet(data)
+        return create_http_response()
+    else:
+        response_data['errors'] = []
+        response_data['errors'].append('unauthenticated user')
+        return create_http_response(errors=response_data['errors'])
 
 
 @betting.route('/api/betting/cancel_bet', methods=['POST'])
@@ -63,15 +66,18 @@ def cancel_bet():
 
 	# Load request json data as dict
 	data = json.loads(request.data)
-	bet_id = data
+	bet_id = data['bet_id']
 
 	# TODO: Authenticate user
-	pass
-
-
-	# Insert bet into mysql db
-	db.cancel_bet(bet_id)
+	auth = db.authenticate(data['loguser'], data['auth'])
+    if auth:
+        db.cancel_bet(bet_id)
+        return create_http_response()
+        
+    response_data = {}
+    response_data['errors'] = []
+    response_data['errors'].append('unauthenticated user')
 
 	# Respond with status
-	return create_http_response()
+	return create_http_response(errors=response_data['errors'])
 

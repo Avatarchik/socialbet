@@ -214,6 +214,22 @@ def place_bet(data):
 
     return
 
+# Returns True if count(user_id) > 0 otherwise false
+def user_exist(data):
+    db_config = get_db_config()
+    db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
+    cursor = db.cursor()
+    user_name = data['user_name']
+    sql = "SELECT user_name FROM users WHERE user_name = " + user_name
+
+    cursor.execute(sql)
+
+    count = cursor.fetch_one()
+    if count is not None:
+        return True
+    else:
+        return False
+
 # I NEED ALL BET INFO
 # JUST GETTING TWO TEAMS
 def place_bet(data):

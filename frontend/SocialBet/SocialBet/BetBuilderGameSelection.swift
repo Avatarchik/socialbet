@@ -9,6 +9,8 @@ class BetBuilderGameSelection: UIViewController, UICollectionViewDataSource, UIC
     
     var selectedOpponent: String?;
     var selectedGame: Int?;
+    var feedCount: Int = 0;
+    var gamesData: GamesFeed?;
     @IBOutlet weak var BuilderGamesFeed: UICollectionView!
     
     override func viewDidLoad() {
@@ -19,6 +21,23 @@ class BetBuilderGameSelection: UIViewController, UICollectionViewDataSource, UIC
         // Do any additional setup after loading the view.
         print("Opponent Handle: " + self.selectedOpponent!);
         
+        // submit a GET request to get the game feed object
+        let fullURI = addGETParams(path: "/api/games/", search: "", needsUsername: false)
+        let response: GETResponse? = sendGET(uri: fullURI);
+        let data: Data! = response?.data
+        
+        // decode the information recieved
+        if response?.error != nil {
+            guard let feedData = try? JSONDecoder().decode(GamesFeed.self, from: data)
+                else {
+                    self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
+                    return
+            }
+            self.gamesData = feedData;
+            self.feedCount = feedData.games.count;
+        } else{
+            self.alert(message: "There was an error processing your request.", title: "Network Error")
+        }
     }
     
     //Use this function to pass data through segues
@@ -30,47 +49,18 @@ class BetBuilderGameSelection: UIViewController, UICollectionViewDataSource, UIC
             vc.selected_opponent = self.selectedOpponent;
         }
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-         /*
-         let data: Data = Data(); //TODO - Load the correct data with API call for games feed
-         guard let feed = try? JSONDecoder().decode(GamesFeed.self, from: data)
-         else {
-         print("Error decoding data");
-         return 0;
-         }
-         return feed.games.count;
-         */
-        return 4;
+        return self.feedCount;
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GamesFeedCell", for: indexPath) as? GamesFeedCell;
             
-            let data: Data = Data(); //TODO - Load the correct data with API call
-            guard let feed = try? JSONDecoder().decode(GamesFeed.self, from: data)
-                else {
-                    print("Error decoding data");
-                    return cell!;
-            }
-            
             //TODO - Figure out how to correctly use this indexPath thing for nested arrays
             
-            let theseGames = feed.games[indexPath.row];
+            let theseGames = self.gamesData!.games[indexPath.row];
             let thisGame = theseGames.games[indexPath.item];
             
             getImageFromUrl(urlString: thisGame.home_team.team_logo_url, imageView: (cell?.HomeTeamLogo)!);
@@ -84,7 +74,6 @@ class BetBuilderGameSelection: UIViewController, UICollectionViewDataSource, UIC
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath){
-        //TODO - store the selected event_ID and bring up next screen with that game loaded
         if let indexPath = self.BuilderGamesFeed.indexPathsForSelectedItems?.first{
             let cell = self.BuilderGamesFeed.cellForItem(at: indexPath) as? GamesFeedCell;
             self.selectedGame = cell?.event_id;
@@ -93,8 +82,4 @@ class BetBuilderGameSelection: UIViewController, UICollectionViewDataSource, UIC
         
     }
     
-    
-    
-    
-
 }
