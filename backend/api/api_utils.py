@@ -22,5 +22,5 @@ def create_http_response(data={}, errors=[]):
 
 	response.update(data)
 
-	return jsonify(response, status_code=200)
+	return jsonify(response), 200,  {'ContentType': 'application/json'}
 
