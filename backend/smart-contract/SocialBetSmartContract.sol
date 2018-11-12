@@ -19,12 +19,12 @@ contract SocialBetContract {
 
     // Smart contract constructor
     function SocialBetContract() public {
-        owner = msg.sender;
+        ownerAddress = msg.sender;
     }
 
     // Kill contract function
     function kill() public {
-      if(msg.sender == owner) selfdestruct(owner);
+      if(msg.sender == ownerAddress) selfdestruct(ownerAddress);
     }
 
     // Check that bets exist function
