@@ -111,7 +111,7 @@ def get_friends(data):
 
     user_name = data['user_name']
 
-    sql = "SELECT user2 FROM friends WHERE user1 = " + user_name + ";"
+    sql = "SELECT user2 FROM friends WHERE user1 = '" + user_name + "';"
 
     cursor.execute(sql)
 
