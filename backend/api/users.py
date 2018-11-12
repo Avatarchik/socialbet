@@ -5,7 +5,7 @@ from .api_utils import create_http_response
 app = Flask(__name__)
 users = Blueprint('users', __name__)
 
-
+#Currently a bug in this endpoint. Returning no friends with achapp and cterech
 @users.route('/api/users/exist')
 def check_user():
 	log_user = request.args.get('loguser')
