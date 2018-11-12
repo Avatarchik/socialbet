@@ -70,7 +70,7 @@ def create_user(data):
     phone = data['phone']
     prof_pic = data['prof_pic']
     sql = "INSERT INTO users VALUES ( " + user_name + ", " + first_name + ", " + last_name + ", " + \
-        phone + ", " + auth + ", " + prof_pic ");"
+        phone + ", " + auth + ", " + prof_pic + ");"
 
     worked = True
     try:
