@@ -23,7 +23,7 @@ VALUES
 ('cterech','ncargill');
 
 # GAMES
-INSERT INTO games(game_id, team1, team2, record1, record2, game_time)
+INSERT INTO games(game_id, team1, team2, team1_url, team2_url, record1, record2, game_time)
 VALUES
 (1, 'Detroit Lions', 'Chicago Bears', '1-7', '2-6', '11/18/2018 1:00PM'),
 (2, 'New England Patriots', 'Philadelphia Eagles','1-7', '2-6', '11/18/2018 1:00PM'), 
