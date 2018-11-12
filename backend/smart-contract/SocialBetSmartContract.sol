@@ -1,17 +1,25 @@
 pragma solidity ^0.4.25;
 contract SocialBetContract {
-   address public owner;
-   address public counterParty;
-   uint256 public betAmount;
-   uint256 public betId;
 
-    // The address of the player and => the user info
-    mapping(address => Player) public playerInfo;
+   address public ownerAddress;
+
+    struct Bet {
+        address public user1Address;
+        address public user2Address;
+        bool public accepted;
+        uint256 public amount;
+        bool public completed;
+    }
+
+    mapping(uint256 => Bet) public betInfo;
+    uint256[] public betIds;
+
+
     function() public payable {}
 
     // Smart contract constructor
     function SocialBetContract() public {
-      owner = msg.sender;
+        owner = msg.sender;
     }
 
     // Kill contract function
@@ -19,76 +27,102 @@ contract SocialBetContract {
       if(msg.sender == owner) selfdestruct(owner);
     }
 
-    //
-    function checkPlayerExists(address player) public constant returns(bool){
-      for(uint256 i = 0; i < players.length; i++){
-         if(players[i] == player) return true;
-      }
+    // Check that bets exist function
+    function checkBetExists(uint256 _betId) public constant
+    returns(bool) {
+        for(uint256 i = 0; i < betIds.length; i++ ) {
+            if(betIds[i] == _betId) return true;
+        }
       return false;
+
     }
-    function bet(uint8 _teamSelected) public payable {
-      //The first require is used to check if the player already exist
-      require(!checkPlayerExists(msg.sender));
-      //The second one is used to see if the value sended by the player is
-      //Higher than the minimum value
-      require(msg.value >= minimumBet);
-      //We set the player informations : amount of the bet and selected team
-      playerInfo[msg.sender].amountBet = msg.value;
-      playerInfo[msg.sender].teamSelected = _teamSelected;
-      //then we add the address of the player to the players array
-      players.push(msg.sender);
-      //at the end, we increment the stakes of the team selected with the player bet
-      if ( _teamSelected == 1){
-          totalBetsOne += msg.value;
-      }
-      else{
-          totalBetsTwo += msg.value;
-      }
+
+
+    // Create bet function
+    function createBet(uint256 _betId) public payable {
+
+        // Make sure bet does not exist already
+        require(!checkBetExists(_betId));
+
+        // Create new bet
+        betInfo[_betId].user1Address = msg.sender;
+        betInfo[_betId].accepted = false;
+        betInfo[_betId].amount = msg.value;
+        betInfo[_betId].completed = false;
+
+        betIds.push(_betId);
     }
-    // Generates a number between 1 and 10 that will be the winner
-    function distributePrizes(uint16 teamWinner) public {
-      address[1000] memory winners;
-      //We have to create a temporary in memory array with fixed size
-      //Let's choose 1000
-      uint256 count = 0; // This is the count for the array of winners
-      uint256 LoserBet = 0; //This will take the value of all losers bet
-      uint256 WinnerBet = 0; //This will take the value of all winners bet
-//We loop through the player array to check who selected the winner team
-      for(uint256 i = 0; i < players.length; i++){
-         address playerAddress = players[i];
-//If the player selected the winner team
-         //We add his address to the winners array
-         if(playerInfo[playerAddress].teamSelected == teamWinner){
-            winners[count] = playerAddress;
-            count++;
-         }
-      }
-//We define which bet sum is the Loser one and which one is the winner
-      if ( teamWinner == 1){
-         LoserBet = totalBetsTwo;
-         WinnerBet = totalBetsOne;
-      }
-      else{
-          LoserBet = totalBetsOne;
-          WinnerBet = totalBetsTwo;
-      }
-//We loop through the array of winners, to give ethers to the winners
-      for(uint256 j = 0; j < count; j++){
-          // Check that the address in this fixed array is not empty
-         if(winners[j] != address(0))
-            address add = winners[j];
-            uint256 bet = playerInfo[add].amountBet;
-            //Transfer the money to the user
-            winners[j].transfer(    (bet*(10000+(LoserBet*10000/WinnerBet)))/10000 );
-      }
-      delete playerInfo[playerAddress]; // Delete all the players
-      players.length = 0; // Delete all the players array
-      LoserBet = 0; //reinitialize the bets
-      WinnerBet = 0;
-      totalBetsOne = 0;
-      totalBetsTwo = 0;
+
+    // Accept bet function
+    function acceptBet(uint256 _betId) public payable {
+
+        // Make sure bet exists
+        require(checkBetExists(_betId));
+
+        // Make sure bet is not yet accepted
+        require(!betInfo[_betId].accepted);
+
+        // Make sure bet not yet completed
+        require(!betInfo[_betId].completed);
+
+        // Make sure amount sent is right
+        require(msg.value == betInfo[_betId].amount);
+
+        // Update bet
+        betInfo[_betId].user2Address = msg.sender;
+        betInfo[_betId].accepted = true;
+
+        betIds.push(_betId);
     }
-function Amount() public view returns(uint256){
-       return betAmount;
+
+    // Cancel bet function
+    function cancelBet(uint256 _betId) public {
+
+        // Make sure bet exists
+        require(checkBetExists(_betId));
+
+        // Make sure bet not yet completed
+        require(!betInfo[_betId].completed);
+
+        // Send money back to user1
+        betInfo[_betId].user1Address.transfer(betInfo[_betId].amount * 0.97);
+
+        // Send money back to user2
+        if(betInfo[_betId].accepted) {
+            betInfo[_betId].user2Address.transfer(betInfo[_betId].amount * 0.97);
+        }
+
+        // Set completed
+        betInfo[_betId].completed = true;
+
     }
+
+    // Distribute winnings function
+    function distributeWinnings(uint256 _betId, uint8 _winner) public {
+
+        // Make sure bet exists
+        require(checkBetExists(_betId));
+
+        // Make sure bet is accepted
+        require(betInfo[_betId].accepted);
+
+        // Make sure bet not yet completed
+        require(!betInfo[_betId].completed);
+
+        // Get winner address
+        address winnerAddress;
+        if(_winner == 1) {
+            winnerAddress = betInfo[_betId].user1Address;
+        } else {
+            winnerAddress = betInfo[_betId].user2Address;
+        }
+
+        // Send winner money
+        winnerAddress.transfer(betInfo[_betId].amount * 1.97);
+
+        // Set completed
+        betInfo[_betId].completed = true;
+
+    }
+
 }
