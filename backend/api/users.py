@@ -25,7 +25,7 @@ def check_user():
 		all_friends = db.get_friends(data)
 		count = 0
 		for friend in all_friends:
-			if friend['user2'] == request.args.get('username'):
+			if all_friends[friend] == request.args.get('username'):
 				break
 			count += 1
 		if count == len(all_friends):
