@@ -203,7 +203,7 @@ def place_bet(data):
     
     #Need to get gametime, team1, team2
 
-    sql = "SELECT game_time, team1, team2 FROM games WHERE game_id = " + game_id ";"
+    sql = "SELECT game_time, team1, team2 FROM games WHERE game_id = " + game_id + ";"
     cursor.execute(sql)
     row = cursor.fetchall()
     
