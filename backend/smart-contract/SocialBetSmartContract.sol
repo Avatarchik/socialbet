@@ -85,11 +85,11 @@ contract SocialBetContract {
         require(!betInfo[_betId].completed);
 
         // Send money back to user1
-        betInfo[_betId].user1Address.transfer(betInfo[_betId].amount * 0.97);
+        betInfo[_betId].user1Address.transfer(betInfo[_betId].amount * 97 / 100);
 
         // Send money back to user2
         if(betInfo[_betId].accepted) {
-            betInfo[_betId].user2Address.transfer(betInfo[_betId].amount * 0.97);
+            betInfo[_betId].user2Address.transfer(betInfo[_betId].amount * 97 / 100);
         }
 
         // Set completed
@@ -118,7 +118,7 @@ contract SocialBetContract {
         }
 
         // Send winner money
-        winnerAddress.transfer(betInfo[_betId].amount * 1.97);
+        winnerAddress.transfer(betInfo[_betId].amount * 197 / 100);
 
         // Set completed
         betInfo[_betId].completed = true;
