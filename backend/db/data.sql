@@ -16,7 +16,7 @@ INSERT INTO friends (user1,user2)
 VALUES
 ('achapp','cterech'),
 ('achapp','jkrieg'),
-('achapp','tschwartz'),
+('achapp','taswartz'),
 ('achapp','ncargill'),
 ('achapp','isvidler'),
 ('rshelly','ncargill'),
