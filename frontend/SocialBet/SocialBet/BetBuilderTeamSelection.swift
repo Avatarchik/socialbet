@@ -37,12 +37,27 @@ class BetBuilderTeamSelection: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func submitBet(alert: UIAlertAction!) {
-        //TODO - Finalize the bet as user has confirmed. Will need to add parameters, just not sure what we will need yet.
+        let direct = (self.selected_opponent != "");
+        
+        let parameters = ["loguser": username, "auth": pwhash, "game_id": self.selected_game_id!, "message": "", "amount": self.WagerAmountInput.text!, "user1": username, "user2": self.selected_opponent!, "direct": direct, "accepted": false] as! Dictionary<String, String>
+        
+        let response = sendPOST(uri: "/api/betting/place_bet", parameters: parameters)
+        
+        if response.error == nil {
+            self.alert(message: "Your bet request was sent!", title: "Bet Successful");
+            //TODO - perform segue going back to feed
+        }
+        else{
+            // TODO: check HTML error codes
+            self.alert(message: "Bet unable to be placed", title: "Bet Error")
+            //TODO perform segue going back to beginning of bet builder
+        }
+        
         print("Bet Submitted!");
     }
     
     func cancelBet(alert: UIAlertAction!){
-        //TODO - clear this info and cancel the bet. Return them to feeds page
+        //TODO - perform segue back to beginning of bet builder
         print("Bet Cancelled");
     }
     
@@ -74,13 +89,7 @@ class BetBuilderTeamSelection: UIViewController, UIGestureRecognizerDelegate {
         let alert = UIAlertController(title: "Bet Confirmation", message: alertMessage, preferredStyle: .alert) //TODO - Add Team, Opponent, and Amount Info
         alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: submitBet))
         alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel it"), style: .default, handler: cancelBet))
-        self.present(alert, animated: true, completion: nil)
-        
-        //TODO - Get wallclock time for time placed
-        //TODO - Get game time and pass that too
-        //TODO - Get Message from user
-        //TODO - Send NOT accepted, YES direct
-        
+        self.present(alert, animated: true, completion: nil)      
         
     }
 }

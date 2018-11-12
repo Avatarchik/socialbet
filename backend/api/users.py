@@ -1,11 +1,11 @@
-from flask import Flask, Blueprint
+from flask import Flask, Blueprint, request
 from db import db
 from .api_utils import create_http_response
 
 app = Flask(__name__)
 users = Blueprint('users', __name__)
 
-
+#Currently a bug in this endpoint. Returning no friends with achapp and cterech
 @users.route('/api/users/exist')
 def check_user():
 	log_user = request.args.get('loguser')
@@ -25,7 +25,7 @@ def check_user():
 		all_friends = db.get_friends(data)
 		count = 0
 		for friend in all_friends:
-			if friend['user2'] == request.args.get('username'):
+			if friend == request.args.get('username'):
 				break
 			count += 1
 		if count == len(all_friends):
@@ -84,8 +84,29 @@ def create_user():
 	user_info['first_name'] = data['first_name']
 	user_info['last_name'] = data['last_name']
 	user_info['phone_number'] = data['phone_number']
+	user_info['prof_pic'] = data['profile_pic_url']
 
-	db.create_user(user_info)
+	worked = db.create_user(user_info)
+	if worked:
+		return create_http_response()
+	else:
+		result = {}
+		result['errors'] = []
+		result['errors'].append('username already in use')
+		return create_http_response(data=result, errors=result['errors'])
+
+
+@users.route('/api/users/login', methods=["POST"])
+def login_user():
+	data = json.loads(request.args)
+	username = data['username']
+	auth = data['auth']
+	auth_ = db.authenticate(username, auth)
+	if not auth_:
+		result = {}
+		result['errors'] = []
+		result['errors'].append('username and auth dont match up')
+		return create_http_response(data=result, errors=result['errors'])
 
 	return create_http_response()
 

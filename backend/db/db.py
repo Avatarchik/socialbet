@@ -66,20 +66,21 @@ def create_user(data):
     user_name = data['user_name']
     first_name = data['first_name']
     last_name = data['last_name']
-    birthdate = data['birth_date']
+    auth = data['auth']
     phone = data['phone']
+    prof_pic = data['prof_pic']
     sql = "INSERT INTO users VALUES ( " + user_name + ", " + first_name + ", " + last_name + ", " + \
-        birthdate + ", "  + phone + ");"
+        phone + ", " + auth + ", " + prof_pic + ");"
 
-    cursor.execute(sql)
-    res = []
-    for row in cursor:
-        res.append(row)
-
+    worked = True
+    try:
+        cursor.execute(sql)
+    except:
+        worked = False
 
     db.close()
 
-    return res
+    return worked
 
 # I NEED ONLY user_name
 def drop_user(data):
@@ -110,7 +111,7 @@ def get_friends(data):
 
     user_name = data['user_name']
 
-    sql = "SELECT user2 FROM friends WHERE user1 = " + user_name + ";"
+    sql = "SELECT user2 FROM friends WHERE user1 = '" + user_name + "';"
 
     cursor.execute(sql)
 
@@ -190,27 +191,26 @@ def place_bet(data):
     db_config = get_db_config()
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
     cursor = db.cursor()
-
-    time_placed = data['time_placed']
-    game_time = data['game_time']
+    
+    game_id = data['game_id']
     message = data['message']
     amount = data['amount']
     user1 = data['user1']
     user2 = data['user2']
-    team1 = data['team1']
-    team2 = data['team2']
 
     direct = data['direct']
     accepted = data['accepted']
+    
+    #Need to get gametime, team1, team2
 
-    sql = "SELECT game_id FROM games WHERE team1 = " + team1 + " AND team2 = " + team2  + ";"
+    sql = "SELECT game_time, team1, team2 FROM games WHERE game_id = " + game_id + ";"
     cursor.execute(sql)
-    game_id = cursor.fetchall()
-
+    row = cursor.fetchall()
+    
     sql = "INSERT INTO bets VALUES ( NEWID()" + ", " + game_id + ", " + \
-        time_placed + ", " + game_time + ", " + \
+        "NOW(), " + row['game_time'] + ", " + \
         message + ", " + amount + ", " + user1 + ", "+ user2 + ", " + \
-        team1 + ", " + team2 + ", " + direct + ", " + accepted + ");"
+        row['team1'] + ", " + row['team2'] + ", " + direct + ", " + accepted + ");"
 
     cursor.execute(sql)
     db.close()
