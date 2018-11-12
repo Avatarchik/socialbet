@@ -1,5 +1,3 @@
-USE socialbetdb
-
 # USERS
 INSERT INTO users (user_name, first_name, last_name, phone, profile_pic_url auth)
 VALUES
