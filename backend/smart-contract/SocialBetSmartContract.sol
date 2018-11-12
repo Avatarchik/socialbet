@@ -4,11 +4,11 @@ contract SocialBetContract {
    address public ownerAddress;
 
     struct Bet {
-        address public user1Address;
-        address public user2Address;
-        bool public accepted;
-        uint256 public amount;
-        bool public completed;
+        address user1Address;
+        address user2Address;
+        bool accepted;
+        uint256 amount;
+        bool completed;
     }
 
     mapping(uint256 => Bet) public betInfo;
