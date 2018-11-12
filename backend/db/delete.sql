@@ -1,0 +1,4 @@
+DELETE FROM bets;
+DELETE FROM games;
+DELETE FROM friends;
+DELETE FROM users;

@@ -1,5 +1,5 @@
 # USERS
-INSERT INTO users (user_name, first_name, last_name, phone, profile_pic_url auth)
+INSERT INTO users (user_name, first_name, last_name, phone, profile_pic_url, auth)
 VALUES
 ('cterech', 'Chris','Terech','734-417-6331', '/root/socialbet/backend/user_profile_pics/terech.png', 'HIEOS3753H83FHFKS'), 
 ('rshelly','Ryan','Shelly','949-290-6670', '/root/socialbet/backend/user_profile_pics/shelly.png', 'SDJEI3752E7EFH381J4G9'),
