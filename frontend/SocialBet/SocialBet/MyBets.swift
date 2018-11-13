@@ -87,7 +87,7 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
             self.alert(message: "Bet unable to be accepted", title: "Bet Acceptance Error")
         }
         
-        //TODO - reload the request feed
+        self.MyFeed.reloadData();
         
     }
     
@@ -106,7 +106,7 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
             self.alert(message: "Bet unable to be declined", title: "Bet Decline Error")
         }
         
-        //TODO - reload the request feed
+        self.MyFeed.reloadData();
     }
     
     
@@ -160,7 +160,6 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
             
             let thisBet = self.resultData!.bets[indexPath.row];
             
-            //TODO - Set up all the necessary stuff in here
             getImageFromUrl(urlString: thisBet.winningUser.profile_pic_url, imageView: (cell?.WinningUserPic)!)
             getImageFromUrl(urlString: thisBet.losingUser.profile_pic_url, imageView: (cell?.LosingUserPic)!)
             cell?.WinningUserName.text = thisBet.winningUser.username;
@@ -179,8 +178,6 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LiveFeedCell", for: indexPath) as? LiveFeedCell;
             
             let thisBet = self.requestData!.bets[indexPath.row];
-            
-            //TODO - Set up all the necessary stuff in here
             
             cell?.User1Name.text = thisBet.user1.first_name + " " + thisBet.user1.last_name;
             cell?.User2Name.text = thisBet.user2.first_name + " " + thisBet.user2.last_name;
