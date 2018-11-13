@@ -37,6 +37,9 @@ class Login: UIViewController {
         // create and send a POST request
         let response = sendPOST(uri: "/api/accounts/login/", parameters: parameters)
         
+        // TODO remove
+        return
+        
         // alert the user of success/failure, and either navigate away or refresh the page
         if response.error == nil {
             // TODO: error isn't being handled properly, figure out

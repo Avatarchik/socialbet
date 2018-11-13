@@ -16,7 +16,7 @@ class Settings: UIViewController, UIGestureRecognizerDelegate, UINavigationContr
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        getImageFromUrl(urlString: default_pic, imageView: self.ProfilePic)
+        getImageFromUrl(urlString: common.default_pic, imageView: self.ProfilePic)
         
         let firstRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.profilePicPressed(sender:)))
         firstRecognizer.delegate = self

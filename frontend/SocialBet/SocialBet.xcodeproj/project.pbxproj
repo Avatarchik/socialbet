@@ -15,6 +15,7 @@
 		01F20EE3217A67F700F2F713 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01F20EE1217A67F700F2F713 /* LaunchScreen.storyboard */; };
 		01F20EEE217A67F700F2F713 /* SocialBetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F20EED217A67F700F2F713 /* SocialBetTests.swift */; };
 		01F20EF9217A67F700F2F713 /* SocialBetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F20EF8217A67F700F2F713 /* SocialBetUITests.swift */; };
+		105994D79E66BFD6988066AA /* Pods_SocialBetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72C3BB868BB6122AFD5627E0 /* Pods_SocialBetTests.framework */; };
 		A3443AC12182CE98005037BA /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3443AC02182CE98005037BA /* Registration.swift */; };
 		A39C104C218F9B49005DAAD6 /* GamesFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39C104B218F9B49005DAAD6 /* GamesFeedCell.swift */; };
 		A39C104E218FB730005DAAD6 /* OpenFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39C104D218FB730005DAAD6 /* OpenFeedCell.swift */; };
@@ -30,6 +31,9 @@
 		A3BF735C2187600A00CF7F62 /* LiveFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BF735B2187600A00CF7F62 /* LiveFeedCell.swift */; };
 		A3CD977E218613B8003740C2 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CD977D218613B8003740C2 /* Feed.swift */; };
 		A3F9C801219560DA00D97BBE /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F9C800219560DA00D97BBE /* Settings.swift */; };
+		BC5E0E09B7AA2AF0159CFC52 /* Pods_SocialBetUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B5A1F354F1B05FAE0A98CE0 /* Pods_SocialBetUITests.framework */; };
+		DC945829079120CFEBCF2BA8 /* Pods_SocialBet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC3B43911CAA4FB2C6C4931A /* Pods_SocialBet.framework */; };
+		F41A1063219A4AF70092CB66 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F41A1062219A4AF70092CB66 /* Alamofire.framework */; };
 		F47654E9218A816C0010D208 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47654E8218A816C0010D208 /* Profile.swift */; };
 		F484C0932192A15E009A2726 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = F484C0922192A15E009A2726 /* Common.swift */; };
 		F484C0962192A7FF009A2726 /* networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F484C0952192A7FF009A2726 /* networking.swift */; };
@@ -67,6 +71,11 @@
 		01F20EF4217A67F700F2F713 /* SocialBetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocialBetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		01F20EF8217A67F700F2F713 /* SocialBetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialBetUITests.swift; sourceTree = "<group>"; };
 		01F20EFA217A67F700F2F713 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1B5A1F354F1B05FAE0A98CE0 /* Pods_SocialBetUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialBetUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		200F322DF13C17BDC259E2FE /* Pods-SocialBetUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialBetUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialBetUITests/Pods-SocialBetUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		4BF0B5435820669EB7E58C1D /* Pods-SocialBetTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialBetTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialBetTests/Pods-SocialBetTests.release.xcconfig"; sourceTree = "<group>"; };
+		695B9CEA6275A69BC7F26B62 /* Pods-SocialBetUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialBetUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialBetUITests/Pods-SocialBetUITests.release.xcconfig"; sourceTree = "<group>"; };
+		72C3BB868BB6122AFD5627E0 /* Pods_SocialBetTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialBetTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3443AC02182CE98005037BA /* Registration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
 		A39C104B218F9B49005DAAD6 /* GamesFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesFeedCell.swift; sourceTree = "<group>"; };
 		A39C104D218FB730005DAAD6 /* OpenFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenFeedCell.swift; sourceTree = "<group>"; };
@@ -83,6 +92,11 @@
 		A3BF735B2187600A00CF7F62 /* LiveFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveFeedCell.swift; sourceTree = "<group>"; };
 		A3CD977D218613B8003740C2 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		A3F9C800219560DA00D97BBE /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		B5D7B3064F9E64FFF429E2BC /* Pods-SocialBetTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialBetTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialBetTests/Pods-SocialBetTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D3ACCA9CDAEA4B8DB1A4A12F /* Pods-SocialBet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialBet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialBet/Pods-SocialBet.debug.xcconfig"; sourceTree = "<group>"; };
+		EC3B43911CAA4FB2C6C4931A /* Pods_SocialBet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialBet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE5AD83B1C363C4188AC4BC7 /* Pods-SocialBet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialBet.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialBet/Pods-SocialBet.release.xcconfig"; sourceTree = "<group>"; };
+		F41A1062219A4AF70092CB66 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		F47654E8218A816C0010D208 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		F484C0922192A15E009A2726 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		F484C0952192A7FF009A2726 /* networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = networking.swift; sourceTree = "<group>"; };
@@ -93,6 +107,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F41A1063219A4AF70092CB66 /* Alamofire.framework in Frameworks */,
+				DC945829079120CFEBCF2BA8 /* Pods_SocialBet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				105994D79E66BFD6988066AA /* Pods_SocialBetTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC5E0E09B7AA2AF0159CFC52 /* Pods_SocialBetUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +139,8 @@
 				01F20EF7217A67F700F2F713 /* SocialBetUITests */,
 				01F20ED6217A67F500F2F713 /* Products */,
 				F4F1EF6F2195322E0038A0B5 /* Recovered References */,
+				2CAC81BC54497AD6D59F2190 /* Pods */,
+				5614A9CC1218AA0B023B4A12 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -185,9 +205,33 @@
 			path = SocialBetUITests;
 			sourceTree = "<group>";
 		};
+		2CAC81BC54497AD6D59F2190 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D3ACCA9CDAEA4B8DB1A4A12F /* Pods-SocialBet.debug.xcconfig */,
+				EE5AD83B1C363C4188AC4BC7 /* Pods-SocialBet.release.xcconfig */,
+				B5D7B3064F9E64FFF429E2BC /* Pods-SocialBetTests.debug.xcconfig */,
+				4BF0B5435820669EB7E58C1D /* Pods-SocialBetTests.release.xcconfig */,
+				200F322DF13C17BDC259E2FE /* Pods-SocialBetUITests.debug.xcconfig */,
+				695B9CEA6275A69BC7F26B62 /* Pods-SocialBetUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5614A9CC1218AA0B023B4A12 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EC3B43911CAA4FB2C6C4931A /* Pods_SocialBet.framework */,
+				72C3BB868BB6122AFD5627E0 /* Pods_SocialBetTests.framework */,
+				1B5A1F354F1B05FAE0A98CE0 /* Pods_SocialBetUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F4F1EF6F2195322E0038A0B5 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
+				F41A1062219A4AF70092CB66 /* Alamofire.framework */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -199,9 +243,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 01F20EFD217A67F700F2F713 /* Build configuration list for PBXNativeTarget "SocialBet" */;
 			buildPhases = (
+				85024CEFBBCD9A5A4E580B56 /* [CP] Check Pods Manifest.lock */,
 				01F20ED1217A67F500F2F713 /* Sources */,
 				01F20ED2217A67F500F2F713 /* Frameworks */,
 				01F20ED3217A67F500F2F713 /* Resources */,
+				1082159076F1AEC892000295 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -216,6 +262,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 01F20F00217A67F700F2F713 /* Build configuration list for PBXNativeTarget "SocialBetTests" */;
 			buildPhases = (
+				34743581F8B05882A64319F2 /* [CP] Check Pods Manifest.lock */,
 				01F20EE5217A67F700F2F713 /* Sources */,
 				01F20EE6217A67F700F2F713 /* Frameworks */,
 				01F20EE7217A67F700F2F713 /* Resources */,
@@ -234,6 +281,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 01F20F03217A67F700F2F713 /* Build configuration list for PBXNativeTarget "SocialBetUITests" */;
 			buildPhases = (
+				B5F22FBCCC0446F9C123ADFA /* [CP] Check Pods Manifest.lock */,
 				01F20EF0217A67F700F2F713 /* Sources */,
 				01F20EF1217A67F700F2F713 /* Frameworks */,
 				01F20EF2217A67F700F2F713 /* Resources */,
@@ -321,6 +369,97 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1082159076F1AEC892000295 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SocialBet/Pods-SocialBet-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocialBet/Pods-SocialBet-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		34743581F8B05882A64319F2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SocialBetTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		85024CEFBBCD9A5A4E580B56 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SocialBet-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B5F22FBCCC0446F9C123ADFA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SocialBetUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		01F20ED1217A67F500F2F713 /* Sources */ = {
@@ -516,11 +655,16 @@
 		};
 		01F20EFE217A67F700F2F713 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3ACCA9CDAEA4B8DB1A4A12F /* Pods-SocialBet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SocialBet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -537,11 +681,16 @@
 		};
 		01F20EFF217A67F700F2F713 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE5AD83B1C363C4188AC4BC7 /* Pods-SocialBet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SocialBet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -558,6 +707,7 @@
 		};
 		01F20F01217A67F700F2F713 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5D7B3064F9E64FFF429E2BC /* Pods-SocialBetTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -578,6 +728,7 @@
 		};
 		01F20F02217A67F700F2F713 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4BF0B5435820669EB7E58C1D /* Pods-SocialBetTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -598,6 +749,7 @@
 		};
 		01F20F04217A67F700F2F713 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 200F322DF13C17BDC259E2FE /* Pods-SocialBetUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -617,6 +769,7 @@
 		};
 		01F20F05217A67F700F2F713 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 695B9CEA6275A69BC7F26B62 /* Pods-SocialBetUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

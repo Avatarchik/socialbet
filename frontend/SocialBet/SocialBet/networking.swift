@@ -6,92 +6,83 @@
 // This file contains helper functions for sending GET and POST requests
 
 import Foundation
+import Alamofire
+
+/* ALAMOFIRE COPYRIGHT INFORMATION
+ 
+ Copyright (c) 2014-2018 Alamofire Software Foundation (http://alamofire.org/)
+ 
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+ 
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+ 
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.
+*/
+
+// TODO, these objects are the same and could be treated as one networkresponse object
 
 struct GETResponse {
     var error: Error? = nil
-    var data: Data? = nil               // the parsed response
-    var response: URLResponse? = nil    // the unparsed response
+    var data: Data? = nil                       // the JSONified response
+    var response: DataResponse<Any>? = nil      // the unparsed response
 }
 
 struct POSTResponse {
     var error: Error? = nil
-    var data: Data? = nil               // the parsed response
-    var response: URLResponse? = nil    // the unparsed response
+    var data: Data? = nil                       // the JSONified response
+    var response: DataResponse<Any>? = nil      // the unparsed response
 }
 
-// sends a GET request to the provided URI
-// returns response information about the GET request
 func sendGET(uri: String) -> GETResponse {
-    // instantiate a container to return information about the GET request
+    // form the request url
+    let url = common.domain + ":" + common.port + uri
+    
+    // Instantiate a return variable
     var getresponse = GETResponse()
     
-    // perform the GET request and populate the return object
-    guard let url = URL(string: domain + port + uri) else { return GETResponse() }
-    
-    let session = URLSession.shared
-    session.dataTask(with: url) { (data, response, error) in
-        if let response = response {
+    // Populate the return variable with the contents of the request
+    Alamofire.request(url).responseJSON { response in
+        switch response.result {
+        case .success:
             getresponse.response = response
-        }
-        
-        if let error = error {
+            getresponse.data = response.data
+        case .failure(let error):
             getresponse.error = error
         }
-        
-        if let data = data {
-            do {
-                let json = try JSONSerialization.jsonObject(with: data, options: [])
-                getresponse.data = json as? Data
-            } catch {
-                print(error)
-            }
-        }
-        
-    }.resume()
+    }
     
-    // return the request information
     return getresponse
 }
 
-// -sends a POST request containing the JSONification of the provided parameters dictionary to the
-//  provided URI
-// -returns response information about the POST request
 func sendPOST(uri: String, parameters: Dictionary<String, String>) ->  POSTResponse{
-    // instantiate a container to return information about the POST request
+    // form the request url
+    let url = common.domain + ":" + common.port + uri
+    
+    // Instantiate a return variable
     var postresponse = POSTResponse()
     
-    // perform the POST request and populate the return object
-    guard let url = URL(string: domain + ":" + port + uri) else { return POSTResponse() }
-    var request = URLRequest(url: url)
-    request.httpMethod = "POST"
-    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-    guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else {
-        return POSTResponse()
-    }
-    request.httpBody = httpBody
-    
-    // pass the request into the task
-    let session = URLSession.shared
-    session.dataTask(with: request) { (data, response, error) in
-        if let response = response {
+    // Populate the return variable with the contents of the request
+    Alamofire.request(url, method:.post, parameters:parameters ,encoding: JSONEncoding.default).responseJSON { response in
+        switch response.result {
+        case .success:
             postresponse.response = response
-        }
-        
-        if let error = error {
-            postresponse.error = error
-        }
-        
-        if let data = data {
-            do {
-                let json = try JSONSerialization.jsonObject(with: data, options: [])
-                postresponse.data = json as? Data
-            } catch {
-                print(error)
-            }
-        }
-        
-    }.resume()
+            postresponse.data = response.data
+        case .failure(let error):
+            postresponse.error = response.error
+        }    }
     
-    // return the request information
+    
     return postresponse
 }
