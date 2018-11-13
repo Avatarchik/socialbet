@@ -32,7 +32,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     var feedType = ProfileFeedTypes.live;
     
     @IBAction func InitiateBet(_ sender: Any) {
-        performSegue(withIdentifier: "FakeProfileToOpponentSelect", sender: self);
+        performSegue(withIdentifier: "ProfileToGameSelect", sender: self);
     }
     
     @IBAction func LiveBets(_ sender: Any) {
@@ -72,6 +72,15 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         
         self.loadProfileInfo();
         
+    }
+    
+    //Use this function to pass data through segues
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        print("Override Works!");
+        //if going to bet builder
+        if let vc = segue.destination as? BetBuilderGameSelection{
+            vc.selectedOpponent = self.UserHandle.text;
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

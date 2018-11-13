@@ -40,6 +40,10 @@ class BetBuilderGameSelection: UIViewController, UICollectionViewDataSource, UIC
         }
     }
     
+    @IBAction func GoBack(_ sender: Any) {
+        performSegue(withIdentifier: "GameSelectToOpponentSelect", sender: self)
+    }
+    
     //Use this function to pass data through segues
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         print("Override Works!");

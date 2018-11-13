@@ -16,7 +16,8 @@ class Settings: UIViewController, UIGestureRecognizerDelegate, UINavigationContr
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        getImageFromUrl(urlString: default_pic, imageView: self.ProfilePic)
+        //TODO - Add real image based on profile_pic_url here
+        self.ProfilePic.image = UIImage(named: "defaultProfilePic.png");
         
         let firstRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.profilePicPressed(sender:)))
         firstRecognizer.delegate = self
@@ -51,15 +52,5 @@ class Settings: UIViewController, UIGestureRecognizerDelegate, UINavigationContr
     @IBAction func settingsToHome() {
         performSegue(withIdentifier: "SettingsToHome", sender: self)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -27,6 +27,9 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
         }
     }
     
+    @IBAction func NewBet(_ sender: Any) {
+        performSegue(withIdentifier: "FeedToOpponentSelect", sender: self)
+    }
     
     
     @IBAction func menuTapped() {
@@ -159,6 +162,7 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             cell?.TeamName2.text = thisBet.user2_team.name;
             cell?.Message.text = thisBet.message;
             cell?.GameTime.text = thisBet.game_time;
+            cell?.WagerAmount.text = "";
             
             return cell!;
             

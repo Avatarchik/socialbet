@@ -26,6 +26,10 @@ class BetBuilderOpponentSelection: UIViewController {
     var entered_handle: String?;
     @IBOutlet weak var OpponentHandle: UITextField!
     
+    @IBAction func GoHome(_ sender: Any) {
+        performSegue(withIdentifier: "OpponentSelectToFeed", sender: self)
+    }
+    
     @IBAction func CreateOpenBet(_ sender: Any) {
         self.entered_handle = "";
         performSegue(withIdentifier: "OpponentSelectToGameSelect", sender: self);

@@ -8,12 +8,16 @@
 
 import UIKit
 
-class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIGestureRecognizerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        self.MyFeed.register(UINib(nibName: "LiveFeedCell", bundle:nil), forCellWithReuseIdentifier: "LiveFeedCell");
+        self.MyFeed.register(UINib(nibName: "OpenFeedCell", bundle:nil), forCellWithReuseIdentifier: "OpenFeedCell");
+        self.MyFeed.register(UINib(nibName: "ClosedFeedCell", bundle:nil), forCellWithReuseIdentifier: "ClosedFeedCell");
     }
     
     enum FeedTypes{
@@ -35,6 +39,7 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
     var openData: OpenBetFeed?;
     var requestData: LiveBetFeed?;
     var resultData: ClosedBetFeed?;
+    var current_bet_id: String?;
     
     
     @IBAction func notificationsToHome() {
@@ -69,6 +74,41 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
         self.RequestsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
     }
     
+    @objc func AcceptPressed(sender: LiveFeedCell) {
+        let parameters = ["loguser": username, "auth": pwhash, "bet_id": sender.bet_id, "user_name": username] as! Dictionary<String, String>;
+        
+        let response = sendPOST(uri: "/api/betting/accept_bet", parameters: parameters)
+        
+        if response.error == nil {
+            self.alert(message: "You have accepted the bet!", title: "Bet Accepted");
+        }
+        else{
+            // TODO: check HTML error codes
+            self.alert(message: "Bet unable to be accepted", title: "Bet Acceptance Error")
+        }
+        
+        self.MyFeed.reloadData();
+        
+    }
+    
+    @objc func DeclinePressed(sender: LiveFeedCell){
+        
+        //TODO - Fix these parameters once I know what I have to send
+        let parameters = ["loguser": username, "auth": pwhash, "bet_id": sender.bet_id, "user_name": username] as! Dictionary<String, String>;
+        
+        let response = sendPOST(uri: "/api/betting/cancel_bet", parameters: parameters)
+        
+        if response.error == nil {
+            self.alert(message: "You have declined the bet!", title: "Bet Declined");
+        }
+        else{
+            // TODO: check HTML error codes
+            self.alert(message: "Bet unable to be declined", title: "Bet Decline Error")
+        }
+        
+        self.MyFeed.reloadData();
+    }
+    
     
     @IBOutlet weak var MyFeed: UICollectionView!
     
@@ -95,6 +135,7 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
             cell?.TeamName2.text = thisBet.user2_team.name;
             cell?.Message.text = thisBet.message;
             cell?.GameTime.text = thisBet.game_time;
+            cell?.WagerAmount.text = thisBet.wagerAmount;
             
             return cell!;
             
@@ -119,7 +160,17 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
             
             let thisBet = self.resultData!.bets[indexPath.row];
             
-            //TODO - Set up all the necessary stuff in here
+            getImageFromUrl(urlString: thisBet.winningUser.profile_pic_url, imageView: (cell?.WinningUserPic)!)
+            getImageFromUrl(urlString: thisBet.losingUser.profile_pic_url, imageView: (cell?.LosingUserPic)!)
+            cell?.WinningUserName.text = thisBet.winningUser.username;
+            cell?.LosingUserName.text = thisBet.losingUser.username;
+            getImageFromUrl(urlString: thisBet.winningTeam.team_logo_url, imageView: (cell?.WinningTeamLogo)!)
+            getImageFromUrl(urlString: thisBet.losingTeam.team_logo_url, imageView: (cell?.LosingTeamLogo)!)
+            cell?.WinningTeamName.text = thisBet.winningTeam.name;
+            cell?.LosingTeamName.text = thisBet.losingTeam.name;
+            cell?.GameDateTime.text = thisBet.game_time;
+            cell?.FinalScore.text = thisBet.finalScore;
+            cell?.WagerAmount.text = thisBet.wagerAmount;
             
             return cell!;
             
@@ -128,7 +179,32 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
             
             let thisBet = self.requestData!.bets[indexPath.row];
             
-            //TODO - Set up all the necessary stuff in here
+            cell?.User1Name.text = thisBet.user1.first_name + " " + thisBet.user1.last_name;
+            cell?.User2Name.text = thisBet.user2.first_name + " " + thisBet.user2.last_name;
+            getImageFromUrl(urlString: thisBet.user1.profile_pic_url, imageView: (cell?.User1Image)!);
+            getImageFromUrl(urlString: thisBet.user2.profile_pic_url, imageView: (cell?.User2Image)!);
+            getImageFromUrl(urlString: thisBet.user1_team.team_logo_url, imageView: (cell?.Team1Image)!);
+            getImageFromUrl(urlString: thisBet.user2_team.team_logo_url, imageView: (cell?.Team2Image)!);
+            cell?.TeamName1.text = thisBet.user1_team.name;
+            cell?.TeamName2.text = thisBet.user2_team.name;
+            cell?.Message.text = thisBet.message;
+            cell?.GameTime.text = thisBet.game_time;
+            cell?.WagerAmount.text = thisBet.wagerAmount;
+            cell?.bet_id = thisBet.bet_id;
+            
+            cell?.AcceptButton.image = UIImage(named: "accept.png")
+            cell?.DeclineButton.image = UIImage(named: "decline.png")
+            
+            cell?.AcceptButton.isUserInteractionEnabled = true;
+            cell?.DeclineButton.isUserInteractionEnabled = true;
+            
+            let acceptRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.AcceptPressed(sender:)))
+            acceptRecognizer.delegate = self;
+            cell?.AcceptButton.addGestureRecognizer(acceptRecognizer);
+            
+            let declineRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.DeclinePressed(sender:)))
+            declineRecognizer.delegate = self;
+            cell?.DeclineButton.addGestureRecognizer(declineRecognizer);
             
             return cell!;
         }
