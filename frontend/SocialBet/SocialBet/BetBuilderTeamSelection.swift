@@ -75,6 +75,18 @@ class BetBuilderTeamSelection: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var WagerAmountInput: UITextField!
     
+    //Use this function to pass data through segues
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        print("Override Works!");
+        //if going to bet builder
+        if let vc = segue.destination as? BetBuilderGameSelection{
+            vc.selectedOpponent = self.selected_opponent;
+        }
+    }
+    
+    @IBAction func GoBack(_ sender: Any) {
+        performSegue(withIdentifier: "TeamSelectToGameSelect", sender: self)
+    }
     
     @IBAction func OkClick(_ sender: Any) {
         

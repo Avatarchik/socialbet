@@ -27,6 +27,9 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
         }
     }
     
+    @IBAction func NewBet(_ sender: Any) {
+        performSegue(withIdentifier: "FeedToOpponentSelect", sender: self)
+    }
     
     
     @IBAction func menuTapped() {
