@@ -18,7 +18,7 @@ contract SocialBetContract {
     function() public payable {}
 
     // Smart contract constructor
-    constructor() public {
+    constructor() public payable {
         ownerAddress = msg.sender;
     }
 
