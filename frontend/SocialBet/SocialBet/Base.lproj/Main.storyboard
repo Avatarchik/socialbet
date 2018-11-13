@@ -532,37 +532,39 @@
             <objects>
                 <viewController id="uc1-GC-PZb" customClass="Profile" customModule="SocialBet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D7U-5t-p8B">
-                        <rect key="frame" x="0.0" y="0.0" width="200" height="553"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="seY-FA-c8m">
-                                <rect key="frame" x="65" y="30" width="70" height="70"/>
+                                <rect key="frame" x="152.5" y="30" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="MS7-8q-3Tm"/>
                                     <constraint firstAttribute="height" constant="70" id="ruK-6b-Ndb"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3a4-cN-fj5">
-                                <rect key="frame" x="57" y="105" width="86" height="21"/>
+                                <rect key="frame" x="144.5" y="105" width="86" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Handle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMx-81-JQe">
-                                <rect key="frame" x="52.5" y="131" width="95" height="21"/>
+                                <rect key="frame" x="140" y="131" width="95" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8sJ-iF-6jS">
-                                <rect key="frame" x="57" y="157" width="86" height="30"/>
-                                <state key="normal" title="Initiate a Bet"/>
+                                <rect key="frame" x="144.5" y="157" width="86" height="30"/>
+                                <state key="normal" title="Initiate a Bet">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="InitiateBet:" destination="uc1-GC-PZb" eventType="touchUpInside" id="FHk-54-nlC"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ce3-u4-apo">
-                                <rect key="frame" x="0.0" y="247" width="200" height="306"/>
+                                <rect key="frame" x="0.0" y="237" width="375" height="430"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Zck-Io-LSY">
                                     <size key="itemSize" width="375" height="77"/>
@@ -573,40 +575,51 @@
                                 <cells/>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1bE-Uo-hGA">
-                                <rect key="frame" x="0.0" y="207" width="66.5" height="30"/>
-                                <state key="normal" title="Live Bets"/>
+                                <rect key="frame" x="0.0" y="207" width="125" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Live Bets">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="LiveBets:" destination="uc1-GC-PZb" eventType="touchUpInside" id="56Z-1O-X8L"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fiB-fn-M3C">
-                                <rect key="frame" x="66.5" y="207" width="67" height="30"/>
-                                <state key="normal" title="Open Bets"/>
+                                <rect key="frame" x="125" y="207" width="125" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Open Bets">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="OpenBets:" destination="uc1-GC-PZb" eventType="touchUpInside" id="pR2-Bz-vsa"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yie-Qk-Ciz">
-                                <rect key="frame" x="133.5" y="207" width="66.5" height="30"/>
-                                <state key="normal" title="Between Us"/>
+                                <rect key="frame" x="250" y="207" width="125" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Between Us">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="BetweenUs:" destination="uc1-GC-PZb" eventType="touchUpInside" id="aaB-Ix-HX6"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jb-ZP-SUS">
-                                <rect key="frame" x="19" y="50" width="41" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Home"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jb-ZP-SUS">
+                                <rect key="frame" x="10" y="30" width="41" height="30"/>
+                                <state key="normal" title="Home">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="returnHome" destination="uc1-GC-PZb" eventType="touchUpInside" id="1dG-Ww-26c"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ce3-u4-apo" firstAttribute="centerX" secondItem="pKH-oH-D9S" secondAttribute="centerX" id="2g8-lK-Mop"/>
                             <constraint firstItem="pKH-oH-D9S" firstAttribute="bottom" secondItem="ce3-u4-apo" secondAttribute="bottom" id="Ddf-PT-1VO"/>
                             <constraint firstItem="fiB-fn-M3C" firstAttribute="leading" secondItem="1bE-Uo-hGA" secondAttribute="trailing" id="EQZ-aN-r90"/>
+                            <constraint firstItem="fiB-fn-M3C" firstAttribute="height" secondItem="1bE-Uo-hGA" secondAttribute="height" id="I9e-yT-yI9"/>
                             <constraint firstItem="yie-Qk-Ciz" firstAttribute="width" secondItem="fiB-fn-M3C" secondAttribute="width" id="Ic3-r6-JZz"/>
                             <constraint firstItem="pKH-oH-D9S" firstAttribute="trailing" secondItem="yie-Qk-Ciz" secondAttribute="trailing" id="J1l-PW-itt"/>
                             <constraint firstItem="fiB-fn-M3C" firstAttribute="centerX" secondItem="pKH-oH-D9S" secondAttribute="centerX" id="KRL-jT-2yl"/>
@@ -615,14 +628,17 @@
                             <constraint firstItem="1bE-Uo-hGA" firstAttribute="top" secondItem="fiB-fn-M3C" secondAttribute="top" id="QUU-8f-M14"/>
                             <constraint firstItem="seY-FA-c8m" firstAttribute="centerX" secondItem="pKH-oH-D9S" secondAttribute="centerX" id="Qhy-RY-t9f"/>
                             <constraint firstItem="fMx-81-JQe" firstAttribute="centerX" secondItem="pKH-oH-D9S" secondAttribute="centerX" id="Qy6-1T-Cg4"/>
+                            <constraint firstItem="ce3-u4-apo" firstAttribute="top" secondItem="1bE-Uo-hGA" secondAttribute="bottom" id="RS5-7e-4mb"/>
+                            <constraint firstItem="3jb-ZP-SUS" firstAttribute="top" secondItem="pKH-oH-D9S" secondAttribute="top" constant="10" id="THv-Cq-Ory"/>
                             <constraint firstItem="8sJ-iF-6jS" firstAttribute="top" secondItem="fMx-81-JQe" secondAttribute="bottom" constant="5" id="XKW-47-baM"/>
                             <constraint firstItem="1bE-Uo-hGA" firstAttribute="leading" secondItem="pKH-oH-D9S" secondAttribute="leading" id="Ziy-BV-Hm1"/>
+                            <constraint firstItem="yie-Qk-Ciz" firstAttribute="height" secondItem="1bE-Uo-hGA" secondAttribute="height" id="aFv-ge-QcH"/>
                             <constraint firstItem="seY-FA-c8m" firstAttribute="top" secondItem="pKH-oH-D9S" secondAttribute="top" constant="10" id="bmD-LB-NOD"/>
                             <constraint firstItem="ce3-u4-apo" firstAttribute="width" secondItem="D7U-5t-p8B" secondAttribute="width" id="cjy-z0-Ef3"/>
                             <constraint firstItem="8sJ-iF-6jS" firstAttribute="centerX" secondItem="pKH-oH-D9S" secondAttribute="centerX" id="dBs-a6-jV6"/>
+                            <constraint firstItem="3jb-ZP-SUS" firstAttribute="leading" secondItem="pKH-oH-D9S" secondAttribute="leading" constant="10" id="e52-PC-kCN"/>
                             <constraint firstItem="yie-Qk-Ciz" firstAttribute="top" secondItem="fiB-fn-M3C" secondAttribute="top" id="hFI-wY-ucv"/>
                             <constraint firstItem="fMx-81-JQe" firstAttribute="top" secondItem="3a4-cN-fj5" secondAttribute="bottom" constant="5" id="i60-QZ-h5s"/>
-                            <constraint firstItem="ce3-u4-apo" firstAttribute="top" secondItem="fiB-fn-M3C" secondAttribute="bottom" constant="10" id="lX7-NZ-s8V"/>
                             <constraint firstItem="1bE-Uo-hGA" firstAttribute="width" secondItem="fiB-fn-M3C" secondAttribute="width" id="pGS-MQ-hPS"/>
                             <constraint firstItem="3a4-cN-fj5" firstAttribute="centerX" secondItem="pKH-oH-D9S" secondAttribute="centerX" id="q1p-81-KLg"/>
                             <constraint firstItem="fiB-fn-M3C" firstAttribute="top" secondItem="8sJ-iF-6jS" secondAttribute="bottom" constant="20" id="yMn-lb-9vf"/>
@@ -1093,9 +1109,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="xhG-KS-FYW"/>
-        <segue reference="XxG-dJ-BTr"/>
-        <segue reference="wJx-Qc-0jA"/>
-        <segue reference="aj8-0M-1lt"/>
+        <segue reference="577-1U-4to"/>
+        <segue reference="Ia1-YO-obj"/>
+        <segue reference="C4C-SM-klp"/>
+        <segue reference="LZe-Ez-tcL"/>
     </inferredMetricsTieBreakers>
 </document>
