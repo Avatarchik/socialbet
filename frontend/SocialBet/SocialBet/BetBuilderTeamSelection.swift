@@ -45,20 +45,20 @@ class BetBuilderTeamSelection: UIViewController, UIGestureRecognizerDelegate {
         
         if response.error == nil {
             self.alert(message: "Your bet request was sent!", title: "Bet Successful");
-            //TODO - perform segue going back to feed
+            performSegue(withIdentifier: "TeamSelectToFeed", sender: self) 
         }
         else{
             // TODO: check HTML error codes
             self.alert(message: "Bet unable to be placed", title: "Bet Error")
-            //TODO perform segue going back to beginning of bet builder
+            performSegue(withIdentifier: "TeamSelectToOpponentSelect", sender: self)
         }
         
         print("Bet Submitted!");
     }
     
     func cancelBet(alert: UIAlertAction!){
-        //TODO - perform segue back to beginning of bet builder
         print("Bet Cancelled");
+        performSegue(withIdentifier: "TeamSelectToOpponentSelect", sender: self)
     }
     
     var selected_game_id: Int?;

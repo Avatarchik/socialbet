@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.30.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.19.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -637,11 +637,11 @@
             <objects>
                 <viewController id="drK-px-ahE" customClass="BetBuilderGameSelection" customModule="SocialBet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DUu-EG-m3A">
-                        <rect key="frame" x="0.0" y="0.0" width="200" height="553"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Qt6-X5-fNi">
-                                <rect key="frame" x="30" y="144" width="140" height="379"/>
+                                <rect key="frame" x="30" y="144" width="315" height="493"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JMZ-Ts-eMe">
                                     <size key="itemSize" width="50" height="50"/>
@@ -652,7 +652,7 @@
                                 <cells/>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bet Builder - Game Selection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N1g-sh-L3Q">
-                                <rect key="frame" x="-25" y="80" width="250" height="24"/>
+                                <rect key="frame" x="62.5" y="80" width="250" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -683,11 +683,11 @@
             <objects>
                 <viewController id="b1v-3P-q1q" customClass="BetBuilderTeamSelection" customModule="SocialBet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ve3-fp-5ni">
-                        <rect key="frame" x="0.0" y="0.0" width="200" height="553"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cO8-ji-wd4">
-                                <rect key="frame" x="-50" y="186.5" width="300" height="200"/>
+                                <rect key="frame" x="37.5" y="243.5" width="300" height="200"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lue-f7-NUF">
                                         <rect key="frame" x="30" y="10" width="100" height="100"/>
@@ -760,7 +760,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bet Builder - Team Selection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E5m-hS-uDZ">
-                                <rect key="frame" x="-22.5" y="80" width="245" height="24"/>
+                                <rect key="frame" x="65" y="80" width="245" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -781,6 +781,8 @@
                         <outlet property="TeamTwoLogo" destination="psh-Eo-SNq" id="9qp-GF-acN"/>
                         <outlet property="TeamTwoName" destination="B4k-gh-j8k" id="lF4-NL-0Dm"/>
                         <outlet property="WagerAmountInput" destination="97r-w5-eqO" id="Khd-S7-mVL"/>
+                        <segue destination="Jwj-S7-5gy" kind="presentation" identifier="TeamSelectToFeed" id="aj8-0M-1lt"/>
+                        <segue destination="BKB-KX-fQi" kind="presentation" identifier="TeamSelectToOpponentSelect" id="xhG-KS-FYW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CvX-xM-IN8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -792,17 +794,17 @@
             <objects>
                 <viewController id="BKB-KX-fQi" customClass="BetBuilderOpponentSelection" customModule="SocialBet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ueg-Q0-9h7">
-                        <rect key="frame" x="0.0" y="0.0" width="200" height="553"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bet Builder - Opponent Selection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5wl-4J-aq5">
-                                <rect key="frame" x="-43" y="80" width="286" height="24"/>
+                                <rect key="frame" x="44.5" y="80" width="286" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rgs-dE-wE3">
-                                <rect key="frame" x="-50" y="186.5" width="300" height="200"/>
+                                <rect key="frame" x="37.5" y="243.5" width="300" height="200"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lAD-kq-Gfx">
                                         <rect key="frame" x="77.5" y="18" width="145" height="36"/>
@@ -1042,7 +1044,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="xhG-KS-FYW"/>
         <segue reference="wJx-Qc-0jA"/>
-        <segue reference="MEj-Ag-D1p"/>
+        <segue reference="aj8-0M-1lt"/>
     </inferredMetricsTieBreakers>
 </document>
