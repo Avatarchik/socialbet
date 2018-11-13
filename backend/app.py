@@ -7,6 +7,7 @@ app.register_blueprint(betting.betting)
 app.register_blueprint(feeds.feeds)
 app.register_blueprint(games.games)
 app.register_blueprint(users.users)
+app.register_blueprint(coinbase.coinbase)
 
 # Create flask app
 def create_app(test_config=None):
