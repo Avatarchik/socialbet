@@ -79,7 +79,7 @@ if [ $1 = "add_friends" ]; then
     user2="achapp"
 
     curl -X POST -H "Content-Type: application/json" $url/api/users/add_friend/ \
-        -d "{\"username\": \"$username\", \"auth\": \"$auth\", \"user1\": \"$user1\", \"user2\": \"$user2\" }"
+        -d "{\"loguser\": \"$username\", \"auth\": \"$auth\", \"user1\": \"$user1\", \"user2\": \"$user2\" }"
 fi
 
 
