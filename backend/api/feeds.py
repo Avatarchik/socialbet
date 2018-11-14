@@ -79,7 +79,6 @@ def list_closed_bets():
         bets.append(bet)
 
     # Return JSON response
-
     result = {
         'bets': bets
     }
