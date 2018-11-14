@@ -97,7 +97,7 @@ if [ $1 = "place_bet" ]; then
     
 
     curl -X POST -H "Content-Type: application/json" $url/api/betting/place_bet/ \
-        -d "{\"loguser\": \"$loguser\", \"auth\": \"$auth\", \"game_id\": \"$game_id\", \"message\": \"$message\", \"amount\": $amount, \"user1\": \"$loguser\", \"user2\": \"$user2\", \"direct\": $direct, \"accepted\": $accepted, \"time_placed\": $time_placed}"
+        -d "{\"loguser\": \"$loguser\", \"auth\": \"$auth\", \"game_id\": \"$game_id\", \"message\": \"$message\", \"amount\": $amount, \"user1\": \"$loguser\", \"user2\": \"$user2\", \"direct\": $direct, \"accepted\": $accepted, \"time_placed\": \"$time_placed\" }"
 
 fi
 
