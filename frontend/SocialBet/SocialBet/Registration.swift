@@ -44,7 +44,8 @@ class Registration: UIViewController {
             // alert the user of success/failure, and either navigate away or refresh the page
             //TODO - figure out how to tell if there's an error. This isn't right
             if postresponse.error == nil {
-                // self.performSegue(withIdentifier: "RegistrationToLiveFeed", sender: self);
+                common.username = username!
+                self.performSegue(withIdentifier: "RegistrationToLiveFeed", sender: self);
             }
             else{	
                 self.alert(message: "Error creating account. Try again.", title: "Account Creation Error")
