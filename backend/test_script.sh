@@ -11,6 +11,14 @@ if [ $1 = "live_bets" ]; then
     curl -X GET $url/api/feeds/live_bets/\?loguser=$loguser\&auth=$auth
 fi
 
+if [ $1 = "closed_bets" ]; then
+    curl -X GET $url/api/feeds/closed_bets/\?loguser=$loguser\&auth=$auth
+fi
+
+if [ $1 = "get_teams" ]; then
+    curl -X GET $url/api/teams/\?loguser=$loguser\&auth=$auth
+fi
+
 
 if [ $1 = "create_user" ]; then
     username="testuser"
@@ -32,4 +40,14 @@ fi
 if [ $1 = "" ]; then
     #TODO
     curl -X GET $url/api/feeds/open_bets/\?loguser=$loguser\&auth=$auth
+fi
+
+if [ $1 = "add_friends" ]; then
+    # Testing add_friend in db.py
+    username=$loguser
+    user1=$loguser
+    user2="achapp"
+
+    curl -X POST -H "Content-Type: application/json" $url/api/users/add_friend/ \
+        -d "{\"username\": \"$username\", \"auth\": \"$auth\", \"user1\": \"$user1\", \"user2\": \"$user2\" }"
 fi
