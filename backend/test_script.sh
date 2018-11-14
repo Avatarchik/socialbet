@@ -33,3 +33,13 @@ if [ $1 = "" ]; then
     #TODO
     curl -X GET $url/api/feeds/open_bets/\?loguser=$loguser\&auth=$auth
 fi
+
+if [ $1 = "add_friends"]; then
+    # Testing add_friend in db.py
+    username=$loguser
+    user1=$loguser
+    user2="achapp"
+
+    curl -X POST -H "Content-Type: application/json" $url/api/users/add_friend/ \
+        -d "{\"username\": \"$username\", \"auth\": \"$auth\", \"user1\": \"$user1\", \"user2\": \"$user2\" }"
+fi
