@@ -179,6 +179,26 @@ def get_games():
 
     return res
 
+########################## TEAMS ###########################################################
+def get_teams():
+    db_config = get_db_config()
+    db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
+    cursor = db.cursor(pymysql.cursors.DictCursor)
+
+    sql = "SELECT * FROM teams;"
+
+    cursor.execute(sql)
+
+    res = []
+    for row in cursor:
+        res.append(row)
+
+
+    db.close()
+
+    return res
+
+
 ########################## BETS ###########################################################
 # THEY WILL PASS ME A USERID, I WILL RETURN ALL OF THE USERS BETS AND THE USERS FRIENDS BETS
 # GET ONE FOR LIVE BETS AND ONE FOR OPEN BETS
