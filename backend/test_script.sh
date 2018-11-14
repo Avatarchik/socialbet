@@ -99,3 +99,18 @@ if [ $1 = "place_bet" ]; then
         -d "{\"loguser\": \"$loguser\", \"auth\": \"$auth\", \"game_id\": \"$game_id\", \"message\": \"$message\", \"ammount\": $ammount, \"user1\": \"$loguser\", \"user2\": \"$user2\", \"direct\": $direct, \"accepted\": $accepted}"
 
 fi
+
+if [ $1 = "accept_bet" ]; then
+    bet_id=5
+
+    curl -X POST -H "Content-Type: application/json" $url/api/betting/accept_bet/ \
+        -d "{\"loguser\": \"$loguser\", \"auth\": \"$auth\", \"bet_id\": \"$bet_id\"}"
+fi
+
+
+if [ $1 = "cancel_bet" ]; then
+    bet_id=5
+
+    curl -X POST -H "Content-Type: application/json" $url/api/betting/cancel_bet/ \
+        -d "{\"loguser\": \"$loguser\", \"auth\": \"$auth\", \"bet_id\": \"$bet_id\"}"
+fi

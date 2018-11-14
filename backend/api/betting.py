@@ -42,7 +42,6 @@ def accept_bet():
     :return:
     '''
 
-
     # Load request json data as dict
     data = json.loads(request.data)
 
@@ -53,7 +52,9 @@ def accept_bet():
         return create_http_response(errors=['unauthenticated user'])
 
     # Accept bet
-    db.accept_bet(data)
+    bet_id = data['bet_id']
+    other_user = data['other_user'] if 'other_user' in data else None
+    db.accept_bet(bet_id, other_user)
 
     # Send json response
     return create_http_response()
@@ -70,18 +71,16 @@ def cancel_bet():
 
     # Load request json data as dict
     data = json.loads(request.data)
+
+    # Authenticate user
+    loguser = data['loguser']
+    auth = request.args.get('auth')
+    if not db.authenticate(loguser, auth):
+        return create_http_response(errors=['unauthenticated user'])
+
+    # Accept bet
     bet_id = data['bet_id']
+    db.cancel_bet(bet_id)
 
-    # TODO: Authenticate user
-    auth = db.authenticate(data['loguser'], data['auth'])
-    if auth:
-        db.cancel_bet(bet_id)
-        return create_http_response()
-        
-    response_data = {}
-    response_data['errors'] = []
-    response_data['errors'].append('unauthenticated user')
-
-    # Respond with status
-    return create_http_response(errors=response_data['errors'])
-
+    # Send json response
+    return create_http_response()

@@ -419,9 +419,7 @@ def get_bet(bet_id):
 
     return bet
 
-def accept_bet(data):
-    bet_id = data['bet_id']
-    user_name = data['user_name']
+def accept_bet(bet_id, otheruser=None):
 
     # Determine if direct or open bet
     bet = get_bet(bet_id)
@@ -431,9 +429,24 @@ def accept_bet(data):
 
     # open bet sql
     if not direct_bet:
-        sql += ', user2=\"' + user_name + '\"'
+        sql += ', user2=\"' + otheruser + '\"'
 
     sql += ' WHERE bet_id=' + bet_id+ ';'
+
+    db_config = get_db_config()
+    db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
+    cursor = db.cursor()
+    cursor.execute(sql)
+    db.close()
+
+    return
+
+def cancel_bet(bet_id):
+
+    # Determine if direct or open bet
+
+    sql = 'DELETE FROM bets WHERE bet_id=' + bet_id + ';'
+
 
     db_config = get_db_config()
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
