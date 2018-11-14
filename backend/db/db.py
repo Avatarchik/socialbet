@@ -333,25 +333,33 @@ def place_bet(data):
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
     cursor = db.cursor(pymysql.cursors.DictCursor)
     
-    game_id = data['game_id']
+    game_id = str(data['game_id'])
     message = data['message']
     amount = data['amount']
     user1 = data['user1']
     user2 = data['user2']
 
-    direct = data['direct']
-    accepted = data['accepted']
+    direct = str(data['direct'])
+    accepted = str(data['accepted'])
     
     #Need to get gametime, team1, team2
 
     sql = "SELECT game_time, team1, team2 FROM games WHERE game_id = " + game_id + ";"
     cursor.execute(sql)
     row = cursor.fetchone()
+    team1 = str(row['team1'])
+    team2 = str(row['team2'])
     
-    sql = "INSERT INTO bets VALUES ( NEWID()" + ", " + game_id + ", " + \
-        "NOW(), " + row['game_time'] + ", 0, " + \
-        message + ", " + amount + ", " + user1 + ", "+ user2 + ", " + \
-        row['team1'] + ", " + row['team2'] + ", " + direct + ", " + accepted + ", None" + ");"
+    #sql = "INSERT INTO bets VALUES (str(NEWID())" + ", " + game_id + ", " + \
+    #    "NOW(), " + row['game_time'] + ", 0, " + \
+    #    message + ", " + amount + ", " + user1 + ", "+ user2 + ", " + \
+    #    row['team1'] + ", " + row['team2'] + ", " + direct + ", " + accepted + ", NULL" + ");"
+
+    sql = "INERT INTO bets " \
+          "(game_id, game_time, message, ammount, user1, user2, team1, team2, direct, accepted) " \
+          "VALUES" \
+          "(" +  game_id + ",  NOW(), \"" + message + "\", " + amount + ", \"" + user1 + "\", \"" + user2 + \
+          "\", \"" + team1 + "\", \"" + team2 + "\", " +  direct + ", " + accepted + ");"
 
     cursor.execute(sql)
     db.close()
