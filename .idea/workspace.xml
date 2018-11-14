@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9aab021b-7ef8-44e4-a587-9ef6cfa6d657" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/api/feeds.py" afterPath="$PROJECT_DIR$/backend/api/feeds.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/db/db.py" afterPath="$PROJECT_DIR$/backend/db/db.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -45,7 +43,11 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="182">
               <caret line="36" column="38" lean-forward="false" selection-start-line="36" selection-start-column="38" selection-end-line="36" selection-end-column="38" />
-              <folding />
+              <folding>
+                <marker date="1542228326000" expanded="true" signature="1400:2018" ph="..." />
+                <marker date="1542228326000" expanded="true" signature="1405:1531" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+                <marker date="1542228326000" expanded="true" signature="1735:1803" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -65,7 +67,7 @@
       <file leaf-file-name="feeds.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/api/feeds.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
+            <state relative-caret-position="231">
               <caret line="137" column="31" lean-forward="false" selection-start-line="137" selection-start-column="31" selection-end-line="137" selection-end-column="31" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
@@ -78,8 +80,8 @@
       <file leaf-file-name="db.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/backend/db/db.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="295" column="94" lean-forward="false" selection-start-line="295" selection-start-column="94" selection-end-line="295" selection-end-column="94" />
+            <state relative-caret-position="469">
+              <caret line="295" column="95" lean-forward="false" selection-start-line="295" selection-start-column="95" selection-end-line="295" selection-end-column="95" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
                 <marker date="1542228180000" expanded="true" signature="403:476" ph="SELECT user_... users" />
@@ -261,7 +263,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17155068" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -271,7 +272,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24257933" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24257933" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -789,7 +790,7 @@
         <state relative-caret-position="330">
           <caret line="22" column="47" lean-forward="true" selection-start-line="22" selection-start-column="47" selection-end-line="22" selection-end-column="47" />
           <folding>
-            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#0#23#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -819,7 +820,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
           <caret line="36" column="38" lean-forward="false" selection-start-line="36" selection-start-column="38" selection-end-line="36" selection-end-column="38" />
-          <folding />
+          <folding>
+            <marker date="1542228326000" expanded="true" signature="1400:2018" ph="..." />
+            <marker date="1542228326000" expanded="true" signature="1405:1531" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <marker date="1542228326000" expanded="true" signature="1735:1803" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -835,7 +840,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/api/feeds.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
+        <state relative-caret-position="231">
           <caret line="137" column="31" lean-forward="false" selection-start-line="137" selection-start-column="31" selection-end-line="137" selection-end-column="31" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
@@ -846,8 +851,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/db/db.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="295" column="94" lean-forward="false" selection-start-line="295" selection-start-column="94" selection-end-line="295" selection-end-column="94" />
+        <state relative-caret-position="469">
+          <caret line="295" column="95" lean-forward="false" selection-start-line="295" selection-start-column="95" selection-end-line="295" selection-end-column="95" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
             <marker date="1542228180000" expanded="true" signature="403:476" ph="SELECT user_... users" />

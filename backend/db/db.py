@@ -306,6 +306,26 @@ def get_bet_history(loguser):
     return res
 
 
+def get_between_us_bets(loguser, otheruser):
+    db_config = get_db_config()
+    db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
+    cursor = db.cursor(pymysql.cursors.DictCursor)
+
+    sql = "SELECT * FROM bets " \
+          "WHERE (user1=\"" + loguser + "\" AND user2=\"" + otheruser + "\")" \
+          " OR" \
+          "(user1=\"" + otheruser + "\" AND user2=\"" + loguser + "\");"
+
+    cursor.execute(sql)
+
+    res = []
+    for row in cursor:
+        res.append(row)
+
+    db.close()
+
+    return res
+
 # I NEED ALL BET INFO
 # JUST GETTING TWO TEAMS
 def place_bet(data):

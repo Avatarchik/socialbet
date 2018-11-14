@@ -23,6 +23,11 @@ if [ $1 = "bet_history" ]; then
     curl -X GET $url/api/feeds/bet_history/\?loguser=$loguser\&auth=$auth
 fi
 
+if [ $1 = "between_us_bets" ]; then
+    user2="cterech"
+    curl -X GET $url/api/feeds/between_us_bets/\?loguser=$loguser\&auth=$auth\&user2=$user2
+fi
+
 
 
 if [ $1 = "get_teams" ]; then
