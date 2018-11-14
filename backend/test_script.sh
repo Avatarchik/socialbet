@@ -82,7 +82,11 @@ if [ $1 = "add_friends" ]; then
         -d "{\"loguser\": \"$username\", \"auth\": \"$auth\", \"user1\": \"$user1\", \"user2\": \"$user2\" }"
 fi
 
+if [ $1 = "get_user" ]; then
+    username="cterech"
+    curl -X GET $url/api/users/find/\?loguser=$loguser\&auth=$auth\&username=$username
 
+fi
 # Betting endpoints
 #########################
 

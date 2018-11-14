@@ -57,7 +57,7 @@ def get_user():
     
     result = {}
     data = {}
-    data['user_name'] = request.args.get('username')
+    data = request.args.get('username')
     users = db.get_user(data)
     if len(users) == 0:
         result = {}
