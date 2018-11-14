@@ -24,7 +24,7 @@ def authenticate(log_user, auth):
 def get_users():
     db_config = get_db_config()
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
-    cursor = db.cursor()
+    cursor = db.cursor(pymysql.cursors.DictCursor)
 
     sql = "SELECT * FROM users;"
     cursor.execute(sql)
@@ -38,19 +38,15 @@ def get_users():
     return res
 
 # I NEED user_name
-def get_user(data):
+def get_user(user_name):
     db_config = get_db_config()
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
-    cursor = db.cursor()
+    cursor = db.cursor(pymysql.cursors.DictCursor)
 
-    user_name = data['user_name']
-
-    sql = "SELECT * FROM users WHERE user_name = " + user_name + ";"
+    sql = "SELECT * FROM users WHERE user_name = \"" + user_name + "\";"
     cursor.execute(sql)
 
-    res = []
-    for row in cursor:
-        res.append(row)
+    res = cursor.fetchone()
 
     db.close()
 
@@ -115,7 +111,7 @@ def drop_user(data):
 def get_friends(data):
     db_config = get_db_config()
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
-    cursor = db.cursor()
+    cursor = db.cursor(pymysql.cursors.DictCursor)
 
     user_name = data['user_name']
 
@@ -168,7 +164,7 @@ def add_friend(data):
 def get_games():
     db_config = get_db_config()
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
-    cursor = db.cursor()
+    cursor = db.cursor(pymysql.cursors.DictCursor)
 
     sql = "SELECT * FROM games;"
 
@@ -211,7 +207,7 @@ def get_live_bets(loguser):
 def get_open_bets(loguser):
     db_config = get_db_config()
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
-    cursor = db.cursor()
+    cursor = db.cursor(pymysql.cursors.DictCursor)
 
     sql = "SELECT * FROM bets " \
           "WHERE user1 = (" \
@@ -233,7 +229,7 @@ def get_open_bets(loguser):
 def get_closed_bets(loguser):
     db_config = get_db_config()
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
-    cursor = db.cursor()
+    cursor = db.cursor(pymysql.cursors.DictCursor)
 
     sql = "SELECT * FROM bets WHERE user1 = (SELECT user2 FROM friends WHERE user1=\"" + loguser + "\" " + ") AND accepted=1 AND winner IS NOT NULL;"
 
@@ -253,7 +249,7 @@ def get_closed_bets(loguser):
 def place_bet(data):
     db_config = get_db_config()
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
-    cursor = db.cursor()
+    cursor = db.cursor(pymysql.cursors.DictCursor)
     
     game_id = data['game_id']
     message = data['message']
