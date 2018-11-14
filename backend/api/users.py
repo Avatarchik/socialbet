@@ -115,24 +115,24 @@ def login_user():
     
     return create_http_response()
 
-	
+
 @users.route('api/users/add_friend/', methods=["POST"])
 def add_friend():
-	data = json.loads(request.data)
-	info = {}
-	
-	info['loguser'] = data['loguser']
-	info['auth'] = data['auth']
-	auth_ = db.authenticate(log_user, auth)
+    data = json.loads(request.data)
+    info = {}
+
+    info['loguser'] = data['loguser']
+    info['auth'] = data['auth']
+    auth_ = db.authenticate(log_user, auth)
     if not auth_:
         result = {}
         result['errors'] = []
         result['errors'].append('unauthenticated user')
         return create_http_response(data=result, errors=result['errors'])
-	info['user1'] = data['user1']
-	info['user2'] = data['user2']
-	
-	worked = db.add_friend(info)
+    info['user1'] = data['user1']
+    info['user2'] = data['user2']
+
+    worked = db.add_friend(info)
     if worked:
         return create_http_response()
     else:
