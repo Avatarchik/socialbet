@@ -88,12 +88,12 @@ func sendPOST(uri: String, parameters: Dictionary<String, String>, callback: @es
     Alamofire.request(url, method:.post, parameters:parameters, encoding: JSONEncoding.default).responseString { response in
         switch response.result {
             case .success:
-                httpresponse.error = response.error
+                httpresponse.error = response.result.error
                 httpresponse.data = response.data
                 httpresponse.success = true
                 callback(httpresponse)
             case .failure:
-                httpresponse.error = response.error
+                httpresponse.error = response.result.error
                 httpresponse.data = response.data
                 httpresponse.success = false
                 callback(httpresponse)
