@@ -1,5 +1,7 @@
+setup.py
 api/api_utils.py
 api/betting.py
+api/coinbase.py
 api/feeds.py
 api/games.py
 api/index.py

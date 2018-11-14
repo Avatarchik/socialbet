@@ -12,7 +12,7 @@ import CommonCrypto
 class Common {
     let domain = "socialbet.jpkrieg.com"
     let port = "5000"
-    let default_pic = "https://cdn2.iconfinder.com/data/icons/lil-silhouettes/2176/person5-512.png"
+    let default_pic = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREya1ZUSfvxj7zwOwWeCOtLk3JlDTbeuHZy4lcyKilbcmgpgEA"
     var username = "default"
     var pwhash = "default"
     
