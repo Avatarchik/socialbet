@@ -53,8 +53,7 @@ def accept_bet():
 
     # Accept bet
     bet_id = data['bet_id']
-    other_user = data['other_user'] if 'other_user' in data else None
-    db.accept_bet(bet_id, other_user)
+    db.accept_bet(bet_id, loguser)
 
     # Send json response
     return create_http_response()

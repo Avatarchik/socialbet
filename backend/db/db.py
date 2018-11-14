@@ -379,15 +379,15 @@ def get_bet(bet_id):
 
     db_config = get_db_config()
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
-    cursor = db.cursor()
-    sql = 'SELECT * FROM bets WHERE bet_id=\"' + bet_id+ '\";'
+    cursor = db.cursor(pymysql.cursors.DictCursor)
+    sql = 'SELECT * FROM bets WHERE bet_id=' + str(bet_id) + ';'
     cursor.execute(sql)
     bet = cursor.fetchone()
     db.close()
 
     return bet
 
-def accept_bet(bet_id, otheruser=None):
+def accept_bet(bet_id, loguser):
 
     # Determine if direct or open bet
     bet = get_bet(bet_id)
@@ -397,14 +397,15 @@ def accept_bet(bet_id, otheruser=None):
 
     # open bet sql
     if not direct_bet:
-        sql += ', user2=\"' + otheruser + '\"'
+        sql += ', user2=\"' + loguser + '\"'
 
-    sql += ' WHERE bet_id=' + bet_id+ ';'
+    sql += ' WHERE bet_id=' + str(bet_id) + ';'
 
     db_config = get_db_config()
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
     cursor = db.cursor()
     cursor.execute(sql)
+    db.commit()
     db.close()
 
     return
@@ -420,6 +421,7 @@ def cancel_bet(bet_id):
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
     cursor = db.cursor()
     cursor.execute(sql)
+    db.commit()
     db.close()
 
     return
