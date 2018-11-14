@@ -85,7 +85,7 @@ def list_live_bets():
     return create_http_response(data=result)
 
 
-@feeds.route('/api/feeds/closed_bets')
+@feeds.route('/api/feeds/closed_bets/')
 def list_closed_bets():
     loguser = request.args.get('loguser')
     auth = request.args.get('auth')
