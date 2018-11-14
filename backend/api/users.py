@@ -116,7 +116,7 @@ def login_user():
     return create_http_response()
 
 	
-@users.route('api/users/add_friend/', methods=["POST"])
+@users.route('/api/users/add_friend/', methods=["POST"])
 def add_friend():
 	data = json.loads(request.data)
 	info = {}
