@@ -84,22 +84,15 @@ def list_closed_bets():
 
     return create_http_response(data=result)
 
-@feeds.route('/api/feeds/direct_bets_pending')
-def list_direct_bets_pending():
-    pass
 
-@feeds.route('/api/feeds/past_bets')
-def list_past_bets():
+@feeds.route('/api/feeds/closed_bets')
+def list_closed_bets():
     loguser = request.args.get('loguser')
     auth = request.args.get('auth')
     if not db.authenticate(loguser, auth):
         return create_http_response(errors=['unauthenticated user'])
 
-    direct = True
-    accepted = True
-
-
-    db_bets = db.get_bets(direct, accepted)
+    db_bets = db.get_closed_bets(loguser)
 
     bets = []
     for db_bet in db_bets:
@@ -132,4 +125,28 @@ def list_past_bets():
     }
 
     return create_http_response(data=result)
+
+
+@feeds.route('/api/feeds/bet_history')
+def list_closed_bets():
+    loguser = request.args.get('loguser')
+    auth = request.args.get('auth')
+    if not db.authenticate(loguser, auth):
+        return create_http_response(errors=['unauthenticated user'])
+
+    # TODO
+    # Note: major problem here will be adding bet users to the proper bets
+    pass
+
+
+@feeds.route('/api/feeds/direct_bets_pending')
+def list_direct_bets_pending():
+    loguser = request.args.get('loguser')
+    auth = request.args.get('auth')
+    if not db.authenticate(loguser, auth):
+        return create_http_response(errors=['unauthenticated user'])
+
+    # TODO
+
+    pass
 

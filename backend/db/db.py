@@ -181,6 +181,25 @@ def get_open_bets(loguser):
 
     return res
 
+
+def get_closed_bets(loguser):
+    db_config = get_db_config()
+    db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
+    cursor = db.cursor()
+
+    sql = "SELECT * FROM bets WHERE user1 = (SELECT user2 FROM friends WHERE user1=\"" + loguser + "\" " + ") AND accepted=1 AND winner IS NOT NULL;"
+
+    cursor.execute(sql)
+
+    res = []
+    for row in cursor:
+        res.append(row)
+
+
+    db.close()
+
+    return res
+
 # I NEED ALL BET INFO
 # JUST GETTING TWO TEAMS
 def place_bet(data):
