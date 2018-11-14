@@ -179,6 +179,20 @@ def get_games():
 
     return res
 
+def get_game(game_id):
+    db_config = get_db_config()
+    db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
+    cursor = db.cursor(pymysql.cursors.DictCursor)
+
+    sql = "SELECT * FROM games WHERE game_id=" + game_id + ";"
+
+    cursor.execute(sql)
+
+    res = cursor.fetchone()
+
+    db.close()
+
+    return res
 ########################## TEAMS ###########################################################
 def get_teams():
     db_config = get_db_config()
@@ -329,10 +343,7 @@ def get_between_us_bets(loguser, otheruser):
 # I NEED ALL BET INFO
 # JUST GETTING TWO TEAMS
 def place_bet(data):
-    db_config = get_db_config()
-    db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
-    cursor = db.cursor(pymysql.cursors.DictCursor)
-    
+
     game_id = str(data['game_id'])
     message = data['message']
     amount = str(data['amount'])
@@ -341,20 +352,19 @@ def place_bet(data):
 
     direct = str(data['direct'])
     accepted = str(data['accepted'])
-    
-    #Need to get gametime, team1, team2
 
-    sql = "SELECT game_time, team1, team2 FROM games WHERE game_id = " + game_id + ";"
-    cursor.execute(sql)
-    row = cursor.fetchone()
-    game_time = str(row['game_time'])
-    team1 = str(row['team1'])
-    team2 = str(row['team2'])
+    game = get_game(game_id)
+
+    game_time = str(game['game_time'])
+    team1 = str(game['team1'])
+    team2 = str(game['team2'])
+
+
+    db_config = get_db_config()
+    db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
+    cursor = db.cursor(pymysql.cursors.DictCursor)
+
     
-    #sql = "INSERT INTO bets VALUES (str(NEWID())" + ", " + game_id + ", " + \
-    #    "NOW(), " + row['game_time'] + ", 0, " + \
-    #    message + ", " + amount + ", " + user1 + ", "+ user2 + ", " + \
-    #    row['team1'] + ", " + row['team2'] + ", " + direct + ", " + accepted + ", NULL" + ");"
 
     sql = "INERT INTO bets " \
           "(game_id, game_time, message, ammount, user1, user2, team1, team2, direct, accepted) " \
@@ -365,6 +375,8 @@ def place_bet(data):
     print(sql)
 
     cursor.execute(sql)
+
+    db.commit()
     db.close()
 
     return
