@@ -31,7 +31,7 @@ CREATE TABLE bets (
 	game_id INTEGER NOT NULL,
 	time_placed VARCHAR(50) NOT NULL,
 	game_time VARCHAR(50) NOT NULL,
-	num_comments INT NOT NULL,
+	num_comments INT NOT NULL DEFAULT 0,
 	message VARCHAR(50) NOT NULL,
 	ammount FLOAT NOT NULL, 
 	user1 VARCHAR(50) NOT NULL,
