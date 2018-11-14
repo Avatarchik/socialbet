@@ -34,7 +34,7 @@ if [ $1 = "" ]; then
     curl -X GET $url/api/feeds/open_bets/\?loguser=$loguser\&auth=$auth
 fi
 
-if [ $1 = "add_friends"]; then
+if [ $1 = "add_friends" ]; then
     # Testing add_friend in db.py
     username=$loguser
     user1=$loguser
