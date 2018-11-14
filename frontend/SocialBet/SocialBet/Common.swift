@@ -84,15 +84,15 @@ struct ClosedBetFeed: Decodable {
 
 struct LiveBet: Decodable {
     let accepted: Bool
-    let ammount: Float
+    let amount: Float
     let bet_id: Int
     let direct: Bool
     let game_id: Int
     let game_time: String
     let message: String
     let num_comments: Int
-    let team1: String
-    let team2: String
+    let team1: Team
+    let team2: Team
     let time_placed: String
     let user1: UserInBet
     let user2: UserInBet
@@ -101,15 +101,15 @@ struct LiveBet: Decodable {
 
 struct OpenBet: Decodable {
     let accepted: Bool
-    let ammount: Float
+    let amount: Float
     let bet_id: Int
     let direct: Bool
     let game_id: Int
     let game_time: String
     let message: String
     let num_comments: Int
-    let team1: String
-    let team2: String
+    let team1: Team
+    let team2: Team
     let time_placed: String
     let user1: UserInBet
     let winner: String
@@ -139,7 +139,7 @@ struct UserInBet: Decodable {
     let first_name: String
     let last_name: String
     let profile_pic_url: String
-    let team: String
+    let team: Team
     let user_id: String
 }
 
@@ -148,10 +148,8 @@ struct Game: Decodable {
     let game_time: String
     let record1: String
     let record2: String
-    let team1: String
-    let team1_url: String
-    let team2: String
-    let team2_url: String
+    let team1: Team
+    let team2: Team
 }
 
 struct Team: Decodable {
