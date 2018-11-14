@@ -85,7 +85,7 @@ func sendPOST(uri: String, parameters: Dictionary<String, String>, callback: @es
     var httpresponse = HTTPResponse()
     
     // Populate the return variable with the contents of the request
-    Alamofire.request(url, method:.post, parameters:parameters, encoding: URLEncoding.queryString).responseString { response in
+    Alamofire.request(url, method:.post, parameters:parameters, encoding: JSONEncoding.default).responseString { response in
         switch response.result {
             case .success:
                 httpresponse.error = response.error
