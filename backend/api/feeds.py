@@ -12,12 +12,8 @@ def list_open_bets():
     # Authenticate user
     loguser = request.args.get('loguser')
     auth = request.args.get('auth')
-    auth_ = db.authenticate(loguser, auth)
-    if not auth_:
-        result = {}
-        result['errors'] = []
-        result['errors'].append('unauthenticated user')
-        return create_http_response(data=result, errors=result['errors'])
+    if not db.authenticate(loguser, auth):
+        return create_http_response(errors=['unauthenticated user'])
 
     # Get open bets
     db_bets = db.get_bets(loguser)
@@ -51,12 +47,8 @@ def list_closed_bets():
     # Authenticate user
     loguser = request.args.get('loguser')
     auth = request.args.get('auth')
-    auth_ = db.authenticate(loguser, auth)
-    if not auth_:
-        result = {}
-        result['errors'] = []
-        result['errors'].append('unauthenticated user')
-        return create_http_response(data=result, errors=result['errors'])
+    if not db.authenticate(loguser, auth):
+        return create_http_response(errors=['unauthenticated user'])
 
     # Get live bets and construct JSON
     db_bets = db.get_live_bets(loguser)
@@ -100,14 +92,10 @@ def list_direct_bets_pending():
 
 @feeds.route('/api/feeds/past_bets')
 def list_past_bets():
-    log_user = request.args.get('loguser')
+    loguser = request.args.get('loguser')
     auth = request.args.get('auth')
-    auth_ = db.authenticate(log_user, auth)
-    if not auth_:
-        result = {}
-        result['errors'] = []
-        result['errors'].append('unauthenticated user')
-        return create_http_response(data=result, errors=result['errors'])
+    if not db.authenticate(loguser, auth):
+        return create_http_response(errors=['unauthenticated user'])
 
     direct = True
     accepted = True
