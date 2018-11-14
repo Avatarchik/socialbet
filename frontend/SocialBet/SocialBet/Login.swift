@@ -51,7 +51,7 @@ class Login: UIViewController {
     }
     
     @IBAction func LoginHelp(_ sender: Any) {
-        // TODO - Create help page
+        performSegue(withIdentifier: "FakeLoginToProfile", sender: self)
     }
     
     @IBAction func GoToRegistration(_ sender: Any) {
