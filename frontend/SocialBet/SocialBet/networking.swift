@@ -66,23 +66,26 @@ func sendGET(uri: String) -> GETResponse {
     return getresponse
 }
 
-func sendPOST(uri: String, parameters: Dictionary<String, String>) ->  POSTResponse{
+func sendPOST(uri: String, parameters: Dictionary<String, String>, callback: @escaping (POSTResponse) -> Void){
     // form the request url
-    let url = common.domain + ":" + common.port + uri
+    guard let url = URL(string: "http://" + common.domain + ":" + common.port + uri) else {
+        callback(POSTResponse())
+        return
+    }
     
-    // Instantiate a return variable
-    var postresponse = POSTResponse()
+    // create a variable that will be passed to the completion handler
+    // this is kind of like a return value but it is asynchonous and safe
+    var postresponse = POSTResponse();
     
     // Populate the return variable with the contents of the request
-    Alamofire.request(url, method:.post, parameters:parameters ,encoding: JSONEncoding.default).responseJSON { response in
+    Alamofire.request(url, method:.post, parameters:parameters ,encoding: URLEncoding.queryString).responseString { response in
         switch response.result {
-        case .success:
-            postresponse.response = response
-            postresponse.data = response.data
-        case .failure(let error):
-            postresponse.error = response.error
-        }    }
-    
-    
-    return postresponse
+            case .success:
+                postresponse.data = response.data
+                callback(postresponse)
+            case .failure:
+                postresponse.error = response.error
+                callback(postresponse)
+       }
+    }
 }

@@ -41,19 +41,19 @@ class BetBuilderTeamSelection: UIViewController, UIGestureRecognizerDelegate {
         
         let parameters = ["loguser": common.username, "auth": common.pwhash, "game_id": self.selected_game_id!, "message": "", "amount": self.WagerAmountInput.text!, "user1": common.username, "user2": self.selected_opponent!, "direct": direct, "accepted": false] as! Dictionary<String, String>
         
-        let response = sendPOST(uri: "/api/betting/place_bet", parameters: parameters)
-        
-        if response.error == nil {
-            self.alert(message: "Your bet request was sent!", title: "Bet Successful");
-            //TODO - perform segue going back to feed
-        }
-        else{
-            // TODO: check HTML error codes
-            self.alert(message: "Bet unable to be placed", title: "Bet Error")
-            //TODO perform segue going back to beginning of bet builder
-        }
-        
-        print("Bet Submitted!");
+        sendPOST(uri: "/api/betting/place_bet", parameters: parameters, callback: { (postresponse) in
+            // check for errors
+            if postresponse.error == nil {
+                self.alert(message: "Your bet request was sent!", title: "Bet Successful");
+                //TODO - perform segue going back to feed
+            }
+            else{
+                // TODO: check HTML error codes
+                self.alert(message: "Bet unable to be placed", title: "Bet Error")
+                //TODO perform segue going back to beginning of bet builder
+            }
+            print("Bet Submitted!");
+        })
     }
     
     func cancelBet(alert: UIAlertAction!){
