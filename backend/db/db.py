@@ -335,7 +335,7 @@ def place_bet(data):
     
     game_id = str(data['game_id'])
     message = data['message']
-    amount = data['amount']
+    amount = str(data['amount'])
     user1 = data['user1']
     user2 = data['user2']
 
