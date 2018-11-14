@@ -41,7 +41,7 @@ def list_open_bets():
     return create_http_response(data=result)
 
 @feeds.route('/api/feeds/live_bets/')
-def list_closed_bets():
+def list_closed_live_bets():
 
     # Authenticate user
     loguser = request.args.get('loguser')
@@ -128,7 +128,7 @@ def list_closed_bets():
 
 
 @feeds.route('/api/feeds/bet_history')
-def list_closed_bets():
+def list_closed_bets_bet_history():
     loguser = request.args.get('loguser')
     auth = request.args.get('auth')
     if not db.authenticate(loguser, auth):

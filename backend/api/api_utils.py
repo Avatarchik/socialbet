@@ -13,8 +13,7 @@ def create_http_response(data={}, errors=[]):
     :return: an HTTP response object which a Flask endpoint can return
     '''
 
-    success_status = 'successful' if errors is [] or None else 'error'
-    print(errors)
+    success_status = 'successful' if not errors else 'error'
 
     response = {
         'success_status': success_status,

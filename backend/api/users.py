@@ -1,12 +1,14 @@
 from flask import Flask, Blueprint, request
+from werkzeug.datastructures import ImmutableMultiDict
 from db import db
 from .api_utils import create_http_response
+import json
 
 app = Flask(__name__)
 users = Blueprint('users', __name__)
 
 #Currently a bug in this endpoint. Returning no friends with achapp and cterech
-@users.route('/api/users/exist')
+@users.route('/api/users/exist/')
 def check_user():
 	log_user = request.args.get('loguser')
 	auth = request.args.get('auth')
@@ -40,7 +42,7 @@ def check_user():
 	return create_http_response(data=response)
 
 
-@users.route('/api/users/find')
+@users.route('/api/users/find/')
 def get_user():
 	log_user = request.args.get('loguser')
 	auth = request.args.get('auth')
@@ -74,17 +76,15 @@ def get_user():
 	return create_http_response(data=result)
 
 
-@users.route('/api/users/create', methods=["POST"])
+@users.route('/api/users/create/', methods=["POST"])
 def create_user():
-	data = json.loads(request.args)
-
-	user_info = {}
-	user_info['user_name'] = data['username']
-	user_info['auth'] = data['auth']
-	user_info['first_name'] = data['first_name']
-	user_info['last_name'] = data['last_name']
-	user_info['phone_number'] = data['phone_number']
-	user_info['prof_pic'] = data['profile_pic_url']
+	
+	user_info['user_name'] = request.values['username']
+	user_info['auth'] = request.values['auth']
+	user_info['first_name'] = request.values['first_name']
+	user_info['last_name'] = request.values['last_name']
+	user_info['phone_number'] = request.values['phone_number']
+	user_info['prof_pic'] = request.values['profile_pic_url']
 
 	worked = db.create_user(user_info)
 	if worked:
@@ -96,7 +96,7 @@ def create_user():
 		return create_http_response(data=result, errors=result['errors'])
 
 
-@users.route('/api/users/login', methods=["POST"])
+@users.route('/api/users/login/', methods=["POST"])
 def login_user():
 	data = json.loads(request.args)
 	username = data['username']
