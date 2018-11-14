@@ -10,6 +10,7 @@ users = Blueprint('users', __name__)
 #Currently a bug in this endpoint. Returning no friends with achapp and cterech
 @users.route('/api/users/exist/')
 def check_user():
+    # Authenticate user
     log_user = request.args.get('loguser')
     auth = request.args.get('auth')
     auth_ = db.authenticate(log_user, auth)
@@ -19,6 +20,7 @@ def check_user():
         result['errors'].append('unauthenticated user')
         return create_http_response(data=result, errors=result['errors'])
 
+    #
     is_friend = request.args.get('friends')
     response = {}
     if is_friend:
