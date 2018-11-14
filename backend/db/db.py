@@ -157,7 +157,7 @@ def get_games():
 def get_live_bets(loguser):
     db_config = get_db_config()
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
-    cursor = db.cursor()
+    cursor = db.cursor(pymysql.cursors.DictCursor)
 
     sql = "SELECT B.* FROM bets B " \
           "INNER JOIN " \
