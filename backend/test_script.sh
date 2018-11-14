@@ -34,6 +34,10 @@ if [ $1 = "get_teams" ]; then
     curl -X GET $url/api/teams/\?loguser=$loguser\&auth=$auth
 fi
 
+if [ $1 = "get_games" ]; then
+    curl -X GET $url/api/games/\?loguser=$loguser\&auth=$auth
+fi
+
 
 if [ $1 = "create_user" ]; then
     username="testuser"
