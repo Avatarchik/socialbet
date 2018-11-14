@@ -127,7 +127,7 @@ def list_closed_bets():
     return create_http_response(data=result)
 
 
-@feeds.route('/api/feeds/bet_history')
+@feeds.route('/api/feeds/bet_history/')
 def list_closed_bets_bet_history():
     loguser = request.args.get('loguser')
     auth = request.args.get('auth')
@@ -139,7 +139,7 @@ def list_closed_bets_bet_history():
     pass
 
 
-@feeds.route('/api/feeds/direct_bets_pending')
+@feeds.route('/api/feeds/direct_bets_pending/')
 def list_direct_bets_pending():
 
     # Authenticate user

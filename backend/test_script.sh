@@ -15,6 +15,11 @@ if [ $1 = "closed_bets" ]; then
     curl -X GET $url/api/feeds/closed_bets/\?loguser=$loguser\&auth=$auth
 fi
 
+if [ $1 = "direct_bets_pending" ]; then
+    curl -X GET $url/api/feeds/direct_bets_pending/\?loguser=$loguser\&auth=$auth
+fi
+
+
 if [ $1 = "get_teams" ]; then
     curl -X GET $url/api/teams/\?loguser=$loguser\&auth=$auth
 fi
@@ -49,5 +54,5 @@ if [ $1 = "add_friends" ]; then
     user2="achapp"
 
     curl -X POST -H "Content-Type: application/json" $url/api/users/add_friend/ \
-        -d "{\"loguser\": \"$username\", \"auth\": \"$auth\", \"user1\": \"$user1\", \"user2\": \"$user2\" }"
+        -d "{\"username\": \"$username\", \"auth\": \"$auth\", \"user1\": \"$user1\", \"user2\": \"$user2\" }"
 fi
