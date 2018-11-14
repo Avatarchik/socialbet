@@ -76,7 +76,7 @@ def create_user(data):
     print(phonenumber)
     print(profile_pic_url)
     
-    query = "INSERT INTO users VALUES ( '"+username+"', '"+firstname+"', '"+lastname+"', '"+auth+"', '"+phonenumber+"', '"+profile_pic_url+"' )"
+    query = "INSERT INTO users VALUES ( '"+username+"', '"+firstname+"', '"+lastname+"', '"+phonenumber+"', '"+auth+"', '"+profile_pic_url+"' )"
     
     worked = True
     try:
