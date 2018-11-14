@@ -48,9 +48,7 @@ def get_user(data):
     sql = "SELECT * FROM users WHERE user_name = " + user_name + ";"
     cursor.execute(sql)
 
-    res = []
-    for row in cursor:
-        res.append(row)
+    res = cursor.fetchone()
 
     db.close()
 
