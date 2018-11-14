@@ -374,38 +374,7 @@ def user_exist(data):
     else:
         return False
 
-# I NEED ALL BET INFO
-# JUST GETTING TWO TEAMS
-def place_bet(data):
-    db_config = get_db_config()
-    db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
-    cursor = db.cursor()
-
-    game_time = data['game_time']
-    message = data['message']
-    amount = data['amount']
-    user1 = data['user1']
-    user2 = data['user2']
-    team1 = data['team1']
-    team2 = data['team2']
-
-    direct = data['direct']
-    accepted = data['accepted']
-
-    sql = "SELECT game_id FROM games WHERE team1 = " + team1 + " AND team2 = " + team2  + ";"
-    cursor.execute(sql)
-    game_id = cursor.fetchall()
-
-    sql = "INSERT INTO bets VALUES ( NEWID()" + ", " + game_id + ", " + \
-        "NOW(), " + game_time + ", " + \
-        message + ", " + amount + ", " + user1 + ", "+ user2 + ", " + \
-        team1 + ", " + team2 + ", " + direct + ", " + accepted + ");"
-
-    cursor.execute(sql)
-    db.close()
-
-    return
-
+#I NEED ALL BET INFO
 def get_bet(bet_id):
 
     db_config = get_db_config()
