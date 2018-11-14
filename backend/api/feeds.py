@@ -104,7 +104,7 @@ def list_closed_bets():
             'first_name': db_user1['first_name'],
             'last_name': db_user1['last_name'],
             'profile_pic_url': db_user1['profile_pic_url'],
-            'team': db_bet['user1team']
+            'team': db_bet['team1']
         }
         db_user2 = db.get_user(db_bet['user2'])
         user2 = {
@@ -112,7 +112,7 @@ def list_closed_bets():
             'first_name': db_user2['first_name'],
             'last_name': db_user2['last_name'],
             'profile_pic_url': db_user2['profile_pic_url'],
-            'team': db_bet['user2team']
+            'team': db_bet['team2']
         }
 
         bet['user1'] = user1
