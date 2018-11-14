@@ -37,7 +37,11 @@ class Registration: UIViewController {
         
         let auth = sha256(data: (password!).data(using: String.Encoding.utf8)! as NSData);
         
+<<<<<<< HEAD
         let parameters = ["username": username, "auth": auth, "phonenumber": phoneNumber, "firstname": firstName, "lastname": lastName, "profile_pic_url": common.default_pic] as! Dictionary<String, String>
+=======
+        let parameters = ["username": username, "auth": auth, "phoneNumber": phoneNumber, "firstname": firstName, "lastname": lastName, "profile_pic_url": common.default_pic] as! Dictionary<String, String>
+>>>>>>> 3d1244b0d592ea0e42c4a67f798a4a18e84edca1
         
         // create and send a POST request
         sendPOST(uri: "/api/users/create/", parameters: parameters, callback: { (postresponse) in
