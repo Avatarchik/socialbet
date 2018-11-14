@@ -72,18 +72,19 @@ func isValidHandle(handle: String?, friends: Bool) -> Bool{
     else{
         fullURI = fullURI + "&friends=false";
     }
-    let response: GETResponse? = sendGET(uri: fullURI);
-    let data: Data! = response?.data
-    // decode the information recieved
-    if response?.error != nil {
-        guard let feedData = try? JSONDecoder().decode(Existance.self, from: data)
-            else {
-                return false;
+    sendGET(uri: fullURI, callback: { (httpresponse) in
+        let data: Data! = httpresponse.data
+        // decode the information recieved
+        if httpresponse.error != nil {
+            guard let feedData = try? JSONDecoder().decode(Existance.self, from: data)
+                else {
+                    return false;
+            }
+            return feedData.value;
+        } else{
+            return false;
         }
-        return feedData.value;
-    } else{
-        return false;
-    }
+    })
 }
 
 // data structure definitions

@@ -31,61 +31,72 @@ import Alamofire
  THE SOFTWARE.
 */
 
-// TODO, these objects are the same and could be treated as one networkresponse object
-
-struct GETResponse {
-    var error: Error? = nil
-    var data: Data? = nil                       // the JSONified response
-    var response: DataResponse<Any>? = nil      // the unparsed response
+// container for HTTP responses from GET and POST requests
+struct HTTPResponse {
+    var error: Error? = nil     // request error information
+    var data: Data? = nil       // the JSONified response
+    var success: Bool? = nil    // True if success
+    var failure: Bool? = nil    // True if failure
 }
 
-struct POSTResponse {
-    var error: Error? = nil
-    var data: Data? = nil                       // the JSONified response
-    var response: DataResponse<Any>? = nil      // the unparsed response
-}
-
-func sendGET(uri: String) -> GETResponse {
-    // form the request url
-    let url = common.domain + ":" + common.port + uri
-    
-    // Instantiate a return variable
-    var getresponse = GETResponse()
-    
-    // Populate the return variable with the contents of the request
-    Alamofire.request(url).responseJSON { response in
-        switch response.result {
-        case .success:
-            getresponse.response = response
-            getresponse.data = response.data
-        case .failure(let error):
-            getresponse.error = error
-        }
-    }
-    
-    return getresponse
-}
-
-func sendPOST(uri: String, parameters: Dictionary<String, String>, callback: @escaping (POSTResponse) -> Void){
+// send a GET request
+// arguments:   uri for the endpoint (including query string)
+//              callback function of your design
+func sendGET(uri: String, callback: @escaping (HTTPResponse) -> Void){
     // form the request url
     guard let url = URL(string: "http://" + common.domain + ":" + common.port + uri) else {
-        callback(POSTResponse())
+        callback(HTTPResponse())
+        return
+    }
+    
+    // Instantiate a return variable
+    var httpresponse = HTTPResponse()
+    
+    // Populate the return variable with the contents of the request
+    Alamofire.request(url, method:.get, encoding: URLEncoding.default).responseString { response in
+        switch response.result {
+        case .success:
+            httpresponse.error = response.error
+            httpresponse.data = response.data
+            httpresponse.success = true
+            callback(httpresponse)
+        case .failure:
+            httpresponse.error = response.error
+            httpresponse.data = response.data
+            httpresponse.success = false
+            callback(httpresponse)
+        }
+    }
+}
+
+// send a POST request
+// arguments:   uri for the endpoint (including query string)
+//              dictionary of parameters to pass to the server
+//              callback function of your design
+func sendPOST(uri: String, parameters: Dictionary<String, String>, callback: @escaping (HTTPResponse) -> Void){
+    // form the request url
+    guard let url = URL(string: "http://" + common.domain + ":" + common.port + uri) else {
+        callback(HTTPResponse())
         return
     }
     
     // create a variable that will be passed to the completion handler
     // this is kind of like a return value but it is asynchonous and safe
-    var postresponse = POSTResponse();
+    var httpresponse = HTTPResponse()
     
     // Populate the return variable with the contents of the request
-    Alamofire.request(url, method:.post, parameters:parameters ,encoding: URLEncoding.queryString).responseString { response in
+    Alamofire.request(url, method:.post, parameters:parameters, encoding: URLEncoding.queryString).responseString { response in
         switch response.result {
             case .success:
-                postresponse.data = response.data
-                callback(postresponse)
+                httpresponse.error = response.error
+                httpresponse.data = response.data
+                httpresponse.success = true
+                callback(httpresponse)
             case .failure:
-                postresponse.error = response.error
-                callback(postresponse)
+                httpresponse.error = response.error
+                httpresponse.data = response.data
+                httpresponse.success = false
+                callback(httpresponse)
        }
     }
 }

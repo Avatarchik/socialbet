@@ -200,22 +200,21 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     
     func loadProfileInfo(){
         let fullURI = addGETParams(path: "/api/users/find/", search: self.searchedUser, needsUsername: true)
-        let response = sendGET(uri: fullURI)
-        let data: Data! = response.data
-        
-        if response.error == nil {
-            guard let userData = try? JSONDecoder().decode(User.self, from: data)
-                else {
-                    self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
-                    return
+        sendGET(uri: fullURI, callback: { (httpresponse) in
+            let data: Data! = httpresponse.data
+            
+            if httpresponse.error == nil {
+                guard let userData = try? JSONDecoder().decode(User.self, from: data)
+                    else {
+                        self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
+                        return
+                }
+                getImageFromUrl(urlString: userData.profile_pic_url, imageView: self.ProfilePic!);
+                self.UserHandle.text = userData.username;
+                self.UserName.text = userData.first_name + " " + userData.last_name;
+            } else{
+                self.alert(message: "There was an error processing your request.", title: "Network Error")
             }
-            getImageFromUrl(urlString: userData.profile_pic_url, imageView: self.ProfilePic!);
-            self.UserHandle.text = userData.username;
-            self.UserName.text = userData.first_name + " " + userData.last_name;
-        } else{
-            self.alert(message: "There was an error processing your request.", title: "Network Error")
-        }
+        })
     }
-
-
 }

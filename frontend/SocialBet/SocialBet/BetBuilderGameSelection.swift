@@ -23,21 +23,25 @@ class BetBuilderGameSelection: UIViewController, UICollectionViewDataSource, UIC
         
         // submit a GET request to get the game feed object
         let fullURI = addGETParams(path: "/api/games/", search: "", needsUsername: false)
-        let response: GETResponse? = sendGET(uri: fullURI);
-        let data: Data! = response?.data
         
-        // decode the information recieved
-        if response?.error != nil {
-            guard let feedData = try? JSONDecoder().decode(GamesFeed.self, from: data)
-                else {
-                    self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
-                    return
+        // TODO go through this
+        sendGET(uri: fullURI, callback: { (httpresponse) in
+            let data: Data! = httpresponse.data
+            
+            // decode the information recieved
+            if httpresponse.error != nil {
+                guard let feedData = try? JSONDecoder().decode(GamesFeed.self, from: data)
+                    else {
+                        self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
+                        return
+                }
+                self.gamesData = feedData;
+                self.feedCount = feedData.games.count;
+            } else{
+                self.alert(message: "There was an error processing your request.", title: "Network Error")
             }
-            self.gamesData = feedData;
-            self.feedCount = feedData.games.count;
-        } else{
-            self.alert(message: "There was an error processing your request.", title: "Network Error")
-        }
+        })
+        
     }
     
     @IBAction func GoBack(_ sender: Any) {
