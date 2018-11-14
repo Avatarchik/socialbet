@@ -1,13 +1,13 @@
 # USERS
 INSERT INTO users (user_name, first_name, last_name, phone, profile_pic_url, auth)
 VALUES
-('cterech', 'Chris','Terech','734-417-6331', '/root/socialbet/backend/user_profile_pics/terech.png', 'HIEOS3753H83FHFKS'), 
-('rshelly','Ryan','Shelly','949-290-6670', '/root/socialbet/backend/user_profile_pics/shelly.png', 'SDJEI3752E7EFH381J4G9'),
-('ncargill','Nick','Cargill','914-479-2054', '/root/socialbet/backend/user_profile_pics/cargill.png', 'H3829HVVUELAW8572'),
-('isvidler','Ittai','Svilder','912-409-0127', '/root/socialbet/backend/user_profile_pics/svidler.png', '382HF89EHN29E9321AA'),
-('achapp','Alex','Chapp','734-498-0573', '/root/socialbet/backend/user_profile_pics/chapp.png', '3UF920927201F0OSPEU33'),
-('jkrieg','John','Krieg','734-201-9423', '/root/socialbet/backend/user_profile_pics/krieg.png', '29720JSWO37GHEBMXNW'),
-('tswartz','Trevor','Swartz','914-479-2054', '/root/socialbet/backend/user_profile_pics/swartz.png', '19VUE3HS0HEJ37F35PW0');
+('cterech', 'Chris','Terech','734-417-6331', '/root/socialbet/backend/user_profile_pics/terech.png', '5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8'), 
+('rshelly','Ryan','Shelly','949-290-6670', '/root/socialbet/backend/user_profile_pics/shelly.png', '5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8'),
+('ncargill','Nick','Cargill','914-479-2054', '/root/socialbet/backend/user_profile_pics/cargill.png', '5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8'),
+('isvidler','Ittai','Svilder','912-409-0127', '/root/socialbet/backend/user_profile_pics/svidler.png', '5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8'),
+('achapp','Alex','Chapp','734-498-0573', '/root/socialbet/backend/user_profile_pics/chapp.png', '5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8'),
+('jkrieg','John','Krieg','734-201-9423', '/root/socialbet/backend/user_profile_pics/krieg.png', '5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8'),
+('tswartz','Trevor','Swartz','914-479-2054', '/root/socialbet/backend/user_profile_pics/swartz.png', '5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8');
 
 # FRIENDS
 INSERT INTO friends (user1,user2)
