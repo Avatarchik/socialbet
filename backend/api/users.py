@@ -78,14 +78,16 @@ def get_user():
 
 @users.route('/api/users/create/', methods=["POST"])
 def create_user():
+
+    data = json.loads(request.data)
     
     user_info = {}
-    user_info['username'] = request.values['username']
-    user_info['auth'] = request.values['auth']
-    user_info['firstname'] = request.values['firstname']
-    user_info['lastname'] = request.values['lastname']
-    user_info['phonenumber'] = request.values['phonenumber']
-    user_info['profile_pic_url'] = request.values['profile_pic_url']
+    user_info['username'] = data['username']
+    user_info['auth'] = data['auth']
+    user_info['firstname'] = data['firstname']
+    user_info['lastname'] = data['lastname']
+    user_info['phonenumber'] = data['phonenumber']
+    user_info['profile_pic_url'] = data['profile_pic_url']
 
     worked = db.create_user(user_info)
     if worked:
@@ -108,6 +110,6 @@ def login_user():
         result['errors'] = []
         result['errors'].append('username and auth dont match up')
         return create_http_response(data=result, errors=result['errors'])
-
+    
     return create_http_response()
 
