@@ -87,13 +87,13 @@ def create_user():
     user_info['phonenumber'] = request.values['phonenumber']
     user_info['profile_pic_url'] = request.values['profile_pic_url']
 
-    worked = db.create_user(user_info)
-    if worked:
+    status = db.create_user(user_info)
+    if status[success]:
         return create_http_response()
     else:
         result = {}
         result['errors'] = []
-        result['errors'].append("Error Occurred")
+        result['errors'].append(status["error"])
         return create_http_response(data=result, errors=result['errors'])
 
 
