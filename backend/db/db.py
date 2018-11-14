@@ -38,14 +38,12 @@ def get_users():
     return res
 
 # I NEED user_name
-def get_user(data):
+def get_user(user_name):
     db_config = get_db_config()
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
     cursor = db.cursor(pymysql.cursors.DictCursor)
 
-    user_name = data['user_name']
-
-    sql = "SELECT * FROM users WHERE user_name = " + user_name + ";"
+    sql = "SELECT * FROM users WHERE user_name = \"" + user_name + "\";"
     cursor.execute(sql)
 
     res = cursor.fetchone()
