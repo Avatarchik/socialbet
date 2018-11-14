@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9aab021b-7ef8-44e4-a587-9ef6cfa6d657" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/.test_script.sh.swp" afterPath="$PROJECT_DIR$/backend/.test_script.sh.swp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/api/feeds.py" afterPath="$PROJECT_DIR$/backend/api/feeds.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/db/db.py" afterPath="$PROJECT_DIR$/backend/db/db.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/test_script.sh" afterPath="$PROJECT_DIR$/backend/test_script.sh" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -64,68 +68,99 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="feeds.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="feeds.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/backend/api/feeds.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="137" column="31" lean-forward="false" selection-start-line="137" selection-start-column="31" selection-end-line="137" selection-end-column="31" />
+            <state relative-caret-position="252">
+              <caret line="224" column="27" lean-forward="false" selection-start-line="224" selection-start-column="27" selection-end-line="224" selection-end-column="27" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
-                <marker date="1542228224000" expanded="true" signature="252:257" ph="..." />
+                <marker date="1542229014000" expanded="true" signature="252:257" ph="..." />
+                <marker date="1542229014000" expanded="true" signature="1114:2307" ph="..." />
+                <marker date="1542229014000" expanded="true" signature="1451:2191" ph="..." />
+                <marker date="1542229014000" expanded="true" signature="1539:1557" ph="..." />
+                <marker date="1542229014000" expanded="true" signature="1878:2106" ph="..." />
+                <marker date="1542229014000" expanded="true" signature="2234:2260" ph="..." />
+                <marker date="1542229014000" expanded="true" signature="2373:3476" ph="..." />
+                <marker date="1542229014000" expanded="true" signature="2648:3386" ph="..." />
+                <marker date="1542229014000" expanded="true" signature="2736:2985" ph="..." />
+                <marker date="1542229014000" expanded="true" signature="3052:3301" ph="..." />
+                <marker date="1542229014000" expanded="true" signature="3403:3429" ph="..." />
+                <marker date="1542229014000" expanded="true" signature="3554:4722" ph="..." />
+                <marker date="1542229014000" expanded="true" signature="3868:4606" ph="..." />
+                <marker date="1542229014000" expanded="true" signature="3956:4205" ph="..." />
+                <marker date="1542229014000" expanded="true" signature="4272:4521" ph="..." />
+                <marker date="1542229014000" expanded="true" signature="4649:4675" ph="..." />
+                <marker date="1542229014000" expanded="true" signature="4803:6004" ph="..." />
+                <marker date="1542229014000" expanded="true" signature="5150:5888" ph="..." />
+                <marker date="1542229014000" expanded="true" signature="5238:5487" ph="..." />
+                <marker date="1542229014000" expanded="true" signature="5554:5803" ph="..." />
+                <marker date="1542229014000" expanded="true" signature="5931:5957" ph="..." />
+                <marker date="1542229014000" expanded="true" signature="6085:7326" ph="..." />
+                <marker date="1542229014000" expanded="true" signature="6472:7210" ph="..." />
+                <marker date="1542229014000" expanded="true" signature="6560:6809" ph="..." />
+                <marker date="1542229014000" expanded="true" signature="6876:7125" ph="..." />
+                <marker date="1542229014000" expanded="true" signature="7253:7279" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="db.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="db.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/db/db.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="295" column="95" lean-forward="false" selection-start-line="295" selection-start-column="95" selection-end-line="295" selection-end-column="95" />
+            <state relative-caret-position="518">
+              <caret line="315" column="16" lean-forward="false" selection-start-line="315" selection-start-column="16" selection-end-line="315" selection-end-column="16" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
-                <marker date="1542228180000" expanded="true" signature="403:476" ph="SELECT user_... users" />
-                <marker date="1542228180000" expanded="true" signature="403:479" ph="SELECT user_... users" />
-                <marker date="1542228180000" expanded="true" signature="403:493" ph="SELECT user_... users" />
-                <marker date="1542228180000" expanded="true" signature="461:476" ph="SELECT user_... users" />
-                <marker date="1542228180000" expanded="true" signature="966:985" ph="SELECT * FRO... users" />
-                <marker date="1542228180000" expanded="true" signature="1363:1422" ph="SELECT * FRO... users" />
-                <marker date="1542228180000" expanded="true" signature="2115:2245" ph="INSERT INTO users... " />
-                <marker date="1542228180000" expanded="true" signature="2685:2721" ph="DELETE FROM " />
-                <marker date="1542228180000" expanded="true" signature="3305:3364" ph="SELECT user2... friends" />
-                <marker date="1542228180000" expanded="true" signature="3859:3913" ph="INSERT INTO friends... " />
-                <marker date="1542228180000" expanded="true" signature="4550:4569" ph="SELECT * FRO... games" />
-                <marker date="1542228180000" expanded="true" signature="5015:5029" ph="SELECT * FRO... games" />
-                <marker date="1542228180000" expanded="true" signature="5015:5034" ph="SELECT * FRO... teams" />
-                <marker date="1542228180000" expanded="true" signature="5630:5650" ph="SELECT * FRO... bets" />
-                <marker date="1542228180000" expanded="true" signature="5630:5678" ph="SELECT * FRO... betsINNER" />
-                <marker date="1542228180000" expanded="true" signature="5630:5723" ph="SELECT * FRO... betsINNER" />
-                <marker date="1542228180000" expanded="true" signature="5630:5727" ph="SELECT * FRO... betsINNER" />
-                <marker date="1542228180000" expanded="true" signature="5630:5789" ph="SELECT * FRO... betsmissing_valueINNER" />
-                <marker date="1542228180000" expanded="true" signature="5630:5793" ph="SELECT * FRO... betsmissing_valueINNER" />
-                <marker date="1542228180000" expanded="true" signature="5630:5827" ph="SELECT B.* F... bets" />
-                <marker date="1542228180000" expanded="true" signature="5630:5835" ph="SELECT B.* F... bets" />
-                <marker date="1542228180000" expanded="true" signature="5630:5881" ph="SELECT B.* F... bets" />
-                <marker date="1542228180000" expanded="true" signature="5630:5898" ph="SELECT B.* F... bets" />
-                <marker date="1542228180000" expanded="true" signature="5630:5920" ph="SELECT B.* F... bets" />
-                <marker date="1542228180000" expanded="true" signature="5630:5931" ph="SELECT B.* F... bets" />
-                <marker date="1542228180000" expanded="true" signature="5630:5935" ph="SELECT * FRO... betsmissing_valueINNER" />
-                <marker date="1542228180000" expanded="true" signature="5697:5723" ph="SELECT * FRO... friends" />
-                <marker date="1542228180000" expanded="true" signature="6688:8346" ph="..." />
-                <marker date="1542228180000" expanded="true" signature="7631:7664" ph="SELECT * FRO... bets" />
-                <marker date="1542228180000" expanded="true" signature="7631:7681" ph="SELECT * FRO... bets" />
-                <marker date="1542228180000" expanded="true" signature="7631:7709" ph="SELECT * FRO... bets" />
-                <marker date="1542228180000" expanded="true" signature="8075:8126" ph="SELECT * FRO... bets" />
-                <marker date="1542228180000" expanded="true" signature="8075:8128" ph="SELECT * FRO... bets" />
-                <marker date="1542228180000" expanded="true" signature="8075:8177" ph="SELECT * FRO... bets" />
-                <marker date="1542228180000" expanded="true" signature="8832:8890" ph="SELECT game_... games" />
-                <marker date="1542228180000" expanded="true" signature="9201:9240" ph="INSERT INTO bets... " />
-                <marker date="1542228180000" expanded="true" signature="9201:9294" ph="..." />
-                <marker date="1542228180000" expanded="true" signature="9593:9639" ph="SELECT user_... users" />
-                <marker date="1542228180000" expanded="true" signature="10338:10404" ph="SELECT game_... games" />
-                <marker date="1542228180000" expanded="true" signature="10489:10741" ph="INSERT INTO bets... " />
-                <marker date="1542228180000" expanded="true" signature="11005:11054" ph="SELECT * FRO... bets" />
-                <marker date="1542228180000" expanded="true" signature="11333:11359" ph="UPDATE bets " />
+                <marker date="1542228958000" expanded="true" signature="403:476" ph="SELECT user_... users" />
+                <marker date="1542228958000" expanded="true" signature="403:479" ph="SELECT user_... users" />
+                <marker date="1542228958000" expanded="true" signature="403:493" ph="SELECT user_... users" />
+                <marker date="1542228958000" expanded="true" signature="461:476" ph="SELECT user_... users" />
+                <marker date="1542228958000" expanded="true" signature="966:985" ph="SELECT * FRO... users" />
+                <marker date="1542228958000" expanded="true" signature="1363:1422" ph="SELECT * FRO... users" />
+                <marker date="1542228958000" expanded="true" signature="2115:2245" ph="INSERT INTO users... " />
+                <marker date="1542228958000" expanded="true" signature="2685:2721" ph="DELETE FROM " />
+                <marker date="1542228958000" expanded="true" signature="3305:3364" ph="SELECT user2... friends" />
+                <marker date="1542228958000" expanded="true" signature="3859:3913" ph="INSERT INTO friends... " />
+                <marker date="1542228958000" expanded="true" signature="4550:4569" ph="SELECT * FRO... games" />
+                <marker date="1542228958000" expanded="true" signature="5015:5029" ph="SELECT * FRO... games" />
+                <marker date="1542228958000" expanded="true" signature="5015:5034" ph="SELECT * FRO... teams" />
+                <marker date="1542228958000" expanded="true" signature="5630:5650" ph="SELECT * FRO... bets" />
+                <marker date="1542228958000" expanded="true" signature="5630:5678" ph="SELECT * FRO... betsINNER" />
+                <marker date="1542228958000" expanded="true" signature="5630:5723" ph="SELECT * FRO... betsINNER" />
+                <marker date="1542228958000" expanded="true" signature="5630:5727" ph="SELECT * FRO... betsINNER" />
+                <marker date="1542228958000" expanded="true" signature="5630:5789" ph="SELECT * FRO... betsmissing_valueINNER" />
+                <marker date="1542228958000" expanded="true" signature="5630:5793" ph="SELECT * FRO... betsmissing_valueINNER" />
+                <marker date="1542228958000" expanded="true" signature="5630:5827" ph="SELECT B.* F... bets" />
+                <marker date="1542228958000" expanded="true" signature="5630:5835" ph="SELECT B.* F... bets" />
+                <marker date="1542228958000" expanded="true" signature="5630:5881" ph="SELECT B.* F... bets" />
+                <marker date="1542228958000" expanded="true" signature="5630:5898" ph="SELECT B.* F... bets" />
+                <marker date="1542228958000" expanded="true" signature="5630:5920" ph="SELECT B.* F... bets" />
+                <marker date="1542228958000" expanded="true" signature="5630:5931" ph="SELECT B.* F... bets" />
+                <marker date="1542228958000" expanded="true" signature="5630:5935" ph="SELECT * FRO... betsmissing_valueINNER" />
+                <marker date="1542228958000" expanded="true" signature="5697:5723" ph="SELECT * FRO... friends" />
+                <marker date="1542228958000" expanded="true" signature="6688:8917" ph="..." />
+                <marker date="1542228958000" expanded="true" signature="7631:7664" ph="SELECT * FRO... bets" />
+                <marker date="1542228958000" expanded="true" signature="7631:7681" ph="SELECT * FRO... bets" />
+                <marker date="1542228958000" expanded="true" signature="7631:7709" ph="SELECT * FRO... bets" />
+                <marker date="1542228958000" expanded="true" signature="8075:8126" ph="SELECT * FRO... bets" />
+                <marker date="1542228958000" expanded="true" signature="8075:8128" ph="SELECT * FRO... bets" />
+                <marker date="1542228958000" expanded="true" signature="8075:8177" ph="SELECT * FRO... bets" />
+                <marker date="1542228958000" expanded="true" signature="8558:8637" ph="SELECT * FRO... bets" />
+                <marker date="1542228958000" expanded="true" signature="8558:8657" ph="SELECT * FRO... bets" />
+                <marker date="1542228958000" expanded="true" signature="8558:8673" ph="SELECT * FRO... bets" />
+                <marker date="1542228958000" expanded="true" signature="8558:8675" ph="SELECT * FRO... bets" />
+                <marker date="1542228958000" expanded="true" signature="8558:8749" ph="SELECT * FRO... bets" />
+                <marker date="1542228958000" expanded="true" signature="8558:8752" ph="SELECT * FRO... bets" />
+                <marker date="1542228958000" expanded="true" signature="9403:9461" ph="SELECT game_... games" />
+                <marker date="1542228958000" expanded="true" signature="9772:9811" ph="INSERT INTO bets... " />
+                <marker date="1542228958000" expanded="true" signature="9772:9865" ph="..." />
+                <marker date="1542228958000" expanded="true" signature="10164:10210" ph="SELECT user_... users" />
+                <marker date="1542228958000" expanded="true" signature="10909:10975" ph="SELECT game_... games" />
+                <marker date="1542228958000" expanded="true" signature="11060:11312" ph="INSERT INTO bets... " />
+                <marker date="1542228958000" expanded="true" signature="11576:11625" ph="SELECT * FRO... bets" />
+                <marker date="1542228958000" expanded="true" signature="11904:11930" ph="UPDATE bets " />
               </folding>
             </state>
           </provider>
@@ -306,7 +341,32 @@
           <caret line="37" column="13" lean-forward="false" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
-            <marker date="1542228224000" expanded="true" signature="252:257" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="252:257" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="1114:2307" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="1451:2191" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="1539:1557" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="1878:2106" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="2234:2260" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="2373:3476" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="2648:3386" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="2736:2985" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="3052:3301" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="3403:3429" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="3554:4722" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="3868:4606" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="3956:4205" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="4272:4521" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="4649:4675" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="4803:6004" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="5150:5888" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="5238:5487" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="5554:5803" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="5931:5957" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="6085:7326" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="6472:7210" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="6560:6809" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="6876:7125" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="7253:7279" ph="..." />
           </folding>
         </state>
       </provider>
@@ -357,48 +417,54 @@
           <caret line="61" column="21" lean-forward="false" selection-start-line="61" selection-start-column="21" selection-end-line="61" selection-end-column="21" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
-            <marker date="1542228180000" expanded="true" signature="403:476" ph="SELECT user_... users" />
-            <marker date="1542228180000" expanded="true" signature="403:479" ph="SELECT user_... users" />
-            <marker date="1542228180000" expanded="true" signature="403:493" ph="SELECT user_... users" />
-            <marker date="1542228180000" expanded="true" signature="461:476" ph="SELECT user_... users" />
-            <marker date="1542228180000" expanded="true" signature="966:985" ph="SELECT * FRO... users" />
-            <marker date="1542228180000" expanded="true" signature="1363:1422" ph="SELECT * FRO... users" />
-            <marker date="1542228180000" expanded="true" signature="2115:2245" ph="INSERT INTO users... " />
-            <marker date="1542228180000" expanded="true" signature="2685:2721" ph="DELETE FROM " />
-            <marker date="1542228180000" expanded="true" signature="3305:3364" ph="SELECT user2... friends" />
-            <marker date="1542228180000" expanded="true" signature="3859:3913" ph="INSERT INTO friends... " />
-            <marker date="1542228180000" expanded="true" signature="4550:4569" ph="SELECT * FRO... games" />
-            <marker date="1542228180000" expanded="true" signature="5015:5029" ph="SELECT * FRO... games" />
-            <marker date="1542228180000" expanded="true" signature="5015:5034" ph="SELECT * FRO... teams" />
-            <marker date="1542228180000" expanded="true" signature="5630:5650" ph="SELECT * FRO... bets" />
-            <marker date="1542228180000" expanded="true" signature="5630:5678" ph="SELECT * FRO... betsINNER" />
-            <marker date="1542228180000" expanded="true" signature="5630:5723" ph="SELECT * FRO... betsINNER" />
-            <marker date="1542228180000" expanded="true" signature="5630:5727" ph="SELECT * FRO... betsINNER" />
-            <marker date="1542228180000" expanded="true" signature="5630:5789" ph="SELECT * FRO... betsmissing_valueINNER" />
-            <marker date="1542228180000" expanded="true" signature="5630:5793" ph="SELECT * FRO... betsmissing_valueINNER" />
-            <marker date="1542228180000" expanded="true" signature="5630:5827" ph="SELECT B.* F... bets" />
-            <marker date="1542228180000" expanded="true" signature="5630:5835" ph="SELECT B.* F... bets" />
-            <marker date="1542228180000" expanded="true" signature="5630:5881" ph="SELECT B.* F... bets" />
-            <marker date="1542228180000" expanded="true" signature="5630:5898" ph="SELECT B.* F... bets" />
-            <marker date="1542228180000" expanded="true" signature="5630:5920" ph="SELECT B.* F... bets" />
-            <marker date="1542228180000" expanded="true" signature="5630:5931" ph="SELECT B.* F... bets" />
-            <marker date="1542228180000" expanded="true" signature="5630:5935" ph="SELECT * FRO... betsmissing_valueINNER" />
-            <marker date="1542228180000" expanded="true" signature="5697:5723" ph="SELECT * FRO... friends" />
-            <marker date="1542228180000" expanded="true" signature="6688:8346" ph="..." />
-            <marker date="1542228180000" expanded="true" signature="7631:7664" ph="SELECT * FRO... bets" />
-            <marker date="1542228180000" expanded="true" signature="7631:7681" ph="SELECT * FRO... bets" />
-            <marker date="1542228180000" expanded="true" signature="7631:7709" ph="SELECT * FRO... bets" />
-            <marker date="1542228180000" expanded="true" signature="8075:8126" ph="SELECT * FRO... bets" />
-            <marker date="1542228180000" expanded="true" signature="8075:8128" ph="SELECT * FRO... bets" />
-            <marker date="1542228180000" expanded="true" signature="8075:8177" ph="SELECT * FRO... bets" />
-            <marker date="1542228180000" expanded="true" signature="8832:8890" ph="SELECT game_... games" />
-            <marker date="1542228180000" expanded="true" signature="9201:9240" ph="INSERT INTO bets... " />
-            <marker date="1542228180000" expanded="true" signature="9201:9294" ph="..." />
-            <marker date="1542228180000" expanded="true" signature="9593:9639" ph="SELECT user_... users" />
-            <marker date="1542228180000" expanded="true" signature="10338:10404" ph="SELECT game_... games" />
-            <marker date="1542228180000" expanded="true" signature="10489:10741" ph="INSERT INTO bets... " />
-            <marker date="1542228180000" expanded="true" signature="11005:11054" ph="SELECT * FRO... bets" />
-            <marker date="1542228180000" expanded="true" signature="11333:11359" ph="UPDATE bets " />
+            <marker date="1542228958000" expanded="true" signature="403:476" ph="SELECT user_... users" />
+            <marker date="1542228958000" expanded="true" signature="403:479" ph="SELECT user_... users" />
+            <marker date="1542228958000" expanded="true" signature="403:493" ph="SELECT user_... users" />
+            <marker date="1542228958000" expanded="true" signature="461:476" ph="SELECT user_... users" />
+            <marker date="1542228958000" expanded="true" signature="966:985" ph="SELECT * FRO... users" />
+            <marker date="1542228958000" expanded="true" signature="1363:1422" ph="SELECT * FRO... users" />
+            <marker date="1542228958000" expanded="true" signature="2115:2245" ph="INSERT INTO users... " />
+            <marker date="1542228958000" expanded="true" signature="2685:2721" ph="DELETE FROM " />
+            <marker date="1542228958000" expanded="true" signature="3305:3364" ph="SELECT user2... friends" />
+            <marker date="1542228958000" expanded="true" signature="3859:3913" ph="INSERT INTO friends... " />
+            <marker date="1542228958000" expanded="true" signature="4550:4569" ph="SELECT * FRO... games" />
+            <marker date="1542228958000" expanded="true" signature="5015:5029" ph="SELECT * FRO... games" />
+            <marker date="1542228958000" expanded="true" signature="5015:5034" ph="SELECT * FRO... teams" />
+            <marker date="1542228958000" expanded="true" signature="5630:5650" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="5630:5678" ph="SELECT * FRO... betsINNER" />
+            <marker date="1542228958000" expanded="true" signature="5630:5723" ph="SELECT * FRO... betsINNER" />
+            <marker date="1542228958000" expanded="true" signature="5630:5727" ph="SELECT * FRO... betsINNER" />
+            <marker date="1542228958000" expanded="true" signature="5630:5789" ph="SELECT * FRO... betsmissing_valueINNER" />
+            <marker date="1542228958000" expanded="true" signature="5630:5793" ph="SELECT * FRO... betsmissing_valueINNER" />
+            <marker date="1542228958000" expanded="true" signature="5630:5827" ph="SELECT B.* F... bets" />
+            <marker date="1542228958000" expanded="true" signature="5630:5835" ph="SELECT B.* F... bets" />
+            <marker date="1542228958000" expanded="true" signature="5630:5881" ph="SELECT B.* F... bets" />
+            <marker date="1542228958000" expanded="true" signature="5630:5898" ph="SELECT B.* F... bets" />
+            <marker date="1542228958000" expanded="true" signature="5630:5920" ph="SELECT B.* F... bets" />
+            <marker date="1542228958000" expanded="true" signature="5630:5931" ph="SELECT B.* F... bets" />
+            <marker date="1542228958000" expanded="true" signature="5630:5935" ph="SELECT * FRO... betsmissing_valueINNER" />
+            <marker date="1542228958000" expanded="true" signature="5697:5723" ph="SELECT * FRO... friends" />
+            <marker date="1542228958000" expanded="true" signature="6688:8917" ph="..." />
+            <marker date="1542228958000" expanded="true" signature="7631:7664" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="7631:7681" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="7631:7709" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="8075:8126" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="8075:8128" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="8075:8177" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="8558:8637" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="8558:8657" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="8558:8673" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="8558:8675" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="8558:8749" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="8558:8752" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="9403:9461" ph="SELECT game_... games" />
+            <marker date="1542228958000" expanded="true" signature="9772:9811" ph="INSERT INTO bets... " />
+            <marker date="1542228958000" expanded="true" signature="9772:9865" ph="..." />
+            <marker date="1542228958000" expanded="true" signature="10164:10210" ph="SELECT user_... users" />
+            <marker date="1542228958000" expanded="true" signature="10909:10975" ph="SELECT game_... games" />
+            <marker date="1542228958000" expanded="true" signature="11060:11312" ph="INSERT INTO bets... " />
+            <marker date="1542228958000" expanded="true" signature="11576:11625" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="11904:11930" ph="UPDATE bets " />
           </folding>
         </state>
       </provider>
@@ -430,7 +496,32 @@
           <caret line="38" column="19" lean-forward="false" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
-            <marker date="1542228224000" expanded="true" signature="252:257" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="252:257" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="1114:2307" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="1451:2191" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="1539:1557" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="1878:2106" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="2234:2260" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="2373:3476" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="2648:3386" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="2736:2985" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="3052:3301" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="3403:3429" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="3554:4722" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="3868:4606" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="3956:4205" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="4272:4521" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="4649:4675" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="4803:6004" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="5150:5888" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="5238:5487" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="5554:5803" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="5931:5957" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="6085:7326" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="6472:7210" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="6560:6809" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="6876:7125" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="7253:7279" ph="..." />
           </folding>
         </state>
       </provider>
@@ -502,7 +593,32 @@
           <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
-            <marker date="1542228224000" expanded="true" signature="252:257" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="252:257" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="1114:2307" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="1451:2191" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="1539:1557" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="1878:2106" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="2234:2260" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="2373:3476" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="2648:3386" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="2736:2985" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="3052:3301" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="3403:3429" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="3554:4722" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="3868:4606" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="3956:4205" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="4272:4521" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="4649:4675" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="4803:6004" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="5150:5888" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="5238:5487" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="5554:5803" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="5931:5957" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="6085:7326" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="6472:7210" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="6560:6809" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="6876:7125" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="7253:7279" ph="..." />
           </folding>
         </state>
       </provider>
@@ -513,48 +629,54 @@
           <caret line="29" column="7" lean-forward="false" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
-            <marker date="1542228180000" expanded="true" signature="403:476" ph="SELECT user_... users" />
-            <marker date="1542228180000" expanded="true" signature="403:479" ph="SELECT user_... users" />
-            <marker date="1542228180000" expanded="true" signature="403:493" ph="SELECT user_... users" />
-            <marker date="1542228180000" expanded="true" signature="461:476" ph="SELECT user_... users" />
-            <marker date="1542228180000" expanded="true" signature="966:985" ph="SELECT * FRO... users" />
-            <marker date="1542228180000" expanded="true" signature="1363:1422" ph="SELECT * FRO... users" />
-            <marker date="1542228180000" expanded="true" signature="2115:2245" ph="INSERT INTO users... " />
-            <marker date="1542228180000" expanded="true" signature="2685:2721" ph="DELETE FROM " />
-            <marker date="1542228180000" expanded="true" signature="3305:3364" ph="SELECT user2... friends" />
-            <marker date="1542228180000" expanded="true" signature="3859:3913" ph="INSERT INTO friends... " />
-            <marker date="1542228180000" expanded="true" signature="4550:4569" ph="SELECT * FRO... games" />
-            <marker date="1542228180000" expanded="true" signature="5015:5029" ph="SELECT * FRO... games" />
-            <marker date="1542228180000" expanded="true" signature="5015:5034" ph="SELECT * FRO... teams" />
-            <marker date="1542228180000" expanded="true" signature="5630:5650" ph="SELECT * FRO... bets" />
-            <marker date="1542228180000" expanded="true" signature="5630:5678" ph="SELECT * FRO... betsINNER" />
-            <marker date="1542228180000" expanded="true" signature="5630:5723" ph="SELECT * FRO... betsINNER" />
-            <marker date="1542228180000" expanded="true" signature="5630:5727" ph="SELECT * FRO... betsINNER" />
-            <marker date="1542228180000" expanded="true" signature="5630:5789" ph="SELECT * FRO... betsmissing_valueINNER" />
-            <marker date="1542228180000" expanded="true" signature="5630:5793" ph="SELECT * FRO... betsmissing_valueINNER" />
-            <marker date="1542228180000" expanded="true" signature="5630:5827" ph="SELECT B.* F... bets" />
-            <marker date="1542228180000" expanded="true" signature="5630:5835" ph="SELECT B.* F... bets" />
-            <marker date="1542228180000" expanded="true" signature="5630:5881" ph="SELECT B.* F... bets" />
-            <marker date="1542228180000" expanded="true" signature="5630:5898" ph="SELECT B.* F... bets" />
-            <marker date="1542228180000" expanded="true" signature="5630:5920" ph="SELECT B.* F... bets" />
-            <marker date="1542228180000" expanded="true" signature="5630:5931" ph="SELECT B.* F... bets" />
-            <marker date="1542228180000" expanded="true" signature="5630:5935" ph="SELECT * FRO... betsmissing_valueINNER" />
-            <marker date="1542228180000" expanded="true" signature="5697:5723" ph="SELECT * FRO... friends" />
-            <marker date="1542228180000" expanded="true" signature="6688:8346" ph="..." />
-            <marker date="1542228180000" expanded="true" signature="7631:7664" ph="SELECT * FRO... bets" />
-            <marker date="1542228180000" expanded="true" signature="7631:7681" ph="SELECT * FRO... bets" />
-            <marker date="1542228180000" expanded="true" signature="7631:7709" ph="SELECT * FRO... bets" />
-            <marker date="1542228180000" expanded="true" signature="8075:8126" ph="SELECT * FRO... bets" />
-            <marker date="1542228180000" expanded="true" signature="8075:8128" ph="SELECT * FRO... bets" />
-            <marker date="1542228180000" expanded="true" signature="8075:8177" ph="SELECT * FRO... bets" />
-            <marker date="1542228180000" expanded="true" signature="8832:8890" ph="SELECT game_... games" />
-            <marker date="1542228180000" expanded="true" signature="9201:9240" ph="INSERT INTO bets... " />
-            <marker date="1542228180000" expanded="true" signature="9201:9294" ph="..." />
-            <marker date="1542228180000" expanded="true" signature="9593:9639" ph="SELECT user_... users" />
-            <marker date="1542228180000" expanded="true" signature="10338:10404" ph="SELECT game_... games" />
-            <marker date="1542228180000" expanded="true" signature="10489:10741" ph="INSERT INTO bets... " />
-            <marker date="1542228180000" expanded="true" signature="11005:11054" ph="SELECT * FRO... bets" />
-            <marker date="1542228180000" expanded="true" signature="11333:11359" ph="UPDATE bets " />
+            <marker date="1542228958000" expanded="true" signature="403:476" ph="SELECT user_... users" />
+            <marker date="1542228958000" expanded="true" signature="403:479" ph="SELECT user_... users" />
+            <marker date="1542228958000" expanded="true" signature="403:493" ph="SELECT user_... users" />
+            <marker date="1542228958000" expanded="true" signature="461:476" ph="SELECT user_... users" />
+            <marker date="1542228958000" expanded="true" signature="966:985" ph="SELECT * FRO... users" />
+            <marker date="1542228958000" expanded="true" signature="1363:1422" ph="SELECT * FRO... users" />
+            <marker date="1542228958000" expanded="true" signature="2115:2245" ph="INSERT INTO users... " />
+            <marker date="1542228958000" expanded="true" signature="2685:2721" ph="DELETE FROM " />
+            <marker date="1542228958000" expanded="true" signature="3305:3364" ph="SELECT user2... friends" />
+            <marker date="1542228958000" expanded="true" signature="3859:3913" ph="INSERT INTO friends... " />
+            <marker date="1542228958000" expanded="true" signature="4550:4569" ph="SELECT * FRO... games" />
+            <marker date="1542228958000" expanded="true" signature="5015:5029" ph="SELECT * FRO... games" />
+            <marker date="1542228958000" expanded="true" signature="5015:5034" ph="SELECT * FRO... teams" />
+            <marker date="1542228958000" expanded="true" signature="5630:5650" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="5630:5678" ph="SELECT * FRO... betsINNER" />
+            <marker date="1542228958000" expanded="true" signature="5630:5723" ph="SELECT * FRO... betsINNER" />
+            <marker date="1542228958000" expanded="true" signature="5630:5727" ph="SELECT * FRO... betsINNER" />
+            <marker date="1542228958000" expanded="true" signature="5630:5789" ph="SELECT * FRO... betsmissing_valueINNER" />
+            <marker date="1542228958000" expanded="true" signature="5630:5793" ph="SELECT * FRO... betsmissing_valueINNER" />
+            <marker date="1542228958000" expanded="true" signature="5630:5827" ph="SELECT B.* F... bets" />
+            <marker date="1542228958000" expanded="true" signature="5630:5835" ph="SELECT B.* F... bets" />
+            <marker date="1542228958000" expanded="true" signature="5630:5881" ph="SELECT B.* F... bets" />
+            <marker date="1542228958000" expanded="true" signature="5630:5898" ph="SELECT B.* F... bets" />
+            <marker date="1542228958000" expanded="true" signature="5630:5920" ph="SELECT B.* F... bets" />
+            <marker date="1542228958000" expanded="true" signature="5630:5931" ph="SELECT B.* F... bets" />
+            <marker date="1542228958000" expanded="true" signature="5630:5935" ph="SELECT * FRO... betsmissing_valueINNER" />
+            <marker date="1542228958000" expanded="true" signature="5697:5723" ph="SELECT * FRO... friends" />
+            <marker date="1542228958000" expanded="true" signature="6688:8917" ph="..." />
+            <marker date="1542228958000" expanded="true" signature="7631:7664" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="7631:7681" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="7631:7709" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="8075:8126" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="8075:8128" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="8075:8177" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="8558:8637" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="8558:8657" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="8558:8673" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="8558:8675" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="8558:8749" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="8558:8752" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="9403:9461" ph="SELECT game_... games" />
+            <marker date="1542228958000" expanded="true" signature="9772:9811" ph="INSERT INTO bets... " />
+            <marker date="1542228958000" expanded="true" signature="9772:9865" ph="..." />
+            <marker date="1542228958000" expanded="true" signature="10164:10210" ph="SELECT user_... users" />
+            <marker date="1542228958000" expanded="true" signature="10909:10975" ph="SELECT game_... games" />
+            <marker date="1542228958000" expanded="true" signature="11060:11312" ph="INSERT INTO bets... " />
+            <marker date="1542228958000" expanded="true" signature="11576:11625" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="11904:11930" ph="UPDATE bets " />
           </folding>
         </state>
       </provider>
@@ -594,48 +716,54 @@
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
-            <marker date="1542228180000" expanded="true" signature="403:476" ph="SELECT user_... users" />
-            <marker date="1542228180000" expanded="true" signature="403:479" ph="SELECT user_... users" />
-            <marker date="1542228180000" expanded="true" signature="403:493" ph="SELECT user_... users" />
-            <marker date="1542228180000" expanded="true" signature="461:476" ph="SELECT user_... users" />
-            <marker date="1542228180000" expanded="true" signature="966:985" ph="SELECT * FRO... users" />
-            <marker date="1542228180000" expanded="true" signature="1363:1422" ph="SELECT * FRO... users" />
-            <marker date="1542228180000" expanded="true" signature="2115:2245" ph="INSERT INTO users... " />
-            <marker date="1542228180000" expanded="true" signature="2685:2721" ph="DELETE FROM " />
-            <marker date="1542228180000" expanded="true" signature="3305:3364" ph="SELECT user2... friends" />
-            <marker date="1542228180000" expanded="true" signature="3859:3913" ph="INSERT INTO friends... " />
-            <marker date="1542228180000" expanded="true" signature="4550:4569" ph="SELECT * FRO... games" />
-            <marker date="1542228180000" expanded="true" signature="5015:5029" ph="SELECT * FRO... games" />
-            <marker date="1542228180000" expanded="true" signature="5015:5034" ph="SELECT * FRO... teams" />
-            <marker date="1542228180000" expanded="true" signature="5630:5650" ph="SELECT * FRO... bets" />
-            <marker date="1542228180000" expanded="true" signature="5630:5678" ph="SELECT * FRO... betsINNER" />
-            <marker date="1542228180000" expanded="true" signature="5630:5723" ph="SELECT * FRO... betsINNER" />
-            <marker date="1542228180000" expanded="true" signature="5630:5727" ph="SELECT * FRO... betsINNER" />
-            <marker date="1542228180000" expanded="true" signature="5630:5789" ph="SELECT * FRO... betsmissing_valueINNER" />
-            <marker date="1542228180000" expanded="true" signature="5630:5793" ph="SELECT * FRO... betsmissing_valueINNER" />
-            <marker date="1542228180000" expanded="true" signature="5630:5827" ph="SELECT B.* F... bets" />
-            <marker date="1542228180000" expanded="true" signature="5630:5835" ph="SELECT B.* F... bets" />
-            <marker date="1542228180000" expanded="true" signature="5630:5881" ph="SELECT B.* F... bets" />
-            <marker date="1542228180000" expanded="true" signature="5630:5898" ph="SELECT B.* F... bets" />
-            <marker date="1542228180000" expanded="true" signature="5630:5920" ph="SELECT B.* F... bets" />
-            <marker date="1542228180000" expanded="true" signature="5630:5931" ph="SELECT B.* F... bets" />
-            <marker date="1542228180000" expanded="true" signature="5630:5935" ph="SELECT * FRO... betsmissing_valueINNER" />
-            <marker date="1542228180000" expanded="true" signature="5697:5723" ph="SELECT * FRO... friends" />
-            <marker date="1542228180000" expanded="true" signature="6688:8346" ph="..." />
-            <marker date="1542228180000" expanded="true" signature="7631:7664" ph="SELECT * FRO... bets" />
-            <marker date="1542228180000" expanded="true" signature="7631:7681" ph="SELECT * FRO... bets" />
-            <marker date="1542228180000" expanded="true" signature="7631:7709" ph="SELECT * FRO... bets" />
-            <marker date="1542228180000" expanded="true" signature="8075:8126" ph="SELECT * FRO... bets" />
-            <marker date="1542228180000" expanded="true" signature="8075:8128" ph="SELECT * FRO... bets" />
-            <marker date="1542228180000" expanded="true" signature="8075:8177" ph="SELECT * FRO... bets" />
-            <marker date="1542228180000" expanded="true" signature="8832:8890" ph="SELECT game_... games" />
-            <marker date="1542228180000" expanded="true" signature="9201:9240" ph="INSERT INTO bets... " />
-            <marker date="1542228180000" expanded="true" signature="9201:9294" ph="..." />
-            <marker date="1542228180000" expanded="true" signature="9593:9639" ph="SELECT user_... users" />
-            <marker date="1542228180000" expanded="true" signature="10338:10404" ph="SELECT game_... games" />
-            <marker date="1542228180000" expanded="true" signature="10489:10741" ph="INSERT INTO bets... " />
-            <marker date="1542228180000" expanded="true" signature="11005:11054" ph="SELECT * FRO... bets" />
-            <marker date="1542228180000" expanded="true" signature="11333:11359" ph="UPDATE bets " />
+            <marker date="1542228958000" expanded="true" signature="403:476" ph="SELECT user_... users" />
+            <marker date="1542228958000" expanded="true" signature="403:479" ph="SELECT user_... users" />
+            <marker date="1542228958000" expanded="true" signature="403:493" ph="SELECT user_... users" />
+            <marker date="1542228958000" expanded="true" signature="461:476" ph="SELECT user_... users" />
+            <marker date="1542228958000" expanded="true" signature="966:985" ph="SELECT * FRO... users" />
+            <marker date="1542228958000" expanded="true" signature="1363:1422" ph="SELECT * FRO... users" />
+            <marker date="1542228958000" expanded="true" signature="2115:2245" ph="INSERT INTO users... " />
+            <marker date="1542228958000" expanded="true" signature="2685:2721" ph="DELETE FROM " />
+            <marker date="1542228958000" expanded="true" signature="3305:3364" ph="SELECT user2... friends" />
+            <marker date="1542228958000" expanded="true" signature="3859:3913" ph="INSERT INTO friends... " />
+            <marker date="1542228958000" expanded="true" signature="4550:4569" ph="SELECT * FRO... games" />
+            <marker date="1542228958000" expanded="true" signature="5015:5029" ph="SELECT * FRO... games" />
+            <marker date="1542228958000" expanded="true" signature="5015:5034" ph="SELECT * FRO... teams" />
+            <marker date="1542228958000" expanded="true" signature="5630:5650" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="5630:5678" ph="SELECT * FRO... betsINNER" />
+            <marker date="1542228958000" expanded="true" signature="5630:5723" ph="SELECT * FRO... betsINNER" />
+            <marker date="1542228958000" expanded="true" signature="5630:5727" ph="SELECT * FRO... betsINNER" />
+            <marker date="1542228958000" expanded="true" signature="5630:5789" ph="SELECT * FRO... betsmissing_valueINNER" />
+            <marker date="1542228958000" expanded="true" signature="5630:5793" ph="SELECT * FRO... betsmissing_valueINNER" />
+            <marker date="1542228958000" expanded="true" signature="5630:5827" ph="SELECT B.* F... bets" />
+            <marker date="1542228958000" expanded="true" signature="5630:5835" ph="SELECT B.* F... bets" />
+            <marker date="1542228958000" expanded="true" signature="5630:5881" ph="SELECT B.* F... bets" />
+            <marker date="1542228958000" expanded="true" signature="5630:5898" ph="SELECT B.* F... bets" />
+            <marker date="1542228958000" expanded="true" signature="5630:5920" ph="SELECT B.* F... bets" />
+            <marker date="1542228958000" expanded="true" signature="5630:5931" ph="SELECT B.* F... bets" />
+            <marker date="1542228958000" expanded="true" signature="5630:5935" ph="SELECT * FRO... betsmissing_valueINNER" />
+            <marker date="1542228958000" expanded="true" signature="5697:5723" ph="SELECT * FRO... friends" />
+            <marker date="1542228958000" expanded="true" signature="6688:8917" ph="..." />
+            <marker date="1542228958000" expanded="true" signature="7631:7664" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="7631:7681" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="7631:7709" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="8075:8126" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="8075:8128" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="8075:8177" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="8558:8637" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="8558:8657" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="8558:8673" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="8558:8675" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="8558:8749" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="8558:8752" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="9403:9461" ph="SELECT game_... games" />
+            <marker date="1542228958000" expanded="true" signature="9772:9811" ph="INSERT INTO bets... " />
+            <marker date="1542228958000" expanded="true" signature="9772:9865" ph="..." />
+            <marker date="1542228958000" expanded="true" signature="10164:10210" ph="SELECT user_... users" />
+            <marker date="1542228958000" expanded="true" signature="10909:10975" ph="SELECT game_... games" />
+            <marker date="1542228958000" expanded="true" signature="11060:11312" ph="INSERT INTO bets... " />
+            <marker date="1542228958000" expanded="true" signature="11576:11625" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="11904:11930" ph="UPDATE bets " />
           </folding>
         </state>
       </provider>
@@ -646,7 +774,32 @@
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
-            <marker date="1542228224000" expanded="true" signature="252:257" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="252:257" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="1114:2307" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="1451:2191" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="1539:1557" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="1878:2106" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="2234:2260" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="2373:3476" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="2648:3386" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="2736:2985" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="3052:3301" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="3403:3429" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="3554:4722" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="3868:4606" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="3956:4205" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="4272:4521" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="4649:4675" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="4803:6004" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="5150:5888" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="5238:5487" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="5554:5803" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="5931:5957" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="6085:7326" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="6472:7210" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="6560:6809" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="6876:7125" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="7253:7279" ph="..." />
           </folding>
         </state>
       </provider>
@@ -838,65 +991,96 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/api/feeds.py">
+    <entry file="file://$PROJECT_DIR$/backend/db/db.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="137" column="31" lean-forward="false" selection-start-line="137" selection-start-column="31" selection-end-line="137" selection-end-column="31" />
+        <state relative-caret-position="518">
+          <caret line="315" column="16" lean-forward="false" selection-start-line="315" selection-start-column="16" selection-end-line="315" selection-end-column="16" />
           <folding>
-            <element signature="e#0#43#0" expanded="true" />
-            <marker date="1542228224000" expanded="true" signature="252:257" ph="..." />
+            <element signature="e#0#36#0" expanded="true" />
+            <marker date="1542228958000" expanded="true" signature="403:476" ph="SELECT user_... users" />
+            <marker date="1542228958000" expanded="true" signature="403:479" ph="SELECT user_... users" />
+            <marker date="1542228958000" expanded="true" signature="403:493" ph="SELECT user_... users" />
+            <marker date="1542228958000" expanded="true" signature="461:476" ph="SELECT user_... users" />
+            <marker date="1542228958000" expanded="true" signature="966:985" ph="SELECT * FRO... users" />
+            <marker date="1542228958000" expanded="true" signature="1363:1422" ph="SELECT * FRO... users" />
+            <marker date="1542228958000" expanded="true" signature="2115:2245" ph="INSERT INTO users... " />
+            <marker date="1542228958000" expanded="true" signature="2685:2721" ph="DELETE FROM " />
+            <marker date="1542228958000" expanded="true" signature="3305:3364" ph="SELECT user2... friends" />
+            <marker date="1542228958000" expanded="true" signature="3859:3913" ph="INSERT INTO friends... " />
+            <marker date="1542228958000" expanded="true" signature="4550:4569" ph="SELECT * FRO... games" />
+            <marker date="1542228958000" expanded="true" signature="5015:5029" ph="SELECT * FRO... games" />
+            <marker date="1542228958000" expanded="true" signature="5015:5034" ph="SELECT * FRO... teams" />
+            <marker date="1542228958000" expanded="true" signature="5630:5650" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="5630:5678" ph="SELECT * FRO... betsINNER" />
+            <marker date="1542228958000" expanded="true" signature="5630:5723" ph="SELECT * FRO... betsINNER" />
+            <marker date="1542228958000" expanded="true" signature="5630:5727" ph="SELECT * FRO... betsINNER" />
+            <marker date="1542228958000" expanded="true" signature="5630:5789" ph="SELECT * FRO... betsmissing_valueINNER" />
+            <marker date="1542228958000" expanded="true" signature="5630:5793" ph="SELECT * FRO... betsmissing_valueINNER" />
+            <marker date="1542228958000" expanded="true" signature="5630:5827" ph="SELECT B.* F... bets" />
+            <marker date="1542228958000" expanded="true" signature="5630:5835" ph="SELECT B.* F... bets" />
+            <marker date="1542228958000" expanded="true" signature="5630:5881" ph="SELECT B.* F... bets" />
+            <marker date="1542228958000" expanded="true" signature="5630:5898" ph="SELECT B.* F... bets" />
+            <marker date="1542228958000" expanded="true" signature="5630:5920" ph="SELECT B.* F... bets" />
+            <marker date="1542228958000" expanded="true" signature="5630:5931" ph="SELECT B.* F... bets" />
+            <marker date="1542228958000" expanded="true" signature="5630:5935" ph="SELECT * FRO... betsmissing_valueINNER" />
+            <marker date="1542228958000" expanded="true" signature="5697:5723" ph="SELECT * FRO... friends" />
+            <marker date="1542228958000" expanded="true" signature="6688:8917" ph="..." />
+            <marker date="1542228958000" expanded="true" signature="7631:7664" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="7631:7681" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="7631:7709" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="8075:8126" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="8075:8128" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="8075:8177" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="8558:8637" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="8558:8657" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="8558:8673" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="8558:8675" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="8558:8749" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="8558:8752" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="9403:9461" ph="SELECT game_... games" />
+            <marker date="1542228958000" expanded="true" signature="9772:9811" ph="INSERT INTO bets... " />
+            <marker date="1542228958000" expanded="true" signature="9772:9865" ph="..." />
+            <marker date="1542228958000" expanded="true" signature="10164:10210" ph="SELECT user_... users" />
+            <marker date="1542228958000" expanded="true" signature="10909:10975" ph="SELECT game_... games" />
+            <marker date="1542228958000" expanded="true" signature="11060:11312" ph="INSERT INTO bets... " />
+            <marker date="1542228958000" expanded="true" signature="11576:11625" ph="SELECT * FRO... bets" />
+            <marker date="1542228958000" expanded="true" signature="11904:11930" ph="UPDATE bets " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/db/db.py">
+    <entry file="file://$PROJECT_DIR$/backend/api/feeds.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="295" column="95" lean-forward="false" selection-start-line="295" selection-start-column="95" selection-end-line="295" selection-end-column="95" />
+        <state relative-caret-position="252">
+          <caret line="224" column="27" lean-forward="false" selection-start-line="224" selection-start-column="27" selection-end-line="224" selection-end-column="27" />
           <folding>
-            <element signature="e#0#36#0" expanded="true" />
-            <marker date="1542228180000" expanded="true" signature="403:476" ph="SELECT user_... users" />
-            <marker date="1542228180000" expanded="true" signature="403:479" ph="SELECT user_... users" />
-            <marker date="1542228180000" expanded="true" signature="403:493" ph="SELECT user_... users" />
-            <marker date="1542228180000" expanded="true" signature="461:476" ph="SELECT user_... users" />
-            <marker date="1542228180000" expanded="true" signature="966:985" ph="SELECT * FRO... users" />
-            <marker date="1542228180000" expanded="true" signature="1363:1422" ph="SELECT * FRO... users" />
-            <marker date="1542228180000" expanded="true" signature="2115:2245" ph="INSERT INTO users... " />
-            <marker date="1542228180000" expanded="true" signature="2685:2721" ph="DELETE FROM " />
-            <marker date="1542228180000" expanded="true" signature="3305:3364" ph="SELECT user2... friends" />
-            <marker date="1542228180000" expanded="true" signature="3859:3913" ph="INSERT INTO friends... " />
-            <marker date="1542228180000" expanded="true" signature="4550:4569" ph="SELECT * FRO... games" />
-            <marker date="1542228180000" expanded="true" signature="5015:5029" ph="SELECT * FRO... games" />
-            <marker date="1542228180000" expanded="true" signature="5015:5034" ph="SELECT * FRO... teams" />
-            <marker date="1542228180000" expanded="true" signature="5630:5650" ph="SELECT * FRO... bets" />
-            <marker date="1542228180000" expanded="true" signature="5630:5678" ph="SELECT * FRO... betsINNER" />
-            <marker date="1542228180000" expanded="true" signature="5630:5723" ph="SELECT * FRO... betsINNER" />
-            <marker date="1542228180000" expanded="true" signature="5630:5727" ph="SELECT * FRO... betsINNER" />
-            <marker date="1542228180000" expanded="true" signature="5630:5789" ph="SELECT * FRO... betsmissing_valueINNER" />
-            <marker date="1542228180000" expanded="true" signature="5630:5793" ph="SELECT * FRO... betsmissing_valueINNER" />
-            <marker date="1542228180000" expanded="true" signature="5630:5827" ph="SELECT B.* F... bets" />
-            <marker date="1542228180000" expanded="true" signature="5630:5835" ph="SELECT B.* F... bets" />
-            <marker date="1542228180000" expanded="true" signature="5630:5881" ph="SELECT B.* F... bets" />
-            <marker date="1542228180000" expanded="true" signature="5630:5898" ph="SELECT B.* F... bets" />
-            <marker date="1542228180000" expanded="true" signature="5630:5920" ph="SELECT B.* F... bets" />
-            <marker date="1542228180000" expanded="true" signature="5630:5931" ph="SELECT B.* F... bets" />
-            <marker date="1542228180000" expanded="true" signature="5630:5935" ph="SELECT * FRO... betsmissing_valueINNER" />
-            <marker date="1542228180000" expanded="true" signature="5697:5723" ph="SELECT * FRO... friends" />
-            <marker date="1542228180000" expanded="true" signature="6688:8346" ph="..." />
-            <marker date="1542228180000" expanded="true" signature="7631:7664" ph="SELECT * FRO... bets" />
-            <marker date="1542228180000" expanded="true" signature="7631:7681" ph="SELECT * FRO... bets" />
-            <marker date="1542228180000" expanded="true" signature="7631:7709" ph="SELECT * FRO... bets" />
-            <marker date="1542228180000" expanded="true" signature="8075:8126" ph="SELECT * FRO... bets" />
-            <marker date="1542228180000" expanded="true" signature="8075:8128" ph="SELECT * FRO... bets" />
-            <marker date="1542228180000" expanded="true" signature="8075:8177" ph="SELECT * FRO... bets" />
-            <marker date="1542228180000" expanded="true" signature="8832:8890" ph="SELECT game_... games" />
-            <marker date="1542228180000" expanded="true" signature="9201:9240" ph="INSERT INTO bets... " />
-            <marker date="1542228180000" expanded="true" signature="9201:9294" ph="..." />
-            <marker date="1542228180000" expanded="true" signature="9593:9639" ph="SELECT user_... users" />
-            <marker date="1542228180000" expanded="true" signature="10338:10404" ph="SELECT game_... games" />
-            <marker date="1542228180000" expanded="true" signature="10489:10741" ph="INSERT INTO bets... " />
-            <marker date="1542228180000" expanded="true" signature="11005:11054" ph="SELECT * FRO... bets" />
-            <marker date="1542228180000" expanded="true" signature="11333:11359" ph="UPDATE bets " />
+            <element signature="e#0#43#0" expanded="true" />
+            <marker date="1542229014000" expanded="true" signature="252:257" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="1114:2307" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="1451:2191" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="1539:1557" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="1878:2106" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="2234:2260" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="2373:3476" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="2648:3386" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="2736:2985" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="3052:3301" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="3403:3429" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="3554:4722" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="3868:4606" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="3956:4205" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="4272:4521" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="4649:4675" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="4803:6004" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="5150:5888" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="5238:5487" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="5554:5803" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="5931:5957" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="6085:7326" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="6472:7210" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="6560:6809" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="6876:7125" ph="..." />
+            <marker date="1542229014000" expanded="true" signature="7253:7279" ph="..." />
           </folding>
         </state>
       </provider>

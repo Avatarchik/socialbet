@@ -214,7 +214,7 @@ def list_direct_bets_pending():
     return create_http_response(data=result)
 
 @feeds.route('/api/feeds/between_us_bets/')
-def list_closed_bets_bet_history():
+def list_between_us_bets():
     # Authenticate
     loguser = request.args.get('loguser')
     auth = request.args.get('auth')
