@@ -47,7 +47,7 @@ def accept_bet():
 
     # Authenticate user
     loguser = data['loguser']
-    auth = request.args.get('auth')
+    auth = data['auth']
     if not db.authenticate(loguser, auth):
         return create_http_response(errors=['unauthenticated user'])
 
@@ -74,7 +74,7 @@ def cancel_bet():
 
     # Authenticate user
     loguser = data['loguser']
-    auth = request.args.get('auth')
+    auth = data['auth']
     if not db.authenticate(loguser, auth):
         return create_http_response(errors=['unauthenticated user'])
 
