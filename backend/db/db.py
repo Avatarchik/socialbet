@@ -132,6 +132,38 @@ def get_friends(data):
 
     return res
 
+def add_friends(data):
+    db_config. get_db_config()
+    db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
+    cursor = db.cursor()
+
+    user1 = str(data['user1'])
+    user2 = str(data['user2'])
+
+    print('TESTING ADD_FRIENDS FUNCTION BETWEEN THE TWO USERS:')
+    print(user1)
+    print(user2)
+
+    sql = "INSERT INTO friends VALUES ( '"+user1+"', '"+user2+"')"
+
+    worked = True
+    try:
+        cursor.execute(sql)
+    except:
+        worked = False
+
+    if worked:
+        print('Successfully added friends ' + user1 + ' and ' + user2)
+        db.commit()
+    else:
+        print('Failed adding friends ' + user1 + ' and ' + user2)
+
+    db.close()
+
+    return worked
+
+
+
 ########################## GAMES ###########################################################
 def get_games():
     db_config = get_db_config()
