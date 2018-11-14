@@ -11,8 +11,7 @@ CREATE TABLE users (
 CREATE TABLE friends ( 
 	user1 VARCHAR(20) NOT NULL,
 	user2 VARCHAR(20) NOT NULL,
-	PRIMARY KEY(user1,user2),
-	FOREIGN KEY(user1) REFERENCES users(user_name)
+	PRIMARY KEY(user1,user2)
 );
 
 CREATE TABLE games (
@@ -42,9 +41,7 @@ CREATE TABLE bets (
     direct INTEGER NOT NULL,
     accepted INTEGER NOT NULL,
     winner VARCHAR(50),
-	PRIMARY KEY(bet_id),
-	FOREIGN KEY(user1) REFERENCES users(user_name),
-	FOREIGN KEY(user2) REFERENCES users(user_name)
+	PRIMARY KEY(bet_id)
 );
 
 CREATE TABLE teams (
