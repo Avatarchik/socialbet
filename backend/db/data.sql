@@ -85,7 +85,6 @@ INSERT INTO teams (team_full_name, logo_url) VALUES
 ('Minnesota Vikings', 'root/socialbet/backend/team_logos/vikings.png'),
 ('New England Patriots', 'root/socialbet/backend/team_logos/patriots.png'),
 ('New Orleans Saints', 'root/socialbet/backend/team_logos/saints.png'),
-('Arizona Cardinals', 'root/socialbet/backend/team_logos/cardinals.png'),
 ('New York Giants', 'root/socialbet/backend/team_logos/giants.png'),
 ('New York Jets', 'root/socialbet/backend/team_logos/jets.png'),
 ('Oakland Raiders', 'root/socialbet/backend/team_logos/raiders.png'),
@@ -97,7 +96,6 @@ INSERT INTO teams (team_full_name, logo_url) VALUES
 ('Los Angeles Rams', 'root/socialbet/backend/team_logos/rams.png'),
 ('Tampa Bay Buccaneers', 'root/socialbet/backend/team_logos/buccaneers.png'),
 ('Tennessee Titans', 'root/socialbet/backend/team_logos/titans.png'),
-('Arizona Cardinals', 'root/socialbet/backend/team_logos/cardinals.png'),
 ('Washington Redskins', 'root/socialbet/backend/team_logos/redskins.png');
 
 
