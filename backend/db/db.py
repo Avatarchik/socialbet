@@ -286,6 +286,26 @@ def get_pending_direct_bets(loguser):
     db.close()
 
     return res
+
+
+def get_bet_history(loguser):
+    db_config = get_db_config()
+    db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
+    cursor = db.cursor(pymysql.cursors.DictCursor)
+
+    sql = "SELECT * FROM bets WHERE user1=\"" + loguser + "\" OR user2=\"" + loguser + "\" AND winner IS NOT NULL;"
+
+    cursor.execute(sql)
+
+    res = []
+    for row in cursor:
+        res.append(row)
+
+    db.close()
+
+    return res
+
+
 # I NEED ALL BET INFO
 # JUST GETTING TWO TEAMS
 def place_bet(data):
