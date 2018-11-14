@@ -37,11 +37,12 @@ class Registration: UIViewController {
         
         let auth = sha256(data: (password!).data(using: String.Encoding.utf8)! as NSData);
         
-        let parameters = ["user_name": username, "auth": auth, "phone": phoneNumber, "first_name": firstName, "last_name": lastName, "prof_pic": common.default_pic] as! Dictionary<String, String>
+        let parameters = ["username": username, "auth": auth, "phoneNumber": phoneNumber, "firstname": firstName, "lastname": lastName, "profile_pic_url": common.default_pic] as! Dictionary<String, String>
         
         // create and send a POST request
         sendPOST(uri: "/api/users/create/", parameters: parameters, callback: { (postresponse) in
             // alert the user of success/failure, and either navigate away or refresh the page
+            //TODO - figure out how to tell if there's an error. This isn't right
             if postresponse.error == nil {
                 self.performSegue(withIdentifier: "RegistrationToLiveFeed", sender: self);
             }
