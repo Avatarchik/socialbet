@@ -35,18 +35,19 @@ class Login: UIViewController {
         let parameters = ["username": submitusername, "auth": auth] as! Dictionary<String, String>
         
         // create and send a POST request
-        let response = sendPOST(uri: "/api/accounts/login/", parameters: parameters)
-        
-        // alert the user of success/failure, and either navigate away or refresh the page
-        if response.error == nil {
-            // TODO: error isn't being handled properly, figure out
-            performSegue(withIdentifier: "LoginToFeed", sender: self)
-        }
-        else{
-            // TODO: check HTML error codes
-            self.alert(message: "The provided username and password pair wasn't recognized. Try again.", title: "Authentication Error")
-            viewDidLoad()
-        }
+        sendPOST(uri: "/api/accounts/login/", parameters: parameters, callback: { (postresponse) in
+            // alert the user of success/failure, and either navigate away or refresh the page
+            
+            if postresponse.error == nil {
+                // TODO: error isn't being handled properly, figure out
+                self.performSegue(withIdentifier: "LoginToFeed", sender: self)
+            }
+            else{
+                // TODO: check HTML error codes
+                self.alert(message: "The provided username and password pair wasn't recognized. Try again.", title: "Authentication Error")
+                self.viewDidLoad()
+            }
+        })
     }
     
     @IBAction func LoginHelp(_ sender: Any) {

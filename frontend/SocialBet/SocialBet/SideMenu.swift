@@ -33,7 +33,7 @@ class SideMenu: UITableViewController {
     
     
     @IBAction func toProfile() {
-        self.searched_user = username
+        self.searched_user = common.username
         performSegue(withIdentifier: "ToProfile", sender: self)
     }
     

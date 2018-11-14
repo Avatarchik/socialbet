@@ -1,0 +1,2 @@
+# using Alamofire for network requests from the frontend to the backend
+github "Alamofire/Alamofire" ~> 4.7

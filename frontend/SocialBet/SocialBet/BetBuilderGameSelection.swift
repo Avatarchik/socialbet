@@ -77,7 +77,7 @@ class BetBuilderGameSelection: UIViewController, UICollectionViewDataSource, UIC
             return cell!;
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath){
+    private func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath){
         if let indexPath = self.BuilderGamesFeed.indexPathsForSelectedItems?.first{
             let cell = self.BuilderGamesFeed.cellForItem(at: indexPath) as? GamesFeedCell;
             self.selectedGame = cell?.event_id;
