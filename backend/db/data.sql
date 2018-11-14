@@ -39,14 +39,14 @@ VALUES
 # BETS
 INSERT INTO bets (bet_id, game_id, time_placed, game_time, num_comments, message, ammount, user1, user2, team1, team2, direct, accepted, winner)
 VALUES
-(1,1,'11/13/2018 3:52PM', '11/18/2018 1:00PM', 0, 'Chapp is going down!', 20.0, 'achapp', 'cterech', 'Tennessee Titans', 'Indianapolis Colts', 1, 1), 
-(2,4,'11/13/2018 4:19PM', '11/18/2018 1:00PM', 1, 'Ittai is going down!', 100.0, 'achapp', 'jkrieg','Carolina Panthers', 'Detroit Lions', 1, 0),
+(1,1,'11/13/2018 3:52PM', '11/18/2018 1:00PM', 0, 'Chapp is going down!', 20.0, 'achapp', 'cterech', 'Tennessee Titans', 'Indianapolis Colts', 1, 1,''), 
+(2,4,'11/13/2018 4:19PM', '11/18/2018 1:00PM', 1, 'Ittai is going down!', 100.0, 'achapp', 'jkrieg','Carolina Panthers', 'Detroit Lions', 1, 0,''),
 (3,7,'11/13/2018 3:52PM', '11/18/2018 1:00PM', 0, 'This will be easy!', 5.0, 'achapp', 'cterech', 'Houston Texans', 'Washington Redskins', 0, 1, 'cterech'), 
 (4,2,'11/13/2018 4:19PM', '11/18/2018 1:00PM', 2, 'Lets go!!!!!', 10.0, 'ncargill', 'rshelly','Tampa Bay Buccaneers', 'New York Giants', 1, 1, 'rshelly'),
 (5,3,'11/13/2018 3:52PM', '11/18/2018 1:00PM', 0, 'This is just easy money', 50.0, 'cterech', 'isvidler', 'Pittsburgh Steelers', 'Jacksonville Jaguars', 1, 0, 'isvidler'), 
-(6,3,'11/13/2018 4:19PM', '11/18/2018 1:00PM', 0, 'We love sports', 100.0, 'achapp', 'jkrieg','Miami Dolphins', 'Pittsburgh Steelers', 'Jacksonville Jaguars', 0, 1),
+(6,3,'11/13/2018 4:19PM', '11/18/2018 1:00PM', 0, 'We love sports', 100.0, 'achapp', 'jkrieg','Miami Dolphins', 'Pittsburgh Steelers', 'Jacksonville Jaguars', 0, 1,''),
 (7,4,'11/13/2018 3:52PM', '11/18/2018 1:00PM', 1, 'Lets ride', 20.0, 'ncargill', 'tswartz', 'Carolina Panthers', 'Detroit Lions', 0, 0, 'tswartz'), 
-(8,4,'11/13/2018 4:19PM', '11/18/2018 1:00PM', 0, 'Matchup of the century', 10.0, 'tswartz', 'jkrieg', 'Carolina Panthers', 'Detroit Lions', 1, 0),
+(8,4,'11/13/2018 4:19PM', '11/18/2018 1:00PM', 0, 'Matchup of the century', 10.0, 'tswartz', 'jkrieg', 'Carolina Panthers', 'Detroit Lions', 1, 0,''),
 (9,10,'11/14/2018 3:52PM', '11/18/2018 4:25PM', 7, 'Just two sports enthusiasts going after it', 50.0, 'jkrieg', 'rshelly', 'Philadelphia Eagles', 'New Oreleans Saints', 0, 1, 'jkrieg'), 
 (10,12,'11/14/2018 4:19PM', '11/19/2018 8:15PM', 0, 'The Michigan boys', 10.0, 'achapp', 'jkrieg','Kansas City Chiefs', 'Los Angeles Rams', 0, 0, 'achapp'),
 (11,2,'11/14/2018 3:52PM', '11/18/2018 1:00PM', 0, 'Detroit and Michigan football forever', 5.0, 'achapp', 'cterech', 'Tampa Bay Buccaneers', 'New York Giants', 1, 1, 'cterech'), 
