@@ -66,10 +66,10 @@ def get_user():
         result['errors'].append('username does not exist')
         return create_http_response(data=result, errors=result['errors'])
 
-    result['username'] = users[0]['user_name']
-    result['first_name'] = users[0]['first_name']
-    result['last_name'] = users[0]['last_name']
-    result['profile_pic_url'] = users[0]['profile_pic_url']
+    result['username'] = user['user_name']
+    result['first_name'] = user['first_name']
+    result['last_name'] = user['last_name']
+    result['profile_pic_url'] = user['profile_pic_url']
 
     return create_http_response(data=result)
 
