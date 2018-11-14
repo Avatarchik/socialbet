@@ -47,23 +47,21 @@ class BetBuilderTeamSelection: UIViewController, UIGestureRecognizerDelegate {
     func submitBet(alert: UIAlertAction!) {
         let direct = (self.selected_opponent != "");
         
-        let wagerNum = (self.WagerAmountInput.text! as NSString).floatValue;
+        let parameters = ["loguser": common.username, "auth": common.pwhash, "game_id": self.selected_game_id!, "message": "", "amount": self.WagerAmountInput.text!, "user1": common.username, "user2": self.selected_opponent!, "direct": direct, "accepted": false] as! Dictionary<String, String>
         
-        let parameters = ["loguser": username, "auth": pwhash, "game_id": self.selected_game_id!, "message": self.MessageInput.text!, "amount": wagerNum, "user1": username, "user2": self.selected_opponent!, "direct": direct, "accepted": false] as! Dictionary<String, String>
-        
-        let response = sendPOST(uri: "/api/betting/place_bet", parameters: parameters)
-        
-        if response.error == nil {
-            self.alert(message: "Your bet request was sent!", title: "Bet Successful");
-            performSegue(withIdentifier: "TeamSelectToFeed", sender: self) 
-        }
-        else{
-            // TODO: check HTML error codes
-            self.alert(message: "Bet unable to be placed", title: "Bet Error")
-            performSegue(withIdentifier: "TeamSelectToOpponentSelect", sender: self)
-        }
-        
-        print("Bet Submitted!");
+        sendPOST(uri: "/api/betting/place_bet", parameters: parameters, callback: { (postresponse) in
+            // check for errors
+            if postresponse.error == nil {
+                self.alert(message: "Your bet request was sent!", title: "Bet Successful");
+                //TODO - perform segue going back to feed
+            }
+            else{
+                // TODO: check HTML error codes
+                self.alert(message: "Bet unable to be placed", title: "Bet Error")
+                //TODO perform segue going back to beginning of bet builder
+            }
+            print("Bet Submitted!");
+        })
     }
     
     func cancelBet(alert: UIAlertAction!){

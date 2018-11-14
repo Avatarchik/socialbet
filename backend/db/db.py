@@ -62,22 +62,30 @@ def create_user(data):
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
     cursor = db.cursor()
 
+    username = str(data['username'])
+    firstname = str(data['firstname'])
+    lastname = str(data['lastname'])
+    auth = str(data['auth'])
+    phonenumber = str(data['phonenumber'])
+    profile_pic_url = str(data['profile_pic_url'])
 
-    user_name = data['user_name']
-    first_name = data['first_name']
-    last_name = data['last_name']
-    auth = data['auth']
-    phone = data['phone']
-    prof_pic = data['prof_pic']
-    sql = "INSERT INTO users VALUES ( " + user_name + ", " + first_name + ", " + last_name + ", " + \
-        phone + ", " + auth + ", " + prof_pic + ");"
-
+    print(username)
+    print(firstname)
+    print(lastname)
+    print(auth)
+    print(phonenumber)
+    print(profile_pic_url)
+    
+    query = "INSERT INTO users VALUES ( '"+username+"', '"+firstname+"', '"+lastname+"', '"+auth+"', '"+phonenumber+"', '"+profile_pic_url+"' )"
+    
     worked = True
     try:
-        cursor.execute(sql)
+        cursor.execute(query)
     except:
         worked = False
-
+    
+    if worked:
+        db.commit()
     db.close()
 
     return worked

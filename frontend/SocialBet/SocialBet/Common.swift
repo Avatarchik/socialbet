@@ -9,10 +9,17 @@ import CommonCrypto
 
 // global variables
 
-let domain = "socialbet.jpkrieg.com"
-let port = "5000"
-var username = "default"
-var pwhash = "default"
+class Common {
+    let domain = "socialbet.jpkrieg.com"
+    let port = "5000"
+    let default_pic = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREya1ZUSfvxj7zwOwWeCOtLk3JlDTbeuHZy4lcyKilbcmgpgEA"
+    var username = "default"
+    var pwhash = "default"
+    
+    init(){}
+}
+
+var common = Common()
 
 // global methods
 extension UIViewController {
@@ -49,34 +56,12 @@ func getImageFromUrl(urlString: String, imageView: UIImageView) {
 }
 
 func addGETParams(path: String, search: String, needsUsername: Bool) -> String {
-    let params = "?loguser=" + username + "&auth=" + pwhash;
+    let params = "?loguser=" + common.username + "&auth=" + common.pwhash;
     var fullString = path + params;
     if (needsUsername){
         fullString = fullString + "&username=" + search;
     }    
     return fullString;
-}
-
-func isValidHandle(handle: String?, friends: Bool) -> Bool{
-    var fullURI = addGETParams(path: "/api/users/exist", search: handle!, needsUsername: true)
-    if (friends){
-        fullURI = fullURI + "&friends=true";
-    }
-    else{
-        fullURI = fullURI + "&friends=false";
-    }
-    let response: GETResponse? = sendGET(uri: fullURI);
-    let data: Data! = response?.data
-    // decode the information recieved
-    if response?.error != nil {
-        guard let feedData = try? JSONDecoder().decode(Existance.self, from: data)
-            else {
-                return false;
-        }
-        return feedData.value;
-    } else{
-        return false;
-    }
 }
 
 // data structure definitions
