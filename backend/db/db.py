@@ -366,7 +366,7 @@ def place_bet(data):
 
     
 
-    sql = "INERT INTO bets " \
+    sql = "INSERT INTO bets " \
           "(game_id, game_time, message, ammount, user1, user2, team1, team2, direct, accepted) " \
           "VALUES " \
           "(" +  game_id + ", \"" + game_time + "\", \"" + message + "\", " + amount + ", \"" + user1 + "\", \"" + user2 + \
