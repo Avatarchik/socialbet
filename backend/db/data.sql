@@ -32,7 +32,7 @@ VALUES
 (7, 'Houston Texans', 'Washington Redskins', '/root/socialbet/backend/team_logos/texans.png', '/root/socialbet/backend/team_logos/redskins.png', '6-3', '6-3', '11/18/2018 1:00PM'),
 (8, 'Oakland Raiders', 'Arizona Cardinals', '/root/socialbet/backend/team_logos/raiders.png', '/root/socialbet/backend/team_logos/cardinals.png', '1-8', '2-7', '11/18/2018 4:05PM'),
 (9, 'Denver Broncos', 'Los Angeles Chargers', '/root/socialbet/backend/team_logos/broncos.png', '/root/socialbet/backend/team_logos/dolphins.png', '3-6', '5-5', '11/18/2018 4:05PM'),
-(10, 'Philadelphia Eagles', 'New Oreleans Saints', '/root/socialbet/backend/team_logos/eagles.png', '/root/socialbet/backend/team_logos/saints.png', '4-5', '8-1', '11/18/2018 4:25PM'), 
+(10, 'Philadelphia Eagles', 'New Orleans Saints', '/root/socialbet/backend/team_logos/eagles.png', '/root/socialbet/backend/team_logos/saints.png', '4-5', '8-1', '11/18/2018 4:25PM'), 
 (11, 'Minnesota Vikings', 'Chicago Bears', '/root/socialbet/backend/team_logos/vikings.png', '/root/socialbet/backend/team_logos/bears.png', '5-3', '6-3', '11/18/2018 8:20PM'), 
 (12, 'Kansas City Chiefs', 'Los Angeles Rams', '/root/socialbet/backend/team_logos/chiefs.png', '/root/socialbet/backend/team_logos/rams.png', '9-1', '9-1', '11/19/2018 8:15PM'); 
 
@@ -62,6 +62,42 @@ VALUES
 (21,12,'11/16/2018 4:19PM', '11/19/2018 8:15PM', 1, 'Lets settle this', 10.0, 'achapp', 'jkrieg','Kansas City Chiefs', 'Los Angeles Rams', 0, 0, 'achapp'),
 (22,12,'11/16/2018 3:52PM', '11/19/2018 8:15PM', 1, 'Youre on, pal!', 5.0, 'achapp', 'cterech', 'Kansas City Chiefs', 'Los Angeles Rams', 0, 0, 'cterech'), 
 (23,12,'11/16/2018 4:19PM', '11/19/2018 8:15PM', 0, 'Ittai is going to lose!', 5.0, 'achapp', 'jkrieg','Kansas City Chiefs', 'Los Angeles Rams', 0, 0, 'achapp');
+
+# ADDING TEAM INFO INTO DATABASE
+INSERT INTO teams (team_full_name, logo_url) VALUES
+('Arizona Cardinals', 'root/socialbet/backend/team_logos/cardinals.png'),
+('Atlanta Falcons', 'root/socialbet/backend/team_logos/falcons.png'),
+('Baltimore Ravens', 'root/socialbet/backend/team_logos/ravens.png'),
+('Buffalo Bills', 'root/socialbet/backend/team_logos/bills.png'),
+('Carolina Panthers', 'root/socialbet/backend/team_logos/panthers.png'),
+('Chicago Bears', 'root/socialbet/backend/team_logos/bears.png'),
+('Cincinnati Bengals', 'root/socialbet/backend/team_logos/bengals.png'),
+('Cleveland Browns', 'root/socialbet/backend/team_logos/browns.png'),
+('Dallas Cowboys', 'root/socialbet/backend/team_logos/cowboys.png'),
+('Denver Broncos', 'root/socialbet/backend/team_logos/broncos.png'),
+('Detroit Lions', 'root/socialbet/backend/team_logos/lions.png'),
+('Green Bay Packers', 'root/socialbet/backend/team_logos/packers.png'),
+('Houston Texans', 'root/socialbet/backend/team_logos/texans.png'),
+('Indianapolis Colts', 'root/socialbet/backend/team_logos/colts.png'),
+('Jacksonville Jaguars', 'root/socialbet/backend/team_logos/jaguars.png'),
+('Kansas City Chiefs', 'root/socialbet/backend/team_logos/chiefs.png'),
+('Miami Dolphins', 'root/socialbet/backend/team_logos/dolphins.png'),
+('Minnesota Vikings', 'root/socialbet/backend/team_logos/vikings.png'),
+('New England Patriots', 'root/socialbet/backend/team_logos/patriots.png'),
+('New Orleans Saints', 'root/socialbet/backend/team_logos/saints.png'),
+('New York Giants', 'root/socialbet/backend/team_logos/giants.png'),
+('New York Jets', 'root/socialbet/backend/team_logos/jets.png'),
+('Oakland Raiders', 'root/socialbet/backend/team_logos/raiders.png'),
+('Philadelphia Eagles', 'root/socialbet/backend/team_logos/eagles.png'),
+('Pittsburgh Steelers', 'root/socialbet/backend/team_logos/steelers.png'),
+('Los Angeles Chargers', 'root/socialbet/backend/team_logos/chargers.png'),
+('San Francisco 49ers', 'root/socialbet/backend/team_logos/49ers.png'),
+('Seattle Seahawks', 'root/socialbet/backend/team_logos/seahawks.png'),
+('Los Angeles Rams', 'root/socialbet/backend/team_logos/rams.png'),
+('Tampa Bay Buccaneers', 'root/socialbet/backend/team_logos/buccaneers.png'),
+('Tennessee Titans', 'root/socialbet/backend/team_logos/titans.png'),
+('Washington Redskins', 'root/socialbet/backend/team_logos/redskins.png');
+
 
 
 

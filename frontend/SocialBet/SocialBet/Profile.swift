@@ -41,10 +41,24 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         }
     }
     
+    
+    
     @IBAction func addFriend() {
+        let URI = "/api/users/add_friend/"
         
         let params = ["loguser": common.username, "auth": common.pwhash, "user1": common.username, "user2": searchedUser] as! Dictionary<String, String>
         
+        sendPOST(uri: URI, parameters: params, callback: { (postresponse) in
+            // check for errors
+            if postresponse.error == nil {
+                self.alert(message: "Your friend request was successfully sent", title: "Friend added!");
+            }
+            else{
+                // TODO: check HTML error codes
+                self.alert(message: "Unable to add friend", title: "Add Friend Error")
+            }
+            print("Added friend!");
+        })
     }
     
     @IBAction func returnHome() {

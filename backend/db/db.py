@@ -129,7 +129,7 @@ def get_friends(data):
     return res
 
 def add_friend(data):
-    db_config. get_db_config()
+    db_config = get_db_config()
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
     cursor = db.cursor()
 
@@ -179,6 +179,26 @@ def get_games():
 
     return res
 
+########################## TEAMS ###########################################################
+def get_teams():
+    db_config = get_db_config()
+    db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
+    cursor = db.cursor(pymysql.cursors.DictCursor)
+
+    sql = "SELECT * FROM teams;"
+
+    cursor.execute(sql)
+
+    res = []
+    for row in cursor:
+        res.append(row)
+
+
+    db.close()
+
+    return res
+
+
 ########################## BETS ###########################################################
 # THEY WILL PASS ME A USERID, I WILL RETURN ALL OF THE USERS BETS AND THE USERS FRIENDS BETS
 # GET ONE FOR LIVE BETS AND ONE FOR OPEN BETS
@@ -209,10 +229,11 @@ def get_open_bets(loguser):
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
     cursor = db.cursor(pymysql.cursors.DictCursor)
 
-    sql = "SELECT * FROM bets " \
-          "WHERE user1 = (" \
-          "SELECT friend1, friend2 FROM friends WHERE user1 =\"" + loguser + "\" OR user2=\"" + loguser + "\"" + ") " \
-          "AND direct=0 AND accepted=1;"
+    sql = "SELECT B.* FROM bets B " \
+          "INNER JOIN " \
+            "(SELECT * FROM friends F1 WHERE F1.user1 =\"" + loguser + "\" OR F1.user2=\"" + loguser + "\") F2 " \
+            "ON F2.user1 = B.user1 OR F2.user2 = B.user1 " \
+           "WHERE accepted=0 AND direct=0;"
 
     cursor.execute(sql)
 
@@ -231,7 +252,11 @@ def get_closed_bets(loguser):
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
     cursor = db.cursor(pymysql.cursors.DictCursor)
 
-    sql = "SELECT * FROM bets WHERE user1 = (SELECT user2 FROM friends WHERE user1=\"" + loguser + "\" " + ") AND accepted=1 AND winner IS NOT NULL;"
+    sql = "SELECT B.* FROM bets B " \
+          "INNER JOIN " \
+            "(SELECT * FROM friends F1 WHERE F1.user1 =\"" + loguser + "\" OR F1.user2=\"" + loguser + "\") F2 " \
+            "ON F2.user1 = B.user1 OR F2.user1 = B.user2 OR F2.user2 = B.user1 OR F2.user2 = B.user2 " \
+           "WHERE accepted=1 AND winner IS NOT NULL;"
 
     cursor.execute(sql)
 
@@ -243,6 +268,43 @@ def get_closed_bets(loguser):
     db.close()
 
     return res
+
+
+def get_pending_direct_bets(loguser):
+    db_config = get_db_config()
+    db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
+    cursor = db.cursor(pymysql.cursors.DictCursor)
+
+    sql = "SELECT * FROM bets WHERE user2=\"" + loguser + "\" AND direct=1 AND accepted=0;"
+
+    cursor.execute(sql)
+
+    res = []
+    for row in cursor:
+        res.append(row)
+
+    db.close()
+
+    return res
+
+
+def get_bet_history(loguser):
+    db_config = get_db_config()
+    db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
+    cursor = db.cursor(pymysql.cursors.DictCursor)
+
+    sql = "SELECT * FROM bets WHERE user1=\"" + loguser + "\" OR user2=\"" + loguser + "\" AND winner IS NOT NULL;"
+
+    cursor.execute(sql)
+
+    res = []
+    for row in cursor:
+        res.append(row)
+
+    db.close()
+
+    return res
+
 
 # I NEED ALL BET INFO
 # JUST GETTING TWO TEAMS

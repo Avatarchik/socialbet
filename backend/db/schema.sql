@@ -46,3 +46,10 @@ CREATE TABLE bets (
 	FOREIGN KEY(user1) REFERENCES users(user_name),
 	FOREIGN KEY(user2) REFERENCES users(user_name)
 );
+
+CREATE TABLE teams (
+	team_full_name VARCHAR(100) NOT NULL,
+	logo_url VARCHAR(1000) NOT NULL,
+	PRIMARY KEY(team_full_name)
+
+);

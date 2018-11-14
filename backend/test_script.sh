@@ -11,6 +11,24 @@ if [ $1 = "live_bets" ]; then
     curl -X GET $url/api/feeds/live_bets/\?loguser=$loguser\&auth=$auth
 fi
 
+if [ $1 = "closed_bets" ]; then
+    curl -X GET $url/api/feeds/closed_bets/\?loguser=$loguser\&auth=$auth
+fi
+
+if [ $1 = "direct_bets_pending" ]; then
+    curl -X GET $url/api/feeds/direct_bets_pending/\?loguser=$loguser\&auth=$auth
+fi
+
+if [ $1 = "bet_history" ]; then
+    curl -X GET $url/api/feeds/bet_history/\?loguser=$loguser\&auth=$auth
+fi
+
+
+
+if [ $1 = "get_teams" ]; then
+    curl -X GET $url/api/teams/\?loguser=$loguser\&auth=$auth
+fi
+
 
 if [ $1 = "create_user" ]; then
     username="testuser"
@@ -34,7 +52,7 @@ if [ $1 = "" ]; then
     curl -X GET $url/api/feeds/open_bets/\?loguser=$loguser\&auth=$auth
 fi
 
-if [ $1 = "add_friends"]; then
+if [ $1 = "add_friends" ]; then
     # Testing add_friend in db.py
     username=$loguser
     user1=$loguser

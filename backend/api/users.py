@@ -122,7 +122,7 @@ def add_friend():
 
     info['loguser'] = data['loguser']
     info['auth'] = data['auth']
-    auth_ = db.authenticate(log_user, auth)
+    auth_ = db.authenticate(info['loguser'], info['auth'])
     if not auth_:
         result = {}
         result['errors'] = []
