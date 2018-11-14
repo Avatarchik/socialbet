@@ -349,9 +349,9 @@ def place_bet(data):
     row = cursor.fetchone()
     
     sql = "INSERT INTO bets VALUES ( NEWID()" + ", " + game_id + ", " + \
-        "NOW(), " + row['game_time'] + ", " + \
+        "NOW(), " + row['game_time'] + ", 0, " + \
         message + ", " + amount + ", " + user1 + ", "+ user2 + ", " + \
-        row['team1'] + ", " + row['team2'] + ", " + str(direct) + ", " + str(accepted) + ");"
+        row['team1'] + ", " + row['team2'] + ", " + direct + ", " + accepted + ", None" + ");"
 
     cursor.execute(sql)
     db.close()
