@@ -19,6 +19,11 @@ if [ $1 = "direct_bets_pending" ]; then
     curl -X GET $url/api/feeds/direct_bets_pending/\?loguser=$loguser\&auth=$auth
 fi
 
+if [ $1 = "bet_history" ]; then
+    curl -X GET $url/api/feeds/bet_history/\?loguser=$loguser\&auth=$auth
+fi
+
+
 
 if [ $1 = "get_teams" ]; then
     curl -X GET $url/api/teams/\?loguser=$loguser\&auth=$auth
