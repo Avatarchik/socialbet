@@ -44,7 +44,7 @@ VALUES
 (3,7,'11/13/2018 3:52PM', '11/18/2018 1:00PM', 0, 'This will be easy!', 5.0, 'achapp', 'cterech', 'Houston Texans', 'Washington Redskins', 0, 1, 'cterech'), 
 (4,2,'11/13/2018 4:19PM', '11/18/2018 1:00PM', 2, 'Lets go!!!!!', 10.0, 'ncargill', 'rshelly','Tampa Bay Buccaneers', 'New York Giants', 1, 1, 'rshelly'),
 (5,3,'11/13/2018 3:52PM', '11/18/2018 1:00PM', 0, 'This is just easy money', 50.0, 'cterech', 'isvidler', 'Pittsburgh Steelers', 'Jacksonville Jaguars', 1, 0, 'isvidler'), 
-(6,3,'11/13/2018 4:19PM', '11/18/2018 1:00PM', 0, 'We love sports', 100.0, 'achapp', 'jkrieg','Miami Dolphins', 'Pittsburgh Steelers', 'Jacksonville Jaguars', 0, 1,''),
+(6,3,'11/13/2018 4:19PM', '11/18/2018 1:00PM', 0, 'We love sports', 100.0, 'achapp', 'jkrieg','Pittsburgh Steelers', 'Jacksonville Jaguars', 0, 1,''),
 (7,4,'11/13/2018 3:52PM', '11/18/2018 1:00PM', 1, 'Lets ride', 20.0, 'ncargill', 'tswartz', 'Carolina Panthers', 'Detroit Lions', 0, 0, 'tswartz'), 
 (8,4,'11/13/2018 4:19PM', '11/18/2018 1:00PM', 0, 'Matchup of the century', 10.0, 'tswartz', 'jkrieg', 'Carolina Panthers', 'Detroit Lions', 1, 0,''),
 (9,10,'11/14/2018 3:52PM', '11/18/2018 4:25PM', 7, 'Just two sports enthusiasts going after it', 50.0, 'jkrieg', 'rshelly', 'Philadelphia Eagles', 'New Oreleans Saints', 0, 1, 'jkrieg'), 
