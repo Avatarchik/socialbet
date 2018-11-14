@@ -15,6 +15,10 @@ if [ $1 = "closed_bets" ]; then
     curl -X GET $url/api/feeds/closed_bets/\?loguser=$loguser\&auth=$auth
 fi
 
+if [ $1 = "get_teams" ]; then
+    curl -X GET $url/api/teams/\?loguser=$loguser\&auth=$auth
+fi
+
 
 if [ $1 = "create_user" ]; then
     username="testuser"
