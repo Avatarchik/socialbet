@@ -347,6 +347,7 @@ def place_bet(data):
     sql = "SELECT game_time, team1, team2 FROM games WHERE game_id = " + game_id + ";"
     cursor.execute(sql)
     row = cursor.fetchone()
+    game_time = str(row['game_time'])
     team1 = str(row['team1'])
     team2 = str(row['team2'])
     
@@ -357,9 +358,11 @@ def place_bet(data):
 
     sql = "INERT INTO bets " \
           "(game_id, game_time, message, ammount, user1, user2, team1, team2, direct, accepted) " \
-          "VALUES" \
-          "(" +  game_id + ",  NOW(), \"" + message + "\", " + amount + ", \"" + user1 + "\", \"" + user2 + \
+          "VALUES " \
+          "(" +  game_id + ", \"" + game_time + "\", \"" + message + "\", " + amount + ", \"" + user1 + "\", \"" + user2 + \
           "\", \"" + team1 + "\", \"" + team2 + "\", " +  direct + ", " + accepted + ");"
+
+    print(sql)
 
     cursor.execute(sql)
     db.close()
