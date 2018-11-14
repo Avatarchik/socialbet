@@ -3,7 +3,7 @@ CREATE TABLE users (
 	first_name VARCHAR(20) NOT NULL,
 	last_name VARCHAR(20) NOT NULL,
 	phone VARCHAR(12),
-  	auth VARCHAR(70) NOT NULL,
+  	auth VARCHAR(100) NOT NULL,
  	profile_pic_url VARCHAR(1000),
 	PRIMARY KEY(user_name)
 );
