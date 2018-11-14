@@ -16,8 +16,7 @@ def list_open_bets():
         return create_http_response(errors=['unauthenticated user'])
 
     # Get open bets
-    db_bets = db.get_bets(loguser)
-
+    db_bets = db.get_open_bets(loguser)
     bets = []
     for db_bet in db_bets:
         bet = db_bet

@@ -168,7 +168,7 @@ def get_open_bets(loguser):
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
     cursor = db.cursor()
 
-    sql = "SELECT * FROM bets WHERE user1 = (SELECT user2 FROM friends WHERE user1 =\"" + loguser + "\" " + ") AND accepted=0;"
+    sql = "SELECT * FROM bets WHERE user1 = (SELECT user2 FROM friends WHERE user1=\"" + loguser + "\" " + ") AND accepted=0;"
 
     cursor.execute(sql)
 
