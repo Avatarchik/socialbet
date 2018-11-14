@@ -28,12 +28,32 @@ class SideMenu: UITableViewController {
     
     @IBAction func toFriendsProfile() {
         self.searched_user = enteredHandle.text;
-        performSegue(withIdentifier: "ToProfile", sender: self)
+        var fullURI = addGETParams(path: "/api/users/exist", search: self.searched_user!, needsUsername: true)
+        fullURI = fullURI + "&friends=false";
+        sendGET(uri: fullURI, callback: { (httpresponse) in
+            let data: Data! = httpresponse.data
+            // decode the information recieved
+            if httpresponse.error != nil {
+                guard let feedData = try? JSONDecoder().decode(Existance.self, from: data)
+                    else {
+                        self.alert(message: "Error loading profile.")
+                        return
+                }
+                if (feedData.value){
+                    self.performSegue(withIdentifier: "ToProfile", sender: self)
+                }
+                else{
+                    self.alert(message: "Not a valid username.")
+                }
+            } else{
+                self.alert(message: "Error loading profile.")
+            }
+        })
     }
     
     
     @IBAction func toProfile() {
-        self.searched_user = username
+        self.searched_user = common.username
         performSegue(withIdentifier: "ToProfile", sender: self)
     }
     
@@ -44,16 +64,5 @@ class SideMenu: UITableViewController {
     @IBAction func toSettings() {
         performSegue(withIdentifier: "ToSettings", sender: self)
     }
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("Override works!")
-        if let vc = segue.destination as? Profile{
-            if (isValidHandle(handle: self.searched_user, friends: false)) {
-                vc.searchedUser = self.searched_user!;
-            }
-        }
-    }
-    
     
 }

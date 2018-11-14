@@ -75,40 +75,38 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
     }
     
     @objc func AcceptPressed(sender: LiveFeedCell) {
-        let parameters = ["loguser": username, "auth": pwhash, "bet_id": sender.bet_id, "user_name": username] as! Dictionary<String, String>;
+        let parameters = ["loguser": common.username, "auth": common.pwhash, "bet_id": sender.bet_id, "user_name": common.username] as! Dictionary<String, String>;
         
-        let response = sendPOST(uri: "/api/betting/accept_bet", parameters: parameters)
-        
-        if response.error == nil {
-            self.alert(message: "You have accepted the bet!", title: "Bet Accepted");
-        }
-        else{
-            // TODO: check HTML error codes
-            self.alert(message: "Bet unable to be accepted", title: "Bet Acceptance Error")
-        }
-        
-        self.MyFeed.reloadData();
-        
+        sendPOST(uri: "/api/betting/accept_bet", parameters: parameters, callback: { (postresponse) in
+            if postresponse.error == nil {
+                self.alert(message: "You have accepted the bet!", title: "Bet Accepted");
+            }
+            else{
+                // TODO: check HTML error codes
+                self.alert(message: "Bet unable to be accepted", title: "Bet Acceptance Error")
+            }
+            
+            self.MyFeed.reloadData();
+        })
     }
     
     @objc func DeclinePressed(sender: LiveFeedCell){
         
         //TODO - Fix these parameters once I know what I have to send
-        let parameters = ["loguser": username, "auth": pwhash, "bet_id": sender.bet_id, "user_name": username] as! Dictionary<String, String>;
+        let parameters = ["loguser": common.username, "auth": common.pwhash, "bet_id": sender.bet_id, "user_name": "TODO Other Person's username"] as! Dictionary<String, String>;
         
-        let response = sendPOST(uri: "/api/betting/cancel_bet", parameters: parameters)
-        
-        if response.error == nil {
-            self.alert(message: "You have declined the bet!", title: "Bet Declined");
-        }
-        else{
-            // TODO: check HTML error codes
-            self.alert(message: "Bet unable to be declined", title: "Bet Decline Error")
-        }
-        
-        self.MyFeed.reloadData();
+        sendPOST(uri: "/api/betting/cancel_bet", parameters: parameters, callback: { (postresponse) in
+            if postresponse.error == nil {
+                self.alert(message: "You have declined the bet!", title: "Bet Declined");
+            }
+            else{
+                // TODO: check HTML error codes
+                self.alert(message: "Bet unable to be declined", title: "Bet Decline Error")
+            }
+            
+            self.MyFeed.reloadData();
+        })
     }
-    
     
     @IBOutlet weak var MyFeed: UICollectionView!
     

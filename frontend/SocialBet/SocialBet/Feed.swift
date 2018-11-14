@@ -63,80 +63,83 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
     @IBAction func LiveBetsButton(_ sender: Any) {
         // submit a GET request to get the live feed object
         let fullURI = addGETParams(path: "/api/live/", search: "", needsUsername: false)
-        let response: GETResponse? = sendGET(uri: fullURI);
-        let data: Data! = response?.data
-        
-        // decode the information recieved
-        if response?.error != nil {
-            guard let feedData = try? JSONDecoder().decode(LiveBetFeed.self, from: data)
-            else {
-                self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
-                return
+        sendGET(uri: fullURI, callback: { (httpresponse) in
+            let data: Data! = httpresponse.data
+            
+            // decode the information recieved
+            if httpresponse.error != nil {
+                guard let feedData = try? JSONDecoder().decode(LiveBetFeed.self, from: data)
+                else {
+                    self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
+                    return
+                }
+                self.liveData = feedData;
+                self.feedCount = self.liveData!.bets.count;
+            } else{
+                self.alert(message: "There was an error processing your request.", title: "Network Error")
             }
-            self.liveData = feedData;
-            feedCount = self.liveData!.bets.count;
-        } else{
-            self.alert(message: "There was an error processing your request.", title: "Network Error")
-        }
-        
-        self.LiveBetsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
-        self.OpenBetsObject.titleLabel?.font = UIFont.systemFont(ofSize: 15);
-        self.GamesObject.titleLabel?.font = UIFont.systemFont(ofSize: 15);
-        self.feedType = .live;
-        self.Collection.reloadData();
+            
+            self.LiveBetsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
+            self.OpenBetsObject.titleLabel?.font = UIFont.systemFont(ofSize: 15);
+            self.GamesObject.titleLabel?.font = UIFont.systemFont(ofSize: 15);
+            self.feedType = .live;
+            self.Collection.reloadData();
+        })
     }
     
     @IBAction func OpenBetsButton(_ sender: Any) {
         // submit a GET request to get the open feed object
         let fullURI = addGETParams(path: "/api/open/", search: "", needsUsername: false)
-        let response: GETResponse? = sendGET(uri: fullURI);
-        let data: Data! = response?.data
-        
-        // decode the information recieved
-        if response?.error != nil {
-            guard let feedData = try? JSONDecoder().decode(OpenBetFeed.self, from: data)
-                else {
-                    self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
-                    return
+        sendGET(uri: fullURI, callback: { (httpresponse) in
+            let data: Data! = httpresponse.data
+            
+            // decode the information recieved
+            if httpresponse.error != nil {
+                guard let feedData = try? JSONDecoder().decode(OpenBetFeed.self, from: data)
+                    else {
+                        self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
+                        return
+                }
+                self.openData = feedData;
+                self.feedCount = feedData.bets.count;
+            } else{
+                self.alert(message: "There was an error processing your request.", title: "Network Error")
             }
-            self.openData = feedData;
-            feedCount = feedData.bets.count;
-        } else{
-            self.alert(message: "There was an error processing your request.", title: "Network Error")
-        }
-        
-        
-        self.OpenBetsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
-        self.LiveBetsObject.titleLabel?.font = UIFont.systemFont(ofSize: 15);
-        self.GamesObject.titleLabel?.font = UIFont.systemFont(ofSize: 15);
-        self.feedType = .open;
-        self.Collection.reloadData();
+            
+            
+            self.OpenBetsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
+            self.LiveBetsObject.titleLabel?.font = UIFont.systemFont(ofSize: 15);
+            self.GamesObject.titleLabel?.font = UIFont.systemFont(ofSize: 15);
+            self.feedType = .open;
+            self.Collection.reloadData();
+        })
     }
     
     @IBAction func GamesButton(_ sender: Any) {
         // submit a GET request to get the game feed object
         let fullURI = addGETParams(path: "/api/games/", search: "", needsUsername: false)
-        let response: GETResponse? = sendGET(uri: fullURI);
-        let data: Data! = response?.data
-        
-        // decode the information recieved
-        if response?.error != nil {
-            guard let feedData = try? JSONDecoder().decode(GamesFeed.self, from: data)
-                else {
-                    self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
-                    return
+        sendGET(uri: fullURI, callback: { (httpresponse) in
+            let data: Data! = httpresponse.data
+            
+            // decode the information recieved
+            if httpresponse.error != nil {
+                guard let feedData = try? JSONDecoder().decode(GamesFeed.self, from: data)
+                    else {
+                        self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
+                        return
+                }
+                self.gamesData = feedData;
+                self.feedCount = feedData.games.count;
+            } else{
+                self.alert(message: "There was an error processing your request.", title: "Network Error")
             }
-            self.gamesData = feedData;
-            feedCount = feedData.games.count;
-        } else{
-            self.alert(message: "There was an error processing your request.", title: "Network Error")
-        }
-        
-        self.GamesObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
-        self.OpenBetsObject.titleLabel?.font = UIFont.systemFont(ofSize: 15);
-        self.LiveBetsObject.titleLabel?.font = UIFont.systemFont(ofSize: 15);
-        self.feedType = .games;
-        self.Collection.reloadData();
+            
+            self.GamesObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
+            self.OpenBetsObject.titleLabel?.font = UIFont.systemFont(ofSize: 15);
+            self.LiveBetsObject.titleLabel?.font = UIFont.systemFont(ofSize: 15);
+            self.feedType = .games;
+            self.Collection.reloadData();
+        })
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

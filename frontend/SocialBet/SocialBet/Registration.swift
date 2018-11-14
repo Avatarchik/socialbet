@@ -37,24 +37,21 @@ class Registration: UIViewController {
         
         let auth = sha256(data: (password!).data(using: String.Encoding.utf8)! as NSData);
         
-        let parameters = ["username": username, "auth": auth, "phoneNumber": phoneNumber, "firstName": firstName, "lastName": lastName, "profile_pic_url": default_pic] as! Dictionary<String, String>
+        let parameters = ["user_name": username, "auth": auth, "phone": phoneNumber, "first_name": firstName, "last_name": lastName, "prof_pic": common.default_pic] as! Dictionary<String, String>
         
         // create and send a POST request
-        let response = sendPOST(uri: "/api/users/create/", parameters: parameters)
-        
-        // alert the user of success/failure, and either navigate away or refresh the page
-        if response.error == nil {
-            // TODO: error isn't being handled properly, figure out
-            performSegue(withIdentifier: "RegistrationToLiveFeed", sender: self);
-        }
-        else{
-            // TODO: check HTML error codes
-            self.alert(message: "Error creating account. Try again.", title: "Account Creation Error")
-            viewDidLoad()
-        }
-        
+        sendPOST(uri: "/api/users/create/", parameters: parameters, callback: { (postresponse) in
+            // alert the user of success/failure, and either navigate away or refresh the page
+            if postresponse.error == nil {
+                self.performSegue(withIdentifier: "RegistrationToLiveFeed", sender: self);
+            }
+            else{
+                self.alert(message: "Error creating account. Try again.", title: "Account Creation Error")
+                self.viewDidLoad()
+            }
+        })
     }
-    
+    	
      @IBAction func GoToLogin(_ sender: Any) {
         performSegue(withIdentifier: "RegistrationToLogin", sender: self)
      }
