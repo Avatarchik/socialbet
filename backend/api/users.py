@@ -59,6 +59,7 @@ def get_user():
     data = {}
     data = request.args.get('username')
     users = db.get_user(data)
+    print(users)
     if len(users) == 0:
         result = {}
         result['errors'] = []
