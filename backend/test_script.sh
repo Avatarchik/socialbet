@@ -3,6 +3,9 @@ auth="5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8"
 url="http://165.227.180.80:5000"
 
 
+# Feed endpoints
+############################
+
 if [ $1 = "open_bets" ]; then
     curl -X GET $url/api/feeds/open_bets/\?loguser=$loguser\&auth=$auth
 fi
@@ -29,15 +32,23 @@ if [ $1 = "between_us_bets" ]; then
 fi
 
 
+# Teams endpoints
+############################
 
 if [ $1 = "get_teams" ]; then
     curl -X GET $url/api/teams/\?loguser=$loguser\&auth=$auth
 fi
 
+# Games endpoints
+############################
+
+
 if [ $1 = "get_games" ]; then
     curl -X GET $url/api/games/\?loguser=$loguser\&auth=$auth
 fi
 
+# User endpoints
+############################
 
 if [ $1 = "create_user" ]; then
     username="testuser"
@@ -69,4 +80,22 @@ if [ $1 = "add_friends" ]; then
 
     curl -X POST -H "Content-Type: application/json" $url/api/users/add_friend/ \
         -d "{\"username\": \"$username\", \"auth\": \"$auth\", \"user1\": \"$user1\", \"user2\": \"$user2\" }"
+fi
+
+
+# Betting endpoints
+#########################
+
+if [ $1 = "place_bet" ]; then
+    game_id=3
+    message="fuck yeah test worked"
+    ammount=9
+    user2="cterech"
+    direct=1
+    accepted=0
+    
+
+    curl -X POST -H "Content-Type: application/json" $url/api/betting/place_bet/ \
+        -d "{\"loguser\": \"$loguser\", \"auth\": \"$auth\", \"game_id\": \"$game_id\", \"message\": \"$message\", \"ammount\": $ammount, \"user1\": \"$loguser\", \"user2\": \"$user2\", \"direct\": $direct, \"accepted\": $accepted}"
+
 fi
