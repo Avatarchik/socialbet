@@ -23,19 +23,21 @@ VALUES
 # GAMES
 INSERT INTO games(game_id, team1, team2, team1_url, team2_url, record1, record2, game_time)
 VALUES
-(1, 'Detroit Lions', 'Chicago Bears', '/root/socialbet/backend/team_logos/lions.png', '/root/socialbet/backend/team_logos/bears.png', '1-7', '2-6', '11/18/2018 1:00PM'),
-(2, 'New England Patriots', 'Philadelphia Eagles', '/root/socialbet/backend/team_logos/patriots.png', '/root/socialbet/backend/team_logos/eagles.png', '1-7', '2-6', '11/18/2018 1:00PM'), 
-(3, 'Miami Dolphins', 'New Orleans Saints', '/root/socialbet/backend/team_logos/dolphins.png', '/root/socialbet/backend/team_logos/saints.png', '1-7', '2-6', '11/18/2018 1:00PM'),
-(4, 'Pittsburgh Steelers', 'New York Giants', '/root/socialbet/backend/team_logos/steelers.png', '/root/socialbet/backend/team_logos/giants.png', '1-7', '2-6', '11/18/2018 3:00PM'),
-(5, 'Atlanta Falcons', 'Houston Texans', '/root/socialbet/backend/team_logos/falcons.png', '/root/socialbet/backend/team_logos/texans.png', '1-7', '2-6', '11/18/2018 3:00PM'),
-(6, 'Seattle Seahawks', 'Carolina Panthers', '/root/socialbet/backend/team_logos/seahawks.png', '/root/socialbet/backend/team_logos/panthers.png','1-7', '2-6', '11/25/2018 1:00PM'),
-(7, 'Oakland Raiders', 'Baltimore Ravens', '/root/socialbet/backend/team_logos/raiders.png', '/root/socialbet/backend/team_logos/ravens.png', '1-7', '2-6', '11/25/2018 1:00PM'),
-(8, 'Green Bay Packers', 'Minnesota Vikings', '/root/socialbet/backend/team_logos/packers.png', '/root/socialbet/backend/team_logos/vikings.png', '1-7', '2-6', '11/25/2018 8:20PM'),
-(9, 'Cincinnati Bengals', 'Miami Dolphins', '/root/socialbet/backend/team_logos/bengals.png', '/root/socialbet/backend/team_logos/dolphins.png', '1-7', '2-6', '11/18/2018 1:00PM'),
-(10, 'Denver Broncos', 'Los Angeles Chargers', '/root/socialbet/backend/team_logos/broncos.png', '/root/socialbet/backend/team_logos/charges.png', '1-7', '2-6', '11/18/2018 4:05PM'); 
+(1, 'Tennessee Titans', 'Indianapolis Colts', '/root/socialbet/backend/team_logos/titans.png', '/root/socialbet/backend/team_logos/colts.png', '5-4', '4-5', '11/18/2018 1:00PM'),
+(2, 'Tampa Bay Buccaneers', 'New York Giants', '/root/socialbet/backend/team_logos/buccaneers.png', '/root/socialbet/backend/team_logos/giants.png', '3-6', '2-7', '11/18/2018 1:00PM'), 
+(3, 'Pittsburgh Steelers', 'Jacksonville Jaguars', '/root/socialbet/backend/team_logos/steelers.png', '/root/socialbet/backend/team_logos/jaguars.png', '6-2-1', '3-6', '11/18/2018 1:00PM'),
+(4, 'Carolina Panthers', 'Detroit Lions', '/root/socialbet/backend/team_logos/panthers.png', '/root/socialbet/backend/team_logos/lions.png', '6-3', '3-6', '11/18/2018 1:00PM'),
+(5, 'Dallas Cowboys', 'Atlanta Falcons', '/root/socialbet/backend/team_logos/cowboys.png', '/root/socialbet/backend/team_logos/falcons.png', '4-5', '4-5', '11/18/2018 1:00PM'),
+(6, 'Cincinnati Bengals', 'Baltimore Ravens', '/root/socialbet/backend/team_logos/bengals.png', '/root/socialbet/backend/team_logos/ravens.png','5-4', '4-5', '11/18/2018 1:00PM'),
+(7, 'Houston Texans', 'Washington Redskins', '/root/socialbet/backend/team_logos/texans.png', '/root/socialbet/backend/team_logos/redskins.png', '6-3', '6-3', '11/18/2018 1:00PM'),
+(8, 'Oakland Raiders', 'Arizona Cardinals', '/root/socialbet/backend/team_logos/raiders.png', '/root/socialbet/backend/team_logos/cardinals.png', '1-8', '2-7', '11/18/2018 4:05PM'),
+(9, 'Denver Broncos', 'Los Angeles Chargers', '/root/socialbet/backend/team_logos/broncos.png', '/root/socialbet/backend/team_logos/dolphins.png', '3-6', '5-5', '11/18/2018 4:05PM'),
+(10, 'Philadelphia Eagles', 'New Oreleans Saints', '/root/socialbet/backend/team_logos/eagles.png', '/root/socialbet/backend/team_logos/saints.png', '4-5', '8-1', '11/18/2018 4:25PM'), 
+(11, 'Minnesota Vikings', 'Chicago Bears', '/root/socialbet/backend/team_logos/vikings.png', '/root/socialbet/backend/team_logos/bears.png', '5-3', '6-3', '11/18/2018 8:20PM'), 
+(12, 'Kansas City Chiefs', 'Los Angeles Rams', '/root/socialbet/backend/team_logos/chiefs.png', '/root/socialbet/backend/team_logos/rams.png', '9-1', '9-1', '11/19/2018 8:15PM'); 
 
 # BETS
 INSERT INTO bets (bet_id, game_id, time_placed, game_time, num_comments, message, ammount, user1, user2, team1, team2, direct, accepted)
 VALUES
-(1,1,'11/16/2018 3:52PM', '11/18/2018 1:00PM', 0, 'Nick is going down!', 50.0, 'achapp', 'cterech', 'Detroit Lions', 'Chicago Bears', 1, 1), 
-(2,3,'11/16/2018 4:19PM', '11/18/2018 1:00PM', 0, 'Ittai is going down!', 100.0, 'achapp', 'jkrieg','Miami Dolphins', 'New Orleans Saints', 1, 1);
+(1,1,'11/16/2018 3:52PM', '11/18/2018 1:00PM', 0, 'Nick is going down!', 50.0, 'achapp', 'cterech', 'Detroit Lions', 'Chicago Bears', 1, 1, 'cterech'), 
+(2,3,'11/16/2018 4:19PM', '11/18/2018 1:00PM', 0, 'Ittai is going down!', 100.0, 'achapp', 'jkrieg','Miami Dolphins', 'New Orleans Saints', 1, 1, 'achapp')
