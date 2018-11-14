@@ -41,6 +41,7 @@ CREATE TABLE bets (
 	team2 VARCHAR(50) NOT NULL,
     direct INTEGER NOT NULL,
     accepted INTEGER NOT NULL,
+    winner VARCHAR(50),
 	PRIMARY KEY(bet_id),
 	FOREIGN KEY(user1) REFERENCES users(user_name),
 	FOREIGN KEY(user2) REFERENCES users(user_name)
