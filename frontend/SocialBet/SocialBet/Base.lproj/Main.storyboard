@@ -614,6 +614,13 @@
                                     <action selector="returnHome" destination="uc1-GC-PZb" eventType="touchUpInside" id="1dG-Ww-26c"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wFA-At-bqu">
+                                <rect key="frame" x="286" y="30" width="79" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Add Friend">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -636,17 +643,20 @@
                             <constraint firstItem="yie-Qk-Ciz" firstAttribute="height" secondItem="1bE-Uo-hGA" secondAttribute="height" id="aFv-ge-QcH"/>
                             <constraint firstItem="seY-FA-c8m" firstAttribute="top" secondItem="pKH-oH-D9S" secondAttribute="top" constant="10" id="bmD-LB-NOD"/>
                             <constraint firstItem="ce3-u4-apo" firstAttribute="width" secondItem="D7U-5t-p8B" secondAttribute="width" id="cjy-z0-Ef3"/>
+                            <constraint firstItem="wFA-At-bqu" firstAttribute="top" secondItem="pKH-oH-D9S" secondAttribute="top" constant="10" id="ckj-2b-NNH"/>
                             <constraint firstItem="8sJ-iF-6jS" firstAttribute="centerX" secondItem="pKH-oH-D9S" secondAttribute="centerX" id="dBs-a6-jV6"/>
                             <constraint firstItem="3jb-ZP-SUS" firstAttribute="leading" secondItem="pKH-oH-D9S" secondAttribute="leading" constant="10" id="e52-PC-kCN"/>
                             <constraint firstItem="yie-Qk-Ciz" firstAttribute="top" secondItem="fiB-fn-M3C" secondAttribute="top" id="hFI-wY-ucv"/>
                             <constraint firstItem="fMx-81-JQe" firstAttribute="top" secondItem="3a4-cN-fj5" secondAttribute="bottom" constant="5" id="i60-QZ-h5s"/>
                             <constraint firstItem="1bE-Uo-hGA" firstAttribute="width" secondItem="fiB-fn-M3C" secondAttribute="width" id="pGS-MQ-hPS"/>
                             <constraint firstItem="3a4-cN-fj5" firstAttribute="centerX" secondItem="pKH-oH-D9S" secondAttribute="centerX" id="q1p-81-KLg"/>
+                            <constraint firstItem="pKH-oH-D9S" firstAttribute="trailing" secondItem="wFA-At-bqu" secondAttribute="trailing" constant="10" id="uPF-Ha-Ghr"/>
                             <constraint firstItem="fiB-fn-M3C" firstAttribute="top" secondItem="8sJ-iF-6jS" secondAttribute="bottom" constant="20" id="yMn-lb-9vf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pKH-oH-D9S"/>
                     </view>
                     <connections>
+                        <outlet property="AddFriendButton" destination="wFA-At-bqu" id="AWx-yL-acq"/>
                         <outlet property="BetweenUsObject" destination="yie-Qk-Ciz" id="eaZ-rL-bY3"/>
                         <outlet property="LiveBetsObject" destination="1bE-Uo-hGA" id="V1j-B9-2B4"/>
                         <outlet property="OpenBetsObject" destination="fiB-fn-M3C" id="Mfg-Ts-FBp"/>
@@ -660,7 +670,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i3x-aK-dDC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2926" y="143"/>
+            <point key="canvasLocation" x="2925.5999999999999" y="142.57871064467767"/>
         </scene>
         <!--Bet Builder Game Selection-->
         <scene sceneID="5VS-aW-0vV">
@@ -1129,8 +1139,8 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="xhG-KS-FYW"/>
-        <segue reference="XxG-dJ-BTr"/>
+        <segue reference="Ia1-YO-obj"/>
         <segue reference="C4C-SM-klp"/>
-        <segue reference="iod-cq-jJE"/>
+        <segue reference="LZe-Ez-tcL"/>
     </inferredMetricsTieBreakers>
 </document>

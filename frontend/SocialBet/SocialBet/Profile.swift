@@ -17,7 +17,35 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     @IBOutlet weak var OpenBetsObject: UIButton!
     @IBOutlet weak var LiveBetsObject: UIButton!
     
+    @IBOutlet weak var AddFriendButton: UIButton!
+    
+    
     var searchedUser: String = ""
+    
+    var is_profile_self = false;
+    
+    func DetermineUser() {
+        if (searchedUser == common.username) {
+            self.is_profile_self = true;
+        } else {
+            self.is_profile_self = false;
+        }
+    }
+    
+    
+    func FriendButtonToggle(profile_check: Bool) {
+        if (profile_check) {
+            AddFriendButton.isHidden = true
+        } else {
+            AddFriendButton.isHidden = false
+        }
+    }
+    
+    @IBAction func addFriend() {
+        
+        let params = ["loguser": common.username, "auth": common.pwhash, "user1": common.username, "user2": searchedUser] as! Dictionary<String, String>
+        
+    }
     
     @IBAction func returnHome() {
         performSegue(withIdentifier: "ProfileToHome", sender: self)
