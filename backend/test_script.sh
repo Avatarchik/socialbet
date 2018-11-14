@@ -7,6 +7,11 @@ if [ $1 = "open_bets" ]; then
     curl -X GET $url/api/feeds/open_bets/\?loguser=$loguser\&auth=$auth
 fi
 
+if [ $1 = "live_bets" ]; then
+    curl -X GET $url/api/feeds/live_bets/\?loguser=$loguser\&auth=$auth
+fi
+
+
 if [ $1 = "create_user" ]; then
     username="testuser"
     auth="testauth"
