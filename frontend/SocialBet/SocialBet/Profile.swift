@@ -41,10 +41,24 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         }
     }
     
+    
+    
     @IBAction func addFriend() {
+        let URI = "/api/users/add_friend/"
         
         let params = ["loguser": common.username, "auth": common.pwhash, "user1": common.username, "user2": searchedUser] as! Dictionary<String, String>
         
+        sendPOST(uri: URI, parameters: params, callback: { (postresponse) in
+            // check for errors
+            if postresponse.error == nil {
+                self.alert(message: "Your friend request was successfully sent", title: "Friend added!");
+            }
+            else{
+                // TODO: check HTML error codes
+                self.alert(message: "Unable to add friend", title: "Add Friend Error")
+            }
+            print("Added friend!");
+        })
     }
     
     @IBAction func returnHome() {
@@ -164,10 +178,10 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             cell?.User2Name.text = thisBet.user2.first_name + " " + thisBet.user2.last_name;
             getImageFromUrl(urlString: thisBet.user1.profile_pic_url, imageView: (cell?.User1Image)!);
             getImageFromUrl(urlString: thisBet.user2.profile_pic_url, imageView: (cell?.User2Image)!);
-            getImageFromUrl(urlString: thisBet.user1_team.team_logo_url, imageView: (cell?.Team1Image)!);
-            getImageFromUrl(urlString: thisBet.user2_team.team_logo_url, imageView: (cell?.Team2Image)!);
-            cell?.TeamName1.text = thisBet.user1_team.name;
-            cell?.TeamName2.text = thisBet.user2_team.name;
+            //getImageFromUrl(urlString: thisBet., imageView: (cell?.Team1Image)!);
+            //getImageFromUrl(urlString: thisBet.user2_team.team_logo_url, imageView: (cell?.Team2Image)!);
+            cell?.TeamName1.text = thisBet.user1.team;
+            cell?.TeamName2.text = thisBet.user2.team;
             cell?.Message.text = thisBet.message;
             cell?.GameTime.text = thisBet.game_time;
             

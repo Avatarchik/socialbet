@@ -19,126 +19,64 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qVd-4l-3l8">
-                        <rect key="frame" x="10" y="10" width="70" height="70"/>
+                        <rect key="frame" x="30" y="10" width="70" height="70"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="70" id="b7l-GA-06h"/>
                             <constraint firstAttribute="height" constant="70" id="fvF-2e-Xqn"/>
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bd5-Zi-MBL">
-                        <rect key="frame" x="110" y="10" width="70" height="70"/>
+                        <rect key="frame" x="274" y="10" width="70" height="70"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNf-Uv-iCf">
-                        <rect key="frame" x="20.5" y="85" width="49" height="21"/>
+                        <rect key="frame" x="40.5" y="85" width="49" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yxg-rU-N6J">
-                        <rect key="frame" x="119" y="85" width="52" height="21"/>
+                        <rect key="frame" x="283" y="85" width="52" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Record2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chb-Lz-fCD">
-                        <rect key="frame" x="121" y="107" width="48" height="15"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Record1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdk-iW-wyv">
-                        <rect key="frame" x="22" y="107" width="46" height="14.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="VS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xHf-Lo-Fwf">
-                        <rect key="frame" x="84" y="36" width="22" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xHf-Lo-Fwf">
+                        <rect key="frame" x="176" y="34.5" width="22" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QMc-Fy-jcj">
-                        <rect key="frame" x="210" y="10" width="144" height="30"/>
-                        <state key="normal" title="View Open Bets"/>
-                        <connections>
-                            <action selector="ViewOpenBets:" destination="gVQ-4V-9tz" eventType="touchUpInside" id="123-rK-KgE"/>
-                        </connections>
-                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time of Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B6r-Rw-jeW">
-                        <rect key="frame" x="47" y="132" width="96" height="18"/>
+                        <rect key="frame" x="139" y="132" width="96" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6yJ-8J-NbV">
-                        <rect key="frame" x="210" y="48" width="144" height="30"/>
-                        <state key="normal" title="View Live Bets"/>
-                        <connections>
-                            <action selector="ViewLiveBets:" destination="gVQ-4V-9tz" eventType="touchUpInside" id="ifL-Ve-ZaX"/>
-                        </connections>
-                    </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tp9-KT-hee">
-                        <rect key="frame" x="210" y="86" width="144" height="30"/>
-                        <state key="normal" title="Create an Open Bet"/>
-                        <connections>
-                            <action selector="CreateOpenBet:" destination="gVQ-4V-9tz" eventType="touchUpInside" id="5ZZ-Ny-ivs"/>
-                        </connections>
-                    </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oBo-h0-QTI">
-                        <rect key="frame" x="210" y="124" width="144" height="30"/>
-                        <state key="normal" title="Create a Direct Bet"/>
-                        <connections>
-                            <action selector="CreateDirectBet:" destination="gVQ-4V-9tz" eventType="touchUpInside" id="Jq3-Pr-EsA"/>
-                        </connections>
-                    </button>
                 </subviews>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="xHf-Lo-Fwf" firstAttribute="centerX" secondItem="gNF-g0-cgA" secondAttribute="centerX" id="1qU-c9-uB2"/>
                 <constraint firstItem="Yxg-rU-N6J" firstAttribute="centerX" secondItem="bd5-Zi-MBL" secondAttribute="centerX" id="2qY-iq-KYs"/>
-                <constraint firstItem="tp9-KT-hee" firstAttribute="height" secondItem="6yJ-8J-NbV" secondAttribute="height" id="4Jr-fk-9hf"/>
                 <constraint firstItem="B6r-Rw-jeW" firstAttribute="centerX" secondItem="xHf-Lo-Fwf" secondAttribute="centerX" id="4v7-lS-uPl"/>
                 <constraint firstItem="Yxg-rU-N6J" firstAttribute="top" secondItem="YNf-Uv-iCf" secondAttribute="top" id="8pq-Fe-SJI"/>
-                <constraint firstItem="cdk-iW-wyv" firstAttribute="centerX" secondItem="YNf-Uv-iCf" secondAttribute="centerX" id="HMx-9m-suc"/>
                 <constraint firstItem="bd5-Zi-MBL" firstAttribute="width" secondItem="qVd-4l-3l8" secondAttribute="width" id="JfR-QN-kjg"/>
-                <constraint firstItem="tp9-KT-hee" firstAttribute="width" secondItem="6yJ-8J-NbV" secondAttribute="width" id="POh-oL-h2L"/>
                 <constraint firstItem="YNf-Uv-iCf" firstAttribute="centerX" secondItem="qVd-4l-3l8" secondAttribute="centerX" id="ReR-ZS-tK3"/>
-                <constraint firstItem="qVd-4l-3l8" firstAttribute="leading" secondItem="gVQ-4V-9tz" secondAttribute="leading" constant="10" id="Sen-Od-Qbs"/>
+                <constraint firstItem="qVd-4l-3l8" firstAttribute="leading" secondItem="gVQ-4V-9tz" secondAttribute="leading" constant="30" id="Sen-Od-Qbs"/>
                 <constraint firstItem="bd5-Zi-MBL" firstAttribute="height" secondItem="qVd-4l-3l8" secondAttribute="height" id="Wac-fH-hxH"/>
-                <constraint firstItem="chb-Lz-fCD" firstAttribute="top" secondItem="cdk-iW-wyv" secondAttribute="top" id="WiN-gh-ZkJ"/>
-                <constraint firstItem="6yJ-8J-NbV" firstAttribute="height" secondItem="QMc-Fy-jcj" secondAttribute="height" id="YHU-jg-v9V"/>
-                <constraint firstItem="bd5-Zi-MBL" firstAttribute="leading" secondItem="xHf-Lo-Fwf" secondAttribute="trailing" constant="2" id="YQe-wh-yir"/>
-                <constraint firstItem="xHf-Lo-Fwf" firstAttribute="leading" secondItem="qVd-4l-3l8" secondAttribute="trailing" constant="2" id="ZaA-kd-6G6"/>
-                <constraint firstItem="oBo-h0-QTI" firstAttribute="top" secondItem="tp9-KT-hee" secondAttribute="bottom" constant="8" id="aKL-cV-KDt"/>
-                <constraint firstItem="tp9-KT-hee" firstAttribute="top" secondItem="6yJ-8J-NbV" secondAttribute="bottom" constant="8" id="aqd-Z1-Mon"/>
+                <constraint firstItem="bd5-Zi-MBL" firstAttribute="trailing" secondItem="gNF-g0-cgA" secondAttribute="trailing" constant="-30" id="Xl1-6r-H9F"/>
                 <constraint firstItem="gNF-g0-cgA" firstAttribute="bottom" secondItem="B6r-Rw-jeW" secondAttribute="bottom" constant="10" id="bHS-sU-mRe"/>
-                <constraint firstItem="QMc-Fy-jcj" firstAttribute="top" secondItem="gVQ-4V-9tz" secondAttribute="top" constant="10" id="bhE-cs-DgT"/>
-                <constraint firstAttribute="trailing" secondItem="QMc-Fy-jcj" secondAttribute="trailing" constant="20" id="cRo-vI-oqe"/>
-                <constraint firstItem="oBo-h0-QTI" firstAttribute="width" secondItem="tp9-KT-hee" secondAttribute="width" id="cYp-6e-gHj"/>
-                <constraint firstItem="bd5-Zi-MBL" firstAttribute="leading" secondItem="qVd-4l-3l8" secondAttribute="trailing" constant="30" id="cjS-RI-htp"/>
-                <constraint firstItem="oBo-h0-QTI" firstAttribute="height" secondItem="tp9-KT-hee" secondAttribute="height" id="d9G-Nc-jep"/>
                 <constraint firstItem="bd5-Zi-MBL" firstAttribute="top" secondItem="qVd-4l-3l8" secondAttribute="top" id="deb-cv-xRM"/>
-                <constraint firstItem="QMc-Fy-jcj" firstAttribute="leading" secondItem="bd5-Zi-MBL" secondAttribute="trailing" constant="30" id="fpQ-MI-nih"/>
                 <constraint firstItem="qVd-4l-3l8" firstAttribute="top" secondItem="gVQ-4V-9tz" secondAttribute="top" constant="10" id="hUk-QF-Tmf"/>
-                <constraint firstItem="cdk-iW-wyv" firstAttribute="top" secondItem="YNf-Uv-iCf" secondAttribute="bottom" constant="1" id="icl-7t-Eke"/>
-                <constraint firstItem="6yJ-8J-NbV" firstAttribute="top" secondItem="QMc-Fy-jcj" secondAttribute="bottom" constant="8" id="ly7-A7-SSB"/>
-                <constraint firstItem="6yJ-8J-NbV" firstAttribute="centerX" secondItem="QMc-Fy-jcj" secondAttribute="centerX" id="mFq-HN-XYu"/>
-                <constraint firstItem="6yJ-8J-NbV" firstAttribute="width" secondItem="QMc-Fy-jcj" secondAttribute="width" id="pPU-Uc-7Iu"/>
-                <constraint firstItem="oBo-h0-QTI" firstAttribute="centerX" secondItem="tp9-KT-hee" secondAttribute="centerX" id="r2m-M9-sLh"/>
                 <constraint firstItem="xHf-Lo-Fwf" firstAttribute="centerY" secondItem="qVd-4l-3l8" secondAttribute="centerY" id="rRu-RS-oER"/>
-                <constraint firstItem="tp9-KT-hee" firstAttribute="centerX" secondItem="6yJ-8J-NbV" secondAttribute="centerX" id="sU1-bD-LNa"/>
-                <constraint firstItem="chb-Lz-fCD" firstAttribute="centerX" secondItem="Yxg-rU-N6J" secondAttribute="centerX" id="uEY-EN-wf0"/>
                 <constraint firstItem="YNf-Uv-iCf" firstAttribute="top" secondItem="qVd-4l-3l8" secondAttribute="bottom" constant="5" id="vXO-T2-wfp"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="gNF-g0-cgA"/>
             <connections>
                 <outlet property="AwayTeamLogo" destination="bd5-Zi-MBL" id="0Rt-0j-9v1"/>
                 <outlet property="AwayTeamName" destination="Yxg-rU-N6J" id="0yN-AL-3Tk"/>
-                <outlet property="AwayTeamRecord" destination="chb-Lz-fCD" id="0rk-pK-e3H"/>
                 <outlet property="HomeTeamLogo" destination="qVd-4l-3l8" id="oZW-rI-4xp"/>
                 <outlet property="HomeTeamName" destination="YNf-Uv-iCf" id="pgf-24-J18"/>
-                <outlet property="HomeTeamRecord" destination="cdk-iW-wyv" id="WJ7-wa-HFd"/>
                 <outlet property="TimeOfGame" destination="B6r-Rw-jeW" id="Jap-wY-Vhc"/>
             </connections>
             <point key="canvasLocation" x="170" y="-15"/>
