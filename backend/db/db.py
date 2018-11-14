@@ -349,6 +349,7 @@ def place_bet(data):
     amount = str(data['amount'])
     user1 = data['user1']
     user2 = data['user2']
+    time_placed = data['time_placed']
 
     direct = str(data['direct'])
     accepted = str(data['accepted'])
@@ -367,9 +368,9 @@ def place_bet(data):
     
 
     sql = "INSERT INTO bets " \
-          "(game_id, game_time, message, ammount, user1, user2, team1, team2, direct, accepted) " \
+          "(time_placed, game_id, game_time, message, ammount, user1, user2, team1, team2, direct, accepted) " \
           "VALUES " \
-          "(" +  game_id + ", \"" + game_time + "\", \"" + message + "\", " + amount + ", \"" + user1 + "\", \"" + user2 + \
+          "(" + time_placed + ", " +  game_id + ", \"" + game_time + "\", \"" + message + "\", " + amount + ", \"" + user1 + "\", \"" + user2 + \
           "\", \"" + team1 + "\", \"" + team2 + "\", " +  direct + ", " + accepted + ");"
 
     print(sql)

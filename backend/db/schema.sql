@@ -27,7 +27,7 @@ CREATE TABLE games (
 );
 
 CREATE TABLE bets (
-	bet_id INTEGER NOT NULL,
+	bet_id INTEGER NOT NULL AUTO_INCREMENT,
 	game_id INTEGER NOT NULL,
 	time_placed VARCHAR(50) NOT NULL,
 	game_time VARCHAR(50) NOT NULL,
