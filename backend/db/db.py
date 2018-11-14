@@ -129,7 +129,7 @@ def get_friends(data):
     return res
 
 def add_friend(data):
-    db_config. get_db_config()
+    db_config = get_db_config()
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
     cursor = db.cursor()
 
