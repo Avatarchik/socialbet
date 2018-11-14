@@ -58,17 +58,12 @@ def get_user():
     result = {}
     data = {}
     data = request.args.get('username')
-    users = db.get_user(data)
-    print(users)
-    if len(users) == 0:
+    user = db.get_user(data)
+
+    if not user:
         result = {}
         result['errors'] = []
         result['errors'].append('username does not exist')
-        return create_http_response(data=result, errors=result['errors'])
-    elif len(users) > 1:
-        result = {}
-        result['errors'] = []
-        result['errors'].append('multiple identical usernames found')
         return create_http_response(data=result, errors=result['errors'])
 
     result['username'] = users[0]['user_name']
