@@ -164,10 +164,10 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             cell?.User2Name.text = thisBet.user2.first_name + " " + thisBet.user2.last_name;
             getImageFromUrl(urlString: thisBet.user1.profile_pic_url, imageView: (cell?.User1Image)!);
             getImageFromUrl(urlString: thisBet.user2.profile_pic_url, imageView: (cell?.User2Image)!);
-            getImageFromUrl(urlString: thisBet.user1_team.team_logo_url, imageView: (cell?.Team1Image)!);
-            getImageFromUrl(urlString: thisBet.user2_team.team_logo_url, imageView: (cell?.Team2Image)!);
-            cell?.TeamName1.text = thisBet.user1_team.name;
-            cell?.TeamName2.text = thisBet.user2_team.name;
+            //getImageFromUrl(urlString: thisBet., imageView: (cell?.Team1Image)!);
+            //getImageFromUrl(urlString: thisBet.user2_team.team_logo_url, imageView: (cell?.Team2Image)!);
+            cell?.TeamName1.text = thisBet.user1.team;
+            cell?.TeamName2.text = thisBet.user2.team;
             cell?.Message.text = thisBet.message;
             cell?.GameTime.text = thisBet.game_time;
             

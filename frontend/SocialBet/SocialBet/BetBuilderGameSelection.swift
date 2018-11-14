@@ -68,15 +68,12 @@ class BetBuilderGameSelection: UIViewController, UICollectionViewDataSource, UIC
             
             //TODO - Figure out how to correctly use this indexPath thing for nested arrays
             
-            let theseGames = self.gamesData!.games[indexPath.row];
-            let thisGame = theseGames.games[indexPath.item];
+            let thisGame = self.gamesData!.games[indexPath.row];
             
-            getImageFromUrl(urlString: thisGame.home_team.team_logo_url, imageView: (cell?.HomeTeamLogo)!);
-            getImageFromUrl(urlString: thisGame.away_team.team_logo_url, imageView: (cell?.AwayTeamLogo)!);
-            cell?.HomeTeamName.text = thisGame.home_team.name;
-            cell?.AwayTeamName.text = thisGame.away_team.name;
-            cell?.HomeTeamRecord.text = String(thisGame.home_team.wins) + "-" + String(thisGame.home_team.losses);
-            cell?.AwayTeamRecord.text = String(thisGame.away_team.wins) + "-" + String(thisGame.away_team.losses);
+            getImageFromUrl(urlString: thisGame.team1_url, imageView: (cell?.HomeTeamLogo)!);
+            getImageFromUrl(urlString: thisGame.team2_url, imageView: (cell?.AwayTeamLogo)!);
+            cell?.HomeTeamName.text = thisGame.team1;
+            cell?.AwayTeamName.text = thisGame.team2;
             
             return cell!;
     }
