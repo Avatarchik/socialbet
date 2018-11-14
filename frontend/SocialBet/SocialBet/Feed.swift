@@ -62,7 +62,7 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
     
     @IBAction func LiveBetsButton(_ sender: Any) {
         // submit a GET request to get the live feed object
-        let fullURI = addGETParams(path: "/api/live/", search: "", needsUsername: false)
+        let fullURI = addGETParams(path: "/api/feeds/live_bets/", search: "", needsUsername: false)
         sendGET(uri: fullURI, callback: { (httpresponse) in
             let data: Data! = httpresponse.data
             
@@ -89,7 +89,7 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
     
     @IBAction func OpenBetsButton(_ sender: Any) {
         // submit a GET request to get the open feed object
-        let fullURI = addGETParams(path: "/api/open/", search: "", needsUsername: false)
+        let fullURI = addGETParams(path: "/api/feeds/open_bets/", search: "", needsUsername: false)
         sendGET(uri: fullURI, callback: { (httpresponse) in
             let data: Data! = httpresponse.data
             
