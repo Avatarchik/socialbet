@@ -100,13 +100,19 @@ if [ $1 = "place_bet" ]; then
 
 fi
 
-if [ $1 = "accept_bet" ]; then
+if [ $1 = "accept_direct_bet" ]; then
     bet_id=5
 
     curl -X POST -H "Content-Type: application/json" $url/api/betting/accept_bet/ \
-        -d "{\"loguser\": \"$loguser\", \"auth\": \"$auth\", \"bet_id\": \"$bet_id\"}"
+        -d "{\"loguser\": \"$loguser\", \"auth\": \"$auth\", \"bet_id\": $bet_id}"
 fi
 
+if [ $1 = "accept_open_bet" ]; then
+    bet_id=21
+
+    curl -X POST -H "Content-Type: application/json" $url/api/betting/accept_bet/ \
+        -d "{\"loguser\": \"$loguser\", \"auth\": \"$auth\", \"bet_id\": $bet_id}"
+fi
 
 if [ $1 = "cancel_bet" ]; then
     bet_id=5
