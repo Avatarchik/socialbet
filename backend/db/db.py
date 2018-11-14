@@ -24,7 +24,7 @@ def authenticate(log_user, auth):
 def get_users():
     db_config = get_db_config()
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
-    cursor = db.cursor()
+    cursor = db.cursor(pymysql.cursors.DictCursor)
 
     sql = "SELECT * FROM users;"
     cursor.execute(sql)
@@ -41,16 +41,14 @@ def get_users():
 def get_user(data):
     db_config = get_db_config()
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
-    cursor = db.cursor()
+    cursor = db.cursor(pymysql.cursors.DictCursor)
 
     user_name = data['user_name']
 
     sql = "SELECT * FROM users WHERE user_name = " + user_name + ";"
     cursor.execute(sql)
 
-    res = []
-    for row in cursor:
-        res.append(row)
+    res = cursor.fetchone()
 
     db.close()
 
@@ -115,7 +113,7 @@ def drop_user(data):
 def get_friends(data):
     db_config = get_db_config()
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
-    cursor = db.cursor()
+    cursor = db.cursor(pymysql.cursors.DictCursor)
 
     user_name = data['user_name']
 
@@ -132,11 +130,43 @@ def get_friends(data):
 
     return res
 
+def add_friends(data):
+    db_config. get_db_config()
+    db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
+    cursor = db.cursor()
+
+    user1 = str(data['user1'])
+    user2 = str(data['user2'])
+
+    print('TESTING ADD_FRIENDS FUNCTION BETWEEN THE TWO USERS:')
+    print(user1)
+    print(user2)
+
+    sql = "INSERT INTO friends VALUES ( '"+user1+"', '"+user2+"')"
+
+    worked = True
+    try:
+        cursor.execute(sql)
+    except:
+        worked = False
+
+    if worked:
+        print('Successfully added friends ' + user1 + ' and ' + user2)
+        db.commit()
+    else:
+        print('Failed adding friends ' + user1 + ' and ' + user2)
+
+    db.close()
+
+    return worked
+
+
+
 ########################## GAMES ###########################################################
 def get_games():
     db_config = get_db_config()
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
-    cursor = db.cursor()
+    cursor = db.cursor(pymysql.cursors.DictCursor)
 
     sql = "SELECT * FROM games;"
 
@@ -179,7 +209,7 @@ def get_live_bets(loguser):
 def get_open_bets(loguser):
     db_config = get_db_config()
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
-    cursor = db.cursor()
+    cursor = db.cursor(pymysql.cursors.DictCursor)
 
     sql = "SELECT * FROM bets " \
           "WHERE user1 = (" \
@@ -201,7 +231,7 @@ def get_open_bets(loguser):
 def get_closed_bets(loguser):
     db_config = get_db_config()
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
-    cursor = db.cursor()
+    cursor = db.cursor(pymysql.cursors.DictCursor)
 
     sql = "SELECT * FROM bets WHERE user1 = (SELECT user2 FROM friends WHERE user1=\"" + loguser + "\" " + ") AND accepted=1 AND winner IS NOT NULL;"
 
@@ -221,7 +251,7 @@ def get_closed_bets(loguser):
 def place_bet(data):
     db_config = get_db_config()
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
-    cursor = db.cursor()
+    cursor = db.cursor(pymysql.cursors.DictCursor)
     
     game_id = data['game_id']
     message = data['message']
