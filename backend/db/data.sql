@@ -7,14 +7,14 @@ VALUES
 ('isvidler','Ittai','Svilder','912-409-0127', '/root/socialbet/backend/user_profile_pics/svidler.png', '382HF89EHN29E9321AA'),
 ('achapp','Alex','Chapp','734-498-0573', '/root/socialbet/backend/user_profile_pics/chapp.png', '3UF920927201F0OSPEU33'),
 ('jkrieg','John','Krieg','734-201-9423', '/root/socialbet/backend/user_profile_pics/krieg.png', '29720JSWO37GHEBMXNW'),
-('taswartz','Trevor','Swartz','914-479-2054', '/root/socialbet/backend/user_profile_pics/swartz.png', '19VUE3HS0HEJ37F35PW0');
+('tswartz','Trevor','Swartz','914-479-2054', '/root/socialbet/backend/user_profile_pics/swartz.png', '19VUE3HS0HEJ37F35PW0');
 
 # FRIENDS
 INSERT INTO friends (user1,user2)
 VALUES
 ('achapp','cterech'),
 ('achapp','jkrieg'),
-('achapp','taswartz'),
+('achapp','tswartz'),
 ('achapp','ncargill'),
 ('achapp','isvidler'),
 ('rshelly','ncargill'),
