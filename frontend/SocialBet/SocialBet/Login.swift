@@ -31,16 +31,10 @@ class Login: UIViewController {
         let submitusername = LoginUsername.text
         let submitpassword = LoginPassword.text
         var auth = sha256(data: (submitpassword!).data(using: String.Encoding.utf8)! as NSData);
-        print(auth)
         auth = String(auth.dropFirst().dropLast())
         auth = auth.uppercased();
-        print(auth)
         common.username = submitusername!;
         common.pwhash = auth;
-        print("Username & Auth for login: ")
-        print(submitusername)
-        print(submitpassword)
-        print(auth)
         // create a dictionary to pass the parameters in
         let parameters = ["username": submitusername, "auth": auth] as! Dictionary<String, String>
         

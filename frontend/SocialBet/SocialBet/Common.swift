@@ -175,6 +175,14 @@ struct User: Decodable {
     let profile_pic_url: String
 }
 
+struct UserExists: Decodable {
+    let username: String?
+    let first_name: String?
+    let last_name: String?
+    let profile_pic_url: String?
+    let friends: Bool?
+}
+
 struct UserInBet: Decodable {
     let first_name: String
     let last_name: String

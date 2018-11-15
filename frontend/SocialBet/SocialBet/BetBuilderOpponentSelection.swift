@@ -37,22 +37,26 @@ class BetBuilderOpponentSelection: UIViewController {
     
     @IBAction func CreateDirectBet(_ sender: Any) {
         self.entered_handle = self.OpponentHandle.text;
-        var fullURI = addGETParams(path: "/api/users/exist", search: self.entered_handle!, needsUsername: true)
-        fullURI = fullURI + "&friends=true";
+        var fullURI = addGETParams(path: "/api/users/find/", search: self.entered_handle!, needsUsername: true)
         sendGET(uri: fullURI, callback: { (httpresponse) in
             let data: Data! = httpresponse.data
             // decode the information recieved
             if httpresponse.HTTPsuccess! {
-                guard let feedData = try? JSONDecoder().decode(Existance.self, from: data)
+                guard let feedData = try? JSONDecoder().decode(UserExists.self, from: data)
                     else {
                         self.alert(message: "Error creating bet.")
                         return
                 }
-                if (feedData.value){
-                    self.performSegue(withIdentifier: "OpponentSelectToGameSelect", sender: self)
+                if (feedData.first_name != nil){
+                    if (feedData.friends!) {
+                        // TODO: Pass feedData username to the next page
+                        self.performSegue(withIdentifier: "OpponentSelectToGameSelect", sender: self)
+                    } else {
+                        self.alert(message: "Username entered does not match any of your friends. Please try again.")
+                    }
                 }
                 else{
-                    self.alert(message: "Username entered does not match any of your friends. Please try again.")
+                    self.alert(message: "Username does not exists. Are you crazy? Please try again.")
                 }
             } else{
                 self.alert(message: "Error loading profile.")

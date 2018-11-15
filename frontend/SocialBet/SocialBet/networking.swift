@@ -81,11 +81,10 @@ func sendGET(uri: String, callback: @escaping (HTTPResponse) -> Void){
 // arguments:   uri for the endpoint (including query string)
 //              dictionary of parameters to pass to the server
 //              callback function of your design
-func sendPOST(uri: String, parameters: Dictionary<String, String>, callback: @escaping ([String: Any]) -> Void){
+func sendPOST(uri: String, parameters: Dictionary<String, Any>, callback: @escaping ([String: Any]) -> Void){
     // form the request url
     let initial_url = "http://" + common.domain + ":" + common.port + uri
     let encoded = initial_url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-
     
     guard let url = URL(string: encoded!) else {
         
@@ -103,11 +102,12 @@ func sendPOST(uri: String, parameters: Dictionary<String, String>, callback: @es
             let jsonDict = jsonData.swiftDictionary
             print(jsonDict)
             callback(jsonDict)
-        case .failure(let JSON):
-            let jsonData = JSON as! NSDictionary
+        case .failure(let error):
+            print((error as! AFError).errorDescription)
+            /*let jsonData = JSON as! NSDictionary
             let jsonDict = jsonData.swiftDictionary
             print(jsonDict)
-            callback(jsonDict)
+            callback(jsonDict)*/
         }
     }
 }

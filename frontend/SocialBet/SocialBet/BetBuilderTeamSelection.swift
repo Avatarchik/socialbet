@@ -47,9 +47,10 @@ class BetBuilderTeamSelection: UIViewController, UIGestureRecognizerDelegate {
     func submitBet(alert: UIAlertAction!) {
         let direct = (self.selected_opponent != "");
         
-        let parameters = ["loguser": common.username, "auth": common.pwhash, "game_id": self.selected_game_id!, "message": "", "amount": self.WagerAmountInput.text!, "user1": common.username, "user2": self.selected_opponent!, "direct": direct, "accepted": false] as! Dictionary<String, String>
+        let parameters = ["loguser": common.username, "auth": common.pwhash, "game_id": self.selected_game_id!, "message": "", "amount": self.WagerAmountInput.text!, "user1": common.username, "user2": self.selected_opponent!, "direct": direct, "accepted": false] as! Dictionary<String, Any>
         
-        sendPOST(uri: "/api/betting/place_bet", parameters: parameters, callback: { (postresponse) in
+        sendPOST(uri: "/api/betting/place_bet/", parameters: parameters, callback: { (jsonDict) in
+            print(jsonDict)
             // parse the data
             // TODOOOO
             
