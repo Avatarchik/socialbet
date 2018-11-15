@@ -41,9 +41,7 @@ class Login: UIViewController {
         // create and send a POST request
         sendPOST(uri: "/api/users/login/", parameters: parameters, callback: { (postresponse) in
             // alert the user of success/failure, and either navigate away or refresh the page
-            
-            if postresponse.error == nil {
-                // TODO: error isn't being handled properly, figure out
+            if postresponse.HTTPsuccess! {
                 self.performSegue(withIdentifier: "LoginToFeed", sender: self)
             }
             else{

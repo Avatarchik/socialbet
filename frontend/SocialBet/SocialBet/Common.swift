@@ -76,6 +76,7 @@ func getTeamData() -> Teams? {
         let data: Data! = httpresponse.data
         
         //if httpresponse.error == nil {
+        //if httpresponse.HTTPsuccess! {
             guard let teamData = try? JSONDecoder().decode(Teams.self, from: data)
                 else {
                     print("Error loading teams data")
@@ -168,8 +169,10 @@ struct Game: Decodable {
     let game_time: String
     let record1: String
     let record2: String
-    let team1: Team
-    let team2: Team
+    let team1: String
+    let team1_url: String
+    let team2: String
+    let team2_url: String
 }
 
 struct Team: Decodable {
@@ -186,3 +189,8 @@ struct BetResults{
     let loser: UserInBet
 }
 
+// POST response decode structs
+struct POSTResponseStruct: Decodable {
+    let errors: [String]
+    let success_status: String
+}

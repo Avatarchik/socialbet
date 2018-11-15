@@ -50,8 +50,11 @@ class BetBuilderTeamSelection: UIViewController, UIGestureRecognizerDelegate {
         let parameters = ["loguser": common.username, "auth": common.pwhash, "game_id": self.selected_game_id!, "message": "", "amount": self.WagerAmountInput.text!, "user1": common.username, "user2": self.selected_opponent!, "direct": direct, "accepted": false] as! Dictionary<String, String>
         
         sendPOST(uri: "/api/betting/place_bet", parameters: parameters, callback: { (postresponse) in
+            // parse the data
+            // TODOOOO
+            
             // check for errors
-            if postresponse.error == nil {
+            if postresponse.HTTPsuccess! {
                 self.alert(message: "Your bet request was sent!", title: "Bet Successful");
                 //TODO - perform segue going back to feed
             }

@@ -43,7 +43,7 @@ class Settings: UIViewController, UIGestureRecognizerDelegate, UINavigationContr
         }
     }
     
-    @objc func imagePickerController(picker: UIImagePickerController!, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : AnyObject]){
+    @objc private func imagePickerController(picker: UIImagePickerController!, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : AnyObject]){
         
         if let pickedImage = info[.originalImage] as? UIImage {
             self.ProfilePic.image = pickedImage

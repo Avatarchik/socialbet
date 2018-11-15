@@ -29,7 +29,7 @@ class BetBuilderGameSelection: UIViewController, UICollectionViewDataSource, UIC
             let data: Data! = httpresponse.data
             
             // decode the information recieved
-            if httpresponse.error != nil {
+            if httpresponse.HTTPsuccess! {
                 guard let feedData = try? JSONDecoder().decode(GamesFeed.self, from: data)
                     else {
                         self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
@@ -70,10 +70,10 @@ class BetBuilderGameSelection: UIViewController, UICollectionViewDataSource, UIC
             
             let thisGame = self.gamesData!.games[indexPath.row];
             
-            getImageFromUrl(urlString: thisGame.team1.logo_url, imageView: (cell?.HomeTeamLogo)!);
-            getImageFromUrl(urlString: thisGame.team2.logo_url, imageView: (cell?.AwayTeamLogo)!);
-            cell?.HomeTeamName.text = thisGame.team1.team_full_name;
-            cell?.AwayTeamName.text = thisGame.team2.team_full_name;
+            getImageFromUrl(urlString: thisGame.team1_url, imageView: (cell?.HomeTeamLogo)!);
+            getImageFromUrl(urlString: thisGame.team2_url, imageView: (cell?.AwayTeamLogo)!);
+            cell?.HomeTeamName.text = thisGame.team1;
+            cell?.AwayTeamName.text = thisGame.team2;
             
             return cell!;
     }

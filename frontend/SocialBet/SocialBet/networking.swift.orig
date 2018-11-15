@@ -55,15 +55,17 @@ func sendGET(uri: String, callback: @escaping (HTTPResponse) -> Void){
     var httpresponse = HTTPResponse()
     
     // Populate the return variable with the contents of the request
-    Alamofire.request(url, method:.get, encoding: JSONEncoding.default)
-        .responseJSON { response in
+    Alamofire.request(url, method:.get, encoding: JSONEncoding.default).responseJSON { response in
         switch response.result {
         case .success(let JSON):
+<<<<<<< HEAD
+            let jsonData = JSON as! NSDictionary
+            httpresponse.HTTPsuccess = (jsonData["success_status"] as! String == "successful")
+=======
             //let jsonData = JSON as! NSDictionary
             //let errorString = jsonData["errors"]
             //httpresponse.error = response.error
-            let jsonData = JSON as! NSDictionary
-            httpresponse.HTTPsuccess = (jsonData["success_status"] as! String == "successful")
+>>>>>>> 2a9b50d41c6a008b624e20368d5703b0317840cc
             httpresponse.data = response.data
             httpresponse.success = true
             callback(httpresponse)

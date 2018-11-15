@@ -46,11 +46,11 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     @IBAction func addFriend() {
         let URI = "/api/users/add_friend/"
         
-        let params = ["loguser": common.username, "auth": common.pwhash, "user1": common.username, "user2": searchedUser] as! Dictionary<String, String>
+        let params = ["loguser": common.username, "auth": common.pwhash, "user1": common.username, "user2": searchedUser]
         
         sendPOST(uri: URI, parameters: params, callback: { (postresponse) in
             // check for errors
-            if postresponse.error == nil {
+            if postresponse.HTTPsuccess! {
                 self.alert(message: "Your friend request was successfully sent", title: "Friend added!");
             }
             else{
@@ -260,7 +260,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         sendGET(uri: fullURI, callback: { (httpresponse) in
             let data: Data! = httpresponse.data
             
-            if httpresponse.error == nil {
+            if httpresponse.HTTPsuccess! {
                 guard let userData = try? JSONDecoder().decode(User.self, from: data)
                     else {
                         self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
