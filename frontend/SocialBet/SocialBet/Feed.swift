@@ -43,8 +43,8 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
     }
     
     var feedType = FeedTypes.live;
-    var liveData: LiveBetFeed?;
-    var openData: OpenBetFeed?;
+    var liveData: BetFeed?;
+    var openData: BetFeed?;
     var gamesData: GamesFeed?;
     var feedCount = 0
     
@@ -68,7 +68,7 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             
             // decode the information recieved
             if httpresponse.error != nil {
-                guard let feedData = try? JSONDecoder().decode(LiveBetFeed.self, from: data)
+                guard let feedData = try? JSONDecoder().decode(BetFeed.self, from: data)
                 else {
                     self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
                     return
@@ -95,7 +95,7 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             
             // decode the information recieved
             if httpresponse.error != nil {
-                guard let feedData = try? JSONDecoder().decode(OpenBetFeed.self, from: data)
+                guard let feedData = try? JSONDecoder().decode(BetFeed.self, from: data)
                     else {
                         self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
                         return
@@ -159,15 +159,18 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             cell?.User2Name.text = thisBet.user2.first_name + " " + thisBet.user2.last_name;
             getImageFromUrl(urlString: thisBet.user1.profile_pic_url, imageView: (cell?.User1Image)!);
             getImageFromUrl(urlString: thisBet.user2.profile_pic_url, imageView: (cell?.User2Image)!);
-            cell?.TeamName1.text = thisBet.team1.team_full_name;
-            cell?.TeamName2.text = thisBet.team2.team_full_name;
+            cell?.TeamName1.text = thisBet.team1;
+            cell?.TeamName2.text = thisBet.team2;
             cell?.Message.text = thisBet.message;
             cell?.GameTime.text = thisBet.game_time;
             cell?.WagerAmount.text = "";
             
+            let team1Url = teamURL(teamname: thisBet.team1);
+            let team2Url = teamURL(teamname: thisBet.team2);
+            
             // TODO: Need to add initializer to get all URLs at start
-            getImageFromUrl(urlString: thisBet.team1.logo_url, imageView: (cell?.Team1Image)!);
-            getImageFromUrl(urlString: thisBet.team2.logo_url, imageView: (cell?.Team2Image)!);
+            getImageFromUrl(urlString: team1Url, imageView: (cell?.Team1Image)!);
+            getImageFromUrl(urlString: team2Url, imageView: (cell?.Team2Image)!);
             
             
             return cell!;
@@ -178,15 +181,18 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             let thisBet = self.openData!.bets[indexPath.row];
             
             cell?.UserName.text = thisBet.user1.first_name + " " + thisBet.user1.last_name;
-            cell?.UserTeamName.text = thisBet.user1.team.team_full_name;
-            cell?.UserTeamLowerText.text = thisBet.user1.team.team_full_name;
-            cell?.OtherTeamLowerText.text = thisBet.team2.team_full_name;
-            cell?.BetAmount.text = "Amount: $" + String(thisBet.amount);
+            cell?.UserTeamName.text = thisBet.user1.team;
+            cell?.UserTeamLowerText.text = thisBet.user1.team;
+            cell?.OtherTeamLowerText.text = thisBet.team2;
+            cell?.BetAmount.text = "Amount: $" + String(thisBet.ammount);
             cell?.GameTime.text = thisBet.game_time;
             
+            let team1Url = teamURL(teamname: thisBet.user1.team);
+            let team2Url = teamURL(teamname: thisBet.team2);
+            
             // TODO: Need to add initializer to get all URLs at start
-            getImageFromUrl(urlString: thisBet.user1.team.logo_url, imageView: (cell?.UserTeamLogo)!);
-            getImageFromUrl(urlString: thisBet.team2.logo_url, imageView: (cell?.OtherTeamLogo)!);
+            getImageFromUrl(urlString: team1Url, imageView: (cell?.UserTeamLogo)!);
+            getImageFromUrl(urlString: team2Url, imageView: (cell?.OtherTeamLogo)!);
             
             
             
