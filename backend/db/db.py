@@ -136,7 +136,7 @@ def are_friends(loguser, user2):
 
     sql = "SELECT * FROM friends WHERE (user1=\"" + loguser + "\" AND user2=\"" + user2 + "\") " \
           "OR " \
-          "(user2=\"" + loguser + "\" AND user1=\"" + user2 + "\"));"
+          "(user2=\"" + loguser + "\" AND user1=\"" + user2 + "\");"
 
     cursor.execute(sql)
 
