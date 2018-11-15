@@ -15,7 +15,7 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
 
         // Do any additional setup after loading the view.
         
-        Live(self)
+        self.feedCount = 0;
         
         self.MyFeed.register(UINib(nibName: "LiveFeedCell", bundle:nil), forCellWithReuseIdentifier: "LiveFeedCell");
         self.MyFeed.register(UINib(nibName: "OpenFeedCell", bundle:nil), forCellWithReuseIdentifier: "OpenFeedCell");
@@ -23,6 +23,8 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
         
         self.MyFeed.delegate = self
         self.MyFeed.dataSource = self
+        
+        Live(self)
     }
     
     enum FeedTypes{
