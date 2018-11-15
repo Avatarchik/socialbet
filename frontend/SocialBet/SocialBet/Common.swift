@@ -148,8 +148,8 @@ struct Bet: Decodable {
     let team2: String
     let time_placed: String
     let user1: UserInBet
-    let user2: UserInBet
-    let winner: String
+    let user2: UserInBet?
+    let winner: String?
 }
 
 struct User: Decodable {

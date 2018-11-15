@@ -15,6 +15,8 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
 
         // Do any additional setup after loading the view.
         
+        Live(self)
+        
         self.MyFeed.register(UINib(nibName: "LiveFeedCell", bundle:nil), forCellWithReuseIdentifier: "LiveFeedCell");
         self.MyFeed.register(UINib(nibName: "OpenFeedCell", bundle:nil), forCellWithReuseIdentifier: "OpenFeedCell");
         self.MyFeed.register(UINib(nibName: "ClosedFeedCell", bundle:nil), forCellWithReuseIdentifier: "ClosedFeedCell");
@@ -50,6 +52,8 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
     }
     
     @IBAction func Live(_ sender: Any) {
+        //TODO Add API call once endpoint exists
+        
         self.LiveObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
         self.OpenObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
         self.ResultsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
@@ -57,6 +61,8 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
     }
     
     @IBAction func Open(_ sender: Any) {
+        //TODO Add API call once endpoint exists
+        
         self.OpenObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
         self.LiveObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
         self.ResultsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
@@ -64,6 +70,8 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
     }
     
     @IBAction func Requests(_ sender: Any) {
+        //TODO Add API call
+        
         self.RequestsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
         self.OpenObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
         self.ResultsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
@@ -71,6 +79,8 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
     }
     
     @IBAction func Results(_ sender: Any) {
+        //TODO Add API call
+        
         self.ResultsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
         self.OpenObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
         self.LiveObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
@@ -127,18 +137,18 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
             let thisBet = self.liveData!.bets[indexPath.row];
             
             cell?.User1Name.text = thisBet.user1.first_name + " " + thisBet.user1.last_name;
-            cell?.User2Name.text = thisBet.user2.first_name + " " + thisBet.user2.last_name;
+            cell?.User2Name.text = thisBet.user2!.first_name + " " + thisBet.user2!.last_name;
             getImageFromUrl(urlString: thisBet.user1.profile_pic_url, imageView: (cell?.User1Image)!);
-            getImageFromUrl(urlString: thisBet.user2.profile_pic_url, imageView: (cell?.User2Image)!);
+            getImageFromUrl(urlString: thisBet.user2!.profile_pic_url, imageView: (cell?.User2Image)!);
             
             cell?.TeamName1.text = thisBet.user1.team;
-            cell?.TeamName2.text = thisBet.user2.team;
+            cell?.TeamName2.text = thisBet.user2!.team;
             cell?.Message.text = thisBet.message;
             cell?.GameTime.text = thisBet.game_time;
             cell?.WagerAmount.text = "Amount: $" + String(thisBet.ammount);
             
             let user1Team = teamURL(teamname: thisBet.user1.team);
-            let user2Team = teamURL(teamname: thisBet.user2.team);
+            let user2Team = teamURL(teamname: thisBet.user2!.team);
             
             getImageFromUrl(urlString: user1Team, imageView: (cell?.Team1Image)!);
             getImageFromUrl(urlString: user2Team, imageView: (cell?.Team2Image)!);
@@ -168,7 +178,7 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
             
             let thisBet = self.resultData!.bets[indexPath.row];
             
-            let betResults = findResults(winner: thisBet.winner, user1: thisBet.user1, user2: thisBet.user2);
+            let betResults = findResults(winner: thisBet.winner!, user1: thisBet.user1, user2: thisBet.user2!);
             
             getImageFromUrl(urlString: betResults.winner.profile_pic_url, imageView: (cell?.WinningUserPic)!)
             getImageFromUrl(urlString: betResults.loser.profile_pic_url, imageView: (cell?.LosingUserPic)!)
@@ -194,18 +204,18 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
             let thisBet = self.requestData!.bets[indexPath.row];
             
             cell?.User1Name.text = thisBet.user1.first_name + " " + thisBet.user1.last_name;
-            cell?.User2Name.text = thisBet.user2.first_name + " " + thisBet.user2.last_name;
+            cell?.User2Name.text = thisBet.user2!.first_name + " " + thisBet.user2!.last_name;
             getImageFromUrl(urlString: thisBet.user1.profile_pic_url, imageView: (cell?.User1Image)!);
-            getImageFromUrl(urlString: thisBet.user2.profile_pic_url, imageView: (cell?.User2Image)!);
+            getImageFromUrl(urlString: thisBet.user2!.profile_pic_url, imageView: (cell?.User2Image)!);
             cell?.TeamName1.text = thisBet.user1.team;
-            cell?.TeamName2.text = thisBet.user2.team;
+            cell?.TeamName2.text = thisBet.user2!.team;
             cell?.Message.text = thisBet.message;
             cell?.GameTime.text = thisBet.game_time;
             cell?.WagerAmount.text = "Amount: $" + String(thisBet.ammount);
             cell?.bet_id = "Bet ID: " + String(thisBet.bet_id);
             
             let team1Url = teamURL(teamname: thisBet.user1.team);
-            let team2Url = teamURL(teamname: thisBet.user2.team);
+            let team2Url = teamURL(teamname: thisBet.user2!.team);
             
             getImageFromUrl(urlString: team1Url, imageView: (cell?.Team1Image)!);
             getImageFromUrl(urlString: team2Url, imageView: (cell?.Team2Image)!);

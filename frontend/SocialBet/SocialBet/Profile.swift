@@ -178,12 +178,12 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             let thisBet = feed.bets[indexPath.row];
             
             cell?.User1Name.text = thisBet.user1.first_name + " " + thisBet.user1.last_name;
-            cell?.User2Name.text = thisBet.user2.first_name + " " + thisBet.user2.last_name;
+            cell?.User2Name.text = thisBet.user2!.first_name + " " + thisBet.user2!.last_name;
             getImageFromUrl(urlString: thisBet.user1.profile_pic_url, imageView: (cell?.User1Image)!);
-            getImageFromUrl(urlString: thisBet.user2.profile_pic_url, imageView: (cell?.User2Image)!);
+            getImageFromUrl(urlString: thisBet.user2!.profile_pic_url, imageView: (cell?.User2Image)!);
             
             cell?.TeamName1.text = thisBet.user1.team;
-            cell?.TeamName2.text = thisBet.user2.team;
+            cell?.TeamName2.text = thisBet.user2!.team;
             cell?.Message.text = thisBet.message;
             cell?.GameTime.text = thisBet.game_time;
             
@@ -237,7 +237,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             
             let thisBet = feed.bets[indexPath.row];
             
-            let betResults = findResults(winner: thisBet.winner, user1: thisBet.user1, user2: thisBet.user2);
+            let betResults = findResults(winner: thisBet.winner!, user1: thisBet.user1, user2: thisBet.user2!);
             
             let winningUrl = teamURL(teamname: betResults.winner.team);
             let losingUrl = teamURL(teamname: betResults.loser.team);

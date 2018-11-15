@@ -171,9 +171,9 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             let thisBet = self.liveData!.bets[indexPath.row];
             
             cell?.User1Name.text = thisBet.user1.first_name + " " + thisBet.user1.last_name;
-            cell?.User2Name.text = thisBet.user2.first_name + " " + thisBet.user2.last_name;
+            cell?.User2Name.text = thisBet.user2!.first_name + " " + thisBet.user2!.last_name;
             getImageFromUrl(urlString: thisBet.user1.profile_pic_url, imageView: (cell?.User1Image)!);
-            getImageFromUrl(urlString: thisBet.user2.profile_pic_url, imageView: (cell?.User2Image)!);
+            getImageFromUrl(urlString: thisBet.user2!.profile_pic_url, imageView: (cell?.User2Image)!);
             cell?.TeamName1.text = thisBet.team1;
             cell?.TeamName2.text = thisBet.team2;
             cell?.Message.text = thisBet.message;
