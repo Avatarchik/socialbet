@@ -50,7 +50,7 @@ func getImageFromUrl(urlString: String, imageView: UIImageView) {
     let url = URL(string: urlString)
     
     DispatchQueue.global().async {
-        let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+        let data = try? Data(contentsOf: url!)  //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
         DispatchQueue.main.async {
             imageView.image = UIImage(data: data!)
         }
@@ -94,6 +94,8 @@ func getTeamData() -> Teams? {
 }
 
 func teamURL(teamname: String) -> String {
+    return "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREya1ZUSfvxj7zwOwWeCOtLk3JlDTbeuHZy4lcyKilbcmgpgEA"
+    
     let teamInfo = getTeamData()
     for team in teamInfo!.teams {
         if team.team_full_name == teamname {
