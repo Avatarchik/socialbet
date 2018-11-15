@@ -169,8 +169,8 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
             
             getImageFromUrl(urlString: betResults.winner.profile_pic_url, imageView: (cell?.WinningUserPic)!)
             getImageFromUrl(urlString: betResults.loser.profile_pic_url, imageView: (cell?.LosingUserPic)!)
-            cell?.WinningUserName.text = betResults.winner.user_id;
-            cell?.LosingUserName.text = betResults.loser.user_id;
+            cell?.WinningUserName.text = betResults.winner.username;
+            cell?.LosingUserName.text = betResults.loser.username;
             
             cell?.WinningTeamName.text = betResults.winner.team;
             cell?.LosingTeamName.text = betResults.loser.team;

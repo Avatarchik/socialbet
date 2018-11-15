@@ -58,8 +58,8 @@ func sendGET(uri: String, callback: @escaping (HTTPResponse) -> Void){
     Alamofire.request(url, method:.get, encoding: URLEncoding.default).responseJSON { response in
         switch response.result {
         case .success(let JSON):
-            let jsonData = JSON as! NSDictionary
-            let errorString = jsonData["errors"]
+            //let jsonData = JSON as! NSDictionary
+            //let errorString = jsonData["errors"]
             //httpresponse.error = response.error
             httpresponse.data = response.data
             httpresponse.success = true

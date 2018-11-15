@@ -39,7 +39,7 @@ class Login: UIViewController {
         let parameters = ["username": submitusername, "auth": auth] as! Dictionary<String, String>
         
         // create and send a POST request
-        sendPOST(uri: "/api/accounts/login/", parameters: parameters, callback: { (postresponse) in
+        sendPOST(uri: "/api/users/login/", parameters: parameters, callback: { (postresponse) in
             // alert the user of success/failure, and either navigate away or refresh the page
             
             if postresponse.error == nil {

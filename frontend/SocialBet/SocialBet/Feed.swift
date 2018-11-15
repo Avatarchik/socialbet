@@ -67,17 +67,29 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             let data: Data! = httpresponse.data
             
             // decode the information recieved
-            if httpresponse.error != nil {
-                guard let feedData = try? JSONDecoder().decode(BetFeed.self, from: data)
-                else {
-                    self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
-                    return
+            //if httpresponse.error != nil {
+            /*do {
+                if let jsonResult = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary {
+                    print(jsonResult)
                 }
-                self.liveData = feedData;
-                self.feedCount = self.liveData!.bets.count;
-            } else{
-                self.alert(message: "There was an error processing your request.", title: "Network Error")
+            } catch let error {
+                print(error.localizedDescription)
+            }*/
+            
+            
+            
+            guard let feedData = try? JSONDecoder().decode(BetFeed.self, from: data)
+            else {
+                self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
+                return
             }
+            self.liveData = feedData;
+            self.feedCount = self.liveData!.bets.count;
+            print("Oh yeahhh")
+            print(self.liveData!.bets[0].game_time);
+            //} else{
+                //self.alert(message: "There was an error processing your request.", title: "Network Error")
+            //}
             
             self.LiveBetsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
             self.OpenBetsObject.titleLabel?.font = UIFont.systemFont(ofSize: 15);
