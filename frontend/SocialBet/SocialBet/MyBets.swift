@@ -18,6 +18,9 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
         self.MyFeed.register(UINib(nibName: "LiveFeedCell", bundle:nil), forCellWithReuseIdentifier: "LiveFeedCell");
         self.MyFeed.register(UINib(nibName: "OpenFeedCell", bundle:nil), forCellWithReuseIdentifier: "OpenFeedCell");
         self.MyFeed.register(UINib(nibName: "ClosedFeedCell", bundle:nil), forCellWithReuseIdentifier: "ClosedFeedCell");
+        
+        self.MyFeed.delegate = self
+        self.MyFeed.dataSource = self
     }
     
     enum FeedTypes{

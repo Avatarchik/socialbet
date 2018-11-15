@@ -47,14 +47,15 @@ func sha256(data : NSData) -> String {
 }
 
 func getImageFromUrl(urlString: String, imageView: UIImageView) {
-    let url = URL(string: urlString)
+    imageView.image = UIImage(named: "defaultProfilePic.png"); //TODO Remove
+    /*let url = URL(string: urlString)
     
     DispatchQueue.global().async {
         let data = try? Data(contentsOf: url!)  //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
         DispatchQueue.main.async {
             imageView.image = UIImage(data: data!)
         }
-    }
+    }*/
 }
 
 func addGETParams(path: String, search: String, needsUsername: Bool) -> String {
@@ -94,7 +95,7 @@ func getTeamData() -> Teams? {
 }
 
 func teamURL(teamname: String) -> String {
-    return "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREya1ZUSfvxj7zwOwWeCOtLk3JlDTbeuHZy4lcyKilbcmgpgEA"
+    return "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREya1ZUSfvxj7zwOwWeCOtLk3JlDTbeuHZy4lcyKilbcmgpgEA" //TODO Remove
     
     let teamInfo = getTeamData()
     for team in teamInfo!.teams {

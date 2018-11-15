@@ -109,6 +109,9 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         self.ProfileBetFeed.register(UINib(nibName: "LiveFeedCell", bundle:nil), forCellWithReuseIdentifier: "LiveFeedCell");
         self.ProfileBetFeed.register(UINib(nibName: "OpenFeedCell", bundle:nil), forCellWithReuseIdentifier: "OpenFeedCell");
         self.ProfileBetFeed.register(UINib(nibName: "ClosedFeedCell", bundle:nil), forCellWithReuseIdentifier: "ClosedFeedCell");
+        
+        self.ProfileBetFeed.delegate = self
+        self.ProfileBetFeed.dataSource = self
 
         // Do any additional setup after loading the view.
         

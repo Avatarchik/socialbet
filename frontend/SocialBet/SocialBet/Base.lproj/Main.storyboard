@@ -285,9 +285,8 @@
                                             <action selector="menuTapped" destination="Jwj-S7-5gy" eventType="touchUpInside" id="REi-pL-8Lv"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SocialBet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Xl-tR-tdV">
-                                        <rect key="frame" x="130" y="15" width="114" height="20"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SocialBet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Xl-tR-tdV">
+                                        <rect key="frame" x="130.5" y="8.5" width="114" height="33.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -307,7 +306,9 @@
                                     <accessibilityTraits key="traits" image="YES" staticText="YES"/>
                                 </accessibility>
                                 <constraints>
+                                    <constraint firstItem="1Xl-tR-tdV" firstAttribute="centerX" secondItem="EX3-3S-igz" secondAttribute="centerX" id="GCk-Ej-zZp"/>
                                     <constraint firstItem="uGP-uB-7RN" firstAttribute="centerY" secondItem="EX3-3S-igz" secondAttribute="centerY" id="Gg4-Bm-q9P"/>
+                                    <constraint firstItem="1Xl-tR-tdV" firstAttribute="centerY" secondItem="EX3-3S-igz" secondAttribute="centerY" id="GvZ-Eb-iw4"/>
                                     <constraint firstItem="gFf-jg-jAD" firstAttribute="centerY" secondItem="EX3-3S-igz" secondAttribute="centerY" id="XdM-F7-swx"/>
                                     <constraint firstAttribute="height" constant="50" id="sco-Hf-mtf"/>
                                     <constraint firstAttribute="trailing" secondItem="uGP-uB-7RN" secondAttribute="trailing" constant="10" id="tCx-u7-sU4"/>

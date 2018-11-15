@@ -225,6 +225,7 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             cell?.event_id = thisGame.game_id;
             getImageFromUrl(urlString: thisGame.team1_url, imageView: (cell?.HomeTeamLogo)!);
             getImageFromUrl(urlString: thisGame.team2_url, imageView: (cell?.AwayTeamLogo)!);
+            cell?.TimeOfGame.text = thisGame.game_time
             
             return cell!;
         }
