@@ -137,11 +137,55 @@ As we can see, this endpoint works. Simultaneously, you should be monitoring the
 
 ## `/frontend/` Directory Structure
 
-****TODO****
+The real magic happens in the `/frontend/SocialBet/SocialBet` directory.
+Its directory structure is shown below.
 
-_(DELETE THIS AFTER) Use `tree`, a command line utility to generate a directory structure.
-You will want to use the `-I` argument to ignore certain directories with tons of bullshit files.
-On a mac, you can install it via `brew install tree`. For example, I ran `tree -I "__pycache__|api.egg-info|bin|myprojectenv|socialbet.egg-info|team_logos|user_profile_pics|env|dist"` to generate the backend directory structure_
+```
+.
+├── AppDelegate.swift
+├── BetBuilderGameSelection.swift
+├── BetBuilderOpponentSelection.swift
+├── BetBuilderTeamSelection.swift
+├── BetBuilderTeamSelection.swift.orig
+├── Bridging-Header.h
+├── ClosedFeedCell.swift
+├── ClosedFeedCell.xib
+├── Common.swift
+├── Common.swift.orig
+├── Feed.swift
+├── GamesFeedCell.swift
+├── GamesFeedCell.xib
+├── Info.plist
+├── LiveFeedCell.swift
+├── LiveFeedCell.xib
+├── Login.swift
+├── MyBets.swift
+├── OpenFeedCell.swift
+├── OpenFeedCell.xib
+├── Profile.swift
+├── Registration.swift
+├── Registration.swift.orig
+├── Settings.swift
+├── SideMenu.swift
+├── UserLogin.swift
+├── accept.png
+├── decline.png
+├── defaultProfilePic.png
+└── networking.swift
+```
+
+Interesting files:
+
+- `*Cell.xib`: All files ending in this format are the visual frontend implementations for the individual cells for the feeds.
+- `*Cell.swift`: All files ending in this format contain the logic for the corresponding `*Cell.xib` files
+- `Profile.swift`: ViewController containing main profile view for a user
+- `Feed.swift`: ViewController containing feeds for the user. This implements *all* the feeds.
+- `MyBets.swift`: ViewController containing all of the user's own bets.
+- `Login.swift`: ViewController for user login.
+- `Registration.swift` ViewController for user account registration.
+- `Bridging-Header.h`: Allows us to hash password
+
+
 
 ## Building and Running the iOS Application
 
