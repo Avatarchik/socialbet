@@ -56,9 +56,8 @@ def find_user():
         return create_http_response(data=result, errors=result['errors'])
     
     result = {}
-    data = {}
-    data = request.args.get('username')
-    user = db.get_user(data)
+    username = request.args.get('username')
+    user = db.get_user(username)
 
     if not user:
         result = {}
@@ -70,6 +69,7 @@ def find_user():
     result['first_name'] = user['first_name']
     result['last_name'] = user['last_name']
     result['profile_pic_url'] = user['profile_pic_url']
+    result['friends'] = db.are_friends(log_user, username)
 
     return create_http_response(data=result)
 

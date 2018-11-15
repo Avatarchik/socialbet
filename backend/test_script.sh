@@ -63,13 +63,7 @@ if [ $1 = "create_user" ]; then
 fi
 
 if [ $1 = "user_exists" ]; then
-    #TODO
-    curl -X GET $url/api/feeds/open_bets/\?loguser=$loguser\&auth=$auth
-fi
-
-if [ $1 = "" ]; then
-    #TODO
-    curl -X GET $url/api/feeds/open_bets/\?loguser=$loguser\&auth=$auth
+    curl -X GET $url/api/users/exists/\?loguser=$loguser\&auth=$auth
 fi
 
 if [ $1 = "add_friends" ]; then
@@ -85,8 +79,8 @@ fi
 if [ $1 = "get_user" ]; then
     username="cterech"
     curl -X GET $url/api/users/find/\?loguser=$loguser\&auth=$auth\&username=$username
-
 fi
+
 # Betting endpoints
 #########################
 
