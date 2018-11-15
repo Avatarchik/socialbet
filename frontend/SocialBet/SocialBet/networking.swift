@@ -61,10 +61,14 @@ func sendGET(uri: String, callback: @escaping (HTTPResponse) -> Void){
             //let jsonData = JSON as! NSDictionary
             //let errorString = jsonData["errors"]
             //httpresponse.error = response.error
+            let jsonData = JSON as! NSDictionary
+            httpresponse.HTTPsuccess = (jsonData["success_status"] as! String == "successful")
             httpresponse.data = response.data
             httpresponse.success = true
             callback(httpresponse)
-        case .failure(let error):
+        case .failure(let JSON):
+            let jsonData = JSON as! NSDictionary
+            httpresponse.HTTPsuccess = (jsonData["success_status"] as! String == "successful")
             httpresponse.data = response.data
             httpresponse.success = false
             callback(httpresponse)
