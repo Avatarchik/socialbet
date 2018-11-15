@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01325FC3219E01EF0054DFCA /* Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01325FC2219E01EF0054DFCA /* Testing.swift */; };
 		0151BC8D2195458C00736C6C /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0151BC8C2195458C00736C6C /* SideMenu.swift */; };
 		01F20ED9217A67F500F2F713 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F20ED8217A67F500F2F713 /* AppDelegate.swift */; };
 		01F20EDB217A67F500F2F713 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F20EDA217A67F500F2F713 /* Login.swift */; };
@@ -61,7 +60,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		01325FC2219E01EF0054DFCA /* Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Testing.swift; path = /Users/Nick/Documents/5year/441/socialbet/frontend/SocialBet/SocialBet/Testing.swift; sourceTree = "<absolute>"; };
 		0151BC8C2195458C00736C6C /* SideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
 		01F20ED5217A67F500F2F713 /* SocialBet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialBet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01F20ED8217A67F500F2F713 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -190,7 +188,6 @@
 				01F20EDC217A67F500F2F713 /* Main.storyboard */,
 				A3A2F2D32195FEA8001240E5 /* Bridging-Header.h */,
 				A3F9C800219560DA00D97BBE /* Settings.swift */,
-				01325FC2219E01EF0054DFCA /* Testing.swift */,
 				A384B5EB219A820A005B7031 /* defaultProfilePic.png */,
 				A384B5E7219A7F66005B7031 /* accept.png */,
 				A384B5E6219A7F65005B7031 /* decline.png */,
@@ -493,7 +490,6 @@
 				A3CD977E218613B8003740C2 /* Feed.swift in Sources */,
 				A39C104E218FB730005DAAD6 /* OpenFeedCell.swift in Sources */,
 				A3F9C801219560DA00D97BBE /* Settings.swift in Sources */,
-				01325FC3219E01EF0054DFCA /* Testing.swift in Sources */,
 				A39C104C218F9B49005DAAD6 /* GamesFeedCell.swift in Sources */,
 				A3443AC12182CE98005037BA /* Registration.swift in Sources */,
 				F484C0932192A15E009A2726 /* Common.swift in Sources */,
