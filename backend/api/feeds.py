@@ -85,6 +85,87 @@ def list_live_bets():
     return create_http_response(data=result)
 
 
+
+@feeds.route('/api/feeds/users_open_bets/')
+def list_users_open_bets():
+
+    # Authenticate user
+    loguser = request.args.get('loguser')
+    auth = request.args.get('auth')
+    if not db.authenticate(loguser, auth):
+        return create_http_response(errors=['unauthenticated user'])
+
+    # Get open bets
+    db_bets = db.get_users_open_bets(loguser)
+    bets = []
+    for db_bet in db_bets:
+        bet = db_bet
+
+        db_user1 = db.get_user(db_bet['user1'])
+        user1 = {
+            'user_id': db_user1['user_name'],
+            'first_name': db_user1['first_name'],
+            'last_name': db_user1['last_name'],
+            'profile_pic_url': db_user1['profile_pic_url'],
+            'team': db_bet['team1']
+        }
+
+        bet['user1'] = user1
+        bets.append(bet)
+
+
+    # Return JSON response
+    result = {
+        'bets': bets
+    }
+    return create_http_response(data=result)
+
+@feeds.route('/api/feeds/users_live_bets/')
+def list_users_live_bets():
+
+    # Authenticate user
+    loguser = request.args.get('loguser')
+    auth = request.args.get('auth')
+    if not db.authenticate(loguser, auth):
+        return create_http_response(errors=['unauthenticated user'])
+
+    # Get live bets and construct JSON
+    db_bets = db.get_users_live_bets(loguser)
+
+    bets = []
+    for db_bet in db_bets:
+        bet = db_bet
+
+        db_user1 = db.get_user(db_bet['user1'])
+        user1 = {
+            'username': db_user1['user_name'],
+            'first_name': db_user1['first_name'],
+            'last_name': db_user1['last_name'],
+            'profile_pic_url': db_user1['profile_pic_url'],
+            'team': db_bet['team1']
+        }
+        db_user2 = db.get_user(db_bet['user2'])
+        user2 = {
+            'username': db_user2['user_name'],
+            'first_name': db_user2['first_name'],
+            'last_name': db_user2['last_name'],
+            'profile_pic_url': db_user2['profile_pic_url'],
+            'team': db_bet['team2']
+        }
+
+        bet['user1'] = user1
+        bet['user2'] = user2
+        bets.append(bet)
+
+    # Return JSON response
+    result = {
+        'bets': bets
+    }
+
+    return create_http_response(data=result)
+
+
+
 @feeds.route('/api/feeds/closed_bets/')
 def list_closed_bets():
     loguser = request.args.get('loguser')

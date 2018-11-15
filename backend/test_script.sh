@@ -14,6 +14,15 @@ if [ $1 = "live_bets" ]; then
     curl -X GET $url/api/feeds/live_bets/\?loguser=$loguser\&auth=$auth
 fi
 
+if [ $1 = "users_open_bets" ]; then
+    curl -X GET $url/api/feeds/users_open_bets/\?loguser=$loguser\&auth=$auth
+fi
+
+if [ $1 = "users_live_bets" ]; then
+    curl -X GET $url/api/feeds/users_live_bets/\?loguser=$loguser\&auth=$auth
+fi
+
+
 if [ $1 = "closed_bets" ]; then
     curl -X GET $url/api/feeds/closed_bets/\?loguser=$loguser\&auth=$auth
 fi

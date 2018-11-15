@@ -278,6 +278,40 @@ def get_open_bets(loguser):
 
     return res
 
+def get_users_live_bets(loguser):
+    db_config = get_db_config()
+    db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
+    cursor = db.cursor(pymysql.cursors.DictCursor)
+
+    sql = "SELECT * FROM bets WHERE winner IS NULL AND accepted=1 AND (user1=\"" + loguser + "\" OR user2=\"" +  loguser + " \");"
+
+    cursor.execute(sql)
+
+    res = []
+    for row in cursor:
+        res.append(row)
+
+
+    db.close()
+
+    return res
+
+def get_users_open_bets(loguser):
+    db_config = get_db_config()
+    db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
+    cursor = db.cursor(pymysql.cursors.DictCursor)
+
+    sql = "SELECT * FROM bets WHERE winner IS NULL AND accepted=0 AND direct=0 AND user1=\"" + loguser +  "\");"
+    cursor.execute(sql)
+
+    res = []
+    for row in cursor:
+        res.append(row)
+
+
+    db.close()
+
+    return res
 
 def get_closed_bets(loguser):
     db_config = get_db_config()
