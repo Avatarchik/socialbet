@@ -31,21 +31,26 @@ class Login: UIViewController {
         let submitusername = LoginUsername.text
         let submitpassword = LoginPassword.text
         var auth = sha256(data: (submitpassword!).data(using: String.Encoding.utf8)! as NSData);
+        print(auth)
         auth = String(auth.dropFirst().dropLast())
         auth = auth.uppercased();
+        print(auth)
         common.username = submitusername!;
         common.pwhash = auth;
+        print("Username & Auth for login: ")
+        print(submitusername)
+        print(submitpassword)
+        print(auth)
         // create a dictionary to pass the parameters in
         let parameters = ["username": submitusername, "auth": auth] as! Dictionary<String, String>
         
         // create and send a POST request
-        sendPOST(uri: "/api/users/login/", parameters: parameters, callback: { (postresponse) in
+        sendPOST(uri: "/api/users/login/", parameters: parameters, callback: { (jsonDictionary) in
             // alert the user of success/failure, and either navigate away or refresh the page
-            if postresponse.HTTPsuccess! {
+            if jsonDictionary["success_status"] as! String == "successful" {
                 self.performSegue(withIdentifier: "LoginToFeed", sender: self)
-            }
-            else{
-                // TODO: check HTML error codes
+
+            } else {
                 self.alert(message: "The provided username and password pair wasn't recognized. Try again.", title: "Authentication Error")
                 self.viewDidLoad()
             }
@@ -59,5 +64,11 @@ class Login: UIViewController {
     @IBAction func GoToRegistration(_ sender: Any) {
         performSegue(withIdentifier: "LoginToRegistration", sender: self)
     }
+    
+    @IBAction func GoToTestPage(_ sender: Any) {
+        performSegue(withIdentifier: "LoginToTest", sender: self)
+    }
+    
+    
 }
 

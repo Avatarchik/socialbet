@@ -54,7 +54,7 @@ class BetBuilderTeamSelection: UIViewController, UIGestureRecognizerDelegate {
             // TODOOOO
             
             // check for errors
-            if postresponse.HTTPsuccess! {
+            /*if postresponse.HTTPsuccess! {
                 self.alert(message: "Your bet request was sent!", title: "Bet Successful");
                 //TODO - perform segue going back to feed
             }
@@ -62,7 +62,7 @@ class BetBuilderTeamSelection: UIViewController, UIGestureRecognizerDelegate {
                 // TODO: check HTML error codes
                 self.alert(message: "Bet unable to be placed", title: "Bet Error")
                 //TODO perform segue going back to beginning of bet builder
-            }
+            }*/
             print("Bet Submitted!");
         })
     }

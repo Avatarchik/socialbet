@@ -91,7 +91,8 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
         let parameters = ["loguser": common.username, "auth": common.pwhash, "bet_id": sender.bet_id, "user_name": common.username] as! Dictionary<String, String>;
         
         sendPOST(uri: "/api/betting/accept_bet", parameters: parameters, callback: { (postresponse) in
-            if postresponse.HTTPsuccess! {
+            return
+            /*if postresponse.HTTPsuccess! {
                 self.alert(message: "You have accepted the bet!", title: "Bet Accepted");
             }
             else{
@@ -99,7 +100,7 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
                 self.alert(message: "Bet unable to be accepted", title: "Bet Acceptance Error")
             }
             
-            self.MyFeed.reloadData();
+            self.MyFeed.reloadData();*/
         })
     }
     
@@ -109,7 +110,7 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
         let parameters = ["loguser": common.username, "auth": common.pwhash, "bet_id": sender.bet_id, "user_name": "TODO Other Person's username"] as! Dictionary<String, String>;
         
         sendPOST(uri: "/api/betting/cancel_bet", parameters: parameters, callback: { (postresponse) in
-            if postresponse.HTTPsuccess! {
+            /*if postresponse.HTTPsuccess! {
                 self.alert(message: "You have declined the bet!", title: "Bet Declined");
             }
             else{
@@ -117,7 +118,7 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
                 self.alert(message: "Bet unable to be declined", title: "Bet Decline Error")
             }
             
-            self.MyFeed.reloadData();
+            self.MyFeed.reloadData();*/
         })
     }
     
