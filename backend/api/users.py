@@ -45,7 +45,7 @@ def check_user():
 
 
 @users.route('/api/users/find/')
-def get_user():
+def find_user():
     log_user = request.args.get('loguser')
     auth = request.args.get('auth')
     auth_ = db.authenticate(log_user, auth)
