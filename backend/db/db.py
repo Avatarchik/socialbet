@@ -243,7 +243,7 @@ def get_live_bets(loguser):
           "INNER JOIN " \
             "(SELECT * FROM friends F1 WHERE F1.user1 =\"" + loguser + "\" OR F1.user2=\"" + loguser + "\") F2 " \
             "ON F2.user1 = B.user1 OR F2.user1 = B.user2 OR F2.user2 = B.user1 OR F2.user2 = B.user2 " \
-           "WHERE accepted=1;"
+           "WHERE accepted=1 AND winner IS NULL;"
 
     cursor.execute(sql)
 
@@ -265,7 +265,7 @@ def get_open_bets(loguser):
           "INNER JOIN " \
             "(SELECT * FROM friends F1 WHERE F1.user1 =\"" + loguser + "\" OR F1.user2=\"" + loguser + "\") F2 " \
             "ON F2.user1 = B.user1 OR F2.user2 = B.user1 " \
-           "WHERE accepted=0 AND direct=0;"
+           "WHERE accepted=0 AND direct=0 AND winner IS NULL;"
 
     cursor.execute(sql)
 
