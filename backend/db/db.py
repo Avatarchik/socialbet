@@ -128,6 +128,24 @@ def get_friends(data):
 
     return res
 
+def are_friends(loguser, user2):
+    db_config = get_db_config()
+    db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
+    cursor = db.cursor(pymysql.cursors.DictCursor)
+
+
+    sql = "SELECT * FROM friends WHERE (user1=\"" + loguser + "\" AND user2=\"" + user2 + "\") " \
+          "OR " \
+          "(user2=\"" + loguser + "\" AND user1=\"" + user2 + "\");"
+
+    cursor.execute(sql)
+
+    res = cursor.fetchone()
+
+    db.close()
+
+    return True if res else False
+
 def add_friend(data):
     db_config = get_db_config()
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])

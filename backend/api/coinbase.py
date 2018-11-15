@@ -3,6 +3,10 @@ from db import db
 import json
 from .api_utils import create_http_response
 import requests
+from coinbase.wallet.client import Client # FIXME: think we need this right?
+import random
+import string
+
 
 app = Flask(__name__)
 coinbase = Blueprint('coinbase', __name__)
@@ -10,6 +14,7 @@ coinbase = Blueprint('coinbase', __name__)
 @coinbase.route('/api/coinbase/connect/')
 def connect():
 
+	# FIXME: is this only for web apps?
 	URL = 'https://www.coinbase.com/oauth/authorize'
 
 	PARAMS = {}
@@ -39,8 +44,34 @@ def connect():
 	pass
 
 
-@coinbase.route('/api/coinbase/send/')
+@coinbase.route('/api/coinbase/send/', methods=['POST'])
 def send_coinbase():
+	data = json.loads(request.data)
+	usd_amt = data['amount']
 
+	exc = (urllib.request.urlopen("https://api.coinbase.com/v2/prices/ETH-USD/buy").read()).decode("utf-8") 
+    exchange_rate = json.loads(ret)["data"]
+    print(exchange_rate)
+
+    eth_amt = exchange_rate * usd_amt
+    # FIXME: need to do this for both users involved in bet
+    # is it this exact url?
+    URL = 'https://api.coinbase.com/v2/accounts/:account_id/transactions'
+    PARAMS = {}
+    PARAMS['type'] = 'send'
+    PARAMS['to'] = 'FIXME:need ETH wallet addr here'
+    PARAMS['amount'] = str(eth_amt)
+    PARAMS['currency'] = 'ETH'
+    # making random idem string for each transaction
+    s = string.lowercase + string.digits
+    PARAMS['idem'] = ''.join(random.sample(s,100))
+    PARAMS['to_financial_institution'] = False
+
+    response = requests.post(url=URL, params=PARAMS)
 	pass
+
+
+
+
+
 
