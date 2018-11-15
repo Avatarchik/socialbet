@@ -44,23 +44,27 @@ struct HTTPResponse {
 //              callback function of your design
 func sendGET(uri: String, callback: @escaping (HTTPResponse) -> Void){
     // form the request url
-    guard let url = URL(string: "http://" + common.domain + ":" + common.port + uri) else {
+    let initialURL = "http://" + common.domain + ":" + common.port + uri
+    let encoded = initialURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+    
+    guard let url = URL(string: encoded!) else {
         callback(HTTPResponse())
         return
     }
-    
     // Instantiate a return variable
     var httpresponse = HTTPResponse()
     
     // Populate the return variable with the contents of the request
-    Alamofire.request(url, method:.get, encoding: URLEncoding.default).responseString { response in
+    Alamofire.request(url, method:.get, encoding: URLEncoding.default).responseJSON { response in
         switch response.result {
-        case .success:
-            httpresponse.error = response.error
+        case .success(let JSON):
+            let jsonData = JSON as! NSDictionary
+            let errorString = jsonData["errors"]
+            //httpresponse.error = response.error
             httpresponse.data = response.data
             httpresponse.success = true
             callback(httpresponse)
-        case .failure:
+        case .failure(let error):
             httpresponse.error = response.error
             httpresponse.data = response.data
             httpresponse.success = false

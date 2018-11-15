@@ -122,7 +122,7 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             let data: Data! = httpresponse.data
             
             // decode the information recieved
-            if httpresponse.error != nil {
+            if httpresponse.error == nil {
                 guard let feedData = try? JSONDecoder().decode(GamesFeed.self, from: data)
                     else {
                         self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")

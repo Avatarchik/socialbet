@@ -15,7 +15,7 @@ class Common {
     let default_pic = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREya1ZUSfvxj7zwOwWeCOtLk3JlDTbeuHZy4lcyKilbcmgpgEA"
     var username = "default"
     var pwhash = "default"
-    var teamInfo = getTeamData()
+    //var teamInfo = getTeamData()
     
 }
 
@@ -93,7 +93,8 @@ func getTeamData() -> Teams? {
 }
 
 func teamURL(teamname: String) -> String {
-    for team in common.teamInfo!.teams {
+    let teamInfo = getTeamData()
+    for team in teamInfo!.teams {
         if team.team_full_name == teamname {
             return team.logo_url;
         }
