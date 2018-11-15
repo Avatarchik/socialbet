@@ -43,7 +43,7 @@ class Registration: UIViewController {
         sendPOST(uri: "/api/users/create/", parameters: parameters, callback: { (postresponse) in
             // alert the user of success/failure, and either navigate away or refresh the page
             //TODO - figure out how to tell if there's an error. This isn't right
-            if postresponse.error == nil {
+            if postresponse.HTTPsuccess! {
                 common.username = username!
                 self.performSegue(withIdentifier: "RegistrationToLiveFeed", sender: self);
             }

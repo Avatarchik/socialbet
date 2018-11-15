@@ -67,7 +67,7 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             let data: Data! = httpresponse.data
             
             // decode the information recieved
-            if httpresponse.error != nil {
+            if httpresponse.HTTPsuccess! {
                 guard let feedData = try? JSONDecoder().decode(BetFeed.self, from: data)
                 else {
                     self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
@@ -94,7 +94,7 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             let data: Data! = httpresponse.data
             
             // decode the information recieved
-            if httpresponse.error != nil {
+            if httpresponse.HTTPsuccess! {
                 guard let feedData = try? JSONDecoder().decode(BetFeed.self, from: data)
                     else {
                         self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
@@ -119,10 +119,10 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
         // submit a GET request to get the game feed object
         let fullURI = addGETParams(path: "/api/games/", search: "", needsUsername: false)
         sendGET(uri: fullURI, callback: { (httpresponse) in
-            let data: Data! = httpresponse.data
+            let data: Data! = (httpresponse.data)
             
             // decode the information recieved
-            if httpresponse.error == nil {
+            if httpresponse.HTTPsuccess! {
                 guard let feedData = try? JSONDecoder().decode(GamesFeed.self, from: data)
                     else {
                         self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
@@ -205,11 +205,11 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             
             let thisGame = gamesData!.games[indexPath.row];
     
-            cell?.HomeTeamName.text = thisGame.team1.team_full_name;
-            cell?.AwayTeamName.text = thisGame.team2.team_full_name;
+            cell?.HomeTeamName.text = thisGame.team1;
+            cell?.AwayTeamName.text = thisGame.team2;
             cell?.event_id = thisGame.game_id;
-            getImageFromUrl(urlString: thisGame.team1.logo_url, imageView: (cell?.HomeTeamLogo)!);
-            getImageFromUrl(urlString: thisGame.team2.logo_url, imageView: (cell?.AwayTeamLogo)!);
+            getImageFromUrl(urlString: thisGame.team1_url, imageView: (cell?.HomeTeamLogo)!);
+            getImageFromUrl(urlString: thisGame.team2_url, imageView: (cell?.AwayTeamLogo)!);
             
             return cell!;
         }

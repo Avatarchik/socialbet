@@ -33,10 +33,10 @@ import Alamofire
 
 // container for HTTP responses from GET and POST requests
 struct HTTPResponse {
-    var error: Error? = nil     // request error information
-    var data: Data? = nil       // the JSONified response
-    var success: Bool? = nil    // True if success
-    var failure: Bool? = nil    // True if failure
+    var data: Data? = nil           // the JSONified response
+    var success: Bool? = nil        // True if network success
+    var failure: Bool? = nil        // True if network failure
+    var HTTPsuccess: Bool? = nil    // True if HTTP success (i.e., 2xx)
 }
 
 // send a GET request
@@ -55,17 +55,17 @@ func sendGET(uri: String, callback: @escaping (HTTPResponse) -> Void){
     var httpresponse = HTTPResponse()
     
     // Populate the return variable with the contents of the request
-    Alamofire.request(url, method:.get, encoding: URLEncoding.default).responseJSON { response in
+    Alamofire.request(url, method:.get, encoding: JSONEncoding.default).responseJSON { response in
         switch response.result {
         case .success(let JSON):
             let jsonData = JSON as! NSDictionary
-            let errorString = jsonData["errors"]
-            //httpresponse.error = response.error
+            httpresponse.HTTPsuccess = (jsonData["success_status"] as! String == "successful")
             httpresponse.data = response.data
             httpresponse.success = true
             callback(httpresponse)
-        case .failure(let error):
-            httpresponse.error = response.error
+        case .failure(let JSON):
+            let jsonData = JSON as! NSDictionary
+            httpresponse.HTTPsuccess = (jsonData["success_status"] as! String == "successful")
             httpresponse.data = response.data
             httpresponse.success = false
             callback(httpresponse)
@@ -89,15 +89,24 @@ func sendPOST(uri: String, parameters: Dictionary<String, String>, callback: @es
     var httpresponse = HTTPResponse()
     
     // Populate the return variable with the contents of the request
-    Alamofire.request(url, method:.post, parameters:parameters, encoding: JSONEncoding.default).responseString { response in
+    Alamofire.request(url, method:.post, parameters:parameters, encoding: JSONEncoding.default).responseData { response in
+        
+        // decode the response data
+        /*let data: Data! = response.data
+        guard let POSTResponseStructInstance = try? JSONDecoder().decode(POSTResponseStruct.self, from: data)
+            else{
+                return;
+        }*/
+        
+        // determine HTTP success
+        httpresponse.HTTPsuccess = true // (POSTResponseStructInstance.success_status == "successful")
+
         switch response.result {
             case .success:
-                httpresponse.error = response.result.error
                 httpresponse.data = response.data
                 httpresponse.success = true
                 callback(httpresponse)
-            case .failure:
-                httpresponse.error = response.result.error
+        case .failure:
                 httpresponse.data = response.data
                 httpresponse.success = false
                 callback(httpresponse)
