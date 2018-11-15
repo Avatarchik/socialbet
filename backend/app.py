@@ -1,13 +1,13 @@
 from flask import Flask
 import os
-from api import betting, feeds, games, users, coinbase, teams
+from api import betting, feeds, games, users, teams#, coinbase
 import logging
 app = Flask(__name__, instance_relative_config=True)
 app.register_blueprint(betting.betting)
 app.register_blueprint(feeds.feeds)
 app.register_blueprint(games.games)
 app.register_blueprint(users.users)
-app.register_blueprint(coinbase.coinbase)
+#app.register_blueprint(coinbase.coinbase)
 app.register_blueprint(teams.teams)
 
 # Create flask app

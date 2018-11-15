@@ -301,7 +301,7 @@ def get_users_open_bets(loguser):
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
     cursor = db.cursor(pymysql.cursors.DictCursor)
 
-    sql = "SELECT * FROM bets WHERE winner IS NULL AND accepted=0 AND direct=0 AND user1=\"" + loguser +  "\");"
+    sql = "SELECT * FROM bets WHERE winner IS NULL AND accepted=0 AND direct=0 AND user1=\"" + loguser +  "\";"
     cursor.execute(sql)
 
     res = []
