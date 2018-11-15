@@ -179,13 +179,13 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             getImageFromUrl(urlString: thisBet.user1.profile_pic_url, imageView: (cell?.User1Image)!);
             getImageFromUrl(urlString: thisBet.user2.profile_pic_url, imageView: (cell?.User2Image)!);
             
-            cell?.TeamName1.text = thisBet.user1.team.name;
-            cell?.TeamName2.text = thisBet.user2.team.name;
+            cell?.TeamName1.text = thisBet.user1.team.team_full_name;
+            cell?.TeamName2.text = thisBet.user2.team.team_full_name;
             cell?.Message.text = thisBet.message;
             cell?.GameTime.text = thisBet.game_time;
             
-            getImageFromUrl(urlString: thisBet.user1.team.team_logo_url, imageView: (cell?.Team1Image)!);
-            getImageFromUrl(urlString: thisBet.user2.team.team_logo_url, imageView: (cell?.Team2Image)!);
+            getImageFromUrl(urlString: thisBet.user1.team.logo_url, imageView: (cell?.Team1Image)!);
+            getImageFromUrl(urlString: thisBet.user2.team.logo_url, imageView: (cell?.Team2Image)!);
             
             return cell!;
             
@@ -202,15 +202,15 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             let thisBet = feed.bets[indexPath.row];
             
             cell?.UserName.text = thisBet.user1.first_name + " " + thisBet.user1.last_name;
-            cell?.UserTeamName.text = thisBet.user1.team.name;
-            cell?.UserTeamLowerText.text = thisBet.user1.team.name;
-            cell?.OtherTeamLowerText.text = thisBet.team2.name;
+            cell?.UserTeamName.text = thisBet.user1.team.team_full_name;
+            cell?.UserTeamLowerText.text = thisBet.user1.team.team_full_name;
+            cell?.OtherTeamLowerText.text = thisBet.team2.team_full_name;
             cell?.BetAmount.text = "Amount: $" + String(thisBet.amount);
             cell?.GameTime.text = thisBet.game_time;
             
             // TODO - initialize all teams at start
-            getImageFromUrl(urlString: thisBet.user1.team.team_logo_url, imageView: (cell?.UserTeamLogo)!);
-            getImageFromUrl(urlString: thisBet.team2.team_logo_url, imageView: (cell?.OtherTeamLogo)!);
+            getImageFromUrl(urlString: thisBet.user1.team.logo_url, imageView: (cell?.UserTeamLogo)!);
+            getImageFromUrl(urlString: thisBet.team2.logo_url, imageView: (cell?.OtherTeamLogo)!);
             
             return cell!;
             
@@ -228,10 +228,10 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             
             let thisBet = feed.bets[indexPath.row];
             
-            getImageFromUrl(urlString: thisBet.winningTeam.team_logo_url, imageView: (cell?.WinningTeamLogo)!);
-            cell?.WinningTeamName.text = thisBet.winningTeam.name;
-            getImageFromUrl(urlString: thisBet.losingTeam.team_logo_url, imageView: (cell?.LosingTeamLogo)!);
-            cell?.LosingTeamName.text = thisBet.losingTeam.name;
+            getImageFromUrl(urlString: thisBet.winningTeam.logo_url, imageView: (cell?.WinningTeamLogo)!);
+            cell?.WinningTeamName.text = thisBet.winningTeam.team_full_name;
+            getImageFromUrl(urlString: thisBet.losingTeam.logo_url, imageView: (cell?.LosingTeamLogo)!);
+            cell?.LosingTeamName.text = thisBet.losingTeam.team_full_name;
             cell?.FinalScore.text = thisBet.finalScore;
             cell?.GameDateTime.text = thisBet.game_time;
             getImageFromUrl(urlString: thisBet.winningUser.profile_pic_url, imageView: (cell?.WinningUserPic)!);
