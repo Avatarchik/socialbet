@@ -67,10 +67,18 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             let data: Data! = httpresponse.data
             
             // decode the information recieved
+<<<<<<< HEAD
+            if httpresponse.HTTPsuccess! {
+                guard let feedData = try? JSONDecoder().decode(BetFeed.self, from: data)
+                else {
+                    self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
+                    return
+=======
             //if httpresponse.error != nil {
             /*do {
                 if let jsonResult = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary {
                     print(jsonResult)
+>>>>>>> 2a9b50d41c6a008b624e20368d5703b0317840cc
                 }
             } catch let error {
                 print(error.localizedDescription)

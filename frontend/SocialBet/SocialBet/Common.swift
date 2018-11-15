@@ -106,7 +106,7 @@ func teamURL(teamname: String) -> String {
 func findResults(winner: String, user1: UserInBet, user2: UserInBet) -> BetResults {
     var winningUser: UserInBet?;
     var losingUser: UserInBet?;
-    if (user1.user_id == winner){
+    if (user1.username == winner){
         losingUser = user2;
         winningUser = user1;
     }
@@ -132,10 +132,10 @@ struct Teams: Decodable {
 }
 
 struct Bet: Decodable {
-    let accepted: Bool
+    let accepted: Int
     let ammount: Float
     let bet_id: Int
-    let direct: Bool
+    let direct: Int
     let game_id: Int
     let game_time: String
     let message: String
@@ -160,7 +160,7 @@ struct UserInBet: Decodable {
     let last_name: String
     let profile_pic_url: String
     let team: String
-    let user_id: String
+    let username: String
 }
 
 struct Game: Decodable {
