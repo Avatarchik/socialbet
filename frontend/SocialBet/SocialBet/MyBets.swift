@@ -52,39 +52,95 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
     }
     
     @IBAction func Live(_ sender: Any) {
-        //TODO Add API call once endpoint exists
+        let fullURI = addGETParams(path: "/api/feeds/users/live_bets/", search: "", needsUsername: false)
+        sendGET(uri: fullURI, callback: { (httpresponse) in
+            let data: Data! = httpresponse.data
+            
+            guard let feedData = try? JSONDecoder().decode(BetFeed.self, from: data)
+                else {
+                    self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
+                    return
+            }
+            self.liveData = feedData;
+            self.feedCount = self.liveData!.bets.count;
+            
+        })
         
         self.LiveObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
         self.OpenObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
         self.ResultsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
         self.RequestsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
+        self.feedType = .live
+        self.MyFeed.reloadData()
     }
     
     @IBAction func Open(_ sender: Any) {
-        //TODO Add API call once endpoint exists
+        let fullURI = addGETParams(path: "/api/feeds/users/open_bets/", search: "", needsUsername: false)
+        sendGET(uri: fullURI, callback: { (httpresponse) in
+            let data: Data! = httpresponse.data
+            
+            guard let feedData = try? JSONDecoder().decode(BetFeed.self, from: data)
+                else {
+                    self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
+                    return
+            }
+            self.openData = feedData;
+            self.feedCount = self.openData!.bets.count;
+            
+        })
         
         self.OpenObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
         self.LiveObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
         self.ResultsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
         self.RequestsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
+        self.feedType = .open
+        self.MyFeed.reloadData()
     }
     
     @IBAction func Requests(_ sender: Any) {
-        //TODO Add API call
+        let fullURI = addGETParams(path: "/api/feeds/direct_bets_pending/", search: "", needsUsername: false)
+        sendGET(uri: fullURI, callback: { (httpresponse) in
+            let data: Data! = httpresponse.data
+            
+            guard let feedData = try? JSONDecoder().decode(BetFeed.self, from: data)
+                else {
+                    self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
+                    return
+            }
+            self.requestData = feedData;
+            self.feedCount = self.requestData!.bets.count;
+            
+        })
         
         self.RequestsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
         self.OpenObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
         self.ResultsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
         self.LiveObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
+        self.feedType = .request
+        self.MyFeed.reloadData()
     }
     
     @IBAction func Results(_ sender: Any) {
-        //TODO Add API call
+        let fullURI = addGETParams(path: "/api/feeds/bet_history/", search: "", needsUsername: false)
+        sendGET(uri: fullURI, callback: { (httpresponse) in
+            let data: Data! = httpresponse.data
+            
+            guard let feedData = try? JSONDecoder().decode(BetFeed.self, from: data)
+                else {
+                    self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
+                    return
+            }
+            self.resultData = feedData;
+            self.feedCount = self.resultData!.bets.count;
+            
+        })
         
         self.ResultsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
         self.OpenObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
         self.LiveObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
         self.RequestsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
+        self.feedType = .result
+        self.MyFeed.reloadData()
     }
     
     @objc func AcceptPressed(sender: LiveFeedCell) {

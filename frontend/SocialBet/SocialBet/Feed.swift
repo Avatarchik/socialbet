@@ -88,8 +88,6 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             }
             self.liveData = feedData;
             self.feedCount = self.liveData!.bets.count;
-            print("feedCount" + String(self.feedCount))
-            print(self.liveData!.bets[0].game_time);
             //} else{
                 //self.alert(message: "There was an error processing your request.", title: "Network Error")
             //}
