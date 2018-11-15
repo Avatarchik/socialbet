@@ -92,42 +92,47 @@ func getTeamData() -> Teams? {
     return ret_val
 }
 
-func teamURL(teamname: String) -> String? {
+func teamURL(teamname: String) -> String {
     for team in common.teamInfo!.teams {
         if team.team_full_name == teamname {
             return team.logo_url;
         }
     }
     print("ERROR FINDING TEAM URL")
-    return nil
+    return "Error"
+}
+
+func findResults(winner: String, user1: UserInBet, user2: UserInBet) -> BetResults {
+    var winningUser: UserInBet?;
+    var losingUser: UserInBet?;
+    if (user1.user_id == winner){
+        losingUser = user2;
+        winningUser = user1;
+    }
+    else{
+        losingUser = user1;
+        winningUser = user2;
+    }
+    return BetResults(winner: winningUser!, loser: losingUser!);
 }
 
 
 // data structure definitions
-struct LiveBetFeed: Decodable {
-    let bets: [LiveBet]
-}
-
-struct OpenBetFeed: Decodable {
-    let bets: [OpenBet]
+struct BetFeed: Decodable {
+    let bets: [Bet]
 }
 
 struct GamesFeed: Decodable {
     let games: [Game]
 }
 
-struct ClosedBetFeed: Decodable {
-    let errors: [String]
-    let bets: [ClosedBet]
-}
-
 struct Teams: Decodable {
     let teams: [Team]
 }
 
-struct LiveBet: Decodable {
+struct Bet: Decodable {
     let accepted: Bool
-    let amount: Float
+    let ammount: Float
     let bet_id: Int
     let direct: Bool
     let game_id: Int
@@ -142,35 +147,6 @@ struct LiveBet: Decodable {
     let winner: String
 }
 
-struct OpenBet: Decodable {
-    let accepted: Bool
-    let amount: Float
-    let bet_id: Int
-    let direct: Bool
-    let game_id: Int
-    let game_time: String
-    let message: String
-    let num_comments: Int
-    let team1: String
-    let team2: String
-    let time_placed: String
-    let user1: UserInBet
-    let winner: String
-}
-
-struct ClosedBet: Decodable {
-    let bet_id: String
-    let game_time: String
-    let num_comments: Int
-    let num_likes: Int
-    let winningUser: User
-    let losingUser: User
-    let winningTeam: String
-    let losingTeam: String
-    let finalScore: String
-    let wagerAmount: String
-}
-
 struct User: Decodable {
     let username: String
     let first_name: String
@@ -182,7 +158,7 @@ struct UserInBet: Decodable {
     let first_name: String
     let last_name: String
     let profile_pic_url: String
-    let team: Team
+    let team: String
     let user_id: String
 }
 
@@ -195,12 +171,17 @@ struct Game: Decodable {
     let team2: Team
 }
 
-struct Team: Codable {
+struct Team: Decodable {
     let team_full_name: String
     let logo_url: String
 }
 
 struct Existance: Decodable {
     let value: Bool
+}
+
+struct BetResults{
+    let winner: UserInBet
+    let loser: UserInBet
 }
 

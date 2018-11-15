@@ -166,7 +166,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LiveFeedCell", for: indexPath) as? LiveFeedCell;
             
             let data: Data = Data(); //TODO - Load the correct data with API call
-            guard let feed = try? JSONDecoder().decode(LiveBetFeed.self, from: data)
+            guard let feed = try? JSONDecoder().decode(BetFeed.self, from: data)
                 else {
                     print("Error decoding data");
                     return cell!;
@@ -179,13 +179,16 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             getImageFromUrl(urlString: thisBet.user1.profile_pic_url, imageView: (cell?.User1Image)!);
             getImageFromUrl(urlString: thisBet.user2.profile_pic_url, imageView: (cell?.User2Image)!);
             
-            cell?.TeamName1.text = thisBet.user1.team.team_full_name;
-            cell?.TeamName2.text = thisBet.user2.team.team_full_name;
+            cell?.TeamName1.text = thisBet.user1.team;
+            cell?.TeamName2.text = thisBet.user2.team;
             cell?.Message.text = thisBet.message;
             cell?.GameTime.text = thisBet.game_time;
             
-            getImageFromUrl(urlString: thisBet.user1.team.logo_url, imageView: (cell?.Team1Image)!);
-            getImageFromUrl(urlString: thisBet.user2.team.logo_url, imageView: (cell?.Team2Image)!);
+            let team1Url = teamURL(teamname: thisBet.team1);
+            let team2Url = teamURL(teamname: thisBet.team2);
+            
+            getImageFromUrl(urlString: team1Url, imageView: (cell?.Team1Image)!);
+            getImageFromUrl(urlString: team2Url, imageView: (cell?.Team2Image)!);
             
             return cell!;
             
@@ -193,7 +196,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OpenFeedCell", for: indexPath) as? OpenFeedCell;
             
             let data: Data = Data(); //TODO - Load the correct data with API call
-            guard let feed = try? JSONDecoder().decode(OpenBetFeed.self, from: data)
+            guard let feed = try? JSONDecoder().decode(BetFeed.self, from: data)
                 else {
                     print("Error decoding data");
                     return cell!;
@@ -202,15 +205,18 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             let thisBet = feed.bets[indexPath.row];
             
             cell?.UserName.text = thisBet.user1.first_name + " " + thisBet.user1.last_name;
-            cell?.UserTeamName.text = thisBet.user1.team.team_full_name;
-            cell?.UserTeamLowerText.text = thisBet.user1.team.team_full_name;
-            cell?.OtherTeamLowerText.text = thisBet.team2.team_full_name;
-            cell?.BetAmount.text = "Amount: $" + String(thisBet.amount);
+            cell?.UserTeamName.text = thisBet.user1.team;
+            cell?.UserTeamLowerText.text = thisBet.user1.team;
+            cell?.OtherTeamLowerText.text = thisBet.team2;
+            cell?.BetAmount.text = "Amount: $" + String(thisBet.ammount);
             cell?.GameTime.text = thisBet.game_time;
             
+            let team1Url = teamURL(teamname: thisBet.user1.team)
+            let team2Url = teamURL(teamname: thisBet.team2);
+            
             // TODO - initialize all teams at start
-            getImageFromUrl(urlString: thisBet.user1.team.logo_url, imageView: (cell?.UserTeamLogo)!);
-            getImageFromUrl(urlString: thisBet.team2.logo_url, imageView: (cell?.OtherTeamLogo)!);
+            getImageFromUrl(urlString: team1Url, imageView: (cell?.UserTeamLogo)!);
+            getImageFromUrl(urlString: team2Url, imageView: (cell?.OtherTeamLogo)!);
             
             return cell!;
             
@@ -218,7 +224,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ClosedFeedCell", for: indexPath) as? ClosedFeedCell;
             
             let data: Data = Data(); //TODO - Load the correct data with API call
-            guard let feed = try? JSONDecoder().decode(ClosedBetFeed.self, from: data)
+            guard let feed = try? JSONDecoder().decode(BetFeed.self, from: data)
                 else {
                     print("Error decoding data");
                     return cell!;
@@ -228,16 +234,21 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             
             let thisBet = feed.bets[indexPath.row];
             
-            getImageFromUrl(urlString: thisBet.winningTeam.logo_url, imageView: (cell?.WinningTeamLogo)!);
-            cell?.WinningTeamName.text = thisBet.winningTeam.team_full_name;
-            getImageFromUrl(urlString: thisBet.losingTeam.logo_url, imageView: (cell?.LosingTeamLogo)!);
-            cell?.LosingTeamName.text = thisBet.losingTeam.team_full_name;
-            cell?.FinalScore.text = thisBet.finalScore;
+            let betResults = findResults(winner: thisBet.winner, user1: thisBet.user1, user2: thisBet.user2);
+            
+            let winningUrl = teamURL(teamname: betResults.winner.team);
+            let losingUrl = teamURL(teamname: betResults.loser.team);
+            
+            getImageFromUrl(urlString: winningUrl, imageView: (cell?.WinningTeamLogo)!);
+            cell?.WinningTeamName.text = betResults.winner.team;
+            getImageFromUrl(urlString: losingUrl, imageView: (cell?.LosingTeamLogo)!);
+            cell?.LosingTeamName.text = betResults.loser.team;
             cell?.GameDateTime.text = thisBet.game_time;
-            getImageFromUrl(urlString: thisBet.winningUser.profile_pic_url, imageView: (cell?.WinningUserPic)!);
-            cell?.WinningUserName.text = thisBet.winningUser.first_name + " " + thisBet.winningUser.last_name;
-            getImageFromUrl(urlString: thisBet.losingUser.profile_pic_url, imageView: (cell?.LosingUserPic)!);
-            cell?.LosingUserName.text = thisBet.losingUser.first_name + " " + thisBet.losingUser.last_name;
+        
+            getImageFromUrl(urlString: betResults.winner.profile_pic_url, imageView: (cell?.WinningUserPic)!);
+            cell?.WinningUserName.text = betResults.winner.first_name + " " + betResults.winner.last_name;
+            getImageFromUrl(urlString: betResults.loser.profile_pic_url, imageView: (cell?.LosingUserPic)!);
+            cell?.LosingUserName.text = betResults.loser.first_name + " " + betResults.loser.last_name;
             
             return cell!;
         }        
