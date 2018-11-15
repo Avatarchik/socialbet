@@ -15,11 +15,13 @@ class Common {
     let default_pic = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREya1ZUSfvxj7zwOwWeCOtLk3JlDTbeuHZy4lcyKilbcmgpgEA"
     var username = "default"
     var pwhash = "default"
+    var teamInfo = getTeamData()
     
-    init(){}
 }
 
 var common = Common()
+
+
 
 // global methods
 extension UIViewController {
@@ -64,6 +66,43 @@ func addGETParams(path: String, search: String, needsUsername: Bool) -> String {
     return fullString;
 }
 
+func getTeamData() -> Teams? {
+    
+    var ret_val: Teams?
+    
+    let URI = addGETParams(path: "/api/teams/", search: "", needsUsername: false)
+    sendGET(uri: URI, callback: { (httpresponse) in
+        
+        let data: Data! = httpresponse.data
+        
+        if httpresponse.error == nil {
+            guard let teamData = try? JSONDecoder().decode(Teams.self, from: data)
+                else {
+                    print("Error loading teams data")
+                    return
+            }
+            // DO SHIT WITH DATA HERE
+            ret_val = teamData
+        } else {
+            print("There was an error processing your request")
+            return
+        }
+        
+    })
+    return ret_val
+}
+
+func teamURL(teamname: String) -> String? {
+    for team in common.teamInfo!.teams {
+        if team.team_full_name == teamname {
+            return team.logo_url;
+        }
+    }
+    print("ERROR FINDING TEAM URL")
+    return nil
+}
+
+
 // data structure definitions
 struct LiveBetFeed: Decodable {
     let bets: [LiveBet]
@@ -82,9 +121,13 @@ struct ClosedBetFeed: Decodable {
     let bets: [ClosedBet]
 }
 
+struct Teams: Decodable {
+    let teams: [Team]
+}
+
 struct LiveBet: Decodable {
     let accepted: Bool
-    let ammount: Float
+    let amount: Float
     let bet_id: Int
     let direct: Bool
     let game_id: Int
@@ -101,7 +144,7 @@ struct LiveBet: Decodable {
 
 struct OpenBet: Decodable {
     let accepted: Bool
-    let ammount: Float
+    let amount: Float
     let bet_id: Int
     let direct: Bool
     let game_id: Int
@@ -122,8 +165,8 @@ struct ClosedBet: Decodable {
     let num_likes: Int
     let winningUser: User
     let losingUser: User
-    let winningTeam: Team
-    let losingTeam: Team
+    let winningTeam: String
+    let losingTeam: String
     let finalScore: String
     let wagerAmount: String
 }
@@ -139,7 +182,7 @@ struct UserInBet: Decodable {
     let first_name: String
     let last_name: String
     let profile_pic_url: String
-    let team: String
+    let team: Team
     let user_id: String
 }
 
@@ -148,15 +191,13 @@ struct Game: Decodable {
     let game_time: String
     let record1: String
     let record2: String
-    let team1: String
-    let team1_url: String
-    let team2: String
-    let team2_url: String
+    let team1: Team
+    let team2: Team
 }
 
-struct Team: Decodable {
-    let name: String
-    let team_logo_url: String
+struct Team: Codable {
+    let team_full_name: String
+    let logo_url: String
 }
 
 struct Existance: Decodable {

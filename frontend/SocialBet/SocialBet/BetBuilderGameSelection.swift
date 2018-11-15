@@ -70,10 +70,10 @@ class BetBuilderGameSelection: UIViewController, UICollectionViewDataSource, UIC
             
             let thisGame = self.gamesData!.games[indexPath.row];
             
-            getImageFromUrl(urlString: thisGame.team1_url, imageView: (cell?.HomeTeamLogo)!);
-            getImageFromUrl(urlString: thisGame.team2_url, imageView: (cell?.AwayTeamLogo)!);
-            cell?.HomeTeamName.text = thisGame.team1;
-            cell?.AwayTeamName.text = thisGame.team2;
+            getImageFromUrl(urlString: thisGame.team1.logo_url, imageView: (cell?.HomeTeamLogo)!);
+            getImageFromUrl(urlString: thisGame.team2.logo_url, imageView: (cell?.AwayTeamLogo)!);
+            cell?.HomeTeamName.text = thisGame.team1.team_full_name;
+            cell?.AwayTeamName.text = thisGame.team2.team_full_name;
             
             return cell!;
     }

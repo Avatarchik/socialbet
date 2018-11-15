@@ -45,7 +45,7 @@ def check_user():
 
 
 @users.route('/api/users/find/')
-def get_user():
+def find_user():
     log_user = request.args.get('loguser')
     auth = request.args.get('auth')
     auth_ = db.authenticate(log_user, auth)
@@ -56,24 +56,20 @@ def get_user():
         return create_http_response(data=result, errors=result['errors'])
     
     result = {}
-    data = {}
-    data['user_name'] = request.args.get('username')
-    users = db.get_user(data)
-    if len(users) == 0:
+    username = request.args.get('username')
+    user = db.get_user(username)
+
+    if not user:
         result = {}
         result['errors'] = []
         result['errors'].append('username does not exist')
         return create_http_response(data=result, errors=result['errors'])
-    elif len(users) > 1:
-        result = {}
-        result['errors'] = []
-        result['errors'].append('multiple identical usernames found')
-        return create_http_response(data=result, errors=result['errors'])
 
-    result['username'] = users[0]['user_name']
-    result['first_name'] = users[0]['first_name']
-    result['last_name'] = users[0]['last_name']
-    result['profile_pic_url'] = users[0]['profile_pic_url']
+    result['username'] = user['user_name']
+    result['first_name'] = user['first_name']
+    result['last_name'] = user['last_name']
+    result['profile_pic_url'] = user['profile_pic_url']
+    result['friends'] = db.are_friends(log_user, username)
 
     return create_http_response(data=result)
 

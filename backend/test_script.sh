@@ -63,13 +63,7 @@ if [ $1 = "create_user" ]; then
 fi
 
 if [ $1 = "user_exists" ]; then
-    #TODO
-    curl -X GET $url/api/feeds/open_bets/\?loguser=$loguser\&auth=$auth
-fi
-
-if [ $1 = "" ]; then
-    #TODO
-    curl -X GET $url/api/feeds/open_bets/\?loguser=$loguser\&auth=$auth
+    curl -X GET $url/api/users/exists/\?loguser=$loguser\&auth=$auth
 fi
 
 if [ $1 = "add_friends" ]; then
@@ -79,9 +73,13 @@ if [ $1 = "add_friends" ]; then
     user2="achapp"
 
     curl -X POST -H "Content-Type: application/json" $url/api/users/add_friend/ \
-        -d "{\"username\": \"$username\", \"auth\": \"$auth\", \"user1\": \"$user1\", \"user2\": \"$user2\" }"
+        -d "{\"loguser\": \"$username\", \"auth\": \"$auth\", \"user1\": \"$user1\", \"user2\": \"$user2\" }"
 fi
 
+if [ $1 = "get_user" ]; then
+    username="achapp"
+    curl -X GET $url/api/users/find/\?loguser=$loguser\&auth=$auth\&username=$username
+fi
 
 # Betting endpoints
 #########################
@@ -93,10 +91,11 @@ if [ $1 = "place_bet" ]; then
     user2="cterech"
     direct=1
     accepted=0
+    time_placed="this is a date"
     
 
     curl -X POST -H "Content-Type: application/json" $url/api/betting/place_bet/ \
-        -d "{\"loguser\": \"$loguser\", \"auth\": \"$auth\", \"game_id\": \"$game_id\", \"message\": \"$message\", \"amount\": $amount, \"user1\": \"$loguser\", \"user2\": \"$user2\", \"direct\": $direct, \"accepted\": $accepted}"
+        -d "{\"loguser\": \"$loguser\", \"auth\": \"$auth\", \"game_id\": \"$game_id\", \"message\": \"$message\", \"amount\": $amount, \"user1\": \"$loguser\", \"user2\": \"$user2\", \"direct\": $direct, \"accepted\": $accepted, \"time_placed\": \"$time_placed\" }"
 
 fi
 
