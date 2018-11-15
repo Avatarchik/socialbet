@@ -75,7 +75,7 @@ func getTeamData() -> Teams? {
         
         let data: Data! = httpresponse.data
         
-        if httpresponse.error == nil {
+        //if httpresponse.error == nil {
             guard let teamData = try? JSONDecoder().decode(Teams.self, from: data)
                 else {
                     print("Error loading teams data")
@@ -83,10 +83,10 @@ func getTeamData() -> Teams? {
             }
             // DO SHIT WITH DATA HERE
             ret_val = teamData
-        } else {
+        //} else {
             print("There was an error processing your request")
             return
-        }
+        //}
         
     })
     return ret_val

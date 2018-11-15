@@ -55,7 +55,8 @@ func sendGET(uri: String, callback: @escaping (HTTPResponse) -> Void){
     var httpresponse = HTTPResponse()
     
     // Populate the return variable with the contents of the request
-    Alamofire.request(url, method:.get, encoding: URLEncoding.default).responseJSON { response in
+    Alamofire.request(url, method:.get, encoding: JSONEncoding.default)
+        .responseJSON { response in
         switch response.result {
         case .success(let JSON):
             //let jsonData = JSON as! NSDictionary

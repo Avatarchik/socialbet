@@ -58,6 +58,9 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
         self.Collection.register(UINib(nibName: "OpenFeedCell", bundle:nil), forCellWithReuseIdentifier: "OpenFeedCell");
         self.Collection.register(UINib(nibName: "GamesFeedCell", bundle:nil), forCellWithReuseIdentifier: "GamesFeedCell");
         
+        self.Collection.delegate = self
+        self.Collection.dataSource = self
+        
     }
     
     @IBAction func LiveBetsButton(_ sender: Any) {
@@ -85,7 +88,7 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             }
             self.liveData = feedData;
             self.feedCount = self.liveData!.bets.count;
-            print("Oh yeahhh")
+            print("feedCount" + String(self.feedCount))
             print(self.liveData!.bets[0].game_time);
             //} else{
                 //self.alert(message: "There was an error processing your request.", title: "Network Error")
