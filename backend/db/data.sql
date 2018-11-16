@@ -1,13 +1,13 @@
 # USERS
 INSERT INTO users (user_name, first_name, last_name, phone, profile_pic_url, auth)
 VALUES
-('cterech', 'Chris','Terech','734-417-6331', '/root/socialbet/backend/user_profile_pics/terech.png', '5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8'), 
-('rshelly','Ryan','Shelly','949-290-6670', '/root/socialbet/backend/user_profile_pics/shelly.png', '5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8'),
-('ncargill','Nick','Cargill','914-479-2054', '/root/socialbet/backend/user_profile_pics/cargill.png', '5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8'),
-('isvidler','Ittai','Svilder','912-409-0127', '/root/socialbet/backend/user_profile_pics/svidler.png', '5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8'),
-('achapp','Alex','Chapp','734-498-0573', '/root/socialbet/backend/user_profile_pics/chapp.png', '5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8'),
-('jkrieg','John','Krieg','734-201-9423', '/root/socialbet/backend/user_profile_pics/krieg.png', '5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8'),
-('tswartz','Trevor','Swartz','914-479-2054', '/root/socialbet/backend/user_profile_pics/swartz.png', '5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8');
+('cterech', 'Chris','Terech','734-417-6331', '/user_profile_pics/terech.jpg', '5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8'), 
+('rshelly','Ryan','Shelly','949-290-6670', '/user_profile_pics/shelly.jpg', '5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8'),
+('ncargill','Nick','Cargill','914-479-2054', '/user_profile_pics/cargill.jpg', '5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8'),
+('isvidler','Ittai','Svilder','912-409-0127', '/user_profile_pics/svidler.jpg', '5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8'),
+('achapp','Alex','Chapp','734-498-0573', '/user_profile_pics/chapp.jpg', '5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8'),
+('jkrieg','John','Krieg','734-201-9423', '/user_profile_pics/krieg.jpg', '5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8'),
+('tswartz','Trevor','Swartz','914-479-2054', '/user_profile_pics/swartz.jpg', '5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8');
 
 # FRIENDS
 INSERT INTO friends (user1,user2)
@@ -23,18 +23,18 @@ VALUES
 # GAMES
 INSERT INTO games(game_id, team1, team2, team1_url, team2_url, record1, record2, game_time)
 VALUES
-(1, 'Tennessee Titans', 'Indianapolis Colts', '/root/socialbet/backend/team_logos/titans.png', '/root/socialbet/backend/team_logos/colts.png', '5-4', '4-5', '11/18/2018 1:00PM'),
-(2, 'Tampa Bay Buccaneers', 'New York Giants', '/root/socialbet/backend/team_logos/buccaneers.png', '/root/socialbet/backend/team_logos/giants.png', '3-6', '2-7', '11/18/2018 1:00PM'), 
-(3, 'Pittsburgh Steelers', 'Jacksonville Jaguars', '/root/socialbet/backend/team_logos/steelers.png', '/root/socialbet/backend/team_logos/jaguars.png', '6-2-1', '3-6', '11/18/2018 1:00PM'),
-(4, 'Carolina Panthers', 'Detroit Lions', '/root/socialbet/backend/team_logos/panthers.png', '/root/socialbet/backend/team_logos/lions.png', '6-3', '3-6', '11/18/2018 1:00PM'),
-(5, 'Dallas Cowboys', 'Atlanta Falcons', '/root/socialbet/backend/team_logos/cowboys.png', '/root/socialbet/backend/team_logos/falcons.png', '4-5', '4-5', '11/18/2018 1:00PM'),
-(6, 'Cincinnati Bengals', 'Baltimore Ravens', '/root/socialbet/backend/team_logos/bengals.png', '/root/socialbet/backend/team_logos/ravens.png','5-4', '4-5', '11/18/2018 1:00PM'),
-(7, 'Houston Texans', 'Washington Redskins', '/root/socialbet/backend/team_logos/texans.png', '/root/socialbet/backend/team_logos/redskins.png', '6-3', '6-3', '11/18/2018 1:00PM'),
-(8, 'Oakland Raiders', 'Arizona Cardinals', '/root/socialbet/backend/team_logos/raiders.png', '/root/socialbet/backend/team_logos/cardinals.png', '1-8', '2-7', '11/18/2018 4:05PM'),
-(9, 'Denver Broncos', 'Los Angeles Chargers', '/root/socialbet/backend/team_logos/broncos.png', '/root/socialbet/backend/team_logos/dolphins.png', '3-6', '5-5', '11/18/2018 4:05PM'),
-(10, 'Philadelphia Eagles', 'New Orleans Saints', '/root/socialbet/backend/team_logos/eagles.png', '/root/socialbet/backend/team_logos/saints.png', '4-5', '8-1', '11/18/2018 4:25PM'), 
-(11, 'Minnesota Vikings', 'Chicago Bears', '/root/socialbet/backend/team_logos/vikings.png', '/root/socialbet/backend/team_logos/bears.png', '5-3', '6-3', '11/18/2018 8:20PM'), 
-(12, 'Kansas City Chiefs', 'Los Angeles Rams', '/root/socialbet/backend/team_logos/chiefs.png', '/root/socialbet/backend/team_logos/rams.png', '9-1', '9-1', '11/19/2018 8:15PM'); 
+(1, 'Tennessee Titans', 'Indianapolis Colts', '/team_logos/titans.png', '/team_logos/colts.png', '5-4', '4-5', '11/18/2018 1:00PM'),
+(2, 'Tampa Bay Buccaneers', 'New York Giants', '/team_logos/buccaneers.png', '/team_logos/giants.png', '3-6', '2-7', '11/18/2018 1:00PM'), 
+(3, 'Pittsburgh Steelers', 'Jacksonville Jaguars', '/team_logos/steelers.png', '/team_logos/jaguars.png', '6-2-1', '3-6', '11/18/2018 1:00PM'),
+(4, 'Carolina Panthers', 'Detroit Lions', '/team_logos/panthers.png', '/team_logos/lions.png', '6-3', '3-6', '11/18/2018 1:00PM'),
+(5, 'Dallas Cowboys', 'Atlanta Falcons', '/team_logos/cowboys.png', '/team_logos/falcons.png', '4-5', '4-5', '11/18/2018 1:00PM'),
+(6, 'Cincinnati Bengals', 'Baltimore Ravens', '/team_logos/bengals.png', '/team_logos/ravens.png','5-4', '4-5', '11/18/2018 1:00PM'),
+(7, 'Houston Texans', 'Washington Redskins', '/team_logos/texans.png', '/team_logos/redskins.png', '6-3', '6-3', '11/18/2018 1:00PM'),
+(8, 'Oakland Raiders', 'Arizona Cardinals', '/team_logos/raiders.png', '/team_logos/cardinals.png', '1-8', '2-7', '11/18/2018 4:05PM'),
+(9, 'Denver Broncos', 'Los Angeles Chargers', '/team_logos/broncos.png', '/team_logos/dolphins.png', '3-6', '5-5', '11/18/2018 4:05PM'),
+(10, 'Philadelphia Eagles', 'New Orleans Saints', '/team_logos/eagles.png', '/team_logos/saints.png', '4-5', '8-1', '11/18/2018 4:25PM'), 
+(11, 'Minnesota Vikings', 'Chicago Bears', '/team_logos/vikings.png', '/team_logos/bears.png', '5-3', '6-3', '11/18/2018 8:20PM'), 
+(12, 'Kansas City Chiefs', 'Los Angeles Rams', '/team_logos/chiefs.png', '/team_logos/rams.png', '9-1', '9-1', '11/19/2018 8:15PM'); 
 
 # BETS
 INSERT INTO bets (bet_id, game_id, time_placed, game_time, num_comments, message, ammount, user1, user2, team1, team2, direct, accepted, winner)
@@ -65,38 +65,38 @@ VALUES
 
 # ADDING TEAM INFO INTO DATABASE
 INSERT INTO teams (team_full_name, logo_url) VALUES
-('Arizona Cardinals', 'root/socialbet/backend/team_logos/cardinals.png'),
-('Atlanta Falcons', 'root/socialbet/backend/team_logos/falcons.png'),
-('Baltimore Ravens', 'root/socialbet/backend/team_logos/ravens.png'),
-('Buffalo Bills', 'root/socialbet/backend/team_logos/bills.png'),
-('Carolina Panthers', 'root/socialbet/backend/team_logos/panthers.png'),
-('Chicago Bears', 'root/socialbet/backend/team_logos/bears.png'),
-('Cincinnati Bengals', 'root/socialbet/backend/team_logos/bengals.png'),
-('Cleveland Browns', 'root/socialbet/backend/team_logos/browns.png'),
-('Dallas Cowboys', 'root/socialbet/backend/team_logos/cowboys.png'),
-('Denver Broncos', 'root/socialbet/backend/team_logos/broncos.png'),
-('Detroit Lions', 'root/socialbet/backend/team_logos/lions.png'),
-('Green Bay Packers', 'root/socialbet/backend/team_logos/packers.png'),
-('Houston Texans', 'root/socialbet/backend/team_logos/texans.png'),
-('Indianapolis Colts', 'root/socialbet/backend/team_logos/colts.png'),
-('Jacksonville Jaguars', 'root/socialbet/backend/team_logos/jaguars.png'),
-('Kansas City Chiefs', 'root/socialbet/backend/team_logos/chiefs.png'),
-('Miami Dolphins', 'root/socialbet/backend/team_logos/dolphins.png'),
-('Minnesota Vikings', 'root/socialbet/backend/team_logos/vikings.png'),
-('New England Patriots', 'root/socialbet/backend/team_logos/patriots.png'),
-('New Orleans Saints', 'root/socialbet/backend/team_logos/saints.png'),
-('New York Giants', 'root/socialbet/backend/team_logos/giants.png'),
-('New York Jets', 'root/socialbet/backend/team_logos/jets.png'),
-('Oakland Raiders', 'root/socialbet/backend/team_logos/raiders.png'),
-('Philadelphia Eagles', 'root/socialbet/backend/team_logos/eagles.png'),
-('Pittsburgh Steelers', 'root/socialbet/backend/team_logos/steelers.png'),
-('Los Angeles Chargers', 'root/socialbet/backend/team_logos/chargers.png'),
-('San Francisco 49ers', 'root/socialbet/backend/team_logos/49ers.png'),
-('Seattle Seahawks', 'root/socialbet/backend/team_logos/seahawks.png'),
-('Los Angeles Rams', 'root/socialbet/backend/team_logos/rams.png'),
-('Tampa Bay Buccaneers', 'root/socialbet/backend/team_logos/buccaneers.png'),
-('Tennessee Titans', 'root/socialbet/backend/team_logos/titans.png'),
-('Washington Redskins', 'root/socialbet/backend/team_logos/redskins.png');
+('Arizona Cardinals', '/team_logos/cardinals.png'),
+('Atlanta Falcons', '/team_logos/falcons.png'),
+('Baltimore Ravens', '/team_logos/ravens.png'),
+('Buffalo Bills', '/team_logos/bills.png'),
+('Carolina Panthers', '/team_logos/panthers.png'),
+('Chicago Bears', '/team_logos/bears.png'),
+('Cincinnati Bengals', '/team_logos/bengals.png'),
+('Cleveland Browns', '/team_logos/browns.png'),
+('Dallas Cowboys', '/team_logos/cowboys.png'),
+('Denver Broncos', '/team_logos/broncos.png'),
+('Detroit Lions', '/team_logos/lions.png'),
+('Green Bay Packers', '/team_logos/packers.png'),
+('Houston Texans', '/team_logos/texans.png'),
+('Indianapolis Colts', '/team_logos/colts.png'),
+('Jacksonville Jaguars', '/team_logos/jaguars.png'),
+('Kansas City Chiefs', '/team_logos/chiefs.png'),
+('Miami Dolphins', '/team_logos/dolphins.png'),
+('Minnesota Vikings', '/team_logos/vikings.png'),
+('New England Patriots', '/team_logos/patriots.png'),
+('New Orleans Saints', '/team_logos/saints.png'),
+('New York Giants', '/team_logos/giants.png'),
+('New York Jets', '/team_logos/jets.png'),
+('Oakland Raiders', '/team_logos/raiders.png'),
+('Philadelphia Eagles', '/team_logos/eagles.png'),
+('Pittsburgh Steelers', '/team_logos/steelers.png'),
+('Los Angeles Chargers', '/team_logos/chargers.png'),
+('San Francisco 49ers', '/team_logos/49ers.png'),
+('Seattle Seahawks', '/team_logos/seahawks.png'),
+('Los Angeles Rams', '/team_logos/rams.png'),
+('Tampa Bay Buccaneers', '/team_logos/buccaneers.png'),
+('Tennessee Titans', '/team_logos/titans.png'),
+('Washington Redskins', '/team_logos/redskins.png');
 
 
 
