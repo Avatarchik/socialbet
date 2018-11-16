@@ -123,6 +123,15 @@ func findResults(winner: String, user1: UserInBet, user2: UserInBet) -> BetResul
     return BetResults(winner: winningUser!, loser: losingUser!);
 }
 
+extension UIImageView {
+    
+    func setRounded() {
+        let radius = self.frame.width / 2
+        self.layer.cornerRadius = radius
+        self.layer.masksToBounds = true
+    }
+}
+
 extension NSDictionary {
     var swiftDictionary: Dictionary<String, Any> {
         var swiftDictionary = Dictionary<String, Any>()
@@ -163,7 +172,9 @@ struct Bet: Decodable {
     let message: String
     let num_comments: Int
     let team1: String
+    let team1_logo_url: String
     let team2: String
+    let team2_logo_url: String
     let time_placed: String
     let user1: UserInBet
     let user2: UserInBet?
@@ -212,6 +223,8 @@ struct Team: Decodable {
 struct Existance: Decodable {
     let value: Bool
 }
+
+
 
 struct BetResults{
     let winner: UserInBet
