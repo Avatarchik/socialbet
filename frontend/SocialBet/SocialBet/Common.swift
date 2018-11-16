@@ -121,6 +121,22 @@ func findResults(winner: String, user1: UserInBet, user2: UserInBet) -> BetResul
     return BetResults(winner: winningUser!, loser: losingUser!);
 }
 
+extension NSDictionary {
+    var swiftDictionary: Dictionary<String, Any> {
+        var swiftDictionary = Dictionary<String, Any>()
+        
+        for key : Any in self.allKeys {
+            let stringKey = key as! String
+            if let keyValue = self.value(forKey: stringKey){
+                swiftDictionary[stringKey] = keyValue
+            }
+        }
+        
+        return swiftDictionary
+    }
+}
+
+
 
 // data structure definitions
 struct BetFeed: Decodable {
@@ -157,6 +173,14 @@ struct User: Decodable {
     let first_name: String
     let last_name: String
     let profile_pic_url: String
+}
+
+struct UserExists: Decodable {
+    let username: String?
+    let first_name: String?
+    let last_name: String?
+    let profile_pic_url: String?
+    let friends: Bool?
 }
 
 struct UserInBet: Decodable {

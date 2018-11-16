@@ -31,6 +31,9 @@ def list_open_bets():
         }
 
         bet['user1'] = user1
+        #bet['user2'] = None
+        if 'user2' in bet: del bet['user2']
+
         bets.append(bet)
 
 
@@ -111,6 +114,8 @@ def list_users_open_bets():
         }
 
         bet['user1'] = user1
+        #bet['user2'] = None
+        if 'user2' in bet: del bet['user2']
         bets.append(bet)
 
 

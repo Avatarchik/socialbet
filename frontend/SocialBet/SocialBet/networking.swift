@@ -81,39 +81,33 @@ func sendGET(uri: String, callback: @escaping (HTTPResponse) -> Void){
 // arguments:   uri for the endpoint (including query string)
 //              dictionary of parameters to pass to the server
 //              callback function of your design
-func sendPOST(uri: String, parameters: Dictionary<String, String>, callback: @escaping (HTTPResponse) -> Void){
+func sendPOST(uri: String, parameters: Dictionary<String, Any>, callback: @escaping ([String: Any]) -> Void){
     // form the request url
-    guard let url = URL(string: "http://" + common.domain + ":" + common.port + uri) else {
-        callback(HTTPResponse())
+    let initial_url = "http://" + common.domain + ":" + common.port + uri
+    let encoded = initial_url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+    
+    guard let url = URL(string: encoded!) else {
+        
+        let errorJson = ["success_status": "error", "errors": ["bad url"]] as [String : Any]
+        callback(errorJson)
         return
     }
     
-    // create a variable that will be passed to the completion handler
-    // this is kind of like a return value but it is asynchonous and safe
-    var httpresponse = HTTPResponse()
-    
     // Populate the return variable with the contents of the request
-    Alamofire.request(url, method:.post, parameters:parameters, encoding: JSONEncoding.default).responseData { response in
-        
-        // decode the response data
-        /*let data: Data! = response.data
-        guard let POSTResponseStructInstance = try? JSONDecoder().decode(POSTResponseStruct.self, from: data)
-            else{
-                return;
-        }*/
-        
-        // determine HTTP success
-        httpresponse.HTTPsuccess = true // (POSTResponseStructInstance.success_status == "successful")
-
+    Alamofire.request(url, method:.post, parameters:parameters, encoding: JSONEncoding.default)
+        .responseJSON { response in
         switch response.result {
-            case .success:
-                httpresponse.data = response.data
-                httpresponse.success = true
-                callback(httpresponse)
-        case .failure:
-                httpresponse.data = response.data
-                httpresponse.success = false
-                callback(httpresponse)
-       }
+        case .success(let JSON):
+            let jsonData = JSON as! NSDictionary
+            let jsonDict = jsonData.swiftDictionary
+            print(jsonDict)
+            callback(jsonDict)
+        case .failure(let error):
+            print((error as! AFError).errorDescription)
+            /*let jsonData = JSON as! NSDictionary
+            let jsonDict = jsonData.swiftDictionary
+            print(jsonDict)
+            callback(jsonDict)*/
+        }
     }
 }

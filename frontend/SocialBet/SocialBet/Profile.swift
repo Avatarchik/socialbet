@@ -50,14 +50,14 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         
         sendPOST(uri: URI, parameters: params, callback: { (postresponse) in
             // check for errors
-            if postresponse.HTTPsuccess! {
+            /*if postresponse.HTTPsuccess! {
                 self.alert(message: "Your friend request was successfully sent", title: "Friend added!");
             }
             else{
                 // TODO: check HTML error codes
                 self.alert(message: "Unable to add friend", title: "Add Friend Error")
             }
-            print("Added friend!");
+            print("Added friend!");*/
         })
     }
     

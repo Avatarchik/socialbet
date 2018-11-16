@@ -39,13 +39,12 @@ class Login: UIViewController {
         let parameters = ["username": submitusername, "auth": auth] as! Dictionary<String, String>
         
         // create and send a POST request
-        sendPOST(uri: "/api/users/login/", parameters: parameters, callback: { (postresponse) in
+        sendPOST(uri: "/api/users/login/", parameters: parameters, callback: { (jsonDictionary) in
             // alert the user of success/failure, and either navigate away or refresh the page
-            if postresponse.HTTPsuccess! {
+            if jsonDictionary["success_status"] as! String == "successful" {
                 self.performSegue(withIdentifier: "LoginToFeed", sender: self)
-            }
-            else{
-                // TODO: check HTML error codes
+
+            } else {
                 self.alert(message: "The provided username and password pair wasn't recognized. Try again.", title: "Authentication Error")
                 self.viewDidLoad()
             }
@@ -59,5 +58,11 @@ class Login: UIViewController {
     @IBAction func GoToRegistration(_ sender: Any) {
         performSegue(withIdentifier: "LoginToRegistration", sender: self)
     }
+    
+    @IBAction func GoToTestPage(_ sender: Any) {
+        performSegue(withIdentifier: "LoginToTest", sender: self)
+    }
+    
+    
 }
 

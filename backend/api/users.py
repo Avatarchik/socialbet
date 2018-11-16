@@ -99,7 +99,7 @@ def create_user():
 
 @users.route('/api/users/login/', methods=["POST"])
 def login_user():
-    data = json.loads(request.args)
+    data = json.loads(request.data)
     username = data['username']
     auth = data['auth']
     auth_ = db.authenticate(username, auth)

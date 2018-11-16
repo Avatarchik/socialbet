@@ -15,7 +15,7 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
 
         // Do any additional setup after loading the view.
         
-        Live(self)
+        self.feedCount = 0;
         
         self.MyFeed.register(UINib(nibName: "LiveFeedCell", bundle:nil), forCellWithReuseIdentifier: "LiveFeedCell");
         self.MyFeed.register(UINib(nibName: "OpenFeedCell", bundle:nil), forCellWithReuseIdentifier: "OpenFeedCell");
@@ -23,6 +23,8 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
         
         self.MyFeed.delegate = self
         self.MyFeed.dataSource = self
+        
+        Live(self)
     }
     
     enum FeedTypes{
@@ -52,46 +54,103 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
     }
     
     @IBAction func Live(_ sender: Any) {
-        //TODO Add API call once endpoint exists
+        let fullURI = addGETParams(path: "/api/feeds/users/live_bets/", search: "", needsUsername: false)
+        sendGET(uri: fullURI, callback: { (httpresponse) in
+            let data: Data! = httpresponse.data
+            
+            guard let feedData = try? JSONDecoder().decode(BetFeed.self, from: data)
+                else {
+                    self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
+                    return
+            }
+            self.liveData = feedData;
+            self.feedCount = self.liveData!.bets.count;
+            
+        })
         
         self.LiveObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
         self.OpenObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
         self.ResultsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
         self.RequestsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
+        self.feedType = .live
+        self.MyFeed.reloadData()
     }
     
     @IBAction func Open(_ sender: Any) {
-        //TODO Add API call once endpoint exists
+        let fullURI = addGETParams(path: "/api/feeds/users/open_bets/", search: "", needsUsername: false)
+        sendGET(uri: fullURI, callback: { (httpresponse) in
+            let data: Data! = httpresponse.data
+            
+            guard let feedData = try? JSONDecoder().decode(BetFeed.self, from: data)
+                else {
+                    self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
+                    return
+            }
+            self.openData = feedData;
+            self.feedCount = self.openData!.bets.count;
+            
+        })
         
         self.OpenObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
         self.LiveObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
         self.ResultsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
         self.RequestsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
+        self.feedType = .open
+        self.MyFeed.reloadData()
     }
     
     @IBAction func Requests(_ sender: Any) {
-        //TODO Add API call
+        let fullURI = addGETParams(path: "/api/feeds/direct_bets_pending/", search: "", needsUsername: false)
+        sendGET(uri: fullURI, callback: { (httpresponse) in
+            let data: Data! = httpresponse.data
+            
+            guard let feedData = try? JSONDecoder().decode(BetFeed.self, from: data)
+                else {
+                    self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
+                    return
+            }
+            self.requestData = feedData;
+            self.feedCount = self.requestData!.bets.count;
+            
+        })
         
         self.RequestsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
         self.OpenObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
         self.ResultsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
         self.LiveObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
+        self.feedType = .request
+        self.MyFeed.reloadData()
     }
     
     @IBAction func Results(_ sender: Any) {
-        //TODO Add API call
+        let fullURI = addGETParams(path: "/api/feeds/bet_history/", search: "", needsUsername: false)
+        sendGET(uri: fullURI, callback: { (httpresponse) in
+            let data: Data! = httpresponse.data
+            
+            guard let feedData = try? JSONDecoder().decode(BetFeed.self, from: data)
+                else {
+                    self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
+                    return
+            }
+            self.resultData = feedData;
+            self.feedCount = self.resultData!.bets.count;
+            
+        })
         
         self.ResultsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
         self.OpenObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
         self.LiveObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
         self.RequestsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
+        self.feedType = .result
+        self.MyFeed.reloadData()
     }
     
     @objc func AcceptPressed(sender: LiveFeedCell) {
         let parameters = ["loguser": common.username, "auth": common.pwhash, "bet_id": sender.bet_id, "user_name": common.username] as! Dictionary<String, String>;
         
         sendPOST(uri: "/api/betting/accept_bet", parameters: parameters, callback: { (postresponse) in
-            if postresponse.HTTPsuccess! {
+            return
+            /*if postresponse.HTTPsuccess! {
                 self.alert(message: "You have accepted the bet!", title: "Bet Accepted");
             }
             else{
@@ -99,7 +158,7 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
                 self.alert(message: "Bet unable to be accepted", title: "Bet Acceptance Error")
             }
             
-            self.MyFeed.reloadData();
+            self.MyFeed.reloadData();*/
         })
     }
     
@@ -109,7 +168,7 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
         let parameters = ["loguser": common.username, "auth": common.pwhash, "bet_id": sender.bet_id, "user_name": "TODO Other Person's username"] as! Dictionary<String, String>;
         
         sendPOST(uri: "/api/betting/cancel_bet", parameters: parameters, callback: { (postresponse) in
-            if postresponse.HTTPsuccess! {
+            /*if postresponse.HTTPsuccess! {
                 self.alert(message: "You have declined the bet!", title: "Bet Declined");
             }
             else{
@@ -117,7 +176,7 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
                 self.alert(message: "Bet unable to be declined", title: "Bet Decline Error")
             }
             
-            self.MyFeed.reloadData();
+            self.MyFeed.reloadData();*/
         })
     }
     

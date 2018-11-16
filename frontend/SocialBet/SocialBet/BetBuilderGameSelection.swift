@@ -17,7 +17,10 @@ class BetBuilderGameSelection: UIViewController, UICollectionViewDataSource, UIC
         super.viewDidLoad()
         
         self.BuilderGamesFeed.register(UINib(nibName: "GamesFeedCell", bundle:nil), forCellWithReuseIdentifier: "GamesFeedCell");
-
+        
+        self.BuilderGamesFeed.delegate = self
+        self.BuilderGamesFeed.dataSource = self
+/*
         // Do any additional setup after loading the view.
         print("Opponent Handle: " + self.selectedOpponent!);
         
@@ -40,6 +43,27 @@ class BetBuilderGameSelection: UIViewController, UICollectionViewDataSource, UIC
             } else{
                 self.alert(message: "There was an error processing your request.", title: "Network Error")
             }
+        })*/
+        
+        // submit a GET request to get the game feed object
+        let fullURI = addGETParams(path: "/api/games/", search: "", needsUsername: false)
+        sendGET(uri: fullURI, callback: { (httpresponse) in
+            let data: Data! = (httpresponse.data)
+            
+            // decode the information recieved
+            if httpresponse.HTTPsuccess! {
+                guard let feedData = try? JSONDecoder().decode(GamesFeed.self, from: data)
+                    else {
+                        self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
+                        return
+                }
+                self.gamesData = feedData;
+                self.feedCount = feedData.games.count;
+            } else{
+                self.alert(message: "There was an error processing your request.", title: "Network Error")
+            }
+            
+            self.BuilderGamesFeed.reloadData();
         })
         
     }
@@ -62,29 +86,43 @@ class BetBuilderGameSelection: UIViewController, UICollectionViewDataSource, UIC
         return self.feedCount;
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GamesFeedCell", for: indexPath) as? GamesFeedCell;
-            
-            //TODO - Figure out how to correctly use this indexPath thing for nested arrays
-            
-            let thisGame = self.gamesData!.games[indexPath.row];
-            
-            getImageFromUrl(urlString: thisGame.team1_url, imageView: (cell?.HomeTeamLogo)!);
-            getImageFromUrl(urlString: thisGame.team2_url, imageView: (cell?.AwayTeamLogo)!);
-            cell?.HomeTeamName.text = thisGame.team1;
-            cell?.AwayTeamName.text = thisGame.team2;
-            
-            return cell!;
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GamesFeedCell", for: indexPath) as? GamesFeedCell;
+        
+        //TODO - Figure out how to correctly use this indexPath thing for nested arrays
+        
+        let thisGame = gamesData!.games[indexPath.row];
+        
+        cell?.HomeTeamName.text = thisGame.team1;
+        cell?.AwayTeamName.text = thisGame.team2;
+        cell?.event_id = thisGame.game_id;
+        getImageFromUrl(urlString: thisGame.team1_url, imageView: (cell?.HomeTeamLogo)!);
+        getImageFromUrl(urlString: thisGame.team2_url, imageView: (cell?.AwayTeamLogo)!);
+        cell?.TimeOfGame.text = thisGame.game_time
+        
+        return cell!;
     }
     
-    private func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath){
+    // TODO -- SEE IF THIS IS NECESSARY
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1;
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        print("IN THE SELECT FUNCTION")
         if let indexPath = self.BuilderGamesFeed.indexPathsForSelectedItems?.first{
             let cell = self.BuilderGamesFeed.cellForItem(at: indexPath) as? GamesFeedCell;
             self.selectedGame = cell?.event_id;
             performSegue(withIdentifier: "GameSelectToTeamSelect", sender: self);
         }
-        
     }
+    /*
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath){
+        
+    }*/
     
 }
