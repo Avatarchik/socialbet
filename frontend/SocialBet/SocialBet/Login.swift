@@ -59,9 +59,6 @@ class Login: UIViewController {
         performSegue(withIdentifier: "LoginToRegistration", sender: self)
     }
     
-    @IBAction func GoToTestPage(_ sender: Any) {
-        performSegue(withIdentifier: "LoginToTest", sender: self)
-    }
     
     
 }

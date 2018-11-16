@@ -15,12 +15,9 @@ class Common {
     let default_pic = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREya1ZUSfvxj7zwOwWeCOtLk3JlDTbeuHZy4lcyKilbcmgpgEA"
     var username = "default"
     var pwhash = "default"
-    //var teamInfo = getTeamData()
-    
 }
 
 var common = Common()
-
 
 
 // global methods
@@ -47,15 +44,8 @@ func sha256(data : NSData) -> String {
 }
 
 func getImageFromUrl(urlString: String, imageView: UIImageView) {
-    imageView.image = UIImage(named: "defaultProfilePic.png"); //TODO Remove
-    /*let url = URL(string: urlString)
-    
-    DispatchQueue.global().async {
-        let data = try? Data(contentsOf: url!)  //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-        DispatchQueue.main.async {
-            imageView.image = UIImage(data: data!)
-        }
-    }*/
+    var url = "http://socialbet.jpkrieg.com:5000/" + urlString
+    imageView.image = UIImage(named: url);
 }
 
 func addGETParams(path: String, search: String, needsUsername: Bool) -> String {
