@@ -125,8 +125,8 @@ class BetBuilderTeamSelection: UIViewController, UIGestureRecognizerDelegate {
         
         var alertMessage = "Confirm the details of your bet as listed below.\n Opponent: ";
         alertMessage = alertMessage + self.selected_opponent! + "\n Your Team: "
-        alertMessage = alertMessage + self.user_team_name! + "\n Other Team: "
-        alertMessage = alertMessage + self.other_team_name! + "\n Wager Amount: " + wagerAmount!
+        alertMessage = alertMessage + self.teamOne! + "\n Other Team: "
+        alertMessage = alertMessage + self.teamTwo! + "\n Wager Amount: " + wagerAmount!
         alertMessage = alertMessage + "\n Message: " + self.MessageInput.text!;
         
         let alert = UIAlertController(title: "Bet Confirmation", message: alertMessage, preferredStyle: .alert)
