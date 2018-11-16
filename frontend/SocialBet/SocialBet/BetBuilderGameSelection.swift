@@ -107,9 +107,9 @@ class BetBuilderGameSelection: UIViewController, UICollectionViewDataSource, UIC
     }
     
     // TODO -- SEE IF THIS IS NECESSARY
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1;
-    }
+    //func numberOfSections(in collectionView: UICollectionView) -> Int {
+     //   return 1;
+    //}
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         

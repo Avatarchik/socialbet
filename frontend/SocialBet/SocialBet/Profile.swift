@@ -72,6 +72,12 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     }
     
     var feedType = ProfileFeedTypes.live;
+    var liveData: BetFeed?;
+    var openData: BetFeed?;
+    var requestData: GamesFeed?;
+    var feedCount = 0
+    
+    //var feedType = ProfileFeedTypes.live;
     
     @IBAction func InitiateBet(_ sender: Any) {
         performSegue(withIdentifier: "ProfileToGameSelect", sender: self);
