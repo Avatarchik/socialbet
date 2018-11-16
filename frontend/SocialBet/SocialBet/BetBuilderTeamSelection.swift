@@ -20,6 +20,11 @@ class BetBuilderTeamSelection: UIViewController, UIGestureRecognizerDelegate {
         let secondRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.teamTwoSelected(sender:)))
         self.TeamOneLogo.addGestureRecognizer(firstRecognizer)
         self.TeamTwoLogo.addGestureRecognizer(secondRecognizer)
+        getImageFromUrl(urlString: "", imageView: self.TeamOneLogo)
+        getImageFromUrl(urlString: "", imageView: self.TeamTwoLogo)
+        
+        self.TeamOneName.text = self.teamOne;
+        self.TeamTwoName.text = self.teamTwo;
         
         self.WagerAmountInput.addTarget(self, action: #selector(WagerInputChanged(sender:)), for: .editingChanged)
     }
@@ -93,6 +98,9 @@ class BetBuilderTeamSelection: UIViewController, UIGestureRecognizerDelegate {
     var selected_opponent: String?;
     var user_team_name: String?;
     var other_team_name: String?;
+    var teamOne: String?;
+    var teamTwo: String?;
+    
     @IBOutlet weak var TeamOneLogo: UIImageView!
     
     @IBOutlet weak var TeamTwoLogo: UIImageView!

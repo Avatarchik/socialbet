@@ -9,6 +9,10 @@ class BetBuilderGameSelection: UIViewController, UICollectionViewDataSource, UIC
     
     var selectedOpponent: String?;
     var selectedGame: Int?;
+    var teamOne: String?;
+    var teamOneLogo: UIImageView?;
+    var teamTwo: String?;
+    var teamTwoLogo: UIImageView?;
     var feedCount: Int = 0;
     var gamesData: GamesFeed?;
     @IBOutlet weak var BuilderGamesFeed: UICollectionView!
@@ -79,6 +83,10 @@ class BetBuilderGameSelection: UIViewController, UICollectionViewDataSource, UIC
         if let vc = segue.destination as? BetBuilderTeamSelection{
             vc.selected_game_id = self.selectedGame;
             vc.selected_opponent = self.selectedOpponent;
+            vc.teamOne = self.teamOne;
+            vc.teamTwo = self.teamTwo;
+            vc.TeamOneLogo = self.teamOneLogo;
+            vc.TeamTwoLogo = self.teamTwoLogo;
         }
     }
 
@@ -117,6 +125,11 @@ class BetBuilderGameSelection: UIViewController, UICollectionViewDataSource, UIC
         if let indexPath = self.BuilderGamesFeed.indexPathsForSelectedItems?.first{
             let cell = self.BuilderGamesFeed.cellForItem(at: indexPath) as? GamesFeedCell;
             self.selectedGame = cell?.event_id;
+            self.teamOne = cell?.HomeTeamName.text;
+            self.teamTwo = cell?.AwayTeamName.text;
+            print("Adding images");
+            self.teamOneLogo = cell?.HomeTeamLogo;
+            self.teamTwoLogo = cell?.AwayTeamLogo;
             performSegue(withIdentifier: "GameSelectToTeamSelect", sender: self);
         }
     }
