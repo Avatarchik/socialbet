@@ -42,10 +42,22 @@ func sha256(data : NSData) -> String {
     return "\(res!)".replacingOccurrences(of: "", with: "").replacingOccurrences(of: " ", with: "");
     
 }
-
+extension UIImageView {
+    func load(url: URL) {
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
+            }
+        }
+    }
+}
 func getImageFromUrl(urlString: String, imageView: UIImageView) {
     var url = "http://socialbet.jpkrieg.com:5000/" + urlString
-    imageView.image = UIImage(named: url);
+    imageView.load(url: URL(string: url)!)
 }
 
 func addGETParams(path: String, search: String, needsUsername: Bool) -> String {
