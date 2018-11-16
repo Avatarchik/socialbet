@@ -1,4 +1,4 @@
-from flask import Flask, Blueprint, request
+from flask import Flask, Blueprint, request, send_from_directory
 from werkzeug.datastructures import ImmutableMultiDict
 from db import db
 from .api_utils import create_http_response
@@ -6,6 +6,11 @@ import json
 
 app = Flask(__name__)
 users = Blueprint('users', __name__)
+
+
+@users.route('/user_profile_pics/<path:path>')
+def send_user_photo(path):
+    return send_from_directory('user_profile_pics/', path)
 
 #Currently a bug in this endpoint. Returning no friends with achapp and cterech
 @users.route('/api/users/exist/')

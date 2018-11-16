@@ -23,7 +23,7 @@ def list_open_bets():
 
         db_user1 = db.get_user(db_bet['user1'])
         user1 = {
-            'user_id': db_user1['user_name'],
+            'username': db_user1['user_name'],
             'first_name': db_user1['first_name'],
             'last_name': db_user1['last_name'],
             'profile_pic_url': db_user1['profile_pic_url'],
@@ -106,7 +106,7 @@ def list_users_open_bets():
 
         db_user1 = db.get_user(db_bet['user1'])
         user1 = {
-            'user_id': db_user1['user_name'],
+            'username': db_user1['user_name'],
             'first_name': db_user1['first_name'],
             'last_name': db_user1['last_name'],
             'profile_pic_url': db_user1['profile_pic_url'],
@@ -186,7 +186,7 @@ def list_closed_bets():
 
         db_user1 = db.get_user(db_bet['user1'])
         user1 = {
-            'user_id': db_user1['user_name'],
+            'username': db_user1['user_name'],
             'first_name': db_user1['first_name'],
             'last_name': db_user1['last_name'],
             'profile_pic_url': db_user1['profile_pic_url'],
@@ -194,7 +194,7 @@ def list_closed_bets():
         }
         db_user2 = db.get_user(db_bet['user2'])
         user2 = {
-            'user_id': db_user2['user_name'],
+            'username': db_user2['user_name'],
             'first_name': db_user2['first_name'],
             'last_name': db_user2['last_name'],
             'profile_pic_url': db_user2['profile_pic_url'],
@@ -229,7 +229,7 @@ def list_closed_bets_bet_history():
 
         db_user1 = db.get_user(db_bet['user1'])
         user1 = {
-            'user_id': db_user1['user_name'],
+            'username': db_user1['user_name'],
             'first_name': db_user1['first_name'],
             'last_name': db_user1['last_name'],
             'profile_pic_url': db_user1['profile_pic_url'],
@@ -237,7 +237,7 @@ def list_closed_bets_bet_history():
         }
         db_user2 = db.get_user(db_bet['user2'])
         user2 = {
-            'user_id': db_user2['user_name'],
+            'username': db_user2['user_name'],
             'first_name': db_user2['first_name'],
             'last_name': db_user2['last_name'],
             'profile_pic_url': db_user2['profile_pic_url'],
@@ -273,7 +273,7 @@ def list_direct_bets_pending():
 
         db_user1 = db.get_user(db_bet['user1'])
         user1 = {
-            'user_id': db_user1['user_name'],
+            'username': db_user1['user_name'],
             'first_name': db_user1['first_name'],
             'last_name': db_user1['last_name'],
             'profile_pic_url': db_user1['profile_pic_url'],
@@ -281,7 +281,7 @@ def list_direct_bets_pending():
         }
         db_user2 = db.get_user(db_bet['user2'])
         user2 = {
-            'user_id': db_user2['user_name'],
+            'username': db_user2['user_name'],
             'first_name': db_user2['first_name'],
             'last_name': db_user2['last_name'],
             'profile_pic_url': db_user2['profile_pic_url'],
@@ -317,7 +317,7 @@ def list_between_us_bets():
 
         db_user1 = db.get_user(db_bet['user1'])
         user1 = {
-            'user_id': db_user1['user_name'],
+            'username': db_user1['user_name'],
             'first_name': db_user1['first_name'],
             'last_name': db_user1['last_name'],
             'profile_pic_url': db_user1['profile_pic_url'],

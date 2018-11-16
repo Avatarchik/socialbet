@@ -399,7 +399,7 @@ def place_bet(data):
 
     game_id = str(data['game_id'])
     message = data['message']
-    amount = data['amount'][1:]
+    amount = data['amount'][1:].replace(',', '')
     user1 = data['user1']
     user2 = data['user2']
     time_placed = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
