@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.30.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.19.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -595,7 +595,7 @@
                                 <rect key="frame" x="0.0" y="237" width="375" height="430"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Zck-Io-LSY">
-                                    <size key="itemSize" width="375" height="77"/>
+                                    <size key="itemSize" width="375" height="160"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -708,10 +708,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Qt6-X5-fNi">
-                                <rect key="frame" x="30" y="144" width="315" height="493"/>
+                                <rect key="frame" x="0.0" y="144" width="375" height="493"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JMZ-Ts-eMe">
-                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="itemSize" width="375" height="160"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -741,7 +741,7 @@
                             <constraint firstItem="ZJA-qv-uvb" firstAttribute="top" secondItem="cvt-yF-jhJ" secondAttribute="top" constant="10" id="B3l-If-kc4"/>
                             <constraint firstItem="Qt6-X5-fNi" firstAttribute="centerX" secondItem="cvt-yF-jhJ" secondAttribute="centerX" id="Dx0-2s-pUi"/>
                             <constraint firstItem="Qt6-X5-fNi" firstAttribute="top" secondItem="N1g-sh-L3Q" secondAttribute="bottom" constant="40" id="Mua-zI-HBf"/>
-                            <constraint firstItem="Qt6-X5-fNi" firstAttribute="leading" secondItem="cvt-yF-jhJ" secondAttribute="leading" constant="30" id="StR-h9-BI8"/>
+                            <constraint firstItem="Qt6-X5-fNi" firstAttribute="leading" secondItem="cvt-yF-jhJ" secondAttribute="leading" id="StR-h9-BI8"/>
                             <constraint firstItem="N1g-sh-L3Q" firstAttribute="top" secondItem="cvt-yF-jhJ" secondAttribute="top" constant="60" id="YKV-d5-SM4"/>
                             <constraint firstItem="N1g-sh-L3Q" firstAttribute="centerX" secondItem="cvt-yF-jhJ" secondAttribute="centerX" id="qiy-An-FZF"/>
                         </constraints>

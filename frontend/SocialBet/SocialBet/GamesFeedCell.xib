@@ -79,7 +79,7 @@
                 <outlet property="HomeTeamName" destination="YNf-Uv-iCf" id="pgf-24-J18"/>
                 <outlet property="TimeOfGame" destination="B6r-Rw-jeW" id="Jap-wY-Vhc"/>
             </connections>
-            <point key="canvasLocation" x="170" y="-15"/>
+            <point key="canvasLocation" x="169.59999999999999" y="-15.292353823088456"/>
         </collectionViewCell>
     </objects>
 </document>
