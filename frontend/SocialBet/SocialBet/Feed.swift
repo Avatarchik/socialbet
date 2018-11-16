@@ -186,6 +186,8 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             cell?.TeamName2.text = thisBet.team2;
             cell?.Message.text = thisBet.message;
             cell?.GameTime.text = thisBet.game_time;
+            cell?.User1Image.setRounded()
+            cell?.User2Image.setRounded()
             getImageFromUrl(urlString: thisBet.team1_logo_url, imageView: (cell?.Team1Image)!);
             getImageFromUrl(urlString: thisBet.team2_logo_url, imageView: (cell?.Team2Image)!);
             cell?.WagerAmount.text = "";
@@ -204,6 +206,7 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             cell?.OtherTeamLowerText.text = thisBet.team2;
             cell?.BetAmount.text = "Amount: $" + String(thisBet.ammount);
             cell?.GameTime.text = thisBet.game_time;
+            cell?.ProfilePic.setRounded()
             getImageFromUrl(urlString: thisBet.user1.profile_pic_url, imageView: (cell?.ProfilePic)!);
             getImageFromUrl(urlString: thisBet.team1_logo_url, imageView: (cell?.UserTeamLogo)!);
             getImageFromUrl(urlString: thisBet.team2_logo_url, imageView: (cell?.OtherTeamLogo)!);

@@ -15,6 +15,8 @@ class BetBuilderGameSelection: UIViewController, UICollectionViewDataSource, UIC
     var teamTwoLogo: UIImageView?;
     var feedCount: Int = 0;
     var gamesData: GamesFeed?;
+    var teamOneLogoURL: String?
+    var teamTwoLogoURL: String?
     @IBOutlet weak var BuilderGamesFeed: UICollectionView!
     
     override func viewDidLoad() {
@@ -87,6 +89,9 @@ class BetBuilderGameSelection: UIViewController, UICollectionViewDataSource, UIC
             vc.teamTwo = self.teamTwo;
             vc.TeamOneLogo = self.teamOneLogo;
             vc.TeamTwoLogo = self.teamTwoLogo;
+            vc.teamOneLogoURL = self.teamOneLogoURL
+            vc.teamTwoLogoURL = self.teamTwoLogoURL
+            
         }
     }
 
@@ -122,12 +127,18 @@ class BetBuilderGameSelection: UIViewController, UICollectionViewDataSource, UIC
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         print("IN THE SELECT FUNCTION")
+        
+        let thisGame = gamesData!.games[indexPath.row];
         if let indexPath = self.BuilderGamesFeed.indexPathsForSelectedItems?.first{
+            
             let cell = self.BuilderGamesFeed.cellForItem(at: indexPath) as? GamesFeedCell;
             self.selectedGame = cell?.event_id;
             self.teamOne = cell?.HomeTeamName.text;
             self.teamTwo = cell?.AwayTeamName.text;
             print("Adding images");
+            self.teamOneLogoURL = thisGame.team1_url;
+            
+            self.teamTwoLogoURL = thisGame.team2_url;
             self.teamOneLogo = cell?.HomeTeamLogo;
             self.teamTwoLogo = cell?.AwayTeamLogo;
             performSegue(withIdentifier: "GameSelectToTeamSelect", sender: self);

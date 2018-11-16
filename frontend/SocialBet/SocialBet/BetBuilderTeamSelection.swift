@@ -20,8 +20,8 @@ class BetBuilderTeamSelection: UIViewController, UIGestureRecognizerDelegate {
         let secondRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.teamTwoSelected(sender:)))
         self.TeamOneLogo.addGestureRecognizer(firstRecognizer)
         self.TeamTwoLogo.addGestureRecognizer(secondRecognizer)
-        getImageFromUrl(urlString: "", imageView: self.TeamOneLogo)
-        getImageFromUrl(urlString: "", imageView: self.TeamTwoLogo)
+        getImageFromUrl(urlString: self.teamOneLogoURL!, imageView: self.TeamOneLogo)
+        getImageFromUrl(urlString: self.teamTwoLogoURL!, imageView: self.TeamTwoLogo)
         
         self.TeamOneName.text = self.teamOne;
         self.TeamTwoName.text = self.teamTwo;
@@ -100,6 +100,8 @@ class BetBuilderTeamSelection: UIViewController, UIGestureRecognizerDelegate {
     var other_team_name: String?;
     var teamOne: String?;
     var teamTwo: String?;
+    var teamOneLogoURL: String?
+    var teamTwoLogoURL: String?
     
     @IBOutlet weak var TeamOneLogo: UIImageView!
     
