@@ -48,11 +48,17 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
     var gamesData: GamesFeed?;
     var feedCount = 0
     
+    
     override func viewDidLoad() {
         super.viewDidLoad();
         
         // default to live bets view
-        LiveBetsButton(self)
+        if (self.feedType == FeedTypes.open) {
+            OpenBetsButton(self)
+        } else {
+            LiveBetsButton(self)
+        }
+       
         
         self.Collection.register(UINib(nibName: "LiveFeedCell", bundle:nil), forCellWithReuseIdentifier: "LiveFeedCell");
         self.Collection.register(UINib(nibName: "OpenFeedCell", bundle:nil), forCellWithReuseIdentifier: "OpenFeedCell");
@@ -61,6 +67,10 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
         self.Collection.delegate = self
         self.Collection.dataSource = self
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.viewDidLoad()
     }
     
     @IBAction func LiveBetsButton(_ sender: Any) {
