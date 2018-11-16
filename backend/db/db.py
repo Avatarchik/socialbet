@@ -1,5 +1,6 @@
 from .db_config import get_db_config
 import pymysql
+import datetime
 
 def authenticate(log_user, auth):
     if log_user is None or auth is None:
@@ -398,10 +399,10 @@ def place_bet(data):
 
     game_id = str(data['game_id'])
     message = data['message']
-    amount = str(data['amount'])
+    amount = data['amount'][1:]
     user1 = data['user1']
     user2 = data['user2']
-    time_placed = data['time_placed']
+    time_placed = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
 
     direct = str(data['direct'])
     accepted = str(data['accepted'])
