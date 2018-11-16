@@ -240,11 +240,13 @@ def get_live_bets(loguser):
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
     cursor = db.cursor(pymysql.cursors.DictCursor)
 
-    sql = "SELECT DISTINCT B.* FROM bets B " \
+    sql = "SELECT DISTINCT B.*, T1.logo_url AS team1_logo_url, T2.logo_url AS team2_logo_url FROM bets B " \
           "INNER JOIN " \
             "(SELECT * FROM friends F1 WHERE F1.user1 =\"" + loguser + "\" OR F1.user2=\"" + loguser + "\") F2 " \
             "ON F2.user1 = B.user1 OR F2.user1 = B.user2 OR F2.user2 = B.user1 OR F2.user2 = B.user2 " \
-           "WHERE accepted=1 AND winner IS NULL ORDER BY B.bet_id DESC;"
+           "INNER JOIN teams T1 ON T1.team_full_name=B.team1 "\
+            "INNER JOIN teams T2 ON T2.team_full_name=B.team2 " \
+            "WHERE accepted=1 AND winner IS NULL ORDER BY B.bet_id DESC;"
 
     cursor.execute(sql)
 
@@ -266,6 +268,9 @@ def get_open_bets(loguser):
           "INNER JOIN " \
             "(SELECT * FROM friends F1 WHERE F1.user1 =\"" + loguser + "\" OR F1.user2=\"" + loguser + "\") F2 " \
             "ON F2.user1 = B.user1 OR F2.user2 = B.user1 " \
+            "INNER JOIN teams T1 ON T1.team_full_name=B.team1 "\
+            "INNER JOIN teams T2 ON T2.team_full_name=B.team2 " \
+
            "WHERE accepted=0 AND direct=0 AND winner IS NULL ORDER BY B.bet_id DESC;"
 
     cursor.execute(sql)
