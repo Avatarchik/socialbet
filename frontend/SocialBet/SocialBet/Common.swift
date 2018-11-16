@@ -163,7 +163,9 @@ struct Bet: Decodable {
     let message: String
     let num_comments: Int
     let team1: String
+    let team1_logo_url: String
     let team2: String
+    let team2_logo_url: String
     let time_placed: String
     let user1: UserInBet
     let user2: UserInBet?

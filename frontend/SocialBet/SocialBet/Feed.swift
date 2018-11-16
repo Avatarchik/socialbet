@@ -186,14 +186,9 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             cell?.TeamName2.text = thisBet.team2;
             cell?.Message.text = thisBet.message;
             cell?.GameTime.text = thisBet.game_time;
+            getImageFromUrl(urlString: thisBet.team1_logo_url, imageView: (cell?.Team1Image)!);
+            getImageFromUrl(urlString: thisBet.team2_logo_url, imageView: (cell?.Team2Image)!);
             cell?.WagerAmount.text = "";
-            
-            let team1Url = teamURL(teamname: thisBet.team1);
-            let team2Url = teamURL(teamname: thisBet.team2);
-            
-            // TODO: Need to add initializer to get all URLs at start
-            getImageFromUrl(urlString: team1Url, imageView: (cell?.Team1Image)!);
-            getImageFromUrl(urlString: team2Url, imageView: (cell?.Team2Image)!);
             
             
             return cell!;
@@ -209,13 +204,9 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             cell?.OtherTeamLowerText.text = thisBet.team2;
             cell?.BetAmount.text = "Amount: $" + String(thisBet.ammount);
             cell?.GameTime.text = thisBet.game_time;
-            
-            let team1Url = teamURL(teamname: thisBet.user1.team);
-            let team2Url = teamURL(teamname: thisBet.team2);
-            
-            // TODO: Need to add initializer to get all URLs at start
-            getImageFromUrl(urlString: team1Url, imageView: (cell?.UserTeamLogo)!);
-            getImageFromUrl(urlString: team2Url, imageView: (cell?.OtherTeamLogo)!);
+            getImageFromUrl(urlString: thisBet.user1.profile_pic_url, imageView: (cell?.ProfilePic)!);
+            getImageFromUrl(urlString: thisBet.team1_logo_url, imageView: (cell?.UserTeamLogo)!);
+            getImageFromUrl(urlString: thisBet.team2_logo_url, imageView: (cell?.OtherTeamLogo)!);
             
             
             
