@@ -240,11 +240,11 @@ def get_live_bets(loguser):
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
     cursor = db.cursor(pymysql.cursors.DictCursor)
 
-    sql = "SELECT B.* FROM bets B " \
+    sql = "SELECT DISTINCT B.* FROM bets B " \
           "INNER JOIN " \
             "(SELECT * FROM friends F1 WHERE F1.user1 =\"" + loguser + "\" OR F1.user2=\"" + loguser + "\") F2 " \
             "ON F2.user1 = B.user1 OR F2.user1 = B.user2 OR F2.user2 = B.user1 OR F2.user2 = B.user2 " \
-           "WHERE accepted=1 AND winner IS NULL;"
+           "WHERE accepted=1 AND winner IS NULL ORDER BY B.bet_id DESC;"
 
     cursor.execute(sql)
 
@@ -262,11 +262,11 @@ def get_open_bets(loguser):
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
     cursor = db.cursor(pymysql.cursors.DictCursor)
 
-    sql = "SELECT B.* FROM bets B " \
+    sql = "SELECT DISTINCT B.* FROM bets B " \
           "INNER JOIN " \
             "(SELECT * FROM friends F1 WHERE F1.user1 =\"" + loguser + "\" OR F1.user2=\"" + loguser + "\") F2 " \
             "ON F2.user1 = B.user1 OR F2.user2 = B.user1 " \
-           "WHERE accepted=0 AND direct=0 AND winner IS NULL;"
+           "WHERE accepted=0 AND direct=0 AND winner IS NULL ORDER BY B.bet_id DESC;"
 
     cursor.execute(sql)
 
@@ -284,7 +284,7 @@ def get_users_live_bets(loguser):
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
     cursor = db.cursor(pymysql.cursors.DictCursor)
 
-    sql = "SELECT * FROM bets WHERE winner IS NULL AND accepted=1 AND (user1=\"" + loguser + "\" OR user2=\"" +  loguser + " \");"
+    sql = "SELECT * FROM bets WHERE winner IS NULL AND accepted=1 AND (user1=\"" + loguser + "\" OR user2=\"" +  loguser + " \") ORDER BY bet_id DESC;"
 
     cursor.execute(sql)
 
