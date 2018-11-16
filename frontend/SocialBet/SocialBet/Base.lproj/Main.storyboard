@@ -744,6 +744,7 @@
                             <constraint firstItem="Qt6-X5-fNi" firstAttribute="leading" secondItem="cvt-yF-jhJ" secondAttribute="leading" id="StR-h9-BI8"/>
                             <constraint firstItem="N1g-sh-L3Q" firstAttribute="top" secondItem="cvt-yF-jhJ" secondAttribute="top" constant="60" id="YKV-d5-SM4"/>
                             <constraint firstItem="N1g-sh-L3Q" firstAttribute="centerX" secondItem="cvt-yF-jhJ" secondAttribute="centerX" id="qiy-An-FZF"/>
+                            <constraint firstItem="cvt-yF-jhJ" firstAttribute="trailing" secondItem="Qt6-X5-fNi" secondAttribute="trailing" id="vJk-ku-9pU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cvt-yF-jhJ"/>
                     </view>
@@ -755,7 +756,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yzI-Gi-fah" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3695" y="143"/>
+            <point key="canvasLocation" x="3693.5999999999999" y="142.57871064467767"/>
         </scene>
         <!--Bet Builder Team Selection-->
         <scene sceneID="L6z-SP-byU">
@@ -1165,9 +1166,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="577-1U-4to"/>
-        <segue reference="Ia1-YO-obj"/>
+        <segue reference="xhG-KS-FYW"/>
+        <segue reference="XxG-dJ-BTr"/>
         <segue reference="C4C-SM-klp"/>
-        <segue reference="LZe-Ez-tcL"/>
+        <segue reference="aj8-0M-1lt"/>
     </inferredMetricsTieBreakers>
 </document>

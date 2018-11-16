@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/Nick/Documents/5year/441/socialbet/frontend/SocialBet/SocialBet/Testing.swift">
+   </FileRef>
+   <FileRef
       location = "group:SocialBet.xcodeproj">
    </FileRef>
    <FileRef

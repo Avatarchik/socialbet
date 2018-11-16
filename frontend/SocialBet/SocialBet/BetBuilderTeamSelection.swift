@@ -44,6 +44,20 @@ class BetBuilderTeamSelection: UIViewController, UIGestureRecognizerDelegate {
         self.other_team_name = self.TeamOneName.text;
     }
     
+    //Use this function to pass data through segues
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        print("Override Works!");
+        //if going to next stage of bet builder
+        if let vc = segue.destination as? Feed {
+            if (self.selected_opponent == "") {
+                vc.feedType = .open
+            } else {
+                vc.feedType = .live
+            }
+            
+        }
+    }
+    
     func submitBet(alert: UIAlertAction!) {
         let direct = (self.selected_opponent != "");
         
@@ -65,6 +79,8 @@ class BetBuilderTeamSelection: UIViewController, UIGestureRecognizerDelegate {
                 //TODO perform segue going back to beginning of bet builder
             }*/
             print("Bet Submitted!");
+            self.performSegue(withIdentifier: "TeamSelectToFeed", sender: nil)
+            
         })
     }
     
@@ -89,15 +105,6 @@ class BetBuilderTeamSelection: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var MessageInput: UITextField!
     
-    //Use this function to pass data through segues
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        print("Override Works!");
-        //if going to bet builder
-        if let vc = segue.destination as? BetBuilderGameSelection{
-            vc.selectedOpponent = self.selected_opponent;
-        }
-    }
-    
     @IBAction func GoBack(_ sender: Any) {
         performSegue(withIdentifier: "TeamSelectToGameSelect", sender: self)
     }
@@ -115,9 +122,10 @@ class BetBuilderTeamSelection: UIViewController, UIGestureRecognizerDelegate {
         let alert = UIAlertController(title: "Bet Confirmation", message: alertMessage, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: submitBet))
         alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel it"), style: .default, handler: cancelBet))
-        self.present(alert, animated: true, completion: nil)      
-        
+        self.present(alert, animated: true, completion: nil)
     }
+    
+    
 }
 
 extension String {
@@ -148,4 +156,6 @@ extension String {
         
         return formatter.string(from: number)!
     }
+    
+    
 }
