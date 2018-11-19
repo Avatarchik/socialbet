@@ -100,12 +100,32 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fpa-dY-OS8">
+                        <rect key="frame" x="101.5" y="120" width="30" height="30"/>
+                        <state key="normal" title="asdf">
+                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <connections>
+                            <action selector="HiddenAccept:" destination="v93-o6-HcU" eventType="touchUpInside" id="fiZ-pA-Bqf"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VvO-f5-bDp">
+                        <rect key="frame" x="243" y="120" width="30" height="30"/>
+                        <state key="normal" title="asdf">
+                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <connections>
+                            <action selector="HiddenDecline:" destination="v93-o6-HcU" eventType="touchUpInside" id="Ees-V2-IJv"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="EOF-Wu-fyP" firstAttribute="top" secondItem="Fpa-dY-OS8" secondAttribute="top" id="0om-0W-QDF"/>
                 <constraint firstItem="d69-wX-1ff" firstAttribute="top" secondItem="wIr-rv-dJh" secondAttribute="bottom" constant="5" id="6Cu-SX-cLp"/>
                 <constraint firstItem="SCa-Cx-8BS" firstAttribute="top" secondItem="d69-wX-1ff" secondAttribute="bottom" constant="10" id="6fI-wi-Oed"/>
+                <constraint firstItem="VvO-f5-bDp" firstAttribute="width" secondItem="bp6-nQ-knL" secondAttribute="width" id="CAE-FK-CbG"/>
                 <constraint firstItem="dyQ-k2-Rd9" firstAttribute="top" secondItem="9XJ-Hg-Txx" secondAttribute="top" id="DZv-SB-jqi"/>
                 <constraint firstItem="Vx6-px-hVD" firstAttribute="top" secondItem="tV8-dy-YGA" secondAttribute="bottom" constant="5" id="H3Q-dl-U3n"/>
                 <constraint firstItem="bp6-nQ-knL" firstAttribute="width" secondItem="EOF-Wu-fyP" secondAttribute="width" id="HBD-ci-k5D"/>
@@ -128,12 +148,18 @@
                 <constraint firstItem="SCa-Cx-8BS" firstAttribute="centerX" secondItem="OGW-fW-kyo" secondAttribute="centerX" id="b6C-kS-5wj"/>
                 <constraint firstItem="bp6-nQ-knL" firstAttribute="top" secondItem="EOF-Wu-fyP" secondAttribute="top" id="fJf-kd-B9O"/>
                 <constraint firstItem="wIr-rv-dJh" firstAttribute="top" secondItem="9XJ-Hg-Txx" secondAttribute="top" id="fVy-Us-WEW"/>
+                <constraint firstItem="Fpa-dY-OS8" firstAttribute="centerX" secondItem="EOF-Wu-fyP" secondAttribute="centerX" id="fhO-jc-amJ"/>
                 <constraint firstItem="Vx6-px-hVD" firstAttribute="centerX" secondItem="OGW-fW-kyo" secondAttribute="centerX" id="fkN-xY-44x"/>
                 <constraint firstItem="nYP-EA-4T4" firstAttribute="bottom" secondItem="HDk-KE-OBd" secondAttribute="centerY" constant="5" id="gXa-bn-Jep"/>
+                <constraint firstItem="Fpa-dY-OS8" firstAttribute="height" secondItem="EOF-Wu-fyP" secondAttribute="height" id="jRJ-EX-a4B"/>
                 <constraint firstItem="OGW-fW-kyo" firstAttribute="bottom" secondItem="EOF-Wu-fyP" secondAttribute="bottom" constant="10" id="kr2-Vd-a0d"/>
                 <constraint firstItem="1Oa-Wo-xfc" firstAttribute="leading" secondItem="nYP-EA-4T4" secondAttribute="trailing" constant="3" id="lhV-ep-DCk"/>
+                <constraint firstItem="VvO-f5-bDp" firstAttribute="centerX" secondItem="bp6-nQ-knL" secondAttribute="centerX" id="sQK-Ns-Z4f"/>
                 <constraint firstAttribute="trailing" secondItem="Oup-rG-RtC" secondAttribute="trailing" constant="30" id="vc8-sM-9qX"/>
+                <constraint firstItem="Fpa-dY-OS8" firstAttribute="width" secondItem="EOF-Wu-fyP" secondAttribute="width" id="wBe-vC-qgU"/>
                 <constraint firstItem="dyQ-k2-Rd9" firstAttribute="width" secondItem="9XJ-Hg-Txx" secondAttribute="width" id="wbT-4j-aDN"/>
+                <constraint firstItem="bp6-nQ-knL" firstAttribute="top" secondItem="VvO-f5-bDp" secondAttribute="top" id="xhf-eN-kPF"/>
+                <constraint firstItem="VvO-f5-bDp" firstAttribute="height" secondItem="bp6-nQ-knL" secondAttribute="height" id="yCM-HZ-Z2C"/>
                 <constraint firstItem="Oup-rG-RtC" firstAttribute="top" secondItem="HDk-KE-OBd" secondAttribute="top" id="z0S-Kw-pn7"/>
                 <constraint firstItem="wIr-rv-dJh" firstAttribute="centerX" secondItem="OGW-fW-kyo" secondAttribute="centerX" id="ziX-o9-ugg"/>
             </constraints>
