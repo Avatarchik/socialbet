@@ -260,29 +260,39 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
             cell?.AcceptButton.isEnabled = true;
             cell?.DeclineButton.isEnabled = true;
             
+            cell?.AcceptButton.tag = thisBet.bet_id
+            cell?.DeclineButton.tag = thisBet.bet_id
+            
+            // add actions for the buttons
+            cell?.AcceptButton.addTarget(self, action: #selector(AcceptButtonPressed(sender:)), for: .touchUpInside)
+            cell?.DeclineButton.addTarget(self, action: #selector(DeclineButtonPressed(sender:)), for: .touchUpInside)
+            
+            
             return cell!;
         }
     }
 
-    func AcceptButtonPressed(bet_id: Int) {
-        let parameters = ["loguser": common.username, "auth": common.pwhash, "bet_id": bet_id as Any] as Dictionary<String, Any>;
+    @objc func AcceptButtonPressed(sender: UIButton) {
+        let parameters = ["loguser": common.username, "auth": common.pwhash, "bet_id": sender.tag as Any] as Dictionary<String, Any>;
         
-        sendPOST(uri: "/api/betting/accept_bet", parameters: parameters, callback: { (postresponse) in
+        sendPOST(uri: "/api/betting/accept_bet/", parameters: parameters, callback: { (postresponse) in
             if postresponse["success_status"] as! String == "successful" {
                 self.alert(message: "You have accepted the bet!", title: "Bet Accepted");
+                self.MyFeed.reloadData()
             } else {
                 self.alert(message: "Bet unable to be accepted", title: "Bet Acceptance Error")
             }
         })
     }
     
-    func DeclineButtonPressed(bet_id: Int) {
-        let parameters = ["loguser": common.username, "auth": common.pwhash, "bet_id": bet_id as Any] as Dictionary<String, Any>;
+    @objc func DeclineButtonPressed(sender: UIButton) {
+        let parameters = ["loguser": common.username, "auth": common.pwhash, "bet_id": sender.tag as Any] as Dictionary<String, Any>;
         
-        sendPOST(uri: "/api/betting/cancel_bet", parameters: parameters,
+        sendPOST(uri: "/api/betting/cancel_bet/", parameters: parameters,
             callback: { (postresponse) in
             if postresponse["success_status"] as! String == "successful" {
                 self.alert(message: "You have declined the bet!", title: "Bet Declined");
+                self.MyFeed.reloadData()
             } else {
                 self.alert(message: "Bet unable to be declined", title: "Bet Decline Error")
             }
