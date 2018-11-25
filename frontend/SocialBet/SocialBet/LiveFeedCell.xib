@@ -149,7 +149,7 @@
                 <outlet property="User2Name" destination="tV8-dy-YGA" id="ucm-ts-OVa"/>
                 <outlet property="WagerAmount" destination="M4p-1s-f6e" id="Ovx-gb-SlW"/>
             </connections>
-            <point key="canvasLocation" x="225.59999999999999" y="96.251874062968525"/>
+            <point key="canvasLocation" x="-224" y="-38"/>
         </collectionViewCell>
     </objects>
 </document>

@@ -22,34 +22,4 @@ class LiveFeedCell: UICollectionViewCell {
     @IBOutlet weak var AcceptButton: UIImageView!
     @IBOutlet weak var DeclineButton: UIImageView!
     var bet_id: Int?;
-    
-    @IBAction func HiddenAccept(_ sender: Any) {
-        let parameters = ["loguser": common.username, "auth": common.pwhash, "bet_id": self.bet_id as Any] as Dictionary<String, Any>;
-        
-        sendPOST(uri: "/api/betting/accept_bet", parameters: parameters, callback: { (postresponse) in
-            /*if postresponse.HTTPsuccess! {
-             self.alert(message: "You have accepted the bet!", title: "Bet Accepted");
-             }
-             else{
-             // TODO: check HTML error codes
-             self.alert(message: "Bet unable to be accepted", title: "Bet Acceptance Error")
-             }*/           
-            
-        })
-    }
-    
-    @IBAction func HiddenDecline(_ sender: UIButton) {
-        let parameters = ["loguser": common.username, "auth": common.pwhash, "bet_id": self.bet_id as Any] as Dictionary<String, Any>;
-        
-        sendPOST(uri: "/api/betting/cancel_bet", parameters: parameters, callback: { (postresponse) in
-            /*if postresponse.HTTPsuccess! {
-             self.alert(message: "You have declined the bet!", title: "Bet Declined");
-             }
-             else{
-             // TODO: check HTML error codes
-             self.alert(message: "Bet unable to be declined", title: "Bet Decline Error")
-             }*/
-        })
-    }
-    
 }

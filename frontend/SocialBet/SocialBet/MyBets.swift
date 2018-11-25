@@ -177,6 +177,8 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
             getImageFromUrl(urlString: user1Team, imageView: (cell?.Team1Image)!);
             getImageFromUrl(urlString: user2Team, imageView: (cell?.Team2Image)!);
             
+            // TODO: Set invisible=false, disable=false for the accept/decline buttons
+            
             
             return cell!;
             
@@ -256,6 +258,30 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
         }
     }
 
+    func AcceptButtonPressed(bet_id: Int) {
+        let parameters = ["loguser": common.username, "auth": common.pwhash, "bet_id": bet_id as Any] as Dictionary<String, Any>;
+        
+        sendPOST(uri: "/api/betting/accept_bet", parameters: parameters, callback: { (postresponse) in
+            if postresponse["success_status"] as! String == "successful" {
+                self.alert(message: "You have accepted the bet!", title: "Bet Accepted");
+            } else {
+                self.alert(message: "Bet unable to be accepted", title: "Bet Acceptance Error")
+            }
+        })
+    }
+    
+    func DeclineButtonPressed(bet_id: Int) {
+        let parameters = ["loguser": common.username, "auth": common.pwhash, "bet_id": bet_id as Any] as Dictionary<String, Any>;
+        
+        sendPOST(uri: "/api/betting/cancel_bet", parameters: parameters,
+            callback: { (postresponse) in
+            if postresponse["success_status"] as! String == "successful" {
+                self.alert(message: "You have declined the bet!", title: "Bet Declined");
+            } else {
+                self.alert(message: "Bet unable to be declined", title: "Bet Decline Error")
+            }
+        })
+    }
 }
 
 extension MyBets: UICollectionViewDelegateFlowLayout {
