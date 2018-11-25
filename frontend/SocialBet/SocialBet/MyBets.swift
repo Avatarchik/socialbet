@@ -258,10 +258,10 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
 
 }
 
-/*extension MyBets: UICollectionViewDelegateFlowLayout {
+extension MyBets: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: screenWidth, height: screenWidth)
+        return CGSize(width: collectionView.bounds.size.width, height: 160)
     }
     
-}*/
+}
