@@ -19,8 +19,8 @@ class LiveFeedCell: UICollectionViewCell {
     @IBOutlet weak var TeamName2: UILabel!
     @IBOutlet weak var GameTime: UILabel!    
     @IBOutlet weak var WagerAmount: UILabel!    
-    @IBOutlet weak var AcceptButton: UIImageView!
-    @IBOutlet weak var DeclineButton: UIImageView!
+    @IBOutlet weak var DeclineButton: UIButton!
+    @IBOutlet weak var AcceptButton: UIButton!
     var bet_id: Int?;
     
     @IBAction func HiddenAccept(_ sender: Any) {

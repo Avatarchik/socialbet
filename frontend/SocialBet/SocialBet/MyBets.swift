@@ -249,8 +249,11 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
             getImageFromUrl(urlString: team2Url, imageView: (cell?.Team2Image)!);
             
             
-            cell?.AcceptButton.image = UIImage(named: "accept.png")
-            cell?.DeclineButton.image = UIImage(named: "decline.png")
+            cell?.AcceptButton.setImage(UIImage(named: "accept.png"), for: .normal)
+            cell?.DeclineButton.setImage(UIImage(named: "decline.png"), for: .normal)
+            
+            cell?.AcceptButton.isEnabled = true;
+            cell?.DeclineButton.isEnabled = true;
             
             return cell!;
         }
