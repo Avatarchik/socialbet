@@ -177,7 +177,10 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
             getImageFromUrl(urlString: user1Team, imageView: (cell?.Team1Image)!);
             getImageFromUrl(urlString: user2Team, imageView: (cell?.Team2Image)!);
             
-            // TODO: Set invisible=false, disable=false for the accept/decline buttons
+            cell?.AcceptButton.setImage(nil, for: .normal)
+            cell?.DeclineButton.setImage(nil, for: .normal)
+            cell?.AcceptButton.isEnabled = false;
+            cell?.AcceptButton.isEnabled = false;
             
             
             return cell!;
@@ -251,8 +254,11 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
             getImageFromUrl(urlString: team2Url, imageView: (cell?.Team2Image)!);
             
             
-            cell?.AcceptButton.image = UIImage(named: "accept.png")
-            cell?.DeclineButton.image = UIImage(named: "decline.png")
+            cell?.AcceptButton.setImage(UIImage(named: "accept.png"), for: .normal)
+            cell?.DeclineButton.setImage(UIImage(named: "decline.png"), for: .normal)
+            
+            cell?.AcceptButton.isEnabled = true;
+            cell?.DeclineButton.isEnabled = true;
             
             return cell!;
         }
