@@ -277,8 +277,8 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
         
         sendPOST(uri: "/api/betting/accept_bet/", parameters: parameters, callback: { (postresponse) in
             if postresponse["success_status"] as! String == "successful" {
+                self.Requests(self)
                 self.alert(message: "You have accepted the bet!", title: "Bet Accepted");
-                self.MyFeed.reloadData()
             } else {
                 self.alert(message: "Bet unable to be accepted", title: "Bet Acceptance Error")
             }
@@ -291,8 +291,8 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
         sendPOST(uri: "/api/betting/cancel_bet/", parameters: parameters,
             callback: { (postresponse) in
             if postresponse["success_status"] as! String == "successful" {
+                self.Requests(self)
                 self.alert(message: "You have declined the bet!", title: "Bet Declined");
-                self.MyFeed.reloadData()
             } else {
                 self.alert(message: "Bet unable to be declined", title: "Bet Decline Error")
             }
