@@ -51,6 +51,12 @@ class SideMenu: UITableViewController {
         })
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? Profile {
+            vc.searchedUser = self.searched_user;
+        }
+    }
+    
     
     @IBAction func toProfile() {
         self.searched_user = common.username

@@ -186,6 +186,7 @@ struct User: Decodable {
     let first_name: String
     let last_name: String
     let profile_pic_url: String
+    let friends: Bool
 }
 
 struct UserExists: Decodable {

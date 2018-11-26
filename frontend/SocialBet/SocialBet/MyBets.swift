@@ -54,7 +54,7 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
     }
     
     @IBAction func Live(_ sender: Any) {
-        let fullURI = addGETParams(path: "/api/feeds/users_live_bets/", search: "", needsUsername: false)
+        let fullURI = addGETParams(path: "/api/feeds/users_live_bets/", search: common.username, needsUsername: true)
         sendGET(uri: fullURI, callback: { (httpresponse) in
             let data: Data! = httpresponse.data
             
@@ -77,7 +77,7 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
     }
     
     @IBAction func Open(_ sender: Any) {
-        let fullURI = addGETParams(path: "/api/feeds/users_open_bets/", search: "", needsUsername: false)
+        let fullURI = addGETParams(path: "/api/feeds/users_open_bets/", search: common.username, needsUsername: true)
         sendGET(uri: fullURI, callback: { (httpresponse) in
             let data: Data! = httpresponse.data
             

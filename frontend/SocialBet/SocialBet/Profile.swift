@@ -20,12 +20,12 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     @IBOutlet weak var AddFriendButton: UIButton!
     
     
-    var searchedUser: String = ""
-    
+    var searchedUser: String?
+    var is_friend = false;
     var is_profile_self = false;
     
     func DetermineUser() {
-        if (searchedUser == common.username) {
+        if (searchedUser! == common.username) {
             self.is_profile_self = true;
         } else {
             self.is_profile_self = false;
@@ -33,8 +33,8 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     }
     
     
-    func FriendButtonToggle(profile_check: Bool) {
-        if (profile_check) {
+    func FriendButtonToggle() {
+        if (self.is_friend) {
             AddFriendButton.isHidden = true
         } else {
             AddFriendButton.isHidden = false
@@ -46,7 +46,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     @IBAction func addFriend() {
         let URI = "/api/users/add_friend/"
         
-        let params = ["loguser": common.username, "auth": common.pwhash, "user1": common.username, "user2": searchedUser]
+        let params = ["loguser": common.username, "auth": common.pwhash, "user1": common.username, "user2": searchedUser!]
         
         sendPOST(uri: URI, parameters: params, callback: { (postresponse) in
             // check for errors
@@ -74,7 +74,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     var feedType = ProfileFeedTypes.live;
     var liveData: BetFeed?;
     var openData: BetFeed?;
-    var requestData: GamesFeed?;
+    var betweenUsData: BetFeed?;
     var feedCount = 0
     
     //var feedType = ProfileFeedTypes.live;
@@ -84,28 +84,69 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     }
     
     @IBAction func LiveBets(_ sender: Any) {
-        self.LiveBetsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
-        self.OpenBetsObject.titleLabel?.font = UIFont.systemFont(ofSize: 15);
-        self.BetweenUsObject.titleLabel?.font = UIFont.systemFont(ofSize: 15);
-        feedType = .live;
-        self.ProfileBetFeed.reloadData();
+        let fullURI = addGETParams(path: "/api/feeds/users_live_bets/", search: self.searchedUser!, needsUsername: true)
+        sendGET(uri: fullURI, callback: { (httpresponse) in
+            let data: Data! = httpresponse.data
+            
+            guard let feedData = try? JSONDecoder().decode(BetFeed.self, from: data)
+                else {
+                    self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
+                    return
+            }
+            self.liveData = feedData;
+            self.feedCount = self.liveData!.bets.count;
+            self.LiveBetsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
+            self.OpenBetsObject.titleLabel?.font = UIFont.systemFont(ofSize: 15);
+            self.BetweenUsObject.titleLabel?.font = UIFont.systemFont(ofSize: 15);
+            self.feedType = .live;
+            self.ProfileBetFeed.reloadData();
+        })
     }
     
     @IBAction func OpenBets(_ sender: Any) {
-        self.OpenBetsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
-        self.LiveBetsObject.titleLabel?.font = UIFont.systemFont(ofSize: 15);
-        self.BetweenUsObject.titleLabel?.font = UIFont.systemFont(ofSize: 15);
-        feedType = .open;
-        self.ProfileBetFeed.reloadData();
+        let fullURI = addGETParams(path: "/api/feeds/users_open_bets/", search: self.searchedUser!, needsUsername: true)
+        sendGET(uri: fullURI, callback: { (httpresponse) in
+            let data: Data! = httpresponse.data
+            
+            guard let feedData = try? JSONDecoder().decode(BetFeed.self, from: data)
+                else {
+                    self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
+                    return
+            }
+            self.openData = feedData;
+            self.feedCount = self.openData!.bets.count;
+            self.OpenBetsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
+            self.LiveBetsObject.titleLabel?.font = UIFont.systemFont(ofSize: 15);
+            self.BetweenUsObject.titleLabel?.font = UIFont.systemFont(ofSize: 15);
+            self.feedType = .open;
+            self.ProfileBetFeed.reloadData();
+        })
+        
+        
     }
     
     
     @IBAction func BetweenUs(_ sender: Any) {
-        self.BetweenUsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
-        self.OpenBetsObject.titleLabel?.font = UIFont.systemFont(ofSize: 15);
-        self.LiveBetsObject.titleLabel?.font = UIFont.systemFont(ofSize: 15);
-        feedType = .closed;
-        self.ProfileBetFeed.reloadData();
+        
+        var fullURI = addGETParams(path: "/api/feeds/between_us_bets/", search: "", needsUsername: false)
+        fullURI = fullURI + "&user2=" + self.searchedUser!;
+        sendGET(uri: fullURI, callback: { (httpresponse) in
+            let data: Data! = httpresponse.data
+            
+            guard let feedData = try? JSONDecoder().decode(BetFeed.self, from: data)
+                else {
+                    self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
+                    return
+            }
+            self.betweenUsData = feedData;
+            self.feedCount = self.betweenUsData!.bets.count;
+            self.BetweenUsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
+            self.OpenBetsObject.titleLabel?.font = UIFont.systemFont(ofSize: 15);
+            self.LiveBetsObject.titleLabel?.font = UIFont.systemFont(ofSize: 15);
+            self.feedType = .closed;
+            self.ProfileBetFeed.reloadData();
+        })
+        
     }
     
     
@@ -135,36 +176,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        /*switch feedType {
-         case .live:
-         let data: Data = Data(); //TODO - Load the correct data with API call for live feed
-         guard let feed = try? JSONDecoder().decode(LiveBetFeed.self, from: data)
-         else {
-         print("Error decoding data");
-         return 0;
-         }
-         return feed.bets.count;
-         
-         
-         case .open:
-         let data: Data = Data(); //TODO - Load the correct data with API call for open feed
-         guard let feed = try? JSONDecoder().decode(OpenBetFeed.self, from: data)
-         else {
-         print("Error decoding data");
-         return 0;
-         }
-         return feed.bets.count;
-         
-         case .games:
-         let data: Data = Data(); //TODO - Load the correct data with API call for games feed
-         guard let feed = try? JSONDecoder().decode(GamesFeed.self, from: data)
-         else {
-         print("Error decoding data");
-         return 0;
-         }
-         return feed.games.count;
-         }*/
-        return 4;
+        return self.feedCount;
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -174,14 +186,11 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         case .live:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LiveFeedCell", for: indexPath) as? LiveFeedCell;
             
-            let data: Data = Data(); //TODO - Load the correct data with API call
-            guard let feed = try? JSONDecoder().decode(BetFeed.self, from: data)
-                else {
-                    print("Error decoding data");
-                    return cell!;
+            if(self.liveData == nil){
+                return cell!;
             }
             
-            let thisBet = feed.bets[indexPath.row];
+            let thisBet = self.liveData!.bets[indexPath.row];
             
             cell?.User1Name.text = thisBet.user1.first_name + " " + thisBet.user1.last_name;
             cell?.User2Name.text = thisBet.user2!.first_name + " " + thisBet.user2!.last_name;
@@ -204,14 +213,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         case .open:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OpenFeedCell", for: indexPath) as? OpenFeedCell;
             
-            let data: Data = Data(); //TODO - Load the correct data with API call
-            guard let feed = try? JSONDecoder().decode(BetFeed.self, from: data)
-                else {
-                    print("Error decoding data");
-                    return cell!;
-            }
-            
-            let thisBet = feed.bets[indexPath.row];
+            let thisBet = self.openData!.bets[indexPath.row];
             
             cell?.UserName.text = thisBet.user1.first_name + " " + thisBet.user1.last_name;
             cell?.UserTeamName.text = thisBet.user1.team;
@@ -232,16 +234,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         case .closed:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ClosedFeedCell", for: indexPath) as? ClosedFeedCell;
             
-            let data: Data = Data(); //TODO - Load the correct data with API call
-            guard let feed = try? JSONDecoder().decode(BetFeed.self, from: data)
-                else {
-                    print("Error decoding data");
-                    return cell!;
-            }
-            
-            //TODO - Figure out how to correctly use this indexPath thing for nested arrays
-            
-            let thisBet = feed.bets[indexPath.row];
+            let thisBet = self.betweenUsData!.bets[indexPath.row]
             
             let betResults = findResults(winner: thisBet.winner!, user1: thisBet.user1, user2: thisBet.user2!);
             
@@ -265,22 +258,39 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     }
     
     func loadProfileInfo(){
-        let fullURI = addGETParams(path: "/api/users/find/", search: self.searchedUser, needsUsername: true)
+        let fullURI = addGETParams(path: "/api/users/find/", search: self.searchedUser!, needsUsername: true)
         sendGET(uri: fullURI, callback: { (httpresponse) in
             let data: Data! = httpresponse.data
             
-            if httpresponse.HTTPsuccess! {
-                guard let userData = try? JSONDecoder().decode(User.self, from: data)
-                    else {
-                        self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
-                        return
-                }
-                getImageFromUrl(urlString: userData.profile_pic_url, imageView: self.ProfilePic!);
-                self.UserHandle.text = userData.username;
-                self.UserName.text = userData.first_name + " " + userData.last_name;
-            } else{
-                self.alert(message: "There was an error processing your request.", title: "Network Error")
+            //if httpresponse.HTTPsuccess! {
+            guard let userData = try? JSONDecoder().decode(User.self, from: data)
+                else {
+                    self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
+                    return
             }
+            getImageFromUrl(urlString: userData.profile_pic_url, imageView: self.ProfilePic!);
+            self.UserHandle.text = userData.username;
+            self.UserName.text = userData.first_name + " " + userData.last_name;
+            
+            //TODO needs a slight tweak to allow for deleting friends, just not important for task at hand right now
+            if (self.searchedUser! == common.username){
+                self.is_friend = true;
+            }
+            else{
+                if(userData.friends){
+                    self.is_friend = true;
+                }
+                else{
+                    self.is_friend = false;
+                }
+            }
+            
+            self.DetermineUser();
+            self.FriendButtonToggle()
+            self.LiveBets(self)
+            //} else{
+                //self.alert(message: "There was an error processing your request.", title: "Network Error")
+            //}
         })
     }
 }
