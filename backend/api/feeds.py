@@ -97,9 +97,10 @@ def list_users_open_bets():
     auth = request.args.get('auth')
     if not db.authenticate(loguser, auth):
         return create_http_response(errors=['unauthenticated user'])
+    username = request.args.get('username')
 
     # Get open bets
-    db_bets = db.get_users_open_bets(loguser)
+    db_bets = db.get_users_open_bets(username)
     bets = []
     for db_bet in db_bets:
         bet = db_bet
@@ -133,9 +134,10 @@ def list_users_live_bets():
     auth = request.args.get('auth')
     if not db.authenticate(loguser, auth):
         return create_http_response(errors=['unauthenticated user'])
+    username = request.args.get('username')
 
     # Get live bets and construct JSON
-    db_bets = db.get_users_live_bets(loguser)
+    db_bets = db.get_users_live_bets(username)
 
     bets = []
     for db_bet in db_bets:

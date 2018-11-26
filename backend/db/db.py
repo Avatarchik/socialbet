@@ -511,7 +511,7 @@ def cancel_bet(bet_id):
 
     # Determine if direct or open bet
 
-    sql = 'DELETE FROM bets WHERE bet_id=' + bet_id + ';'
+    sql = 'DELETE FROM bets WHERE bet_id=' + str(bet_id) + ';'
 
 
     db_config = get_db_config()
