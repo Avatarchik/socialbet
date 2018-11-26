@@ -54,7 +54,7 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
     }
     
     @IBAction func Live(_ sender: Any) {
-        let fullURI = addGETParams(path: "/api/feeds/users/live_bets/", search: "", needsUsername: false)
+        let fullURI = addGETParams(path: "/api/feeds/users_live_bets/", search: "", needsUsername: false)
         sendGET(uri: fullURI, callback: { (httpresponse) in
             let data: Data! = httpresponse.data
             
@@ -65,19 +65,19 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
             }
             self.liveData = feedData;
             self.feedCount = self.liveData!.bets.count;
-            
+            self.LiveObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
+            self.OpenObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
+            self.ResultsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
+            self.RequestsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
+            self.feedType = .live
+            self.MyFeed.reloadData()
         })
         
-        self.LiveObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
-        self.OpenObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
-        self.ResultsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
-        self.RequestsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
-        self.feedType = .live
-        self.MyFeed.reloadData()
+        
     }
     
     @IBAction func Open(_ sender: Any) {
-        let fullURI = addGETParams(path: "/api/feeds/users/open_bets/", search: "", needsUsername: false)
+        let fullURI = addGETParams(path: "/api/feeds/users_open_bets/", search: "", needsUsername: false)
         sendGET(uri: fullURI, callback: { (httpresponse) in
             let data: Data! = httpresponse.data
             
@@ -88,15 +88,15 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
             }
             self.openData = feedData;
             self.feedCount = self.openData!.bets.count;
-            
+            self.OpenObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
+            self.LiveObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
+            self.ResultsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
+            self.RequestsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
+            self.feedType = .open
+            self.MyFeed.reloadData()
         })
         
-        self.OpenObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
-        self.LiveObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
-        self.ResultsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
-        self.RequestsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
-        self.feedType = .open
-        self.MyFeed.reloadData()
+        
     }
     
     @IBAction func Requests(_ sender: Any) {
@@ -111,15 +111,15 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
             }
             self.requestData = feedData;
             self.feedCount = self.requestData!.bets.count;
-            
+            self.RequestsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
+            self.OpenObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
+            self.ResultsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
+            self.LiveObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
+            self.feedType = .request
+            self.MyFeed.reloadData()
         })
         
-        self.RequestsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
-        self.OpenObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
-        self.ResultsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
-        self.LiveObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
-        self.feedType = .request
-        self.MyFeed.reloadData()
+        
     }
     
     @IBAction func Results(_ sender: Any) {
@@ -134,50 +134,15 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
             }
             self.resultData = feedData;
             self.feedCount = self.resultData!.bets.count;
-            
+            self.ResultsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
+            self.OpenObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
+            self.LiveObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
+            self.RequestsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
+            self.feedType = .result
+            self.MyFeed.reloadData()
         })
         
-        self.ResultsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17);
-        self.OpenObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
-        self.LiveObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
-        self.RequestsObject.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15);
-        self.feedType = .result
-        self.MyFeed.reloadData()
-    }
-    
-    @objc func AcceptPressed(sender: LiveFeedCell) {
-        let parameters = ["loguser": common.username, "auth": common.pwhash, "bet_id": sender.bet_id, "user_name": common.username] as! Dictionary<String, String>;
         
-        sendPOST(uri: "/api/betting/accept_bet", parameters: parameters, callback: { (postresponse) in
-            return
-            /*if postresponse.HTTPsuccess! {
-                self.alert(message: "You have accepted the bet!", title: "Bet Accepted");
-            }
-            else{
-                // TODO: check HTML error codes
-                self.alert(message: "Bet unable to be accepted", title: "Bet Acceptance Error")
-            }
-            
-            self.MyFeed.reloadData();*/
-        })
-    }
-    
-    @objc func DeclinePressed(sender: LiveFeedCell){
-        
-        //TODO - Fix these parameters once I know what I have to send
-        let parameters = ["loguser": common.username, "auth": common.pwhash, "bet_id": sender.bet_id, "user_name": "TODO Other Person's username"] as! Dictionary<String, String>;
-        
-        sendPOST(uri: "/api/betting/cancel_bet", parameters: parameters, callback: { (postresponse) in
-            /*if postresponse.HTTPsuccess! {
-                self.alert(message: "You have declined the bet!", title: "Bet Declined");
-            }
-            else{
-                // TODO: check HTML error codes
-                self.alert(message: "Bet unable to be declined", title: "Bet Decline Error")
-            }
-            
-            self.MyFeed.reloadData();*/
-        })
     }
     
     @IBOutlet weak var MyFeed: UICollectionView!
@@ -212,6 +177,11 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
             getImageFromUrl(urlString: user1Team, imageView: (cell?.Team1Image)!);
             getImageFromUrl(urlString: user2Team, imageView: (cell?.Team2Image)!);
             
+            cell?.AcceptButton.setImage(nil, for: .normal)
+            cell?.DeclineButton.setImage(nil, for: .normal)
+            cell?.AcceptButton.isEnabled = false;
+            cell?.AcceptButton.isEnabled = false;
+            
             
             return cell!;
             
@@ -236,6 +206,10 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ClosedFeedCell", for: indexPath) as? ClosedFeedCell;
             
             let thisBet = self.resultData!.bets[indexPath.row];
+            
+            //let winner = thisBet.winner!;
+            //let user1 = thisBet.user1;
+            //let user2 = thisBet.user2!;
             
             let betResults = findResults(winner: thisBet.winner!, user1: thisBet.user1, user2: thisBet.user2!);
             
@@ -271,7 +245,7 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
             cell?.Message.text = thisBet.message;
             cell?.GameTime.text = thisBet.game_time;
             cell?.WagerAmount.text = "Amount: $" + String(thisBet.ammount);
-            cell?.bet_id = "Bet ID: " + String(thisBet.bet_id);
+            cell?.bet_id = thisBet.bet_id;
             
             let team1Url = teamURL(teamname: thisBet.user1.team);
             let team2Url = teamURL(teamname: thisBet.user2!.team);
@@ -280,22 +254,56 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
             getImageFromUrl(urlString: team2Url, imageView: (cell?.Team2Image)!);
             
             
-            cell?.AcceptButton.image = UIImage(named: "accept.png")
-            cell?.DeclineButton.image = UIImage(named: "decline.png")
+            cell?.AcceptButton.setImage(UIImage(named: "accept.png"), for: .normal)
+            cell?.DeclineButton.setImage(UIImage(named: "decline.png"), for: .normal)
             
-            cell?.AcceptButton.isUserInteractionEnabled = true;
-            cell?.DeclineButton.isUserInteractionEnabled = true;
+            cell?.AcceptButton.isEnabled = true;
+            cell?.DeclineButton.isEnabled = true;
             
-            let acceptRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.AcceptPressed(sender:)))
-            acceptRecognizer.delegate = self;
-            cell?.AcceptButton.addGestureRecognizer(acceptRecognizer);
+            cell?.AcceptButton.tag = thisBet.bet_id
+            cell?.DeclineButton.tag = thisBet.bet_id
             
-            let declineRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.DeclinePressed(sender:)))
-            declineRecognizer.delegate = self;
-            cell?.DeclineButton.addGestureRecognizer(declineRecognizer);
+            // add actions for the buttons
+            cell?.AcceptButton.addTarget(self, action: #selector(AcceptButtonPressed(sender:)), for: .touchUpInside)
+            cell?.DeclineButton.addTarget(self, action: #selector(DeclineButtonPressed(sender:)), for: .touchUpInside)
+            
             
             return cell!;
         }
     }
 
+    @objc func AcceptButtonPressed(sender: UIButton) {
+        let parameters = ["loguser": common.username, "auth": common.pwhash, "bet_id": sender.tag as Any] as Dictionary<String, Any>;
+        
+        sendPOST(uri: "/api/betting/accept_bet/", parameters: parameters, callback: { (postresponse) in
+            if postresponse["success_status"] as! String == "successful" {
+                self.Requests(self)
+                self.alert(message: "You have accepted the bet!", title: "Bet Accepted");
+            } else {
+                self.alert(message: "Bet unable to be accepted", title: "Bet Acceptance Error")
+            }
+        })
+    }
+    
+    @objc func DeclineButtonPressed(sender: UIButton) {
+        let parameters = ["loguser": common.username, "auth": common.pwhash, "bet_id": sender.tag as Any] as Dictionary<String, Any>;
+        
+        sendPOST(uri: "/api/betting/cancel_bet/", parameters: parameters,
+            callback: { (postresponse) in
+            if postresponse["success_status"] as! String == "successful" {
+                self.Requests(self)
+                self.alert(message: "You have declined the bet!", title: "Bet Declined");
+            } else {
+                self.alert(message: "Bet unable to be declined", title: "Bet Decline Error")
+            }
+        })
+    }
+}
+
+extension MyBets: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.bounds.size.width, height: 160)
+    }
+    
 }

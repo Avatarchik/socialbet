@@ -192,6 +192,10 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             getImageFromUrl(urlString: thisBet.team2_logo_url, imageView: (cell?.Team2Image)!);
             cell?.WagerAmount.text = "";
             
+            cell?.AcceptButton.setImage(nil, for: .normal)
+            cell?.DeclineButton.setImage(nil, for: .normal)
+            cell?.AcceptButton.isEnabled = false;
+            cell?.AcceptButton.isEnabled = false;            
             
             return cell!;
             

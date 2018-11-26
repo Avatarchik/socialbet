@@ -68,12 +68,6 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Final Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="du6-5x-Dlc">
-                        <rect key="frame" x="157.5" y="116" width="59" height="14"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Winning User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qej-Nn-nZt">
                         <rect key="frame" x="95" y="37.5" width="76" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -87,7 +81,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wager Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q9H-XQ-9ur">
-                        <rect key="frame" x="151" y="133" width="72" height="12"/>
+                        <rect key="frame" x="151" y="131" width="72" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -97,12 +91,9 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="zP3-1T-P0P" firstAttribute="height" secondItem="Uau-RD-KAe" secondAttribute="height" id="2rt-bd-XeI"/>
-                <constraint firstItem="du6-5x-Dlc" firstAttribute="top" secondItem="5ni-uF-nQf" secondAttribute="bottom" constant="5" id="3b2-Ox-1Im"/>
-                <constraint firstItem="q9H-XQ-9ur" firstAttribute="top" secondItem="du6-5x-Dlc" secondAttribute="bottom" constant="3" id="49j-pH-aki"/>
                 <constraint firstItem="Uau-RD-KAe" firstAttribute="leading" secondItem="8Dh-ym-UJX" secondAttribute="leading" constant="30" id="4tG-mU-LXf"/>
                 <constraint firstItem="dST-iA-DRK" firstAttribute="leading" secondItem="Qej-Nn-nZt" secondAttribute="trailing" constant="3" id="5mR-E7-yCG"/>
                 <constraint firstItem="zP3-1T-P0P" firstAttribute="top" secondItem="Uau-RD-KAe" secondAttribute="top" id="829-jE-Nr6"/>
-                <constraint firstItem="du6-5x-Dlc" firstAttribute="centerX" secondItem="8Dh-ym-UJX" secondAttribute="centerX" id="8DL-hn-NVz"/>
                 <constraint firstItem="dST-iA-DRK" firstAttribute="centerX" secondItem="8Dh-ym-UJX" secondAttribute="centerX" id="93c-xL-kWn"/>
                 <constraint firstItem="q9H-XQ-9ur" firstAttribute="centerX" secondItem="8Dh-ym-UJX" secondAttribute="centerX" id="AyL-nw-VF6"/>
                 <constraint firstItem="dST-iA-DRK" firstAttribute="bottom" secondItem="Uau-RD-KAe" secondAttribute="centerY" constant="5" id="Bux-9c-kms"/>
@@ -122,6 +113,7 @@
                 <constraint firstItem="CCZ-C0-NmN" firstAttribute="centerX" secondItem="8Dh-ym-UJX" secondAttribute="centerX" id="hRj-op-XDm"/>
                 <constraint firstItem="rPf-Uj-8Zw" firstAttribute="width" secondItem="LEP-f2-62P" secondAttribute="width" id="lSn-jc-i1u"/>
                 <constraint firstItem="LEP-f2-62P" firstAttribute="centerX" secondItem="Uau-RD-KAe" secondAttribute="centerX" id="nxQ-a6-MgG"/>
+                <constraint firstItem="q9H-XQ-9ur" firstAttribute="top" secondItem="5ni-uF-nQf" secondAttribute="bottom" constant="20" id="oC6-f3-jrY"/>
                 <constraint firstItem="5ni-uF-nQf" firstAttribute="centerX" secondItem="8Dh-ym-UJX" secondAttribute="centerX" id="ohd-gB-cm5"/>
                 <constraint firstItem="LEP-f2-62P" firstAttribute="top" secondItem="Uau-RD-KAe" secondAttribute="bottom" constant="5" id="rS0-UE-eXh"/>
                 <constraint firstItem="CCZ-C0-NmN" firstAttribute="leading" secondItem="d3c-7I-V1b" secondAttribute="trailing" constant="3" id="uuV-Zh-etT"/>
@@ -130,7 +122,6 @@
             <viewLayoutGuide key="safeArea" id="8Dh-ym-UJX"/>
             <size key="customSize" width="431" height="126"/>
             <connections>
-                <outlet property="FinalScore" destination="du6-5x-Dlc" id="LSV-IQ-CkV"/>
                 <outlet property="GameDateTime" destination="5ni-uF-nQf" id="Ji5-1H-Kzu"/>
                 <outlet property="LosingTeamLogo" destination="rPf-Uj-8Zw" id="DJw-5E-53y"/>
                 <outlet property="LosingTeamName" destination="43h-sh-bSK" id="O7B-fd-PUX"/>
