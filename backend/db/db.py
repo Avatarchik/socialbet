@@ -399,9 +399,9 @@ def get_between_us_bets(loguser, otheruser):
     sql = "SELECT DISTINCT B.*, T1.logo_url AS team1_logo_url, T2.logo_url AS team2_logo_url FROM bets B "\
         "INNER JOIN teams T1 ON T1.team_full_name=B.team1 "\
           "INNER JOIN teams T2 ON T2.team_full_name=B.team2 " \
-          "WHERE (user1=\"" + loguser + "\" AND user2=\"" + otheruser + "\")" \
+          "WHERE ((user1=\"" + loguser + "\" AND user2=\"" + otheruser + "\")" \
           " OR" \
-          "(user1=\"" + otheruser + "\" AND user2=\"" + loguser + "\");"
+          "(user1=\"" + otheruser + "\" AND user2=\"" + loguser + "\")) AND winner IS NOT NULL;"
 
     cursor.execute(sql)
 

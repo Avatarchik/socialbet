@@ -327,7 +327,7 @@ def list_between_us_bets():
         }
         db_user2 = db.get_user(db_bet['user2'])
         user2 = {
-            'user_id': db_user2['user_name'],
+            'username': db_user2['user_name'],
             'first_name': db_user2['first_name'],
             'last_name': db_user2['last_name'],
             'profile_pic_url': db_user2['profile_pic_url'],
