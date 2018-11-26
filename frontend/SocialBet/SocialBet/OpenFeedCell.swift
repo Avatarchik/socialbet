@@ -26,7 +26,7 @@ class OpenFeedCell: UICollectionViewCell {
     
     @IBOutlet weak var GameTime: UILabel!
     
-    @IBAction func AcceptBet(_ sender: Any) {
-    }
+    @IBOutlet weak var AcceptButton: UIButton!
+    
     
 }

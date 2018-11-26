@@ -73,6 +73,19 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
         self.viewDidLoad()
     }
     
+    @objc func OpenAcceptButtonPressed(sender: UIButton){
+        let parameters = ["loguser": common.username, "auth": common.pwhash, "bet_id": sender.tag as Any] as Dictionary<String, Any>;
+        
+        sendPOST(uri: "/api/betting/accept_bet/", parameters: parameters, callback: { (postresponse) in
+            if postresponse["success_status"] as! String == "successful" {
+                self.OpenBetsButton(self)
+                self.alert(message: "You have accepted the bet!", title: "Bet Accepted");
+            } else {
+                self.alert(message: "Bet unable to be accepted", title: "Bet Acceptance Error")
+            }
+        })
+    }
+    
     @IBAction func LiveBetsButton(_ sender: Any) {
         // submit a GET request to get the live feed object
         let fullURI = addGETParams(path: "/api/feeds/live_bets/", search: "", needsUsername: false)
@@ -215,7 +228,8 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             getImageFromUrl(urlString: thisBet.team1_logo_url, imageView: (cell?.UserTeamLogo)!);
             getImageFromUrl(urlString: thisBet.team2_logo_url, imageView: (cell?.OtherTeamLogo)!);
             
-            
+            cell?.AcceptButton.tag = thisBet.bet_id
+            cell?.AcceptButton.addTarget(self, action: #selector(OpenAcceptButtonPressed(sender:)), for: .touchUpInside)
             
             return cell!;
             
