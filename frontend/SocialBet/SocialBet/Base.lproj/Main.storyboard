@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.30.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.19.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -659,6 +659,7 @@
                     <connections>
                         <outlet property="AddFriendButton" destination="wFA-At-bqu" id="AWx-yL-acq"/>
                         <outlet property="BetweenUsObject" destination="yie-Qk-Ciz" id="eaZ-rL-bY3"/>
+                        <outlet property="InitiateBetButton" destination="8sJ-iF-6jS" id="UGg-cB-21U"/>
                         <outlet property="LiveBetsObject" destination="1bE-Uo-hGA" id="V1j-B9-2B4"/>
                         <outlet property="OpenBetsObject" destination="fiB-fn-M3C" id="Mfg-Ts-FBp"/>
                         <outlet property="ProfileBetFeed" destination="ce3-u4-apo" id="5F2-g2-lNa"/>
@@ -1156,6 +1157,6 @@
         <segue reference="577-1U-4to"/>
         <segue reference="Ia1-YO-obj"/>
         <segue reference="C4C-SM-klp"/>
-        <segue reference="qax-4x-ibi"/>
+        <segue reference="LZe-Ez-tcL"/>
     </inferredMetricsTieBreakers>
 </document>

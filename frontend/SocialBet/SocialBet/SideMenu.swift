@@ -28,23 +28,21 @@ class SideMenu: UITableViewController {
     
     @IBAction func toFriendsProfile() {
         self.searched_user = enteredHandle.text;
-        var fullURI = addGETParams(path: "/api/users/exist", search: self.searched_user!, needsUsername: true)
-        fullURI = fullURI + "&friends=false";
+        var fullURI = addGETParams(path: "/api/users/find/", search: self.searched_user!, needsUsername: true)
+        //fullURI = fullURI + "&friends=false";
         sendGET(uri: fullURI, callback: { (httpresponse) in
             let data: Data! = httpresponse.data
             // decode the information recieved
             if httpresponse.HTTPsuccess! {
-                guard let feedData = try? JSONDecoder().decode(Existance.self, from: data)
+                guard let profileinfo = try? JSONDecoder().decode(User.self, from: data)
                     else {
-                        self.alert(message: "Error loading profile.")
+                        self.alert(message: "Error, try again.")
                         return
                 }
-                if (feedData.value){
-                    self.performSegue(withIdentifier: "ToProfile", sender: self)
-                }
-                else{
-                    self.alert(message: "Not a valid username.")
-                }
+                
+                self.searched_user = profileinfo.username
+                self.performSegue(withIdentifier: "ToProfile", sender: self)
+            
             } else{
                 self.alert(message: "Error loading profile.")
             }

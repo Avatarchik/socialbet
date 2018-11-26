@@ -17,6 +17,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     @IBOutlet weak var OpenBetsObject: UIButton!
     @IBOutlet weak var LiveBetsObject: UIButton!
     
+    @IBOutlet weak var InitiateBetButton: UIButton!
     @IBOutlet weak var AddFriendButton: UIButton!
     
     
@@ -32,32 +33,33 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         }
     }
     
-    
-    func FriendButtonToggle() {
-        if (self.is_friend) {
+    func ButtonVisibility() {
+        if (self.searchedUser! == common.username){
+            InitiateBetButton.isHidden = true
             AddFriendButton.isHidden = true
-        } else {
+        } else if (!self.is_friend) {
+            InitiateBetButton.isHidden = true
             AddFriendButton.isHidden = false
+        } else {
+            InitiateBetButton.isHidden = false
+            AddFriendButton.isHidden = true
         }
     }
     
-    
-    
-    @IBAction func addFriend() {
+    @objc func AddFriendButtonPressed(sender: Any){
         let URI = "/api/users/add_friend/"
         
         let params = ["loguser": common.username, "auth": common.pwhash, "user1": common.username, "user2": searchedUser!]
         
         sendPOST(uri: URI, parameters: params, callback: { (postresponse) in
-            // check for errors
-            /*if postresponse.HTTPsuccess! {
+            // alert the user of success/failure, and either navigate away or refresh the page
+            if postresponse["success_status"] as! String == "successful" {
                 self.alert(message: "Your friend request was successfully sent", title: "Friend added!");
+                self.viewDidLoad() // TODO: confirm that this is what we want
+                
+            } else {
+                self.alert(message: "Unable to add friend.", title: "Add Friend Error")
             }
-            else{
-                // TODO: check HTML error codes
-                self.alert(message: "Unable to add friend", title: "Add Friend Error")
-            }
-            print("Added friend!");*/
         })
     }
     
@@ -161,6 +163,8 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         self.ProfileBetFeed.dataSource = self
 
         // Do any additional setup after loading the view.
+        
+        AddFriendButton.addTarget(self, action: #selector(AddFriendButtonPressed(sender:)), for: .touchUpInside)
         
         self.loadProfileInfo();
         
@@ -286,7 +290,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             }
             
             self.DetermineUser();
-            self.FriendButtonToggle()
+            self.ButtonVisibility()
             self.LiveBets(self)
             //} else{
                 //self.alert(message: "There was an error processing your request.", title: "Network Error")

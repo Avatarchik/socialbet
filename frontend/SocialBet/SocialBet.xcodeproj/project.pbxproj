@@ -163,7 +163,11 @@
 		01F20ED7217A67F500F2F713 /* SocialBet */ = {
 			isa = PBXGroup;
 			children = (
+				A3A2F2D32195FEA8001240E5 /* Bridging-Header.h */,
 				01F20EE4217A67F700F2F713 /* Info.plist */,
+				A384B5E7219A7F66005B7031 /* accept.png */,
+				A384B5E6219A7F65005B7031 /* decline.png */,
+				A384B5EB219A820A005B7031 /* defaultProfilePic.png */,
 				01F20ED8217A67F500F2F713 /* AppDelegate.swift */,
 				A39E26B42193535000612E81 /* BetBuilderGameSelection.swift */,
 				A39CE5372194088E000B9EE1 /* BetBuilderOpponentSelection.swift */,
@@ -179,19 +183,15 @@
 				A39C104D218FB730005DAAD6 /* OpenFeedCell.swift */,
 				F47654E8218A816C0010D208 /* Profile.swift */,
 				A3443AC02182CE98005037BA /* Registration.swift */,
+				A3F9C800219560DA00D97BBE /* Settings.swift */,
 				0151BC8C2195458C00736C6C /* SideMenu.swift */,
 				01F20EDF217A67F700F2F713 /* Assets.xcassets */,
 				A39E26AE21924B0C00612E81 /* ClosedFeedCell.xib */,
 				A39C105921915036005DAAD6 /* GamesFeedCell.xib */,
 				A39C1055219126FD005DAAD6 /* LiveFeedCell.xib */,
 				A39C10572191411D005DAAD6 /* OpenFeedCell.xib */,
-				01F20EDC217A67F500F2F713 /* Main.storyboard */,
-				A3A2F2D32195FEA8001240E5 /* Bridging-Header.h */,
-				A3F9C800219560DA00D97BBE /* Settings.swift */,
-				A384B5EB219A820A005B7031 /* defaultProfilePic.png */,
-				A384B5E7219A7F66005B7031 /* accept.png */,
-				A384B5E6219A7F65005B7031 /* decline.png */,
 				01F20EE1217A67F700F2F713 /* LaunchScreen.storyboard */,
+				01F20EDC217A67F500F2F713 /* Main.storyboard */,
 			);
 			path = SocialBet;
 			sourceTree = "<group>";
