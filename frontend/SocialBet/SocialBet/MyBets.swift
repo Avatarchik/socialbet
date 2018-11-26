@@ -165,17 +165,17 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
             getImageFromUrl(urlString: thisBet.user1.profile_pic_url, imageView: (cell?.User1Image)!);
             getImageFromUrl(urlString: thisBet.user2!.profile_pic_url, imageView: (cell?.User2Image)!);
             
+            cell?.User1Image!.setRounded();
+            cell?.User2Image!.setRounded();
+            
             cell?.TeamName1.text = thisBet.user1.team;
             cell?.TeamName2.text = thisBet.user2!.team;
             cell?.Message.text = thisBet.message;
             cell?.GameTime.text = thisBet.game_time;
             cell?.WagerAmount.text = "Amount: $" + String(thisBet.ammount);
             
-            let user1Team = teamURL(teamname: thisBet.user1.team);
-            let user2Team = teamURL(teamname: thisBet.user2!.team);
-            
-            getImageFromUrl(urlString: user1Team, imageView: (cell?.Team1Image)!);
-            getImageFromUrl(urlString: user2Team, imageView: (cell?.Team2Image)!);
+            getImageFromUrl(urlString: thisBet.team1_logo_url, imageView: (cell?.Team1Image)!);
+            getImageFromUrl(urlString: thisBet.team2_logo_url, imageView: (cell?.Team2Image)!);
             
             cell?.AcceptButton.setImage(nil, for: .normal)
             cell?.DeclineButton.setImage(nil, for: .normal)
@@ -197,8 +197,11 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
             cell?.BetAmount.text = "Amount: $" + String(thisBet.ammount);
             cell?.GameTime.text = thisBet.game_time;
             
-            getImageFromUrl(urlString: teamURL(teamname: thisBet.team1), imageView: (cell?.UserTeamLogo)!);
-            getImageFromUrl(urlString: teamURL(teamname: thisBet.team2), imageView: (cell?.OtherTeamLogo)!);
+            getImageFromUrl(urlString: thisBet.team1_logo_url, imageView: (cell?.UserTeamLogo)!);
+            getImageFromUrl(urlString: thisBet.team2_logo_url, imageView: (cell?.OtherTeamLogo)!);
+            getImageFromUrl(urlString: thisBet.user1.profile_pic_url, imageView: (cell?.ProfilePic)!);
+            
+            cell?.ProfilePic!.setRounded();
             
             return cell!;
             
@@ -206,10 +209,6 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ClosedFeedCell", for: indexPath) as? ClosedFeedCell;
             
             let thisBet = self.resultData!.bets[indexPath.row];
-            
-            //let winner = thisBet.winner!;
-            //let user1 = thisBet.user1;
-            //let user2 = thisBet.user2!;
             
             let betResults = findResults(winner: thisBet.winner!, user1: thisBet.user1, user2: thisBet.user2!);
             
@@ -223,8 +222,18 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
             cell?.GameDateTime.text = thisBet.game_time;
             cell?.WagerAmount.text = String(describing: thisBet.ammount);
             
-            let winningTeamUrl = teamURL(teamname: betResults.winner.team);
-            let losingTeamUrl = teamURL(teamname: betResults.loser.team);
+            var winningTeamUrl = "";
+            var losingTeamUrl = "";
+            
+            if(thisBet.winner == thisBet.team1){
+                winningTeamUrl = thisBet.team1_logo_url
+                losingTeamUrl = thisBet.team2_logo_url
+            }
+            else{
+                winningTeamUrl = thisBet.team2_logo_url
+                losingTeamUrl = thisBet.team1_logo_url
+            }
+            
             
             getImageFromUrl(urlString: winningTeamUrl, imageView: (cell?.WinningTeamLogo)!)
             getImageFromUrl(urlString: losingTeamUrl, imageView: (cell?.LosingTeamLogo)!)
@@ -247,12 +256,11 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
             cell?.WagerAmount.text = "Amount: $" + String(thisBet.ammount);
             cell?.bet_id = thisBet.bet_id;
             
-            let team1Url = teamURL(teamname: thisBet.user1.team);
-            let team2Url = teamURL(teamname: thisBet.user2!.team);
+            getImageFromUrl(urlString: thisBet.team1_logo_url, imageView: (cell?.Team1Image)!);
+            getImageFromUrl(urlString: thisBet.team2_logo_url, imageView: (cell?.Team2Image)!);
             
-            getImageFromUrl(urlString: team1Url, imageView: (cell?.Team1Image)!);
-            getImageFromUrl(urlString: team2Url, imageView: (cell?.Team2Image)!);
-            
+            cell?.User1Image!.setRounded();
+            cell?.User2Image!.setRounded();
             
             cell?.AcceptButton.setImage(UIImage(named: "accept.png"), for: .normal)
             cell?.DeclineButton.setImage(UIImage(named: "decline.png"), for: .normal)

@@ -201,6 +201,8 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             getImageFromUrl(urlString: thisBet.user1.profile_pic_url, imageView: (cell?.User1Image)!);
             getImageFromUrl(urlString: thisBet.user2!.profile_pic_url, imageView: (cell?.User2Image)!);
             
+            cell?.User1Image!.setRounded();
+            cell?.User2Image!.setRounded();
             cell?.TeamName1.text = thisBet.user1.team;
             cell?.TeamName2.text = thisBet.user2!.team;
             cell?.Message.text = thisBet.message;
@@ -226,12 +228,11 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             cell?.BetAmount.text = "Amount: $" + String(thisBet.ammount);
             cell?.GameTime.text = thisBet.game_time;
             
-            let team1Url = teamURL(teamname: thisBet.user1.team)
-            let team2Url = teamURL(teamname: thisBet.team2);
+            getImageFromUrl(urlString: thisBet.team1_logo_url, imageView: (cell?.UserTeamLogo)!);
+            getImageFromUrl(urlString: thisBet.team2_logo_url, imageView: (cell?.OtherTeamLogo)!);
+            getImageFromUrl(urlString: thisBet.user1.profile_pic_url, imageView: (cell?.ProfilePic)!)
             
-            // TODO - initialize all teams at start
-            getImageFromUrl(urlString: team1Url, imageView: (cell?.UserTeamLogo)!);
-            getImageFromUrl(urlString: team2Url, imageView: (cell?.OtherTeamLogo)!);
+            cell?.ProfilePic.setRounded();
             
             return cell!;
             
@@ -256,6 +257,9 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             getImageFromUrl(urlString: betResults.loser.profile_pic_url, imageView: (cell?.LosingUserPic)!);
             cell?.LosingUserName.text = betResults.loser.first_name + " " + betResults.loser.last_name;
             
+            cell?.WinningUserPic!.setRounded();
+            cell?.LosingUserPic!.setRounded();
+            
             return cell!;
         }        
         
@@ -273,6 +277,8 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
                     return
             }
             getImageFromUrl(urlString: userData.profile_pic_url, imageView: self.ProfilePic!);
+            self.ProfilePic!.setRounded();
+            
             self.UserHandle.text = userData.username;
             self.UserName.text = userData.first_name + " " + userData.last_name;
             
@@ -297,4 +303,12 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             //}
         })
     }
+}
+
+extension Profile: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.bounds.size.width, height: 160)
+    }
+    
 }
