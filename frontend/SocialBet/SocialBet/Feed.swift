@@ -238,3 +238,11 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
     }
 
 }
+
+extension Feed: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.bounds.size.width, height: 160)
+    }
+    
+}
