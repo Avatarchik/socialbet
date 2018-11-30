@@ -5,11 +5,14 @@
 
 import UIKit
 
-class BetBuilderOpponentSelection: UIViewController {
+class BetBuilderBetTypeSelection: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.OpponentHandle.isHidden = true;
+        self.OKObject.isHidden = true;
+        
         // Do any additional setup after loading the view.
     }
     
@@ -23,20 +26,13 @@ class BetBuilderOpponentSelection: UIViewController {
         }
     }
     
-    var entered_handle: String?;
+    
+    @IBOutlet weak var OKObject: UIButton!
     @IBOutlet weak var OpponentHandle: UITextField!
+    var entered_handle: String?;
     
-    @IBAction func GoHome(_ sender: Any) {
-        performSegue(withIdentifier: "OpponentSelectToFeed", sender: self)
-    }
-    
-    @IBAction func CreateOpenBet(_ sender: Any) {
-        self.entered_handle = "";
-        performSegue(withIdentifier: "OpponentSelectToGameSelect", sender: self);
-    }
-    
-    @IBAction func CreateDirectBet(_ sender: Any) {
-        self.entered_handle = self.OpponentHandle.text;
+    @objc func OKButton(sender: Any?) {
+        self.entered_handle = self.OpponentHandle.text!;
         var fullURI = addGETParams(path: "/api/users/find/", search: self.entered_handle!, needsUsername: true)
         sendGET(uri: fullURI, callback: { (httpresponse) in
             let data: Data! = httpresponse.data
@@ -50,7 +46,7 @@ class BetBuilderOpponentSelection: UIViewController {
                 if (feedData.first_name != nil){
                     if (feedData.friends!) {
                         // TODO: Pass feedData username to the next page
-                        self.performSegue(withIdentifier: "OpponentSelectToGameSelect", sender: self)
+                        self.performSegue(withIdentifier: "BetTypeSelectToGameSelect", sender: self)
                     } else {
                         self.alert(message: "Username entered does not match any of your friends. Please try again.")
                     }
@@ -62,6 +58,22 @@ class BetBuilderOpponentSelection: UIViewController {
                 self.alert(message: "Error loading profile.")
             }
         })
+    }
+    
+    @IBAction func HomeButton(_ sender: Any) {
+        performSegue(withIdentifier: "BetTypeSelectToFeed", sender: self)
+    }
+    
+    @IBAction func CreateOpenBetButton(_ sender: Any) {
+        self.entered_handle = "";
+        performSegue(withIdentifier: "BetTypeSelectToGameSelect", sender: self);
+    }
+    
+    
+    @IBAction func CreateDirectBetButton(_ sender: Any) {
+        self.OKObject.isHidden = false;
+        self.OpponentHandle.isHidden = false;
+        self.OKObject.addTarget(self, action: #selector(OKButton(sender:)), for: .touchUpInside)
     }
 }
 

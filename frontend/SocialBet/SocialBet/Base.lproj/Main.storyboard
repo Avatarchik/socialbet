@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.30.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.19.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -269,12 +269,12 @@
         <scene sceneID="eRl-GW-xP2">
             <objects>
                 <viewController id="Jwj-S7-5gy" customClass="Feed" customModule="SocialBet" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="X30-1L-gRy">
-                        <rect key="frame" x="0.0" y="0.0" width="200" height="63"/>
+                    <view key="view" contentMode="scaleToFill" id="X30-1L-gRy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EX3-3S-igz">
-                                <rect key="frame" x="0.0" y="0.0" width="200" height="50"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFf-jg-jAD">
                                         <rect key="frame" x="10" y="10" width="39" height="30"/>
@@ -286,13 +286,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SocialBet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Xl-tR-tdV">
-                                        <rect key="frame" x="43" y="8" width="114" height="33.5"/>
+                                        <rect key="frame" x="130.5" y="8.5" width="114" height="33.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uGP-uB-7RN">
-                                        <rect key="frame" x="132" y="10" width="58" height="30"/>
+                                        <rect key="frame" x="307" y="10" width="58" height="30"/>
                                         <state key="normal" title="New Bet">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -315,8 +315,8 @@
                                     <constraint firstItem="gFf-jg-jAD" firstAttribute="leading" secondItem="EX3-3S-igz" secondAttribute="leading" constant="10" id="vuD-Bc-2oe"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EBT-mH-DmF">
-                                <rect key="frame" x="0.0" y="63" width="200" height="50"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EBT-mH-DmF">
+                                <rect key="frame" x="0.0" y="573" width="375" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" image="YES" staticText="YES"/>
@@ -325,8 +325,8 @@
                                     <constraint firstAttribute="height" constant="50" id="Yyj-CA-p8i"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gwO-tn-ZWu">
-                                <rect key="frame" x="0.0" y="63" width="200" height="0.0"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gwO-tn-ZWu">
+                                <rect key="frame" x="0.0" y="100" width="375" height="473"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2a9-LI-0la">
                                     <size key="itemSize" width="374" height="160"/>
@@ -337,28 +337,28 @@
                                 <cells/>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2n8-xa-YUO">
-                                <rect key="frame" x="0.0" y="50" width="66.5" height="30"/>
+                                <rect key="frame" x="0.0" y="70" width="125" height="30"/>
                                 <state key="normal" title="Games"/>
                                 <connections>
                                     <action selector="GamesButton:" destination="Jwj-S7-5gy" eventType="touchUpInside" id="6VO-X1-JA4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zn2-qz-h3f">
-                                <rect key="frame" x="66.5" y="50" width="67" height="30"/>
+                                <rect key="frame" x="125" y="70" width="125" height="30"/>
                                 <state key="normal" title="Open Bets"/>
                                 <connections>
                                     <action selector="OpenBetsButton:" destination="Jwj-S7-5gy" eventType="touchUpInside" id="p3F-Yd-bjJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Weh-Xe-WAv">
-                                <rect key="frame" x="133.5" y="50" width="66.5" height="30"/>
+                                <rect key="frame" x="250" y="70" width="125" height="30"/>
                                 <state key="normal" title="Live Bets"/>
                                 <connections>
                                     <action selector="LiveBetsButton:" destination="Jwj-S7-5gy" eventType="touchUpInside" id="BfF-3A-sJn"/>
                                 </connections>
                             </button>
-                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="INb-g8-DbI">
-                                <rect key="frame" x="-200" y="50" width="200" height="63"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="INb-g8-DbI">
+                                <rect key="frame" x="-200" y="70" width="200" height="553"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="Zwl-Q1-fxa"/>
                                 </constraints>
@@ -419,7 +419,7 @@
             <objects>
                 <tableViewController id="1DK-nt-SYw" customClass="SideMenu" customModule="SocialBet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="ief-ee-HVg">
-                        <rect key="frame" x="0.0" y="0.0" width="200" height="63"/>
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="553"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -874,16 +874,16 @@
             </objects>
             <point key="canvasLocation" x="4444" y="143"/>
         </scene>
-        <!--Bet Builder Opponent Selection-->
+        <!--Bet Builder Bet Type Selection-->
         <scene sceneID="1es-MJ-fej">
             <objects>
-                <viewController id="BKB-KX-fQi" customClass="BetBuilderOpponentSelection" customModule="SocialBet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BKB-KX-fQi" customClass="BetBuilderBetTypeSelection" customModule="SocialBet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ueg-Q0-9h7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bet Builder - Opponent Selection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5wl-4J-aq5">
-                                <rect key="frame" x="44.5" y="80" width="286" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bet Builder - Bet Type Selection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5wl-4J-aq5">
+                                <rect key="frame" x="50.5" y="80" width="274" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -892,46 +892,57 @@
                                 <rect key="frame" x="37.5" y="243.5" width="300" height="200"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lAD-kq-Gfx">
-                                        <rect key="frame" x="77.5" y="18" width="145" height="36"/>
+                                        <rect key="frame" x="77.5" y="43.5" width="145" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Create Open Bet"/>
                                         <connections>
-                                            <action selector="CreateOpenBet:" destination="BKB-KX-fQi" eventType="touchUpInside" id="cGn-FI-XOH"/>
+                                            <action selector="CreateOpenBetButton:" destination="BKB-KX-fQi" eventType="touchUpInside" id="OwH-CO-bmZ"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Opponent Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ado-46-iOk">
-                                        <rect key="frame" x="72.5" y="110" width="155.5" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laM-OK-UY1">
-                                        <rect key="frame" x="138" y="69" width="24" height="21"/>
+                                        <rect key="frame" x="138" y="89.5" width="24" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I9E-Z2-7Gz">
-                                        <rect key="frame" x="76" y="150" width="148" height="36"/>
+                                        <rect key="frame" x="67.5" y="120.5" width="165" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Create Direct Bet"/>
                                         <connections>
-                                            <action selector="CreateDirectBet:" destination="BKB-KX-fQi" eventType="touchUpInside" id="xzP-18-SwP"/>
+                                            <action selector="CreateDirectBetButton:" destination="BKB-KX-fQi" eventType="touchUpInside" id="H5H-BW-5Eb"/>
                                         </connections>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Friend's Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mv3-Fn-7eO">
+                                        <rect key="frame" x="60" y="160" width="142.5" height="30"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yyy-Y4-1j6">
+                                        <rect key="frame" x="212.5" y="160" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="bSR-HH-ThP"/>
+                                        </constraints>
+                                        <state key="normal" title="OK"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="0eq-wA-Li6"/>
+                                    <constraint firstItem="I9E-Z2-7Gz" firstAttribute="top" secondItem="laM-OK-UY1" secondAttribute="bottom" constant="10" id="1hO-uO-LLl"/>
                                     <constraint firstItem="lAD-kq-Gfx" firstAttribute="centerX" secondItem="rgs-dE-wE3" secondAttribute="centerX" id="9YR-fQ-6pC"/>
-                                    <constraint firstItem="I9E-Z2-7Gz" firstAttribute="top" secondItem="ado-46-iOk" secondAttribute="bottom" constant="10" id="DDt-1p-8GP"/>
-                                    <constraint firstItem="laM-OK-UY1" firstAttribute="bottom" secondItem="rgs-dE-wE3" secondAttribute="centerY" constant="-10" id="MAE-Up-lr0"/>
-                                    <constraint firstItem="laM-OK-UY1" firstAttribute="top" secondItem="lAD-kq-Gfx" secondAttribute="bottom" constant="15" id="avB-tW-KYQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="mv3-Fn-7eO" secondAttribute="bottom" constant="10" id="HgT-X4-Brh"/>
+                                    <constraint firstItem="laM-OK-UY1" firstAttribute="centerY" secondItem="rgs-dE-wE3" secondAttribute="centerY" id="MAE-Up-lr0"/>
+                                    <constraint firstItem="mv3-Fn-7eO" firstAttribute="leading" secondItem="rgs-dE-wE3" secondAttribute="centerX" constant="-90" id="XSv-Jj-Q8f"/>
+                                    <constraint firstItem="laM-OK-UY1" firstAttribute="top" secondItem="lAD-kq-Gfx" secondAttribute="bottom" constant="10" id="avB-tW-KYQ"/>
+                                    <constraint firstItem="Yyy-Y4-1j6" firstAttribute="bottom" secondItem="mv3-Fn-7eO" secondAttribute="bottom" id="g7z-QD-hmM"/>
+                                    <constraint firstItem="Yyy-Y4-1j6" firstAttribute="trailing" secondItem="I9E-Z2-7Gz" secondAttribute="trailing" constant="10" id="l8C-91-6wW"/>
                                     <constraint firstAttribute="width" constant="300" id="ofa-qB-kJo"/>
-                                    <constraint firstItem="ado-46-iOk" firstAttribute="centerX" secondItem="rgs-dE-wE3" secondAttribute="centerX" id="tmP-q2-UPb"/>
                                     <constraint firstItem="laM-OK-UY1" firstAttribute="centerX" secondItem="rgs-dE-wE3" secondAttribute="centerX" id="vPX-pn-NdJ"/>
-                                    <constraint firstItem="ado-46-iOk" firstAttribute="top" secondItem="laM-OK-UY1" secondAttribute="bottom" constant="20" id="w5S-fk-m2P"/>
                                     <constraint firstItem="I9E-Z2-7Gz" firstAttribute="centerX" secondItem="rgs-dE-wE3" secondAttribute="centerX" id="wGQ-CL-tPg"/>
+                                    <constraint firstItem="Yyy-Y4-1j6" firstAttribute="leading" secondItem="mv3-Fn-7eO" secondAttribute="trailing" constant="10" id="wnQ-OO-x3X"/>
+                                    <constraint firstItem="Yyy-Y4-1j6" firstAttribute="top" secondItem="mv3-Fn-7eO" secondAttribute="top" id="zJS-RS-BR6"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DbE-uf-utQ">
@@ -940,7 +951,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="GoHome:" destination="BKB-KX-fQi" eventType="touchUpInside" id="FKI-Gy-XWe"/>
+                                    <action selector="HomeButton:" destination="BKB-KX-fQi" eventType="touchUpInside" id="EOy-HY-5rJ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -956,9 +967,10 @@
                         <viewLayoutGuide key="safeArea" id="qnt-8u-465"/>
                     </view>
                     <connections>
-                        <outlet property="OpponentHandle" destination="ado-46-iOk" id="T4L-hG-xCc"/>
-                        <segue destination="drK-px-ahE" kind="presentation" identifier="OpponentSelectToGameSelect" id="Fcy-jZ-kMu"/>
-                        <segue destination="Jwj-S7-5gy" kind="presentation" identifier="OpponentSelectToFeed" id="OfL-t4-CKn"/>
+                        <outlet property="OKObject" destination="Yyy-Y4-1j6" id="ewy-4c-EYv"/>
+                        <outlet property="OpponentHandle" destination="mv3-Fn-7eO" id="qc1-ch-8Q2"/>
+                        <segue destination="drK-px-ahE" kind="presentation" identifier="BetTypeSelectToGameSelect" id="Fcy-jZ-kMu"/>
+                        <segue destination="Jwj-S7-5gy" kind="presentation" identifier="BetTypeSelectToFeed" id="OfL-t4-CKn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HsS-U9-4j8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -970,17 +982,17 @@
             <objects>
                 <viewController id="esZ-pB-MIY" customClass="MyBets" customModule="SocialBet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2Kb-Nu-Twg">
-                        <rect key="frame" x="0.0" y="0.0" width="200" height="63"/>
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="553"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Bets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KvM-nl-6FE">
-                                <rect key="frame" x="64.5" y="20" width="71" height="0.0"/>
+                                <rect key="frame" x="64.5" y="40" width="71" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sEj-NY-5C7">
-                                <rect key="frame" x="0.0" y="40" width="50" height="23"/>
+                                <rect key="frame" x="0.0" y="84" width="50" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Live"/>
                                 <connections>
@@ -988,7 +1000,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tBn-6T-ta5">
-                                <rect key="frame" x="50" y="40" width="50" height="23"/>
+                                <rect key="frame" x="50" y="84" width="50" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Open"/>
                                 <connections>
@@ -996,7 +1008,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MzH-mR-J3P">
-                                <rect key="frame" x="100" y="40" width="50" height="23"/>
+                                <rect key="frame" x="100" y="84" width="50" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Requests"/>
                                 <connections>
@@ -1004,7 +1016,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6uX-qj-iCk">
-                                <rect key="frame" x="150" y="40" width="50" height="23"/>
+                                <rect key="frame" x="150" y="84" width="50" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Results"/>
                                 <connections>
@@ -1012,7 +1024,7 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="euA-gJ-wi7">
-                                <rect key="frame" x="0.0" y="63" width="200" height="0.0"/>
+                                <rect key="frame" x="0.0" y="114" width="200" height="439"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gge-DY-FmE">
                                     <size key="itemSize" width="200" height="160"/>
@@ -1087,17 +1099,17 @@
             <objects>
                 <viewController id="pUr-gZ-3Sg" customClass="Settings" customModule="SocialBet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZpP-fS-25n">
-                        <rect key="frame" x="0.0" y="0.0" width="200" height="63"/>
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="553"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fci-Le-2tE">
-                                <rect key="frame" x="64" y="20" width="72" height="24"/>
+                                <rect key="frame" x="64" y="40" width="72" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bfh-Vy-RWo">
-                                <rect key="frame" x="-50" y="-68.5" width="300" height="200"/>
+                                <rect key="frame" x="-50" y="186.5" width="300" height="200"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile Picture:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GOC-2X-11X">
                                         <rect key="frame" x="30" y="10" width="112" height="21"/>
@@ -1115,7 +1127,7 @@
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r7M-VB-nVO">
-                                <rect key="frame" x="165" y="-58.5" width="55" height="55"/>
+                                <rect key="frame" x="165" y="196.5" width="55" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="AZo-6d-k2L"/>
                                     <constraint firstAttribute="width" constant="55" id="zCS-IF-NOf"/>
@@ -1154,10 +1166,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="v6D-wu-qAY"/>
         <segue reference="TzK-3r-hYY"/>
-        <segue reference="Ia1-YO-obj"/>
+        <segue reference="Fcy-jZ-kMu"/>
         <segue reference="C4C-SM-klp"/>
-        <segue reference="LZe-Ez-tcL"/>
+        <segue reference="OfL-t4-CKn"/>
     </inferredMetricsTieBreakers>
 </document>
