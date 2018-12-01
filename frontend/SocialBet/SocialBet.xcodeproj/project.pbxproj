@@ -31,6 +31,7 @@
 		A39E26AF21924B0C00612E81 /* ClosedFeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A39E26AE21924B0C00612E81 /* ClosedFeedCell.xib */; };
 		A39E26B121924B4200612E81 /* ClosedFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E26B021924B4200612E81 /* ClosedFeedCell.swift */; };
 		A39E26B52193535000612E81 /* BetBuilderGameSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E26B42193535000612E81 /* BetBuilderGameSelection.swift */; };
+		A3BBD8DE21B1BDA600FE7B30 /* BetBuilderWagerAndMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BBD8DD21B1BDA600FE7B30 /* BetBuilderWagerAndMessage.swift */; };
 		A3BF735C2187600A00CF7F62 /* LiveFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BF735B2187600A00CF7F62 /* LiveFeedCell.swift */; };
 		A3CD977E218613B8003740C2 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CD977D218613B8003740C2 /* Feed.swift */; };
 		A3F9C801219560DA00D97BBE /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F9C800219560DA00D97BBE /* Settings.swift */; };
@@ -95,6 +96,7 @@
 		A39E26B021924B4200612E81 /* ClosedFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosedFeedCell.swift; sourceTree = "<group>"; };
 		A39E26B42193535000612E81 /* BetBuilderGameSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetBuilderGameSelection.swift; sourceTree = "<group>"; };
 		A3A2F2D32195FEA8001240E5 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		A3BBD8DD21B1BDA600FE7B30 /* BetBuilderWagerAndMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetBuilderWagerAndMessage.swift; sourceTree = "<group>"; };
 		A3BF735B2187600A00CF7F62 /* LiveFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveFeedCell.swift; sourceTree = "<group>"; };
 		A3CD977D218613B8003740C2 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		A3F9C800219560DA00D97BBE /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				A39E26B42193535000612E81 /* BetBuilderGameSelection.swift */,
 				A39CE5372194088E000B9EE1 /* BetBuilderBetTypeSelection.swift */,
 				A39CE53521936E74000B9EE1 /* BetBuilderTeamSelection.swift */,
+				A3BBD8DD21B1BDA600FE7B30 /* BetBuilderWagerAndMessage.swift */,
 				A39E26B021924B4200612E81 /* ClosedFeedCell.swift */,
 				F484C0922192A15E009A2726 /* Common.swift */,
 				A3CD977D218613B8003740C2 /* Feed.swift */,
@@ -494,6 +497,7 @@
 				A3443AC12182CE98005037BA /* Registration.swift in Sources */,
 				F484C0932192A15E009A2726 /* Common.swift in Sources */,
 				01F20ED9217A67F500F2F713 /* AppDelegate.swift in Sources */,
+				A3BBD8DE21B1BDA600FE7B30 /* BetBuilderWagerAndMessage.swift in Sources */,
 				A3BF735C2187600A00CF7F62 /* LiveFeedCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

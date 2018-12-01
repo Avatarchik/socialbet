@@ -25,15 +25,20 @@ class BetBuilderTeamSelection: UIViewController, UIGestureRecognizerDelegate {
         
         self.TeamOneName.text = self.teamOne;
         self.TeamTwoName.text = self.teamTwo;
-        
-        self.WagerAmountInput.addTarget(self, action: #selector(WagerInputChanged(sender:)), for: .editingChanged)
     }
     
-    @objc func WagerInputChanged(sender: UITextField){
-        if let amountString = sender.text?.currencyInputFormatting() {
-            sender.text = amountString
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? BetBuilderWagerAndMessage{
+            vc.userTeamName = self.user_team_name;
+            vc.otherTeamName = self.other_team_name;
+            print("user team: " + self.user_team_name!);
+            print("other team: " + self.other_team_name!);
+            vc.selected_game_id = self.selected_game_id;
+            vc.selected_opponent = self.selected_opponent;
         }
     }
+    
+    
     
     @objc func teamOneSelected(sender: AnyObject){
         self.TeamOneName.textColor = UIColor.green;
@@ -49,50 +54,7 @@ class BetBuilderTeamSelection: UIViewController, UIGestureRecognizerDelegate {
         self.other_team_name = self.TeamOneName.text;
     }
     
-    //Use this function to pass data through segues
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        print("Override Works!");
-        //if going to next stage of bet builder
-        if let vc = segue.destination as? Feed {
-            if (self.selected_opponent == "") {
-                vc.feedType = .open
-            } else {
-                vc.feedType = .live
-            }
-            
-        }
-    }
     
-    func submitBet(alert: UIAlertAction!) {
-        let direct = (self.selected_opponent != "");
-        
-        let parameters = ["loguser": common.username, "auth": common.pwhash, "game_id": self.selected_game_id!, "message": "", "amount": self.WagerAmountInput.text!, "user1": common.username, "user2": self.selected_opponent!, "direct": direct, "accepted": false] as! Dictionary<String, Any>
-        
-        sendPOST(uri: "/api/betting/place_bet/", parameters: parameters, callback: { (jsonDict) in
-            print(jsonDict)
-            // parse the data
-            // TODOOOO
-            
-            // check for errors
-            /*if postresponse.HTTPsuccess! {
-                self.alert(message: "Your bet request was sent!", title: "Bet Successful");
-                //TODO - perform segue going back to feed
-            }
-            else{
-                // TODO: check HTML error codes
-                self.alert(message: "Bet unable to be placed", title: "Bet Error")
-                //TODO perform segue going back to beginning of bet builder
-            }*/
-            print("Bet Submitted!");
-            self.performSegue(withIdentifier: "TeamSelectToFeed", sender: nil)
-            
-        })
-    }
-    
-    func cancelBet(alert: UIAlertAction!){
-        print("Bet Cancelled");
-        performSegue(withIdentifier: "TeamSelectToOpponentSelect", sender: self)
-    }
     
     var selected_game_id: Int?;
     var selected_opponent: String?;
@@ -111,28 +73,18 @@ class BetBuilderTeamSelection: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var TeamTwoName: UILabel!
     
-    @IBOutlet weak var WagerAmountInput: UITextField!
-    
-    @IBOutlet weak var MessageInput: UITextField!
-    
     @IBAction func GoBack(_ sender: Any) {
+        //TODO prepare for segue by sending backwards info
         performSegue(withIdentifier: "TeamSelectToGameSelect", sender: self)
     }
     
     @IBAction func OkClick(_ sender: Any) {
-        
-        let wagerAmount = self.WagerAmountInput.text;
-        
-        var alertMessage = "Confirm the details of your bet as listed below.\n Opponent: ";
-        alertMessage = alertMessage + self.selected_opponent! + "\n Your Team: "
-        alertMessage = alertMessage + self.teamOne! + "\n Other Team: "
-        alertMessage = alertMessage + self.teamTwo! + "\n Wager Amount: " + wagerAmount!
-        alertMessage = alertMessage + "\n Message: " + self.MessageInput.text!;
-        
-        let alert = UIAlertController(title: "Bet Confirmation", message: alertMessage, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: submitBet))
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel it"), style: .default, handler: cancelBet))
-        self.present(alert, animated: true, completion: nil)
+        if(self.user_team_name == nil || self.user_team_name == ""){
+            self.alert(message: "Must choose a team by clicking logo");
+        }
+        else{
+            performSegue(withIdentifier: "TeamSelectionToWagerAndMessage", sender: self);
+        }
     }
     
     
