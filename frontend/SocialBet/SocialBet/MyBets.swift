@@ -180,8 +180,9 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
             cell?.AcceptButton.setImage(nil, for: .normal)
             cell?.DeclineButton.setImage(nil, for: .normal)
             cell?.AcceptButton.isEnabled = false;
-            cell?.AcceptButton.isEnabled = false;
-            
+            cell?.AcceptButton.isHidden = true;
+            cell?.DeclineButton.isEnabled = false;
+            cell?.DeclineButton.isHidden = true;
             
             return cell!;
             
@@ -202,6 +203,9 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
             getImageFromUrl(urlString: thisBet.user1.profile_pic_url, imageView: (cell?.ProfilePic)!);
             
             cell?.ProfilePic!.setRounded();
+            
+            cell?.AcceptButton.isEnabled = false;
+            cell?.AcceptButton.isHidden = true;
             
             return cell!;
             
@@ -267,6 +271,8 @@ class MyBets: UIViewController, UICollectionViewDataSource, UICollectionViewDele
             
             cell?.AcceptButton.isEnabled = true;
             cell?.DeclineButton.isEnabled = true;
+            cell?.AcceptButton.isHidden = false;
+            cell?.DeclineButton.isHidden = false;
             
             cell?.AcceptButton.tag = thisBet.bet_id
             cell?.DeclineButton.tag = thisBet.bet_id

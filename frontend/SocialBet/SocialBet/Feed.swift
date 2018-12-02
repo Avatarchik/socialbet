@@ -231,6 +231,15 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             cell?.AcceptButton.tag = thisBet.bet_id
             cell?.AcceptButton.addTarget(self, action: #selector(OpenAcceptButtonPressed(sender:)), for: .touchUpInside)
             
+            if(thisBet.user1.username == common.username){
+                cell?.AcceptButton.isHidden = true;
+                cell?.AcceptButton.isEnabled = false;
+            }
+            else{
+                cell?.AcceptButton.isHidden = false;
+                cell?.AcceptButton.isEnabled = true;
+            }
+            
             return cell!;
             
         case .games:
