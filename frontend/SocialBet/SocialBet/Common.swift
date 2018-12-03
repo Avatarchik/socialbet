@@ -56,7 +56,7 @@ extension UIImageView {
     }
 }
 func getImageFromUrl(urlString: String, imageView: UIImageView) {
-    var url = "http://socialbet.jpkrieg.com:5000/" + urlString
+    let url = "http://socialbet.jpkrieg.com:5000/" + urlString
     imageView.load(url: URL(string: url)!)
 }
 

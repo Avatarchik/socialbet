@@ -86,6 +86,13 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FFl-2e-f2T" userLabel="Row Separator">
+                        <rect key="frame" x="5" y="159" width="364" height="1"/>
+                        <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="oZx-9w-uyR"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -95,6 +102,7 @@
                 <constraint firstItem="dST-iA-DRK" firstAttribute="leading" secondItem="Qej-Nn-nZt" secondAttribute="trailing" constant="3" id="5mR-E7-yCG"/>
                 <constraint firstItem="zP3-1T-P0P" firstAttribute="top" secondItem="Uau-RD-KAe" secondAttribute="top" id="829-jE-Nr6"/>
                 <constraint firstItem="dST-iA-DRK" firstAttribute="centerX" secondItem="8Dh-ym-UJX" secondAttribute="centerX" id="93c-xL-kWn"/>
+                <constraint firstItem="8Dh-ym-UJX" firstAttribute="bottom" secondItem="FFl-2e-f2T" secondAttribute="bottom" id="9gc-ca-8Py"/>
                 <constraint firstItem="q9H-XQ-9ur" firstAttribute="centerX" secondItem="8Dh-ym-UJX" secondAttribute="centerX" id="AyL-nw-VF6"/>
                 <constraint firstItem="dST-iA-DRK" firstAttribute="bottom" secondItem="Uau-RD-KAe" secondAttribute="centerY" constant="5" id="Bux-9c-kms"/>
                 <constraint firstItem="Myk-ov-R2V" firstAttribute="top" secondItem="dST-iA-DRK" secondAttribute="top" id="Chp-V4-tmL"/>
@@ -110,6 +118,8 @@
                 <constraint firstItem="rPf-Uj-8Zw" firstAttribute="centerX" secondItem="zP3-1T-P0P" secondAttribute="centerX" id="YK4-ZD-iUd"/>
                 <constraint firstItem="d3c-7I-V1b" firstAttribute="centerX" secondItem="8Dh-ym-UJX" secondAttribute="centerX" id="aVu-u6-D3s"/>
                 <constraint firstItem="8Dh-ym-UJX" firstAttribute="trailing" secondItem="zP3-1T-P0P" secondAttribute="trailing" constant="10" id="eh6-7S-fUi"/>
+                <constraint firstItem="8Dh-ym-UJX" firstAttribute="trailing" secondItem="FFl-2e-f2T" secondAttribute="trailing" constant="5" id="hcS-AR-H0Z"/>
+                <constraint firstItem="FFl-2e-f2T" firstAttribute="leading" secondItem="8Dh-ym-UJX" secondAttribute="leading" constant="5" id="iRW-93-gt5"/>
                 <constraint firstItem="rPf-Uj-8Zw" firstAttribute="width" secondItem="LEP-f2-62P" secondAttribute="width" id="lSn-jc-i1u"/>
                 <constraint firstItem="d3c-7I-V1b" firstAttribute="bottom" secondItem="LEP-f2-62P" secondAttribute="top" id="nwi-QS-ipd"/>
                 <constraint firstItem="LEP-f2-62P" firstAttribute="centerX" secondItem="Uau-RD-KAe" secondAttribute="centerX" id="nxQ-a6-MgG"/>
