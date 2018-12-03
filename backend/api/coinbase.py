@@ -1,12 +1,13 @@
 # from flask import Flask, request, jsonify, Blueprint
 # from db import db
-# import json
 # from .api_utils import create_http_response
 # import requests
 # from coinbase.wallet.client import Client # FIXME: think we need this right?
 # import random
 # import string
 # import urllib
+import requests
+import json
 #
 #
 # app = Flask(__name__)
@@ -76,3 +77,18 @@
 #
 #
 #
+
+def fetch_users_auth_token(code):
+    data = {'grant_type': 'authorization_code',
+            'code': code,
+            'client_id': client_id,
+            'client_secret': client_secret,
+            'redirect_uri': ''}
+
+    api_url = 'https://api.coinbase.com/oauth/token'
+
+    r = requests.post(url=api_url, data=data)
+
+    response_data = json.loads(r.text)
+
+    return {'access_token': response_data['access_token'], 'refresh_token': response_data['refresh_token']}
