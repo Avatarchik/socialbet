@@ -103,11 +103,8 @@ func sendPOST(uri: String, parameters: Dictionary<String, Any>, callback: @escap
             print(jsonDict)
             callback(jsonDict)
         case .failure(let error):
-            print((error as! AFError).errorDescription)
-            /*let jsonData = JSON as! NSDictionary
-            let jsonDict = jsonData.swiftDictionary
-            print(jsonDict)
-            callback(jsonDict)*/
+            let errorJson = ["success_status": "error", "errors": [error]] as [String : Any]
+            callback(errorJson)
         }
     }
 }
