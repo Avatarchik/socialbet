@@ -420,14 +420,14 @@ def place_bet(data):
     game_id = str(data['game_id'])
     message = data['message']
     amount = data['amount'][1:].replace(',', '')
-	direct = str(data['direct'])
+    direct = str(data['direct'])
     user1 = data['user1']
-	if direct:
-		user2 = data['user2']
+    if direct:
+        user2 = data['user2']
     else:
-		user2 = None
-	team1 = data['team1']
-	team2 = data['team2']
+        user2 = None
+    team1 = data['team1']
+    team2 = data['team2']
     time_placed = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
 
    
