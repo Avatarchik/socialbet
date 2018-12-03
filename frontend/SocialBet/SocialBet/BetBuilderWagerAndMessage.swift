@@ -41,8 +41,9 @@ class BetBuilderWagerAndMessage: UIViewController {
     
     func submitBet(alert: UIAlertAction!) {
         let direct = (self.selected_opponent! != "");
+        var parameters: Dictionary<String, Any>;
         
-        let parameters = ["loguser": common.username, "auth": common.pwhash, "game_id": self.selected_game_id!, "message": "", "amount": self.WagerAmountInput.text!, "user1": common.username, "user2": self.selected_opponent!, "direct": direct, "accepted": false] as! Dictionary<String, Any>
+        parameters = ["loguser": common.username, "auth": common.pwhash, "game_id": self.selected_game_id!, "message": "", "amount": self.WagerAmountInput.text!, "user1": common.username, "user2": self.selected_opponent!, "team1": self.userTeamName!, "team2": self.otherTeamName!, "direct": direct, "accepted": false]
         
         sendPOST(uri: "/api/betting/place_bet/", parameters: parameters, callback: { (jsonDict) in
             print(jsonDict)
