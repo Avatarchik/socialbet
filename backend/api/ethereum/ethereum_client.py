@@ -142,7 +142,7 @@ def deploy_smart_contract():
     '''
 
     # compile all contract files
-    contracts = compile_files(['SocialBetSmartContract.sol'])
+    #contracts = compile_files(['SocialBetSmartContract.sol'])
     # separate main file and link file
     #compiled_sol = contracts.pop("SocialBetSmartContract.sol:SocialBetContract")
     compiled_sol = compile_source(contract_source_code)  # Compiled source code
