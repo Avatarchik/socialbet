@@ -14,6 +14,10 @@ class BetBuilderWagerAndMessage: UIViewController {
     var otherTeamName: String?
     var selected_game_id: Int?;
     var selected_opponent: String?;
+    var teamOne: String?;
+    var teamTwo: String?;
+    var teamOneLogoURL: String?
+    var teamTwoLogoURL: String?
     @IBOutlet weak var WagerAmountInput: UITextField!
     @IBOutlet weak var MessageInput: UITextField!    
     
@@ -36,6 +40,15 @@ class BetBuilderWagerAndMessage: UIViewController {
                 vc.feedType = .live
             }
             
+        }
+        
+        if let vc_back = segue.destination as? BetBuilderTeamSelection{
+            vc_back.selected_opponent = self.selected_opponent
+            vc_back.selected_game_id = self.selected_game_id
+            vc_back.teamOne = self.teamOne
+            vc_back.teamTwo = self.teamTwo
+            vc_back.teamOneLogoURL = self.teamOneLogoURL
+            vc_back.teamTwoLogoURL = self.teamTwoLogoURL
         }
     }
     
@@ -94,14 +107,8 @@ class BetBuilderWagerAndMessage: UIViewController {
         }
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func GoBack(_ sender: Any) {
+        performSegue(withIdentifier: "WagerToTeamSelection", sender: self)
     }
-    */
-
+    
 }

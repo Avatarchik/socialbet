@@ -35,6 +35,14 @@ class BetBuilderTeamSelection: UIViewController, UIGestureRecognizerDelegate {
             print("other team: " + self.other_team_name!);
             vc.selected_game_id = self.selected_game_id;
             vc.selected_opponent = self.selected_opponent;
+            vc.teamOne = self.teamOne;
+            vc.teamTwo = self.teamTwo;
+            vc.teamOneLogoURL = self.teamOneLogoURL;
+            vc.teamTwoLogoURL = self.teamTwoLogoURL;
+        }
+        
+        if let vc_back = segue.destination as? BetBuilderGameSelection{
+            vc_back.selectedOpponent = self.selected_opponent
         }
     }
     

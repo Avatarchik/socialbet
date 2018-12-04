@@ -396,11 +396,8 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             cell?.GameTime.text = thisBet.game_time;
             cell?.WagerAmount.text = "Amount: $" + String(thisBet.ammount);
             
-            let team1Url = teamURL(teamname: thisBet.team1);
-            let team2Url = teamURL(teamname: thisBet.team2);
-            
-            getImageFromUrl(urlString: team1Url, imageView: (cell?.Team1Image)!);
-            getImageFromUrl(urlString: team2Url, imageView: (cell?.Team2Image)!);
+            getImageFromUrl(urlString: thisBet.team1_logo_url, imageView: (cell?.Team1Image)!);
+            getImageFromUrl(urlString: thisBet.team2_logo_url, imageView: (cell?.Team2Image)!);
             
             cell?.AcceptButton.isHidden = true;
             cell?.AcceptButton.isEnabled = false;

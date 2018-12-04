@@ -26,7 +26,6 @@ class BetBuilderBetTypeSelection: UIViewController {
         }
     }
     
-    
     @IBOutlet weak var OKObject: UIButton!
     @IBOutlet weak var OpponentHandle: UITextField!
     var entered_handle: String?;
