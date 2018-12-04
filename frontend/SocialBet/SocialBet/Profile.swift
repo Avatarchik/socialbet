@@ -68,7 +68,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         self.RequestsObject!.topAnchor.constraint(equalTo: self.LiveBetsObject.topAnchor).isActive = true
         self.RequestsObject!.leadingAnchor.constraint(equalTo: self.OpenBetsObject.trailingAnchor).isActive = true
         self.RequestsObject!.backgroundColor = UIColor.white;
-        self.RequestsObject!.setTitleColor(UIColor.blue, for: .normal)
+        self.RequestsObject!.setTitleColor(UIColorFromRGB(rgbValue: 0x007AFF), for: .normal)
         self.RequestsObject!.isHidden = false;
         self.RequestsObject!.isEnabled = true;
         
@@ -84,7 +84,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         self.BetHistoryObject!.leadingAnchor.constraint(equalTo: self.RequestsObject!.trailingAnchor).isActive = true
         self.BetHistoryObject!.trailingAnchor.constraint(equalTo: self.ProfileBetFeed.trailingAnchor).isActive = true
         self.BetHistoryObject!.backgroundColor = UIColor.white;
-        self.BetHistoryObject!.setTitleColor(UIColor.blue, for: .normal)
+        self.BetHistoryObject!.setTitleColor(UIColorFromRGB(rgbValue: 0x007AFF), for: .normal)
         self.BetHistoryObject!.isHidden = false;
         self.BetHistoryObject!.isEnabled = true;
         
@@ -108,7 +108,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         self.BetweenUsObject!.leadingAnchor.constraint(equalTo: self.OpenBetsObject!.trailingAnchor).isActive = true
         self.BetweenUsObject!.trailingAnchor.constraint(equalTo: self.ProfileBetFeed.trailingAnchor).isActive = true
         self.BetweenUsObject!.backgroundColor = UIColor.white;
-        self.BetweenUsObject!.setTitleColor(UIColor.blue, for: .normal)
+        self.BetweenUsObject!.setTitleColor(UIColorFromRGB(rgbValue: 0x007AFF), for: .normal)
         self.BetweenUsObject!.isHidden = false;
         self.BetweenUsObject!.isEnabled = true;
         
