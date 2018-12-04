@@ -51,6 +51,22 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         }
     }
     
+    var SideMenuOpen = false;
+    @IBOutlet weak var SideMenuConstraint: NSLayoutConstraint!
+    func toggleSideMenu() {
+        if (SideMenuOpen) {
+            SideMenuConstraint.constant = -200
+            SideMenuOpen = false
+        } else {
+            SideMenuConstraint.constant = 0
+            SideMenuOpen = true
+        }
+    }
+    @IBAction func menuTapped() {
+        toggleSideMenu()
+    }
+    
+    
     func AddSelfFeeds(){
         //get rid of Between US tab
         self.BetweenUsObject?.removeFromSuperview();

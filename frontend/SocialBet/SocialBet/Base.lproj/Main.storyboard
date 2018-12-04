@@ -422,7 +422,7 @@
             <objects>
                 <tableViewController id="1DK-nt-SYw" customClass="SideMenu" customModule="SocialBet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="ief-ee-HVg">
-                        <rect key="frame" x="0.0" y="0.0" width="200" height="553"/>
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="597"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -546,37 +546,37 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L9W-RI-hfj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1477" y="819"/>
+            <point key="canvasLocation" x="1477" y="917"/>
         </scene>
         <!--Profile-->
         <scene sceneID="SM5-Fd-n1G">
             <objects>
                 <viewController id="uc1-GC-PZb" customClass="Profile" customModule="SocialBet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D7U-5t-p8B">
-                        <rect key="frame" x="0.0" y="0.0" width="200" height="553"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="seY-FA-c8m">
-                                <rect key="frame" x="65" y="30" width="70" height="70"/>
+                                <rect key="frame" x="152.5" y="30" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="MS7-8q-3Tm"/>
                                     <constraint firstAttribute="height" constant="70" id="ruK-6b-Ndb"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3a4-cN-fj5">
-                                <rect key="frame" x="57" y="105" width="86" height="21"/>
+                                <rect key="frame" x="144.5" y="105" width="86" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Handle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMx-81-JQe">
-                                <rect key="frame" x="52.5" y="131" width="95" height="21"/>
+                                <rect key="frame" x="140" y="131" width="95" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8sJ-iF-6jS">
-                                <rect key="frame" x="57" y="157" width="86" height="30"/>
+                                <rect key="frame" x="144.5" y="157" width="86" height="30"/>
                                 <state key="normal" title="Initiate a Bet">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -585,7 +585,7 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ce3-u4-apo">
-                                <rect key="frame" x="0.0" y="237" width="200" height="316"/>
+                                <rect key="frame" x="0.0" y="237" width="375" height="430"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Zck-Io-LSY">
                                     <size key="itemSize" width="375" height="160"/>
@@ -608,7 +608,7 @@
                                 <state key="normal" title="Open"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wFA-At-bqu">
-                                <rect key="frame" x="61" y="156" width="78" height="32"/>
+                                <rect key="frame" x="61" y="156" width="253" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="Add Friend">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -619,9 +619,12 @@
                                 <state key="normal" title="Menu">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="menuTapped" destination="uc1-GC-PZb" eventType="touchUpInside" id="HpH-Ht-qCK"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jb-ZP-SUS">
-                                <rect key="frame" x="149" y="30" width="41" height="30"/>
+                                <rect key="frame" x="324" y="30" width="41" height="30"/>
                                 <state key="normal" title="Home">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -629,13 +632,24 @@
                                     <action selector="returnHome" destination="uc1-GC-PZb" eventType="touchUpInside" id="1dG-Ww-26c"/>
                                 </connections>
                             </button>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ss-W6-pp7">
+                                <rect key="frame" x="-200" y="70" width="200" height="597"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="DEk-6Y-Mbp"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="1DK-nt-SYw" kind="embed" id="JBt-pp-IAw"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ce3-u4-apo" firstAttribute="centerX" secondItem="pKH-oH-D9S" secondAttribute="centerX" id="2g8-lK-Mop"/>
+                            <constraint firstItem="7ss-W6-pp7" firstAttribute="bottom" secondItem="pKH-oH-D9S" secondAttribute="bottom" id="9Qh-cM-0Pr"/>
                             <constraint firstItem="wFA-At-bqu" firstAttribute="centerX" secondItem="8sJ-iF-6jS" secondAttribute="centerX" id="Beg-fI-sMT"/>
                             <constraint firstItem="pKH-oH-D9S" firstAttribute="bottom" secondItem="ce3-u4-apo" secondAttribute="bottom" id="Ddf-PT-1VO"/>
                             <constraint firstItem="fiB-fn-M3C" firstAttribute="leading" secondItem="1bE-Uo-hGA" secondAttribute="trailing" id="EQZ-aN-r90"/>
+                            <constraint firstItem="7ss-W6-pp7" firstAttribute="leading" secondItem="pKH-oH-D9S" secondAttribute="leading" constant="-200" id="HM8-W8-rJk"/>
                             <constraint firstItem="fiB-fn-M3C" firstAttribute="height" secondItem="1bE-Uo-hGA" secondAttribute="height" id="I9e-yT-yI9"/>
                             <constraint firstItem="3a4-cN-fj5" firstAttribute="top" secondItem="seY-FA-c8m" secondAttribute="bottom" constant="5" id="MLi-eh-Hzv"/>
                             <constraint firstItem="3jb-ZP-SUS" firstAttribute="top" secondItem="pKH-oH-D9S" secondAttribute="top" constant="10" id="OIi-Iz-d2a"/>
@@ -651,6 +665,7 @@
                             <constraint firstItem="ce3-u4-apo" firstAttribute="width" secondItem="D7U-5t-p8B" secondAttribute="width" id="cjy-z0-Ef3"/>
                             <constraint firstItem="wFA-At-bqu" firstAttribute="top" secondItem="8sJ-iF-6jS" secondAttribute="top" constant="-1" id="ckj-2b-NNH"/>
                             <constraint firstItem="8sJ-iF-6jS" firstAttribute="centerX" secondItem="pKH-oH-D9S" secondAttribute="centerX" id="dBs-a6-jV6"/>
+                            <constraint firstItem="7ss-W6-pp7" firstAttribute="top" secondItem="D7U-5t-p8B" secondAttribute="topMargin" constant="50" id="egV-jZ-dib"/>
                             <constraint firstItem="wFA-At-bqu" firstAttribute="leading" secondItem="pKH-oH-D9S" secondAttribute="leading" constant="61" id="fAM-k6-Y7d"/>
                             <constraint firstItem="6sc-j0-50k" firstAttribute="top" secondItem="pKH-oH-D9S" secondAttribute="top" constant="10" id="goM-is-uSB"/>
                             <constraint firstItem="fMx-81-JQe" firstAttribute="top" secondItem="3a4-cN-fj5" secondAttribute="bottom" constant="5" id="i60-QZ-h5s"/>
@@ -667,6 +682,7 @@
                         <outlet property="OpenBetsObject" destination="fiB-fn-M3C" id="HCv-HG-XEL"/>
                         <outlet property="ProfileBetFeed" destination="ce3-u4-apo" id="5F2-g2-lNa"/>
                         <outlet property="ProfilePic" destination="seY-FA-c8m" id="M3t-DO-wPG"/>
+                        <outlet property="SideMenuConstraint" destination="HM8-W8-rJk" id="BbK-hd-oIS"/>
                         <outlet property="UserHandle" destination="fMx-81-JQe" id="5qf-kC-HQZ"/>
                         <outlet property="UserName" destination="3a4-cN-fj5" id="eaU-Uo-zAp"/>
                         <segue destination="Jwj-S7-5gy" kind="presentation" identifier="ProfileToHome" id="LZe-Ez-tcL"/>
@@ -682,11 +698,11 @@
             <objects>
                 <viewController id="drK-px-ahE" customClass="BetBuilderGameSelection" customModule="SocialBet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DUu-EG-m3A">
-                        <rect key="frame" x="0.0" y="0.0" width="200" height="553"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Qt6-X5-fNi">
-                                <rect key="frame" x="0.0" y="144" width="200" height="379"/>
+                                <rect key="frame" x="0.0" y="144" width="375" height="493"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JMZ-Ts-eMe">
                                     <size key="itemSize" width="375" height="160"/>
@@ -697,7 +713,7 @@
                                 <cells/>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bet Builder - Game Selection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N1g-sh-L3Q">
-                                <rect key="frame" x="-25" y="80" width="250" height="24"/>
+                                <rect key="frame" x="62.5" y="80" width="250" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -741,11 +757,11 @@
             <objects>
                 <viewController id="b1v-3P-q1q" customClass="BetBuilderTeamSelection" customModule="SocialBet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ve3-fp-5ni">
-                        <rect key="frame" x="0.0" y="0.0" width="200" height="553"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cO8-ji-wd4">
-                                <rect key="frame" x="-50" y="199" width="300" height="175"/>
+                                <rect key="frame" x="37.5" y="256" width="300" height="175"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lue-f7-NUF">
                                         <rect key="frame" x="30" y="10" width="100" height="100"/>
@@ -801,7 +817,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bet Builder - Team Selection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E5m-hS-uDZ">
-                                <rect key="frame" x="-22.5" y="80" width="245" height="24"/>
+                                <rect key="frame" x="65" y="80" width="245" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -950,17 +966,17 @@
             <objects>
                 <viewController id="pUr-gZ-3Sg" customClass="Settings" customModule="SocialBet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZpP-fS-25n">
-                        <rect key="frame" x="0.0" y="0.0" width="200" height="553"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fci-Le-2tE">
-                                <rect key="frame" x="64" y="40" width="72" height="24"/>
+                                <rect key="frame" x="151.5" y="40" width="72" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bfh-Vy-RWo">
-                                <rect key="frame" x="-50" y="186.5" width="300" height="200"/>
+                                <rect key="frame" x="37.5" y="243.5" width="300" height="200"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile Picture:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GOC-2X-11X">
                                         <rect key="frame" x="30" y="10" width="112" height="21"/>
@@ -978,7 +994,7 @@
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r7M-VB-nVO">
-                                <rect key="frame" x="165" y="196.5" width="55" height="55"/>
+                                <rect key="frame" x="252.5" y="253.5" width="55" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="AZo-6d-k2L"/>
                                     <constraint firstAttribute="width" constant="55" id="zCS-IF-NOf"/>
@@ -1020,11 +1036,11 @@
             <objects>
                 <viewController id="yu5-0G-XRN" customClass="BetBuilderWagerAndMessage" customModule="SocialBet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yPI-wo-x4a">
-                        <rect key="frame" x="0.0" y="0.0" width="200" height="553"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kcm-X1-KPu">
-                                <rect key="frame" x="-50" y="186.5" width="300" height="200"/>
+                                <rect key="frame" x="37.5" y="243.5" width="300" height="200"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MO8-58-Ga0">
                                         <rect key="frame" x="139" y="59" width="151" height="30"/>
@@ -1082,7 +1098,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bet Builder - Wager and Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6R8-CW-DiB">
-                                <rect key="frame" x="-45" y="80" width="290" height="24"/>
+                                <rect key="frame" x="42.5" y="80" width="290" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -1112,6 +1128,7 @@
         <segue reference="TzK-3r-hYY"/>
         <segue reference="Ia1-YO-obj"/>
         <segue reference="wJx-Qc-0jA"/>
+        <segue reference="JBt-pp-IAw"/>
         <segue reference="LZe-Ez-tcL"/>
     </inferredMetricsTieBreakers>
 </document>
