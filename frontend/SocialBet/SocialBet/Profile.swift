@@ -394,6 +394,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             cell?.TeamName2.text = thisBet.user2!.team;
             cell?.Message.text = thisBet.message;
             cell?.GameTime.text = thisBet.game_time;
+            cell?.WagerAmount.text = "Amount: $" + String(thisBet.ammount);
             
             let team1Url = teamURL(teamname: thisBet.team1);
             let team2Url = teamURL(teamname: thisBet.team2);
@@ -448,6 +449,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             cell?.WinningUserName.text = betResults.winner.first_name + " " + betResults.winner.last_name;
             getImageFromUrl(urlString: betResults.loser.profile_pic_url, imageView: (cell?.LosingUserPic)!);
             cell?.LosingUserName.text = betResults.loser.first_name + " " + betResults.loser.last_name;
+            cell?.WagerAmount.text = "Amount: $" + String(thisBet.ammount);
             
             cell?.WinningUserPic!.setRounded();
             cell?.LosingUserPic!.setRounded();
@@ -510,7 +512,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             cell?.WinningTeamName.text = betResults.winner.team;
             cell?.LosingTeamName.text = betResults.loser.team;
             cell?.GameDateTime.text = thisBet.game_time;
-            cell?.WagerAmount.text = String(describing: thisBet.ammount);
+            cell?.WagerAmount.text = "Amount: $" + String(thisBet.ammount);
             
             var winningTeamUrl = "";
             var losingTeamUrl = "";
