@@ -19,8 +19,7 @@ class SideMenu: UITableViewController{
         case 0: toFriendsProfile()
         case 1: toFriendsProfile()
         case 2: toProfile()
-        case 3: toMyBets()
-        case 4: toSettings()
+        case 3: toSettings()
         default: break
         }
     }
@@ -63,10 +62,6 @@ class SideMenu: UITableViewController{
     @IBAction func toProfile() {
         self.searched_user = common.username
         performSegue(withIdentifier: "ToProfile", sender: self)
-    }
-    
-    @IBAction func toMyBets() {
-        performSegue(withIdentifier: "ToMyBets", sender: self)
     }
     
     @IBAction func toSettings() {
