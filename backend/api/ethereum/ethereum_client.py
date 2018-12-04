@@ -18,7 +18,7 @@ def deploy_smart_contract():
     ###########
 
     # web3.py instance
-    w3 = Web3(Web3.EthereumTesterProvider())
+    w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
 
     # set pre-funded account as sender
     w3.eth.defaultAccount = w3.eth.accounts[0]
