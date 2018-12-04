@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SideMenu: UITableViewController {
+class SideMenu: UITableViewController{
 
     @IBOutlet weak var enteredHandle: UITextField!
     var searched_user: String?
@@ -25,6 +25,10 @@ class SideMenu: UITableViewController {
         }
     }
     
+    
+    @IBAction func EnterButtonHit(_ sender: Any) {
+        toFriendsProfile()
+    }
     
     @IBAction func toFriendsProfile() {
         self.searched_user = enteredHandle.text;

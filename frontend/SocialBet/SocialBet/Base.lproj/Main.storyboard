@@ -38,6 +38,9 @@
                                         <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="EnterKeyHit:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="HWX-j2-qrZ"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mlp-hl-PM8">
                                 <rect key="frame" x="149" y="260" width="77" height="37"/>
@@ -437,6 +440,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                                    <connections>
+                                                        <action selector="EnterButtonHit:" destination="1DK-nt-SYw" eventType="primaryActionTriggered" id="cOQ-X5-3sC"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -535,7 +541,6 @@
                     <connections>
                         <outlet property="enteredHandle" destination="8Cc-pD-dFM" id="QhY-uh-xrd"/>
                         <segue destination="uc1-GC-PZb" kind="presentation" identifier="ToProfile" id="wJx-Qc-0jA"/>
-                        <segue destination="esZ-pB-MIY" kind="presentation" identifier="ToMyBets" id="581-tl-lj8"/>
                         <segue destination="pUr-gZ-3Sg" kind="presentation" identifier="ToSettings" id="kC9-NE-hGE"/>
                     </connections>
                 </tableViewController>
@@ -942,123 +947,6 @@
             </objects>
             <point key="canvasLocation" x="5378" y="143"/>
         </scene>
-        <!--My Bets-->
-        <scene sceneID="50B-pg-tOj">
-            <objects>
-                <viewController id="esZ-pB-MIY" customClass="MyBets" customModule="SocialBet" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="2Kb-Nu-Twg">
-                        <rect key="frame" x="0.0" y="0.0" width="200" height="553"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Bets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KvM-nl-6FE">
-                                <rect key="frame" x="64.5" y="40" width="71" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sEj-NY-5C7">
-                                <rect key="frame" x="0.0" y="84" width="50" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Live"/>
-                                <connections>
-                                    <action selector="Live:" destination="esZ-pB-MIY" eventType="touchUpInside" id="jdW-Hy-GhF"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tBn-6T-ta5">
-                                <rect key="frame" x="50" y="84" width="50" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Open"/>
-                                <connections>
-                                    <action selector="Open:" destination="esZ-pB-MIY" eventType="touchUpInside" id="73W-RE-EdI"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MzH-mR-J3P">
-                                <rect key="frame" x="100" y="84" width="50" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Requests"/>
-                                <connections>
-                                    <action selector="Requests:" destination="esZ-pB-MIY" eventType="touchUpInside" id="kc6-sG-XY5"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6uX-qj-iCk">
-                                <rect key="frame" x="150" y="84" width="50" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Results"/>
-                                <connections>
-                                    <action selector="Results:" destination="esZ-pB-MIY" eventType="touchUpInside" id="l9S-mA-gbw"/>
-                                </connections>
-                            </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="euA-gJ-wi7">
-                                <rect key="frame" x="0.0" y="114" width="200" height="439"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gge-DY-FmE">
-                                    <size key="itemSize" width="200" height="160"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="0xC-g0-ehz">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="160"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="200" height="160"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cMd-vC-gYN">
-                                <rect key="frame" x="7" y="37" width="41" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Home">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="notificationsToHome" destination="esZ-pB-MIY" eventType="touchUpInside" id="Idq-cQ-ci2"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="MzH-mR-J3P" firstAttribute="top" secondItem="sEj-NY-5C7" secondAttribute="top" id="5Rd-3i-0x8"/>
-                            <constraint firstItem="Lwl-ui-o5s" firstAttribute="trailing" secondItem="6uX-qj-iCk" secondAttribute="trailing" id="7r0-Uh-n1K"/>
-                            <constraint firstItem="euA-gJ-wi7" firstAttribute="top" secondItem="6uX-qj-iCk" secondAttribute="bottom" id="8a3-qa-7Kb"/>
-                            <constraint firstItem="sEj-NY-5C7" firstAttribute="leading" secondItem="Lwl-ui-o5s" secondAttribute="leading" id="AeB-0k-48u"/>
-                            <constraint firstItem="6uX-qj-iCk" firstAttribute="leading" secondItem="MzH-mR-J3P" secondAttribute="trailing" id="Fbn-Qf-vwQ"/>
-                            <constraint firstItem="euA-gJ-wi7" firstAttribute="centerX" secondItem="Lwl-ui-o5s" secondAttribute="centerX" id="H0V-jH-eca"/>
-                            <constraint firstItem="sEj-NY-5C7" firstAttribute="top" secondItem="KvM-nl-6FE" secondAttribute="bottom" constant="20" id="IrP-Jv-nBW"/>
-                            <constraint firstItem="MzH-mR-J3P" firstAttribute="height" secondItem="tBn-6T-ta5" secondAttribute="height" id="Kv9-0d-t57"/>
-                            <constraint firstItem="euA-gJ-wi7" firstAttribute="width" secondItem="2Kb-Nu-Twg" secondAttribute="width" id="Msf-Gg-m1r"/>
-                            <constraint firstItem="sEj-NY-5C7" firstAttribute="width" secondItem="MzH-mR-J3P" secondAttribute="width" id="UGL-xj-q7I"/>
-                            <constraint firstItem="sEj-NY-5C7" firstAttribute="width" secondItem="tBn-6T-ta5" secondAttribute="width" id="Y2P-p3-d3z"/>
-                            <constraint firstItem="tBn-6T-ta5" firstAttribute="leading" secondItem="sEj-NY-5C7" secondAttribute="trailing" id="Zew-14-ILX"/>
-                            <constraint firstItem="tBn-6T-ta5" firstAttribute="top" secondItem="sEj-NY-5C7" secondAttribute="top" id="cFj-4M-XP8"/>
-                            <constraint firstItem="euA-gJ-wi7" firstAttribute="top" secondItem="MzH-mR-J3P" secondAttribute="bottom" id="d0O-rN-Yqa"/>
-                            <constraint firstItem="KvM-nl-6FE" firstAttribute="top" secondItem="Lwl-ui-o5s" secondAttribute="top" constant="20" id="l2V-4U-g1E"/>
-                            <constraint firstItem="MzH-mR-J3P" firstAttribute="leading" secondItem="tBn-6T-ta5" secondAttribute="trailing" id="orJ-Hp-JKh"/>
-                            <constraint firstItem="tBn-6T-ta5" firstAttribute="height" secondItem="sEj-NY-5C7" secondAttribute="height" id="usz-uR-K4s"/>
-                            <constraint firstItem="KvM-nl-6FE" firstAttribute="centerX" secondItem="Lwl-ui-o5s" secondAttribute="centerX" id="vgM-Td-LE5"/>
-                            <constraint firstItem="sEj-NY-5C7" firstAttribute="width" secondItem="6uX-qj-iCk" secondAttribute="width" id="wA5-Or-5J9"/>
-                            <constraint firstItem="euA-gJ-wi7" firstAttribute="top" secondItem="sEj-NY-5C7" secondAttribute="bottom" id="wZy-Cs-6Sh"/>
-                            <constraint firstItem="6uX-qj-iCk" firstAttribute="top" secondItem="sEj-NY-5C7" secondAttribute="top" id="yQG-KL-E2t"/>
-                            <constraint firstItem="Lwl-ui-o5s" firstAttribute="bottom" secondItem="euA-gJ-wi7" secondAttribute="bottom" id="zqS-9a-pAu"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="Lwl-ui-o5s"/>
-                    </view>
-                    <connections>
-                        <outlet property="LiveObject" destination="sEj-NY-5C7" id="aIN-J6-faG"/>
-                        <outlet property="MyFeed" destination="euA-gJ-wi7" id="9tE-LT-uWq"/>
-                        <outlet property="OpenObject" destination="tBn-6T-ta5" id="zmS-Be-6rB"/>
-                        <outlet property="RequestsObject" destination="MzH-mR-J3P" id="wSI-h1-O7u"/>
-                        <outlet property="ResultsObject" destination="6uX-qj-iCk" id="boA-uD-Svs"/>
-                        <segue destination="Jwj-S7-5gy" kind="presentation" identifier="NotificationsToHome" id="qax-4x-ibi"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="E4H-cU-d8J" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6089.6000000000004" y="142.57871064467767"/>
-        </scene>
         <!--Settings-->
         <scene sceneID="sxa-bM-ULz">
             <objects>
@@ -1226,6 +1114,6 @@
         <segue reference="TzK-3r-hYY"/>
         <segue reference="Ia1-YO-obj"/>
         <segue reference="wJx-Qc-0jA"/>
-        <segue reference="LZe-Ez-tcL"/>
+        <segue reference="iod-cq-jJE"/>
     </inferredMetricsTieBreakers>
 </document>
