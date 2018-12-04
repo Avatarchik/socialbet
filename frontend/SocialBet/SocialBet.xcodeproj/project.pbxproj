@@ -27,7 +27,6 @@
 		A39C105A21915036005DAAD6 /* GamesFeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A39C105921915036005DAAD6 /* GamesFeedCell.xib */; };
 		A39CE53621936E74000B9EE1 /* BetBuilderTeamSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39CE53521936E74000B9EE1 /* BetBuilderTeamSelection.swift */; };
 		A39CE5382194088E000B9EE1 /* BetBuilderBetTypeSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39CE5372194088E000B9EE1 /* BetBuilderBetTypeSelection.swift */; };
-		A39CE53E219432C8000B9EE1 /* MyBets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39CE53D219432C8000B9EE1 /* MyBets.swift */; };
 		A39E26AF21924B0C00612E81 /* ClosedFeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A39E26AE21924B0C00612E81 /* ClosedFeedCell.xib */; };
 		A39E26B121924B4200612E81 /* ClosedFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E26B021924B4200612E81 /* ClosedFeedCell.swift */; };
 		A39E26B52193535000612E81 /* BetBuilderGameSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E26B42193535000612E81 /* BetBuilderGameSelection.swift */; };
@@ -91,7 +90,6 @@
 		A39C105921915036005DAAD6 /* GamesFeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GamesFeedCell.xib; sourceTree = "<group>"; };
 		A39CE53521936E74000B9EE1 /* BetBuilderTeamSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetBuilderTeamSelection.swift; sourceTree = "<group>"; };
 		A39CE5372194088E000B9EE1 /* BetBuilderBetTypeSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetBuilderBetTypeSelection.swift; sourceTree = "<group>"; };
-		A39CE53D219432C8000B9EE1 /* MyBets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBets.swift; sourceTree = "<group>"; };
 		A39E26AE21924B0C00612E81 /* ClosedFeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClosedFeedCell.xib; sourceTree = "<group>"; };
 		A39E26B021924B4200612E81 /* ClosedFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosedFeedCell.swift; sourceTree = "<group>"; };
 		A39E26B42193535000612E81 /* BetBuilderGameSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetBuilderGameSelection.swift; sourceTree = "<group>"; };
@@ -181,7 +179,6 @@
 				A39C104B218F9B49005DAAD6 /* GamesFeedCell.swift */,
 				A3BF735B2187600A00CF7F62 /* LiveFeedCell.swift */,
 				01F20EDA217A67F500F2F713 /* Login.swift */,
-				A39CE53D219432C8000B9EE1 /* MyBets.swift */,
 				F484C0952192A7FF009A2726 /* networking.swift */,
 				A39C104D218FB730005DAAD6 /* OpenFeedCell.swift */,
 				F47654E8218A816C0010D208 /* Profile.swift */,
@@ -487,7 +484,6 @@
 				A39E26B121924B4200612E81 /* ClosedFeedCell.swift in Sources */,
 				A39E26B52193535000612E81 /* BetBuilderGameSelection.swift in Sources */,
 				F47654E9218A816C0010D208 /* Profile.swift in Sources */,
-				A39CE53E219432C8000B9EE1 /* MyBets.swift in Sources */,
 				0151BC8D2195458C00736C6C /* SideMenu.swift in Sources */,
 				A39CE5382194088E000B9EE1 /* BetBuilderBetTypeSelection.swift in Sources */,
 				A3CD977E218613B8003740C2 /* Feed.swift in Sources */,

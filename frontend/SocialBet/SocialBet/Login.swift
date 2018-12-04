@@ -17,6 +17,12 @@ class Login: UIViewController {
     
     // PAGE MANAGEMENT METHODS /////////////////////////////////////////////////////////////////////
     
+    
+    
+    @IBAction func EnterKeyHit(_ sender: Any) {
+        LoginSubmit(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
