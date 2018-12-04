@@ -318,18 +318,8 @@
                                     <constraint firstItem="gFf-jg-jAD" firstAttribute="leading" secondItem="EX3-3S-igz" secondAttribute="leading" constant="10" id="vuD-Bc-2oe"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EBT-mH-DmF">
-                                <rect key="frame" x="0.0" y="573" width="375" height="50"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" image="YES" staticText="YES"/>
-                                </accessibility>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Yyj-CA-p8i"/>
-                                </constraints>
-                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gwO-tn-ZWu">
-                                <rect key="frame" x="0.0" y="100" width="375" height="473"/>
+                                <rect key="frame" x="0.0" y="100" width="375" height="523"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2a9-LI-0la">
                                     <size key="itemSize" width="374" height="160"/>
@@ -376,17 +366,13 @@
                             <constraint firstItem="Weh-Xe-WAv" firstAttribute="leading" secondItem="zn2-qz-h3f" secondAttribute="trailing" id="3yG-b4-8bn"/>
                             <constraint firstItem="gwO-tn-ZWu" firstAttribute="leading" secondItem="2AS-rN-cx8" secondAttribute="leading" id="4lj-tY-p2i"/>
                             <constraint firstItem="EX3-3S-igz" firstAttribute="centerX" secondItem="2AS-rN-cx8" secondAttribute="centerX" id="Bfz-7Y-3jo"/>
-                            <constraint firstItem="EBT-mH-DmF" firstAttribute="top" secondItem="gwO-tn-ZWu" secondAttribute="bottom" id="COT-ri-Vdv"/>
-                            <constraint firstItem="2AS-rN-cx8" firstAttribute="bottom" secondItem="EBT-mH-DmF" secondAttribute="bottom" id="ClN-s4-j2d"/>
                             <constraint firstItem="gwO-tn-ZWu" firstAttribute="top" secondItem="zn2-qz-h3f" secondAttribute="bottom" id="DZ9-lo-WlJ"/>
                             <constraint firstItem="INb-g8-DbI" firstAttribute="bottom" secondItem="2AS-rN-cx8" secondAttribute="bottom" id="HPw-pF-OpP"/>
                             <constraint firstItem="2n8-xa-YUO" firstAttribute="leading" secondItem="2AS-rN-cx8" secondAttribute="leading" id="IHe-0L-igE"/>
-                            <constraint firstItem="EBT-mH-DmF" firstAttribute="centerX" secondItem="2AS-rN-cx8" secondAttribute="centerX" id="IOF-op-au6"/>
                             <constraint firstItem="2n8-xa-YUO" firstAttribute="width" secondItem="zn2-qz-h3f" secondAttribute="width" id="JX1-Ob-Gzv"/>
                             <constraint firstItem="INb-g8-DbI" firstAttribute="top" secondItem="EX3-3S-igz" secondAttribute="bottom" id="K4k-r5-JCD"/>
                             <constraint firstItem="EX3-3S-igz" firstAttribute="width" secondItem="X30-1L-gRy" secondAttribute="width" id="KTA-Gz-Sok"/>
                             <constraint firstItem="gwO-tn-ZWu" firstAttribute="top" secondItem="2n8-xa-YUO" secondAttribute="bottom" id="NaA-Ja-Ecd"/>
-                            <constraint firstItem="EBT-mH-DmF" firstAttribute="width" secondItem="X30-1L-gRy" secondAttribute="width" id="OWp-P8-rTy"/>
                             <constraint firstItem="2n8-xa-YUO" firstAttribute="top" secondItem="EX3-3S-igz" secondAttribute="bottom" id="PMR-sI-ayt"/>
                             <constraint firstItem="zn2-qz-h3f" firstAttribute="bottom" secondItem="2n8-xa-YUO" secondAttribute="bottom" id="Q3J-Yp-fl0"/>
                             <constraint firstItem="zn2-qz-h3f" firstAttribute="leading" secondItem="2n8-xa-YUO" secondAttribute="trailing" id="RZ2-xz-YuE"/>
@@ -396,6 +382,7 @@
                             <constraint firstItem="Weh-Xe-WAv" firstAttribute="top" secondItem="zn2-qz-h3f" secondAttribute="top" id="V6l-B3-cYk"/>
                             <constraint firstItem="zn2-qz-h3f" firstAttribute="width" secondItem="Weh-Xe-WAv" secondAttribute="width" id="aQn-2e-GvU"/>
                             <constraint firstItem="INb-g8-DbI" firstAttribute="leading" secondItem="2AS-rN-cx8" secondAttribute="leading" constant="-200" id="arg-sX-ADp"/>
+                            <constraint firstItem="2AS-rN-cx8" firstAttribute="bottom" secondItem="gwO-tn-ZWu" secondAttribute="bottom" id="gjf-3Z-isN"/>
                             <constraint firstItem="EX3-3S-igz" firstAttribute="top" secondItem="2AS-rN-cx8" secondAttribute="top" id="jWN-6z-Z8h"/>
                             <constraint firstItem="Weh-Xe-WAv" firstAttribute="bottom" secondItem="zn2-qz-h3f" secondAttribute="bottom" id="odS-8g-3XM"/>
                         </constraints>
