@@ -5,11 +5,11 @@ from db import db
 import requests
 
 app = Flask(__name__)
-games = Blueprint('gold_std_sports_api_emulator', __name__)
+games = Blueprint('sports_api_emulator', __name__)
 
 # function is emulating gold standard sports api
 # the api example can be found at: https://rapidapi.com/GoldStandard/api/gold-standard-sports
-@gold_std_sports_api_emulator.route('/api/sports_api/')
+@sports_api_emulator.route('/api/sports_api/')
 def get_games_and_scores():
 
 	log_user = request.args.get('loguser')
