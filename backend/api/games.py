@@ -24,7 +24,8 @@ def get_games():
     }
     '''
     # send GET request to api endpoint emulating gold standard sports api
-    URL = 'http://socialbet.jpkrieg.com:5000/api/sports_api_emulator/'
+    #URL = 'http://socialbet.jpkrieg.com:5000/api/sports_api_emulator/'
+    URL = url_for('api.sports_api_emulator')
 
     PARAMS = {}
     PARAMS['league'] = request.args.get('league')
