@@ -15,6 +15,7 @@ def get_games_and_scores():
 	if not authenticated:
 	   return create_http_response(errors=['unauthenticated user'])
 
+	print(request.args)
 	games = db.get_games()
 	print(1)
 	print(games)
