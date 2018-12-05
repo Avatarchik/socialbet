@@ -37,6 +37,8 @@ CREATE TABLE bets (
 	ammount FLOAT NOT NULL, 
 	user1 VARCHAR(50) NOT NULL,
 	user2 VARCHAR(50),
+	user1_id INT,
+	user2_id INT,
 	team1 VARCHAR(50) NOT NULL,
 	team2 VARCHAR(50) NOT NULL,
     direct INTEGER NOT NULL,

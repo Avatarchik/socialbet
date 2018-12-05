@@ -78,6 +78,36 @@ def find_user():
 
     return create_http_response(data=result)
 
+@users.route('/api/users/find_user_id/')
+def find_user():
+    log_user = request.args.get('loguser')
+    auth = request.args.get('auth')
+    auth_ = db.authenticate(log_user, auth)
+    if not auth_:
+        result = {}
+        result['errors'] = []
+        result['errors'].append('unauthenticated user')
+        return create_http_response(data=result, errors=result['errors'])
+    
+    result = {}
+    username = request.args.get('user_id')
+    user = db.get_user_id(user_id)
+
+    if not user:
+        result = {}
+        result['errors'] = []
+        result['errors'].append('username does not exist')
+        return create_http_response(data=result, errors=result['errors'])
+
+    result['user_id'] = user['user_id']
+    result['username'] = user['user_name']
+    result['first_name'] = user['first_name']
+    result['last_name'] = user['last_name']
+    result['profile_pic_url'] = user['profile_pic_url']
+    result['friends'] = db.are_friends(log_user, username)
+
+    return create_http_response(data=result)
+
 
 @users.route('/api/users/create/', methods=["POST"])
 def create_user():

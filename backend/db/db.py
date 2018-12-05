@@ -53,6 +53,20 @@ def get_user(user_name):
 
     return res
 
+def get_user_id(user_id):
+    db_config = get_db_config()
+    db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
+    cursor = db.cursor(pymysql.cursors.DictCursor)
+
+    sql = "SELECT * FROM users WHERE user_id = \"" + user_id + "\";"
+    cursor.execute(sql)
+
+    res = cursor.fetchone()
+
+    db.close()
+
+    return res
+
 # I NEED ALL USER INFO
 def create_user(data):
     db_config = get_db_config()
