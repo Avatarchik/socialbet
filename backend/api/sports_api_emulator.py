@@ -16,9 +16,13 @@ def get_games_and_scores():
 	   return create_http_response(errors=['unauthenticated user'])
 
 	games = db.get_games()
+	print(1)
 	print(games)
-	print(type(games))
+	print(2)
+	print(games[0])
+	print(3)
 	print(len(games))
+	'''
 	response = []
 	for next_game in games:
 		game = {}
@@ -37,5 +41,5 @@ def get_games_and_scores():
 		game['AwayTeam'] = None
 		game['HomeTeam'] = None
 		response.append(next_game)
-
+	'''
 	return jsonify(response), 200,  {'ContentType': 'application/json'}
