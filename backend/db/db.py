@@ -540,7 +540,24 @@ def cancel_bet(bet_id):
 
     return
 
-def unnotified_bets():
+def unnotified_bets(loguser):
 
-    return
+    db_config = get_db_config()
+    db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
+    cursor = db.cursor(pymysql.cursors.DictCursor)
+
+    sql = "SELECT DISTINCT B.*, G.* FROM bets B "\
+            "INNER JOIN games G ON G.game_id = B.game_id"\
+            "WHERE accepted=1 AND winner IS NOT NULL AND notified=0 AND (B.user1=\" "+ loguser+ "\" OR B.user2=\"" + loguser + "\")"
+
+    cursor.execute(sql)
+
+    res = []
+    for row in cursor:
+        res.append(row)
+
+
+    db.close()
+
+    return res
 
