@@ -595,6 +595,7 @@
                     <connections>
                         <outlet property="BetsFeed" destination="ZgS-3V-YMi" id="nqh-X1-Vef"/>
                         <segue destination="uc1-GC-PZb" kind="presentation" identifier="OpenFeedToProfile" id="gco-AL-gb3"/>
+                        <segue destination="Jwj-S7-5gy" kind="presentation" identifier="OpenFeedToHome" id="t63-IK-6oX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uKe-WY-4fc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1195,6 +1196,6 @@
         <segue reference="Fcy-jZ-kMu"/>
         <segue reference="gco-AL-gb3"/>
         <segue reference="v6D-wu-qAY"/>
-        <segue reference="iod-cq-jJE"/>
+        <segue reference="t63-IK-6oX"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -24,7 +24,7 @@ class GameOpenFeed: UIViewController {
     }
     
     @IBAction func GoHome(_ sender: UIButton) {
-        //TODO go home
+        performSegue(withIdentifier: "OpenFeedToHome", sender: self)
     }
     
     @objc func OpenAcceptButtonPressed(sender: UIButton){
