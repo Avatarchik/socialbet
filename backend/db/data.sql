@@ -61,8 +61,8 @@ INSERT INTO bets (bet_id, game_id, time_placed, game_time, num_comments, message
 VALUES
 (1,1,'11/13/2018 3:52PM', '11/18/2018 1:00PM', 0, 'Chapp is going down!', 20.0, 'achapp', 'cterech', 5, 1, 'Tennessee Titans', 'Indianapolis Colts', 1, 1,NULL, 0), 
 (2,4,'11/13/2018 4:19PM', '11/18/2018 1:00PM', 1, 'Ittai is going down!', 100.0, 'achapp', 'jkrieg', 5, 6, 'Carolina Panthers', 'Detroit Lions', 1, 0,NULL, 0),
-(3,7,'11/13/2018 3:52PM', '11/18/2018 1:00PM', 0, 'This will be easy!', 5.0, 'achapp', 'cterech', 5,1, 'Houston Texans', 'Washington Redskins', 0, 1, 'cterech', 1), 
-(4,2,'11/13/2018 4:19PM', '11/18/2018 1:00PM', 2, 'Lets go!!!!!', 10.0, 'ncargill', 'rshelly', 3,2,'Tampa Bay Buccaneers', 'New York Giants', 1, 1, 'rshelly', 1),
+(3,7,'11/13/2018 3:52PM', '11/18/2018 1:00PM', 0, 'This will be easy!', 5.0, 'achapp', 'cterech', 5,1, 'Houston Texans', 'Washington Redskins', 0, 1, 'cterech', 0), 
+(4,2,'11/13/2018 4:19PM', '11/18/2018 1:00PM', 2, 'Lets go!!!!!', 10.0, 'ncargill', 'rshelly', 3,2,'Tampa Bay Buccaneers', 'New York Giants', 1, 1, 'rshelly', 0),
 (5,3,'11/13/2018 3:52PM', '11/18/2018 1:00PM', 0, 'This is just easy money', 50.0, 'cterech', 'isvidler',1,4, 'Pittsburgh Steelers', 'Jacksonville Jaguars', 1, 0, NULL, 0), 
 (6,3,'11/13/2018 4:19PM', '11/18/2018 1:00PM', 0, 'We love sports', 100.0, 'achapp', 'jkrieg', 5,6, 'Pittsburgh Steelers', 'Jacksonville Jaguars', 0, 1,NULL, 0),
 (7,4,'11/13/2018 3:52PM', '11/18/2018 1:00PM', 1, 'Lets ride', 20.0, 'ncargill', 'tswartz', 3,7, 'Carolina Panthers', 'Detroit Lions', 0, 0, NULL, 0), 
