@@ -23,18 +23,7 @@ VALUES
 # GAMES
 INSERT INTO games(game_id, team1, team2, team1_url, team2_url, record1, record2, game_time)
 VALUES
-(1, 'Tennessee Titans', 'Indianapolis Colts', '/team_logos/titans.png', '/team_logos/colts.png', '5-4', '4-5', '11/18/2018 1:00PM'),
-(2, 'Tampa Bay Buccaneers', 'New York Giants', '/team_logos/buccaneers.png', '/team_logos/giants.png', '3-6', '2-7', '11/18/2018 1:00PM'), 
-(3, 'Pittsburgh Steelers', 'Jacksonville Jaguars', '/team_logos/steelers.png', '/team_logos/jaguars.png', '6-2-1', '3-6', '11/18/2018 1:00PM'),
-(4, 'Carolina Panthers', 'Detroit Lions', '/team_logos/panthers.png', '/team_logos/lions.png', '6-3', '3-6', '11/18/2018 1:00PM'),
-(5, 'Dallas Cowboys', 'Atlanta Falcons', '/team_logos/cowboys.png', '/team_logos/falcons.png', '4-5', '4-5', '11/18/2018 1:00PM'),
-(6, 'Cincinnati Bengals', 'Baltimore Ravens', '/team_logos/bengals.png', '/team_logos/ravens.png','5-4', '4-5', '11/18/2018 1:00PM'),
-(7, 'Houston Texans', 'Washington Redskins', '/team_logos/texans.png', '/team_logos/redskins.png', '6-3', '6-3', '11/18/2018 1:00PM'),
-(8, 'Oakland Raiders', 'Arizona Cardinals', '/team_logos/raiders.png', '/team_logos/cardinals.png', '1-8', '2-7', '11/18/2018 4:05PM'),
-(9, 'Denver Broncos', 'Los Angeles Chargers', '/team_logos/broncos.png', '/team_logos/dolphins.png', '3-6', '5-5', '11/18/2018 4:05PM'),
-(10, 'Philadelphia Eagles', 'New Orleans Saints', '/team_logos/eagles.png', '/team_logos/saints.png', '4-5', '8-1', '11/18/2018 4:25PM'), 
-(11, 'Minnesota Vikings', 'Chicago Bears', '/team_logos/vikings.png', '/team_logos/bears.png', '5-3', '6-3', '11/18/2018 8:20PM'), 
-(12, 'Kansas City Chiefs', 'Los Angeles Rams', '/team_logos/chiefs.png', '/team_logos/rams.png', '9-1', '9-1', '11/19/2018 8:15PM'),
+(12, 'Seattle Seahawks', 'Minnesota Vikings', '/team_logos/seahawks.png', '/team_logos/vikings.png', '7-5','6-5','12/10/2018 7:15PM'),
 (13, 'Atlanta Falcons', 'Arizona Cardinals', '/team_logos/falcons.png', '/team_logos.png', '4-8', '3-9', '12/16/2018 1:00PM'),
 (14, 'Cincinnati Bengals', 'Oakland Raiders', '/team_logos/bengals.png', '/team_logos/raiders.png', '5-7', '2-10', '12/16/2018 1:00PM'),
 (15, 'Minnesota Vikings', 'Miami Dolphins', '/team_logos/vikings.png', '/team_logos/dolphins.png', '6-5', '6-6', '12/16/2018 1:00PM'),
@@ -68,7 +57,7 @@ VALUES
 (7,4,'11/13/2018 3:52PM', '11/18/2018 1:00PM', 1, 'Lets ride', 20.0, 'ncargill', 'tswartz', 3,7, 'Carolina Panthers', 'Detroit Lions', 0, 0, NULL, 0), 
 (8,4,'11/13/2018 4:19PM', '11/18/2018 1:00PM', 0, 'Matchup of the century', 10.0, 'tswartz', 'jkrieg', 7,6, 'Carolina Panthers', 'Detroit Lions', 1, 0,NULL, 0),
 (9,10,'11/14/2018 3:52PM', '11/18/2018 4:25PM', 7, 'Just two sports enthusiasts going after it', 50.0, 'jkrieg', 'rshelly',6,2, 'Philadelphia Eagles', 'New Oreleans Saints', 0, 1, 'jkrieg', 1), 
-(10,12,'11/14/2018 4:19PM', '11/19/2018 8:15PM', 0, 'The Michigan boys', 10.0, 'achapp', 'jkrieg', 5,6,'Kansas City Chiefs', 'Los Angeles Rams', 0, 0, NULL, 0),
+(10,12,'11/14/2018 4:19PM', '11/19/2018 8:15PM', 0, 'The Michigan boys', 10.0, 'achapp', 'jkrieg' 5,6,'Kansas City Chiefs', 'Los Angeles Rams', 0, 0, NULL, 0),
 (11,2,'11/14/2018 3:52PM', '11/18/2018 1:00PM', 0, 'Detroit and Michigan football forever', 5.0, 'achapp', 'cterech',5,1, 'Tampa Bay Buccaneers', 'New York Giants', 1, 1, 'cterech', 1), 
 (12,11,'11/14/2018 4:19PM', '11/18/2018 8:20PM', 0, 'Need to win my rent money back!', 15.0, 'achapp', 'jkrieg', 5,6,'Minnesota Vikings', 'Chicago Bears', 1, 0, NULL, 0),
 (13,8,'11/14/2018 3:52PM', '11/18/2018 4:05PM', 1, 'This should be interesting', 25.0, 'achapp', 'cterech',5,1, 'Oakland Raiders', 'Arizona Cardinals', 0, 1, 'cterech', 1), 
@@ -79,7 +68,7 @@ VALUES
 (18,1,'11/16/2018 4:19PM', '11/18/2018 1:00PM', 0, 'Settling this once and for all', 10.0, 'achapp', 'jkrieg', 5,6,'Tennessee Titans', 'Indianapolis Colts', 1, 1, 'achapp', 1),
 (19,6,'11/16/2018 3:52PM', '11/18/2018 1:00PM', 4, 'This will be easy', 50.0, 'achapp', 'cterech',5,1, 'Cincinnati Bengals', 'Baltimore Ravens', 0, 1, 'cterech', 1), 
 (20,6,'11/16/2018 4:19PM', '11/18/2018 1:00PM', 0, 'We love sports betting', 100.0, 'achapp', 'jkrieg',5,6,'Cincinnati Bengals', 'Baltimore Ravens', 1, 0, NULL, 0),
-(21,12,'11/16/2018 4:19PM', '11/19/2018 8:15PM', 1, 'Lets settle this', 10.0, 'achapp', 'jkrieg', 5, 6,'Kansas City Chiefs', 'Los Angeles Rams', 0, 0, NULL, 0),
+(21,12,'11/16/2018 4:19PM', '11/19/2018 8:15PM', 1, 'Lets settle this', 10.0, 'achapp', 'jkrieg',5,6,'Kansas City Chiefs', 'Los Angeles Rams', 0, 0, NULL, 0),
 (22,12,'11/16/2018 3:52PM', '11/19/2018 8:15PM', 1, 'Youre on, pal!', 5.0, 'achapp', 'cterech',5,1,'Kansas City Chiefs', 'Los Angeles Rams', 0, 0, NULL, 0),
 (23,12,'11/16/2018 4:19PM', '11/19/2018 8:15PM', 0, 'Ittai is going to lose!', 5.0, 'achapp', 'jkrieg',5,6,'Kansas City Chiefs', 'Los Angeles Rams', 0, 0, NULL, 0);
 
