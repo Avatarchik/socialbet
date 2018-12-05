@@ -14,6 +14,7 @@ class Common {
     let port = "5000"
     let default_pic = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREya1ZUSfvxj7zwOwWeCOtLk3JlDTbeuHZy4lcyKilbcmgpgEA"
     var username = "default"
+    var user_id = -1
     var pwhash = "default"
 }
 
@@ -60,12 +61,15 @@ func getImageFromUrl(urlString: String, imageView: UIImageView) {
     imageView.load(url: URL(string: url)!)
 }
 
-func addGETParams(path: String, search: String, needsUsername: Bool) -> String {
+func addGETParams(path: String, search: String, search_number: Int, needsUsername: Bool, needsUser_id: Bool) -> String {
     let params = "?loguser=" + common.username + "&auth=" + common.pwhash;
     var fullString = path + params;
     if (needsUsername){
         fullString = fullString + "&username=" + search;
-    }    
+    }
+    if(needsUser_id){
+        fullString = fullString + "&user_id=" + String(search_number);
+    }
     return fullString;
 }
 
@@ -82,7 +86,7 @@ func getTeamData() -> Teams? {
     
     var ret_val: Teams?
     
-    let URI = addGETParams(path: "/api/teams/", search: "", needsUsername: false)
+    let URI = addGETParams(path: "/api/teams/", search: "", search_number: -1, needsUsername: false, needsUser_id: false)
     sendGET(uri: URI, callback: { (httpresponse) in
         
         let data: Data! = httpresponse.data
@@ -158,8 +162,7 @@ extension NSDictionary {
 
 func getNotifications() {
     print("Get notifications function triggered")
-    let URI = addGETParams(path: "/api/teams/", search: "", needsUsername: true)
-    
+    let URI = addGETParams(path: "/api/teams/", search: "", search_number: -1, needsUsername: true, needsUser_id: false)   
     
 }
 
@@ -191,6 +194,8 @@ struct Bet: Decodable {
     let team2: String
     let team2_logo_url: String
     let time_placed: String
+    let user1_id: Int;
+    let user2_id: Int?;
     let user1: UserInBet
     let user2: UserInBet?
     let winner: String?
@@ -223,8 +228,6 @@ struct UserInBet: Decodable {
 struct Game: Decodable {
     let game_id: Int
     let game_time: String
-    let record1: String
-    let record2: String
     let team1: String
     let team1_url: String
     let team2: String
