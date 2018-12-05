@@ -1,13 +1,13 @@
 # USERS
-INSERT INTO users (user_name, first_name, last_name, phone, profile_pic_url, auth)
+INSERT INTO users (user_id, user_name, first_name, last_name, phone, profile_pic_url, auth)
 VALUES
-('cterech', 'Chris','Terech','734-417-6331', '/user_profile_pics/terech.jpg', '5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8'), 
-('rshelly','Ryan','Shelly','949-290-6670', '/user_profile_pics/shelly.jpg', '5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8'),
-('ncargill','Nick','Cargill','914-479-2054', '/user_profile_pics/cargill.jpg', '5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8'),
-('isvidler','Ittai','Svilder','912-409-0127', '/user_profile_pics/svidler.jpg', '5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8'),
-('achapp','Alex','Chapp','734-498-0573', '/user_profile_pics/chapp.jpg', '5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8'),
-('jkrieg','John','Krieg','734-201-9423', '/user_profile_pics/krieg.jpg', '5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8'),
-('tswartz','Trevor','Swartz','914-479-2054', '/user_profile_pics/swartz.jpg', '5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8');
+(1, 'cterech', 'Chris','Terech','734-417-6331', '/user_profile_pics/terech.jpg', '5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8'), 
+(2, 'rshelly','Ryan','Shelly','949-290-6670', '/user_profile_pics/shelly.jpg', '5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8'),
+(3, 'ncargill','Nick','Cargill','914-479-2054', '/user_profile_pics/cargill.jpg', '5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8'),
+(4, 'isvidler','Ittai','Svilder','912-409-0127', '/user_profile_pics/svidler.jpg', '5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8'),
+(5, 'achapp','Alex','Chapp','734-498-0573', '/user_profile_pics/chapp.jpg', '5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8'),
+(6, 'jkrieg','John','Krieg','734-201-9423', '/user_profile_pics/krieg.jpg', '5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8'),
+(7, 'tswartz','Trevor','Swartz','914-479-2054', '/user_profile_pics/swartz.jpg', '5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8');
 
 # FRIENDS
 INSERT INTO friends (user1,user2)
