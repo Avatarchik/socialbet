@@ -37,6 +37,6 @@ def get_games_and_scores():
 		game['League'] = None
 		game['AwayTeam'] = None
 		game['HomeTeam'] = None
-		response.append(next_game)
+		response.append(game)
 
 	return jsonify(response), 200,  {'ContentType': 'application/json'}
