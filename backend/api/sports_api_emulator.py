@@ -6,7 +6,7 @@ from .api_utils import create_http_response
 app = Flask(__name__)
 sports_api_emulator = Blueprint('sports_api_emulator', __name__)
 
-@sports_api_emulator.route('/api/sports_api_emulator/')
+@sports_api_emulator.route('/api/sports_api_emulator/', methods=['GET'])
 def get_games_and_scores():
 
 	log_user = request.args.get('loguser')
