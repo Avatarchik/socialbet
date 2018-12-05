@@ -59,6 +59,10 @@ if [ $1 = "sports_api_emulator" ]; then
     curl -X GET $url/api/sports_api_emulator/\?loguser=$loguser\&auth=$auth
 fi
 
+if [ $1 = "get_games" ]; then
+    curl -X GET $url/api/games/\?loguser=$loguser\&auth=$auth\&league="NFL"\&day=10\&month="December"\&year=2018
+fi
+
 # User endpoints
 ############################
 
