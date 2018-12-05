@@ -548,7 +548,7 @@ def unnotified_bets(loguser):
 
     sql = "SELECT DISTINCT B.*, G.* FROM bets B "\
             "INNER JOIN games G ON G.game_id = B.game_id"\
-            "WHERE accepted=1 AND winner IS NOT NULL AND notified=0 AND (B.user1=\" "+ loguser+ "\" OR B.user2=\"" + loguser + "\")"
+            "WHERE accepted=1 AND winner IS NOT NULL AND notified=0 AND (B.user1=\" "+ loguser+ "\" OR B.user2=\"" + loguser + "\");"
 
     cursor.execute(sql)
 
