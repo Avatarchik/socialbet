@@ -9,7 +9,7 @@ games = Blueprint('sports_api_emulator', __name__)
 
 # function is emulating gold standard sports api
 # the api example can be found at: https://rapidapi.com/GoldStandard/api/gold-standard-sports
-@sports_api_emulator.route('/api/sports_api/')
+@sports_api_emulator.route('/api/get_games_and_scores/')
 def get_games_and_scores():
 
 	log_user = request.args.get('loguser')
