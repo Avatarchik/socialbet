@@ -1,4 +1,4 @@
-from flask import Flask, Blueprint
+from flask import Flask, Blueprint, url_for
 from .api_utils import create_http_response
 from flask import request
 import requests
@@ -24,21 +24,20 @@ def get_games():
     }
     '''
     # send GET request to api endpoint emulating gold standard sports api
-    URL = 'http://socialbet.jpkrieg.com:5000/api/sports_api_emulator/'
+    #URL = 'http://socialbet.jpkrieg.com:5000/api/sports_api_emulator/'
+    URL = 'http://localhost' + url_for('sports_api_emulator.get_games_and_scores')
 
     PARAMS = {}
     PARAMS['league'] = request.args.get('league')
     PARAMS['day'] = request.args.get('day')
     PARAMS['month'] = request.args.get('month')
     PARAMS['year'] = request.args.get('year')
-    print(request.args)
     print(1)
     r = requests.get(url=URL, params=PARAMS)
-    print(r.url)
-    print(r.params)
+    print(2)
+    print(r)
     response = r.json()
     print(response)
-    print(2)
     games = []
     for g in response:
         game = {}
