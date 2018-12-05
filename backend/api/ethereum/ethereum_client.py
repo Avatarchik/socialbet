@@ -8,10 +8,8 @@ import sys
 
 contract_address = '0x39E1E1e40119f97f44208faF9E8797b98466dF8a'
 def create_bet(bet_id, amount, users_private_key):
-    web3.eth.sendTransaction(
-        {'to': contract_address, 'from': users_private_key, 'value': web3.toWei(amount, "ether")})
-
-    contract = web3.contract.Contract(contract_address)
+    w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
+    contract = w3.eth.contract(contract_address)
     contract.functions.createBet(bet_id).sendTransaction(
         {'from' : users_private_key}
     )
@@ -32,6 +30,7 @@ def readCompiledFromJSON(j):
     compiled['abi'] = json.loads(compiled['abi'])  # abi is stored as a separate json object
 
     return compiled
+
 def deploy_smart_contract(contract_source):
 
     compiled_sol = readCompiledFromJSON(contract_source)
