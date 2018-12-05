@@ -23,23 +23,19 @@ def get_games_and_scores():
     for g in games:
     	game = {}
     	game['game_id'] = g[0]
-    	# not sure what to do with scores
-    	game['homeScore'] = 50
-    	game['awayScore'] = 75
-    	game['eventStartsAt'] = g[7]
-    	game['League'] = {
-    		'name': 'NFL'
-    	}
-    	# also dont have short names of teams
-    	game['AwayTeam'] = {
-    		'shortName' = g[2]
-    		'fullName' = g[2]
-    	}
-    	game['HomeTeam'] = {
-    		'shortName' = g[1]
-    		'fullName' = g[1]
-    	}
+    	game['team1'] = g[1]
+    	game['team2'] = g[2]
+    	game['team1_url'] = g[3]
+    	game['team2_url'] = g[4]
+    	game['record1'] = g[5]
+    	game['record2'] = g[6]
+    	game['game_time'] = g[7]
+    	game['homeScore'] = None
+    	game['awayScore'] = None
+    	game['eventStartsAt'] = None
+    	game['League'] = None
+    	game['AwayTeam'] = None
+    	game['HomeTeam'] = None
     	response.append(game)
-
 
     return jsonify(response), 200,  {'ContentType': 'application/json'}
