@@ -35,8 +35,8 @@ def get_games():
 
     r = requests.get(url=URL, params=PARAMS)
     response = r.json()
-    games = {}
-    games['all_games'] = []
+    all_games = {}
+    all_games['games'] = []
     for g in response:
         game = {}
         game['game_id'] = g['game_id']
@@ -47,9 +47,9 @@ def get_games():
         game['game_time'] = g['eventStartsAt']
         game['home_score'] = g['homeScore']
         game['away_score'] = g['awayScore']
-        games['all_games'].append(game)   
+        all_games['games'].append(game)   
 
-    return create_http_response(data=games)
+    return create_http_response(data=all_games)
 
 @games.route('/api/games/unnotified/')
 def get_unnotified_games():
