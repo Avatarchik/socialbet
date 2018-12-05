@@ -90,7 +90,7 @@ def find_user():
         return create_http_response(data=result, errors=result['errors'])
     
     result = {}
-    username = request.args.get('user_id')
+    user_id = request.args.get('user_id')
     user = db.get_user_id(user_id)
 
     if not user:
