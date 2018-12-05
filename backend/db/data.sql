@@ -34,7 +34,10 @@ VALUES
 (9, 'Denver Broncos', 'Los Angeles Chargers', '/team_logos/broncos.png', '/team_logos/dolphins.png', '3-6', '5-5', '11/18/2018 4:05PM'),
 (10, 'Philadelphia Eagles', 'New Orleans Saints', '/team_logos/eagles.png', '/team_logos/saints.png', '4-5', '8-1', '11/18/2018 4:25PM'), 
 (11, 'Minnesota Vikings', 'Chicago Bears', '/team_logos/vikings.png', '/team_logos/bears.png', '5-3', '6-3', '11/18/2018 8:20PM'), 
-(12, 'Kansas City Chiefs', 'Los Angeles Rams', '/team_logos/chiefs.png', '/team_logos/rams.png', '9-1', '9-1', '11/19/2018 8:15PM'); 
+(12, 'Kansas City Chiefs', 'Los Angeles Rams', '/team_logos/chiefs.png', '/team_logos/rams.png', '9-1', '9-1', '11/19/2018 8:15PM'),
+(13, 'Atlanta Falcons', 'Arizona Cardinals', '/team_logos/falcons.png', '/team_logos.png', '4-8', '3-9', '12/16/2018 1:00PM'),
+(14, 'Cincinnati Bengals', 'Oakland Raiders', '/team_logos/bengals.png', '/team_logos/raiders.png', '5-7', '2-10', '12/16/2018 1:00PM'),
+(15, 'Minnesota Vikings', 'Miami Dolphins', '/team_logos/vikings.png', '/team_logos/dolphins.png', '6-5', '6-6', '12/16/2018 1:00PM');
 
 # BETS
 INSERT INTO bets (bet_id, game_id, time_placed, game_time, num_comments, message, ammount, user1, user2, team1, team2, direct, accepted, winner)
