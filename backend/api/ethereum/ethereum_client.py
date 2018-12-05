@@ -7,24 +7,16 @@ import json
 import sys
 
 contract_address = '0x39E1E1e40119f97f44208faF9E8797b98466dF8a'
-def send_eth_to_contract(amount, users_private_key):
+def create_bet(bet_id, amount, users_private_key):
     web3.eth.sendTransaction(
         {'to': contract_address, 'from': users_private_key, 'value': web3.toWei(amount, "ether")})
 
-    def readCompiledFromJSON(cls, j):
-        compiled = json.loads(j)
+    contract = web3.contract.Contract(contract_address)
+    contract.functions.createBet(bet_id).sendTransaction(
+        {'from' : users_private_key}
+    )
 
-        contracts = list(compiled['contracts'].keys())
-        if (len(contracts) > 1):
-            print("Warning: more than one contract at once supplied. Reading the first one.")
 
-        contract_name = contracts[0]
-        print("Reading contract: ", contract_name.split(":")[1])
-
-        compiled = compiled['contracts'][contract_name]
-        compiled['abi'] = json.loads(compiled['abi'])  # abi is stored as a separate json object
-
-        return compiled
 
 def readCompiledFromJSON(j):
     compiled = json.loads(j)
