@@ -36,7 +36,7 @@ def get_games():
 
     return create_http_response(data=games)
 
-@games.route('/api/games/unnotified')
+@games.route('/api/games/unnotified/')
 def get_unnotified_games():
 
     log_user = request.args.get('loguser')
