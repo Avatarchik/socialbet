@@ -567,7 +567,7 @@ def unnotified_bets(loguser):
 
     return res
 
-def set_bet_to_notified(bet_id)
+def set_bet_to_notified(bet_id):
 
     db_config = get_db_config()
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
