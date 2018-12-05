@@ -37,7 +37,11 @@ VALUES
 (12, 'Kansas City Chiefs', 'Los Angeles Rams', '/team_logos/chiefs.png', '/team_logos/rams.png', '9-1', '9-1', '11/19/2018 8:15PM'),
 (13, 'Atlanta Falcons', 'Arizona Cardinals', '/team_logos/falcons.png', '/team_logos.png', '4-8', '3-9', '12/16/2018 1:00PM'),
 (14, 'Cincinnati Bengals', 'Oakland Raiders', '/team_logos/bengals.png', '/team_logos/raiders.png', '5-7', '2-10', '12/16/2018 1:00PM'),
-(15, 'Minnesota Vikings', 'Miami Dolphins', '/team_logos/vikings.png', '/team_logos/dolphins.png', '6-5', '6-6', '12/16/2018 1:00PM');
+(15, 'Minnesota Vikings', 'Miami Dolphins', '/team_logos/vikings.png', '/team_logos/dolphins.png', '6-5', '6-6', '12/16/2018 1:00PM'),
+(16, 'Indianapolis Colts', 'Dallas Cowboys', '/team_logos/colts.png', '/team_logos/cowboys.png', '6-6','7-5', '12/16/2018 1:00PM'),
+(17, 'Baltimore Ravens', 'Tampa Bay Buccaneers', '/team_logos/ravens.png', '/team_logos/buccaneers.png', '7-5', '5-7', '12/16/2018 1:00PM'),
+(18, 'Buffalo Bills', 'Detroit Lions', '/team_logos/bills.png', '/team_logos/lions.png', '4-8', '4-8', '12/16/2018 1:00PM'),
+(19, 'Chicago Bears', 'Green Bay Packers', '/team_logos/bears.png', '/team_logos/packers.png', '8-4', '4-7', '12/16/2018 1:00PM');
 
 # BETS
 INSERT INTO bets (bet_id, game_id, time_placed, game_time, num_comments, message, ammount, user1, user2, team1, team2, direct, accepted, winner)
