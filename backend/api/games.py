@@ -68,4 +68,10 @@ def get_unnotified_games():
     print("Right after the SQL query")
     print(games_to_notify)
     response = []
-    return
+
+    #for game in games_to_notify:
+        #response.append(game)
+
+    #print(response)
+
+    return #create_http_response(data=response)
