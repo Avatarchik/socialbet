@@ -40,7 +40,7 @@ if [ $1 = "between_us_bets" ]; then
     curl -X GET $url/api/feeds/between_us_bets/\?loguser=$loguser\&auth=$auth\&user2=$user2
 fi
 
-if [ $1 = "unnotified_bets"]; then
+if [ $1 = "unnotified_bets" ]; then
     curl -X GET $url/api/games/unnotified/\?loguser=$loguser\&auth=$auth
 fi
 
