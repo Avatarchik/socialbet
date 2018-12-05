@@ -20,7 +20,25 @@ class GameOpenFeed: UIViewController {
         // Do any additional setup after loading the view.
         self.BetsFeed.register(UINib(nibName: "OpenFeedCell", bundle:nil), forCellWithReuseIdentifier: "OpenFeedCell");
         
-        //TODO perform GET request once this endpoint is set up.
+        var fullURI = addGETParams(path: "/api/feeds/????/", search: "", search_number: -1, needsUsername: false, needsUser_id: false)
+        fullURI = fullURI + "&game_id=" + String(self.selected_game_id!);
+        sendGET(uri: fullURI, callback: { (httpresponse) in
+            let data: Data! = httpresponse.data
+            
+            // decode the information recieved
+            if httpresponse.HTTPsuccess! {
+                guard let feedData = try? JSONDecoder().decode(BetFeed.self, from: data)
+                    else {
+                        self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
+                        return
+                }
+                self.openData = feedData;
+                self.feedCount = feedData.bets.count;
+            } else{
+                self.alert(message: "There was an error processing your request.", title: "Network Error")
+            }
+            self.BetsFeed.reloadData();
+        })
     }
     
     @IBAction func GoHome(_ sender: UIButton) {
