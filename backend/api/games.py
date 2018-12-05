@@ -1,6 +1,7 @@
 from flask import Flask, Blueprint
 from .api_utils import create_http_response
 from flask import request
+import requests
 from db import db
 
 app = Flask(__name__)
@@ -43,7 +44,9 @@ def get_games():
         game['game_time'] = g['eventStartsAt']
         game['home_score'] = g['homeScore']
         game['away_score'] = g['awayScore']
-        games.append(game)   
+        games.append(game)
+
+    print(games)   
 
     return create_http_response(data=games)
 
@@ -56,7 +59,8 @@ def get_unnotified_games():
     if not authenticated:
         return create_http_response(errors=['unauthenticated user'])
 
-    games_to_notify = db.unnotified_bets(loguser)
+    games_to_notify = db.unnotified_bets(log_user)
+    print("Right after the SQL query")
     print(games_to_notify)
     response = []
     return
