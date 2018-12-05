@@ -44,6 +44,7 @@ CREATE TABLE bets (
     direct INTEGER NOT NULL,
     accepted INTEGER NOT NULL,
     winner VARCHAR(50),
+    notified INT NOT NULL DEFAULT 0,
 	PRIMARY KEY(bet_id)
 );
 

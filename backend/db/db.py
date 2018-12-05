@@ -540,3 +540,7 @@ def cancel_bet(bet_id):
 
     return
 
+def unnotified_bets():
+
+    return
+
