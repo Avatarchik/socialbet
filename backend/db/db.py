@@ -549,8 +549,10 @@ def unnotified_bets(loguser):
     sql = "SELECT DISTINCT B.*, T1.logo_url AS team1_logo_url, T2.logo_url AS team2_logo_url FROM bets B "\
         "INNER JOIN teams T1 ON T1.team_full_name=B.team1 "\
           "INNER JOIN teams T2 ON T2.team_full_name=B.team2 " \
-          "WHERE ((user1=\"" + loguser + "\" OR user2=\"" + loguser + "\")" \
-          " AND notified=0 AND winner IS NOT NULL;"
+          "WHERE ((user1=\"" + loguser + "\" OR user2=\"" + loguser + "\") " \
+          "AND notified=0 AND winner IS NOT NULL;"
+
+    print(sql)
 
     cursor.execute(sql)
 
