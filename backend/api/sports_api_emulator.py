@@ -16,6 +16,7 @@ def get_games_and_scores():
 	   return create_http_response(errors=['unauthenticated user'])
 
 	games = db.get_games()
+	print(games)
 	response = []
 	for i in range(0,len(games)):
 		game = {}

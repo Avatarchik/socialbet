@@ -52,8 +52,8 @@ fi
 ############################
 
 
-if [ $1 = "get_games" ]; then
-    curl -X GET $url/api/games/\?loguser=$loguser\&auth=$auth
+if [ $1 = "sports_api_emulator" ]; then
+    curl -X GET $url/api/sports_api_emulator/\?loguser=$loguser\&auth=$auth
 fi
 
 # User endpoints
