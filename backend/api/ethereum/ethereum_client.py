@@ -33,10 +33,11 @@ def create_bet(bet_id, amount, users_private_key):
     #contract.functions.createBet(bet_id).sendTransaction(
     #    {'from' : users_private_key}
     #)
-    contract.functions.createBet(bet_id, transact={
-        'from': users_private_key,
-        'amount': amount
-    })
+    tx_hash = contract.functions.createBet(bet_id)
+    tx_hash = tx_hash.transact({'from': users_private_key, 'amount': Web3.toWei(amount, 'ether')} )
+    # Wait for transaction to be mined...
+    w3.eth.waitForTransactionReceipt(tx_hash)
+    
 
 
 
