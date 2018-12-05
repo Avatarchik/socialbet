@@ -6,7 +6,7 @@ from web3.contract import ConciseContract
 import json
 import sys
 
-contract_address = ''
+contract_address = '0x39E1E1e40119f97f44208faF9E8797b98466dF8a'
 def send_eth_to_contract(amount, users_private_key):
     web3.eth.sendTransaction(
         {'to': contract_address, 'from': users_private_key, 'value': web3.toWei(amount, "ether")})
@@ -43,7 +43,8 @@ def readCompiledFromJSON(j):
 def deploy_smart_contract(contract_source):
 
     compiled_sol = readCompiledFromJSON(contract_source)
-    contract_interface = compiled_sol['<stdin>:Greeter']
+    #contract_interface = compiled_sol['<stdin>:SocialBetContract']
+    contract_interface = compiled_sol
 
     ###########
 
