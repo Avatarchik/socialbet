@@ -34,7 +34,7 @@ def get_games():
     PARAMS['year'] = request.args.get('year')
     print(1)
 
-    r = requests.get(url=URL, params=PARAMS)
+    r = requests.get(url=URL, params=PARAMS, _external=False)
     print(2)
     print(r)
     response = r.json()
