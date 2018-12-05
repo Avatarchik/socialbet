@@ -43,7 +43,9 @@ def get_games():
         game['game_time'] = g['eventStartsAt']
         game['home_score'] = g['homeScore']
         game['away_score'] = g['awayScore']
-        games.append(game)   
+        games.append(game)
+
+    print(games)   
 
     return create_http_response(data=games)
 
