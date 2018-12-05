@@ -57,7 +57,7 @@ VALUES
 # achapp = 5
 # jkrieg = 6
 # twartz = 7
-INSERT INTO bets (bet_id, game_id, time_placed, game_time, num_comments, message, ammount, user1, user2, user1_id, user2_id team1, team2, direct, accepted, winner, notified)
+INSERT INTO bets (bet_id, game_id, time_placed, game_time, num_comments, message, ammount, user1, user2, user1_id, user2_id, team1, team2, direct, accepted, winner, notified)
 VALUES
 (1,1,'11/13/2018 3:52PM', '11/18/2018 1:00PM', 0, 'Chapp is going down!', 20.0, 'achapp', 'cterech', 5, 1, 'Tennessee Titans', 'Indianapolis Colts', 1, 1,NULL, 0), 
 (2,4,'11/13/2018 4:19PM', '11/18/2018 1:00PM', 1, 'Ittai is going down!', 100.0, 'achapp', 'jkrieg', 5, 6, 'Carolina Panthers', 'Detroit Lions', 1, 0,NULL, 0),
