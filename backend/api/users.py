@@ -78,7 +78,7 @@ def find_user():
 
     return create_http_response(data=result)
 
-@users.route('/api/users/find_user_id/')
+@users.route('/api/users/find_id/')
 def find_user():
     log_user = request.args.get('loguser')
     auth = request.args.get('auth')
@@ -91,7 +91,7 @@ def find_user():
     
     result = {}
     user_id = request.args.get('user_id')
-    user = db.get_user_id(user_id)
+    user = db.find_id(user_id)
 
     if not user:
         result = {}

@@ -53,7 +53,7 @@ def get_user(user_name):
 
     return res
 
-def get_user_id(user_id):
+def find_id(user_id):
     db_config = get_db_config()
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
     cursor = db.cursor(pymysql.cursors.DictCursor)
