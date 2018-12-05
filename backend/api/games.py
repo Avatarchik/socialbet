@@ -36,3 +36,16 @@ def get_games():
 
     return create_http_response(data=games)
 
+@games.route('/api/games/unnotified')
+def get_unnotified_games():
+
+    log_user = request.args.get('loguser')
+    auth_token = request.args.get('auth')
+    authenticated = db.authenticate(log_user, auth_token)
+    if not authenticated:
+        return create_http_response(errors=['unauthenticated user'])
+
+    games_to_notify = db.unnotified_bets(loguser)
+    print(games_to_notify)
+    response = []
+    return
