@@ -13,7 +13,7 @@ class Settings: UIViewController, UIGestureRecognizerDelegate, UINavigationContr
 
     @IBOutlet weak var ProfilePic: UIImageView!
     var imagePicker = UIImagePickerController()
-    
+    t
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
