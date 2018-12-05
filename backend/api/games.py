@@ -50,13 +50,16 @@ def get_games():
 @games.route('/api/games/unnotified/')
 def get_unnotified_games():
 
+    print("I'm in the function")
     log_user = request.args.get('loguser')
     auth_token = request.args.get('auth')
     authenticated = db.authenticate(log_user, auth_token)
     if not authenticated:
         return create_http_response(errors=['unauthenticated user'])
 
+    print("Right before the SQL query")
     games_to_notify = db.unnotified_bets(loguser)
+    print("Right after the SQL query")
     print(games_to_notify)
     response = []
     return
