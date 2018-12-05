@@ -27,7 +27,7 @@ def get_games_and_scores():
 		game['team1'] = next_game['team1']
 		game['team2'] = next_game['team2']
 		game['team1_url'] = next_game['team1_url']
-		game['team2_url'] = next_games['team2_url']
+		game['team2_url'] = next_game['team2_url']
 		game['record1'] = next_game['record1']
 		game['record2'] = next_game['record2']
 		game['game_time'] = next_game['game_time']
