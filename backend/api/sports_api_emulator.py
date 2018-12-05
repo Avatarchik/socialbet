@@ -1,8 +1,7 @@
-from flask import Flask, Blueprint
-from .api_utils import create_http_response
-from flask import request
+from flask import Flask, request, jsonify, Blueprint
 from db import db
-import requests
+import json
+from .api_utils import create_http_response
 
 app = Flask(__name__)
 games = Blueprint('sports_api_emulator', __name__)
