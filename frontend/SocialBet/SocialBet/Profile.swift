@@ -22,21 +22,31 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     @IBOutlet weak var InitiateBetButton: UIButton!
     @IBOutlet weak var AddFriendButton: UIButton!
     
-    
+    var searched_user_number: Int?;
+    var search_by_number = false;
     var searchedUser: String?
     var is_friend = false;
     var is_profile_self = false;
     
     func DetermineUser() {
-        if (searchedUser! == common.username) {
-            self.is_profile_self = true;
-        } else {
-            self.is_profile_self = false;
+        if(!search_by_number){
+            if (searchedUser! == common.username) {
+                self.is_profile_self = true;
+            } else {
+                self.is_profile_self = false;
+            }
+        }
+        else{
+            if (searched_user_number! == common.user_id){
+                self.is_profile_self = true
+            } else {
+                self.is_profile_self = false;
+            }
         }
     }
     
     func ButtonVisibility() {
-        if (self.searchedUser! == common.username){
+        if (self.is_profile_self){
             InitiateBetButton.isHidden = true
             AddFriendButton.isHidden = true
             self.AddSelfFeeds()
@@ -204,10 +214,10 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     @objc func LiveBets(sender: Any) {
         var fullURI: String;
         if(self.is_profile_self){
-            fullURI = addGETParams(path: "/api/feeds/users_live_bets/", search: common.username, needsUsername: true)
+            fullURI = addGETParams(path: "/api/feeds/users_live_bets/", search: common.username, search_number: -1, needsUsername: true, needsUser_id: false)
         }
         else{
-            fullURI = addGETParams(path: "/api/feeds/users_live_bets/", search: self.searchedUser!, needsUsername: true)
+            fullURI = addGETParams(path: "/api/feeds/users_live_bets/", search: self.searchedUser!, search_number: -1, needsUsername: true, needsUser_id: false)
         }
         sendGET(uri: fullURI, callback: { (httpresponse) in
             let data: Data! = httpresponse.data
@@ -236,10 +246,10 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     @objc func OpenBets(sender: Any) {
         var fullURI: String;
         if(self.is_profile_self){
-            fullURI = addGETParams(path: "/api/feeds/users_live_bets/", search: common.username, needsUsername: true)
+            fullURI = addGETParams(path: "/api/feeds/users_live_bets/", search: common.username, search_number: -1, needsUsername: true, needsUser_id: false)
         }
         else{
-            fullURI = addGETParams(path: "/api/feeds/users_open_bets/", search: self.searchedUser!, needsUsername: true)
+            fullURI = addGETParams(path: "/api/feeds/users_open_bets/", search: self.searchedUser!, search_number: -1, needsUsername: true, needsUser_id: false)
         }
         
         sendGET(uri: fullURI, callback: { (httpresponse) in
@@ -270,7 +280,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     }
     
     @objc func BetHistory(sender: Any) {
-        let fullURI = addGETParams(path: "/api/feeds/bet_history/", search: "", needsUsername: false)
+        let fullURI = addGETParams(path: "/api/feeds/bet_history/", search: "", search_number: -1, needsUsername: false, needsUser_id: false)
         sendGET(uri: fullURI, callback: { (httpresponse) in
             let data: Data! = httpresponse.data
             
@@ -294,7 +304,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     
     @objc func BetweenUs(sender: Any) {
         
-        var fullURI = addGETParams(path: "/api/feeds/between_us_bets/", search: "", needsUsername: false)
+        var fullURI = addGETParams(path: "/api/feeds/between_us_bets/", search: "", search_number: -1, needsUsername: false, needsUser_id: false)
         fullURI = fullURI + "&user2=" + self.searchedUser!;
         sendGET(uri: fullURI, callback: { (httpresponse) in
             let data: Data! = httpresponse.data
@@ -316,7 +326,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     }
     
     @objc func Requests(sender: Any) {
-        let fullURI = addGETParams(path: "/api/feeds/direct_bets_pending/", search: "", needsUsername: false)
+        let fullURI = addGETParams(path: "/api/feeds/direct_bets_pending/", search: "", search_number: -1, needsUsername: false, needsUser_id: false)
         sendGET(uri: fullURI, callback: { (httpresponse) in
             let data: Data! = httpresponse.data
             
@@ -534,7 +544,13 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     }
     
     func loadProfileInfo(){
-        let fullURI = addGETParams(path: "/api/users/find/", search: self.searchedUser!, needsUsername: true)
+        var fullURI = "";
+        if(!self.search_by_number){
+            fullURI = addGETParams(path: "/api/users/find/", search: self.searchedUser!, search_number: -1, needsUsername: true, needsUser_id: false)
+        }
+        else{
+            fullURI = addGETParams(path: "/api/users/find_id/", search: "", search_number: self.searched_user_number!, needsUsername: false, needsUser_id: true)
+        }
         sendGET(uri: fullURI, callback: { (httpresponse) in
             let data: Data! = httpresponse.data
             

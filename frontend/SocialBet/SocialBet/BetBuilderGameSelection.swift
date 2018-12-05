@@ -52,7 +52,8 @@ class BetBuilderGameSelection: UIViewController, UICollectionViewDataSource, UIC
         })*/
         
         // submit a GET request to get the game feed object
-        let fullURI = addGETParams(path: "/api/sports_api_emulator/", search: "", needsUsername: false)
+        var fullURI = addGETParams(path: "/api/games/", search: "", search_number: -1, needsUsername: false, needsUser_id: false)
+        fullURI = fullURI + "&league=NFL&day=12&month=November&year=2018"
         sendGET(uri: fullURI, callback: { (httpresponse) in
             let data: Data! = (httpresponse.data)
             

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.30.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.19.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -399,6 +399,7 @@
                         <outlet property="TopBar" destination="EX3-3S-igz" id="H7R-FG-O1b"/>
                         <segue destination="BKB-KX-fQi" kind="presentation" identifier="FeedToOpponentSelect" id="TzK-3r-hYY"/>
                         <segue destination="lcX-Tf-5s1" kind="presentation" identifier="FeedToOpenFeed" id="fvI-Tj-isE"/>
+                        <segue destination="uc1-GC-PZb" kind="presentation" identifier="HomeToProfile" id="IGC-nZ-5o4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Chu-q6-G2B" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -593,6 +594,8 @@
                     </view>
                     <connections>
                         <outlet property="BetsFeed" destination="ZgS-3V-YMi" id="nqh-X1-Vef"/>
+                        <segue destination="uc1-GC-PZb" kind="presentation" identifier="OpenFeedToProfile" id="gco-AL-gb3"/>
+                        <segue destination="Jwj-S7-5gy" kind="presentation" identifier="OpenFeedToHome" id="t63-IK-6oX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uKe-WY-4fc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -604,30 +607,30 @@
             <objects>
                 <viewController id="uc1-GC-PZb" customClass="Profile" customModule="SocialBet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D7U-5t-p8B">
-                        <rect key="frame" x="0.0" y="0.0" width="200" height="553"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="seY-FA-c8m">
-                                <rect key="frame" x="65" y="30" width="70" height="70"/>
+                                <rect key="frame" x="152.5" y="30" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="MS7-8q-3Tm"/>
                                     <constraint firstAttribute="height" constant="70" id="ruK-6b-Ndb"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3a4-cN-fj5">
-                                <rect key="frame" x="57" y="105" width="86" height="21"/>
+                                <rect key="frame" x="144.5" y="105" width="86" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Handle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMx-81-JQe">
-                                <rect key="frame" x="52.5" y="131" width="95" height="21"/>
+                                <rect key="frame" x="140" y="131" width="95" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8sJ-iF-6jS">
-                                <rect key="frame" x="57" y="157" width="86" height="30"/>
+                                <rect key="frame" x="144.5" y="157" width="86" height="30"/>
                                 <state key="normal" title="Initiate a Bet">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -636,7 +639,7 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ce3-u4-apo">
-                                <rect key="frame" x="0.0" y="237" width="200" height="316"/>
+                                <rect key="frame" x="0.0" y="237" width="375" height="430"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Zck-Io-LSY">
                                     <size key="itemSize" width="375" height="160"/>
@@ -659,7 +662,7 @@
                                 <state key="normal" title="Open"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wFA-At-bqu">
-                                <rect key="frame" x="61" y="156" width="78" height="32"/>
+                                <rect key="frame" x="61" y="156" width="253" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="Add Friend">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -675,7 +678,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jb-ZP-SUS">
-                                <rect key="frame" x="149" y="30" width="41" height="30"/>
+                                <rect key="frame" x="324" y="30" width="41" height="30"/>
                                 <state key="normal" title="Home">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -684,7 +687,7 @@
                                 </connections>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ss-W6-pp7">
-                                <rect key="frame" x="-200" y="70" width="200" height="483"/>
+                                <rect key="frame" x="-200" y="70" width="200" height="597"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="DEk-6Y-Mbp"/>
                                 </constraints>
@@ -1191,8 +1194,8 @@
         <segue reference="TzK-3r-hYY"/>
         <segue reference="Qk1-uB-tbx"/>
         <segue reference="Fcy-jZ-kMu"/>
-        <segue reference="wJx-Qc-0jA"/>
+        <segue reference="gco-AL-gb3"/>
         <segue reference="v6D-wu-qAY"/>
-        <segue reference="iod-cq-jJE"/>
+        <segue reference="t63-IK-6oX"/>
     </inferredMetricsTieBreakers>
 </document>

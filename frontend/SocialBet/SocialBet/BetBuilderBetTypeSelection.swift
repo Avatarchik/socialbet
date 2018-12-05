@@ -35,7 +35,7 @@ class BetBuilderBetTypeSelection: UIViewController {
         if(self.entered_handle == common.username){
             self.alert(message: "Error: cannot create a bet against yourself");
         }
-        let fullURI = addGETParams(path: "/api/users/find/", search: self.entered_handle!, needsUsername: true)
+        let fullURI = addGETParams(path: "/api/users/find/", search: self.entered_handle!, search_number: -1, needsUsername: true, needsUser_id: false)
         sendGET(uri: fullURI, callback: { (httpresponse) in
             let data: Data! = httpresponse.data
             // decode the information recieved

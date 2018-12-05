@@ -48,8 +48,8 @@ class Login: UIViewController {
         sendPOST(uri: "/api/users/login/", parameters: parameters, callback: { (jsonDictionary) in
             // alert the user of success/failure, and either navigate away or refresh the page
             if jsonDictionary["success_status"] as! String == "successful" {
+                //TODO GET request to users/find using this username to find the id and set common.user_id
                 self.performSegue(withIdentifier: "LoginToFeed", sender: self)
-
             } else {
                 self.alert(message: "The provided username and password pair wasn't recognized. Try again.", title: "Authentication Error")
                 self.viewDidLoad()
