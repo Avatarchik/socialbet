@@ -20,20 +20,20 @@ def get_games_and_scores():
 	response = []
 	for i in range(0,len(games)):
 		game = {}
-		game['game_id'] = games[i]['game_id']
-		game['team1'] = games[i]['team1']
-		game['team2'] = games[i]['team2']
-		game['team1_url'] = games[i]['team1_url']
-		game['team2_url'] = games[i]['team2_url']
-		game['record1'] = games[i]['record1']
-		game['record2'] = games[i]['record2']
-		game['game_time'] = games[i]['game_time']
+		game['game_id'] = next_game['game_id']
+		game['team1'] = next_game['team1']
+		game['team2'] = next_game['team2']
+		game['team1_url'] = next_game['team1_url']
+		game['team2_url'] = next_games['team2_url']
+		game['record1'] = next_game['record1']
+		game['record2'] = next_game['record2']
+		game['game_time'] = next_game['game_time']
 		game['homeScore'] = None
 		game['awayScore'] = None
 		game['eventStartsAt'] = None
 		game['League'] = None
 		game['AwayTeam'] = None
 		game['HomeTeam'] = None
-		response.append(game)
+		response.append(next_game)
 
 	return jsonify(response), 200,  {'ContentType': 'application/json'}
