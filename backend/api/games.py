@@ -60,7 +60,7 @@ def get_unnotified_games():
         return create_http_response(errors=['unauthenticated user'])
 
     print("Right before the SQL query")
-    games_to_notify = db.unnotified_bets(loguser)
+    games_to_notify = db.unnotified_bets(log_user)
     print("Right after the SQL query")
     print(games_to_notify)
     response = []
