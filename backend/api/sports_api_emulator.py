@@ -18,7 +18,7 @@ def get_games_and_scores():
 	games = db.get_games()
 	print(games)
 	response = []
-	for i in range(0,len(games)):
+	for next_game in games:
 		game = {}
 		game['game_id'] = next_game['game_id']
 		game['team1'] = next_game['team1']
