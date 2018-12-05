@@ -57,7 +57,7 @@ VALUES
 (7,4,'11/13/2018 3:52PM', '11/18/2018 1:00PM', 1, 'Lets ride', 20.0, 'ncargill', 'tswartz', 3,7, 'Carolina Panthers', 'Detroit Lions', 0, 0, NULL, 0), 
 (8,4,'11/13/2018 4:19PM', '11/18/2018 1:00PM', 0, 'Matchup of the century', 10.0, 'tswartz', 'jkrieg', 7,6, 'Carolina Panthers', 'Detroit Lions', 1, 0,NULL, 0),
 (9,10,'11/14/2018 3:52PM', '11/18/2018 4:25PM', 7, 'Just two sports enthusiasts going after it', 50.0, 'jkrieg', 'rshelly',6,2, 'Philadelphia Eagles', 'New Oreleans Saints', 0, 1, 'jkrieg', 1), 
-(10,12,'11/14/2018 4:19PM', '11/19/2018 8:15PM', 0, 'The Michigan boys', 10.0, 'achapp', 'jkrieg' 5,6,'Kansas City Chiefs', 'Los Angeles Rams', 0, 0, NULL, 0),
+(10,12,'11/14/2018 4:19PM', '11/19/2018 8:15PM', 0, 'The Michigan boys', 10.0, 'achapp', 'jkrieg', 5,6,'Kansas City Chiefs', 'Los Angeles Rams', 0, 0, NULL, 0),
 (11,2,'11/14/2018 3:52PM', '11/18/2018 1:00PM', 0, 'Detroit and Michigan football forever', 5.0, 'achapp', 'cterech',5,1, 'Tampa Bay Buccaneers', 'New York Giants', 1, 1, 'cterech', 1), 
 (12,11,'11/14/2018 4:19PM', '11/18/2018 8:20PM', 0, 'Need to win my rent money back!', 15.0, 'achapp', 'jkrieg', 5,6,'Minnesota Vikings', 'Chicago Bears', 1, 0, NULL, 0),
 (13,8,'11/14/2018 3:52PM', '11/18/2018 4:05PM', 1, 'This should be interesting', 25.0, 'achapp', 'cterech',5,1, 'Oakland Raiders', 'Arizona Cardinals', 0, 1, 'cterech', 1), 
