@@ -15,6 +15,8 @@ def create_http_response(data={}, errors=[]):
 
     success_status = 'successful' if not errors else 'error'
 
+    print(data)
+
     response = {
         'success_status': success_status,
         'errors': errors

@@ -32,14 +32,11 @@ def get_games():
     PARAMS['day'] = request.args.get('day')
     PARAMS['month'] = request.args.get('month')
     PARAMS['year'] = request.args.get('year')
-    print(1)
 
     r = requests.get(url=URL, params=PARAMS)
-    print(2)
-    print(r)
     response = r.json()
-    print(response)
-    games = []
+    games = {}
+    games['all_games'] = []
     for g in response:
         game = {}
         game['game_id'] = g['game_id']
@@ -50,9 +47,7 @@ def get_games():
         game['game_time'] = g['eventStartsAt']
         game['home_score'] = g['homeScore']
         game['away_score'] = g['awayScore']
-        games.append(game)
-
-    print(games)   
+        games['all_games'].append(game)   
 
     return create_http_response(data=games)
 
