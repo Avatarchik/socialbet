@@ -16,18 +16,18 @@ def get_games_and_scores():
 	   return create_http_response(errors=['unauthenticated user'])
 
 	games = db.get_games()
-	print(games)
+	# print(games)
 	response = []
-	for i in range(0,len(games)):
+	for next_game in games:
 		game = {}
-		game['game_id'] = games[i][0]
-		game['team1'] = games[i][1]
-		game['team2'] = games[i][2]
-		game['team1_url'] = games[i][3]
-		game['team2_url'] = games[i][4]
-		game['record1'] = games[i][5]
-		game['record2'] = games[i][6]
-		game['game_time'] = games[i][7]
+		game['game_id'] = next_game['game_id']
+		game['team1'] = next_game['team1']
+		game['team2'] = next_game['team2']
+		game['team1_url'] = next_game['team1_url']
+		game['team2_url'] = next_games['team2_url']
+		game['record1'] = next_game['record1']
+		game['record2'] = next_game['record2']
+		game['game_time'] = next_game['game_time']
 		game['homeScore'] = None
 		game['awayScore'] = None
 		game['eventStartsAt'] = None
