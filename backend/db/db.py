@@ -560,6 +560,8 @@ def unnotified_bets(loguser):
     for row in cursor:
         res.append(row)
 
+    print(res)
+
 
     db.close()
 
