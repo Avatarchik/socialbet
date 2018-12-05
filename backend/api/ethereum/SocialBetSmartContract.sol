@@ -1,11 +1,11 @@
-pragma solidity ^0.4.25;
+pragma solidity ^0.5.1;
 contract SocialBetContract {
 
-   address public ownerAddress;
+   address payable public ownerAddress;
 
     struct Bet {
-        address user1Address;
-        address user2Address;
+        address payable user1Address;
+        address payable user2Address;
         bool accepted;
         uint256 amount;
         bool completed;
@@ -15,7 +15,7 @@ contract SocialBetContract {
     uint256[] public betIds;
 
 
-    function() public payable {}
+    function() external payable {}
 
     // Smart contract constructor
     constructor() public payable {
@@ -28,7 +28,7 @@ contract SocialBetContract {
     }
 
     // Check that bets exist function
-    function checkBetExists(uint256 _betId) public constant
+    function checkBetExists(uint256 _betId) public
     returns(bool) {
         for(uint256 i = 0; i < betIds.length; i++ ) {
             if(betIds[i] == _betId) return true;
@@ -110,7 +110,7 @@ contract SocialBetContract {
         require(!betInfo[_betId].completed);
 
         // Get winner address
-        address winnerAddress;
+        address payable winnerAddress;
         if(_winner == 1) {
             winnerAddress = betInfo[_betId].user1Address;
         } else {
