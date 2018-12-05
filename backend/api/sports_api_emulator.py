@@ -17,13 +17,9 @@ def get_games_and_scores():
 
 	print(request.args)
 	games = db.get_games()
-	print(1)
-	print(games)
-	print(2)
 	print(games[0])
-	print(3)
-	print(len(games))
-	'''
+	print(games[0]['game_id'])
+	
 	response = []
 	for next_game in games:
 		game = {}
@@ -42,5 +38,5 @@ def get_games_and_scores():
 		game['AwayTeam'] = None
 		game['HomeTeam'] = None
 		response.append(next_game)
-	'''
+
 	return jsonify(response), 200,  {'ContentType': 'application/json'}
