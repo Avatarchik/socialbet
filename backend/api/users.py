@@ -79,7 +79,7 @@ def find_user():
     return create_http_response(data=result)
 
 @users.route('/api/users/find_id/')
-def find_user():
+def find_id():
     log_user = request.args.get('loguser')
     auth = request.args.get('auth')
     auth_ = db.authenticate(log_user, auth)
