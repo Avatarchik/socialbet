@@ -153,7 +153,7 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
     
     @IBAction func GamesButton(_ sender: Any) {
         // submit a GET request to get the game feed object
-        let fullURI = addGETParams(path: "/api/games/", search: "", needsUsername: false)
+        let fullURI = addGETParams(path: "/api/sports_api/", search: "", needsUsername: false)
         sendGET(uri: fullURI, callback: { (httpresponse) in
             let data: Data! = (httpresponse.data)
             
