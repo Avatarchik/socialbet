@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.30.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.19.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -46,8 +46,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Time of Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B6r-Rw-jeW">
-                        <rect key="frame" x="139" y="125" width="96" height="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time of Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B6r-Rw-jeW">
+                        <rect key="frame" x="139" y="104.5" width="96" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -59,6 +59,10 @@
                             <constraint firstAttribute="height" constant="1" id="Upy-dp-wPo"/>
                         </constraints>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWg-ra-kFh">
+                        <rect key="frame" x="136" y="127.5" width="102" height="30"/>
+                        <state key="normal" title="See Open Bets"/>
+                    </button>
                 </subviews>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -73,13 +77,15 @@
                 <constraint firstItem="gNF-g0-cgA" firstAttribute="bottom" secondItem="Vah-3a-nUq" secondAttribute="bottom" id="Tz3-t3-vc7"/>
                 <constraint firstItem="bd5-Zi-MBL" firstAttribute="height" secondItem="qVd-4l-3l8" secondAttribute="height" id="Wac-fH-hxH"/>
                 <constraint firstItem="bd5-Zi-MBL" firstAttribute="leading" secondItem="gNF-g0-cgA" secondAttribute="centerX" constant="40" id="Y8i-tH-T5P"/>
-                <constraint firstItem="gNF-g0-cgA" firstAttribute="bottom" secondItem="B6r-Rw-jeW" secondAttribute="bottom" constant="10" id="bHS-sU-mRe"/>
                 <constraint firstItem="bd5-Zi-MBL" firstAttribute="top" secondItem="qVd-4l-3l8" secondAttribute="top" id="deb-cv-xRM"/>
                 <constraint firstItem="qVd-4l-3l8" firstAttribute="top" secondItem="gVQ-4V-9tz" secondAttribute="top" constant="10" id="hUk-QF-Tmf"/>
+                <constraint firstItem="B6r-Rw-jeW" firstAttribute="top" secondItem="Yxg-rU-N6J" secondAttribute="bottom" constant="5" id="iiw-F3-Bgm"/>
                 <constraint firstItem="gNF-g0-cgA" firstAttribute="trailing" secondItem="Vah-3a-nUq" secondAttribute="trailing" constant="5" id="kBC-Sh-3tS"/>
                 <constraint firstItem="Yxg-rU-N6J" firstAttribute="leading" secondItem="gNF-g0-cgA" secondAttribute="centerX" constant="30" id="rRb-2d-dtc"/>
                 <constraint firstItem="xHf-Lo-Fwf" firstAttribute="centerY" secondItem="qVd-4l-3l8" secondAttribute="centerY" id="rRu-RS-oER"/>
+                <constraint firstItem="xWg-ra-kFh" firstAttribute="top" secondItem="B6r-Rw-jeW" secondAttribute="bottom" constant="5" id="uuY-Xe-ztg"/>
                 <constraint firstItem="YNf-Uv-iCf" firstAttribute="top" secondItem="qVd-4l-3l8" secondAttribute="bottom" constant="5" id="vXO-T2-wfp"/>
+                <constraint firstItem="xWg-ra-kFh" firstAttribute="centerX" secondItem="gNF-g0-cgA" secondAttribute="centerX" id="yd3-Lh-mai"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="gNF-g0-cgA"/>
             <connections>
@@ -87,6 +93,7 @@
                 <outlet property="AwayTeamName" destination="Yxg-rU-N6J" id="0yN-AL-3Tk"/>
                 <outlet property="HomeTeamLogo" destination="qVd-4l-3l8" id="oZW-rI-4xp"/>
                 <outlet property="HomeTeamName" destination="YNf-Uv-iCf" id="pgf-24-J18"/>
+                <outlet property="SeeOpenBets" destination="xWg-ra-kFh" id="zHj-cS-Cmw"/>
                 <outlet property="TimeOfGame" destination="B6r-Rw-jeW" id="Jap-wY-Vhc"/>
             </connections>
             <point key="canvasLocation" x="169.59999999999999" y="-15.292353823088456"/>

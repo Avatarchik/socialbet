@@ -19,4 +19,5 @@ class GamesFeedCell: UICollectionViewCell {
     
     @IBOutlet weak var TimeOfGame: UILabel!
     
+    @IBOutlet weak var SeeOpenBets: UIButton!
 }

@@ -116,6 +116,9 @@ class BetBuilderGameSelection: UIViewController, UICollectionViewDataSource, UIC
         getImageFromUrl(urlString: thisGame.team2_url, imageView: (cell?.AwayTeamLogo)!);
         cell?.TimeOfGame.text = thisGame.game_time
         
+        cell?.SeeOpenBets.isHidden = true;
+        cell?.SeeOpenBets.isEnabled = false;
+        
         return cell!;
     }
     

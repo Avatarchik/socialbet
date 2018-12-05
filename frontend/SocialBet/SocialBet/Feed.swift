@@ -47,6 +47,7 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
     var openData: BetFeed?;
     var gamesData: GamesFeed?;
     var feedCount = 0
+    var selected_game: Int?;
     
     
     override func viewDidLoad() {
@@ -67,6 +68,12 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
         self.Collection.delegate = self
         self.Collection.dataSource = self
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? GameOpenFeed{
+            vc.selected_game_id = self.selected_game;
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -101,7 +108,6 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             } catch let error {
                 print(error.localizedDescription)
             }*/
-            
             
             
             guard let feedData = try? JSONDecoder().decode(BetFeed.self, from: data)
@@ -176,6 +182,11 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             self.feedType = .games;
             self.Collection.reloadData();
         })
+    }
+    
+    @objc func GoToRelatedBets(sender: UIButton){
+        self.selected_game = sender.tag;
+        performSegue(withIdentifier: "FeedToOpenFeed", sender: self)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -255,6 +266,12 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             getImageFromUrl(urlString: thisGame.team1_url, imageView: (cell?.HomeTeamLogo)!);
             getImageFromUrl(urlString: thisGame.team2_url, imageView: (cell?.AwayTeamLogo)!);
             cell?.TimeOfGame.text = thisGame.game_time
+            
+            cell?.SeeOpenBets.isHidden = false;
+            cell?.SeeOpenBets.isEnabled = true;
+            
+            cell?.SeeOpenBets.tag = thisGame.game_id;
+            cell?.SeeOpenBets.addTarget(self, action: #selector(GoToRelatedBets(sender:)), for: .touchUpInside)
             
             return cell!;
         }
