@@ -32,7 +32,10 @@ def get_games():
     PARAMS['day'] = request.args.get('day')
     PARAMS['month'] = request.args.get('month')
     PARAMS['year'] = request.args.get('year')
+    print(1)
     r = requests.get(url=URL, params=PARAMS)
+    print(2)
+    print(r)
     response = r.json()
     print(response)
     games = []
