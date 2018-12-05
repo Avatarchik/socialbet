@@ -1,6 +1,6 @@
 import ethereum_client
 from web3 import Web3
-import web3
+import sys
 
 def create_bet_test():
     w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
@@ -9,4 +9,4 @@ def create_bet_test():
     ethereum_client.create_bet(test_account)
 
 if __name__ == "__main__":
-    create_bet_test()
+    create_bet_test(sys.argv[1])
