@@ -10,12 +10,33 @@ contract SocialBetContract {
         uint256 amount;
         bool completed;
     }
+    
+    event createBetEvent(
+       uint bet_id,
+       uint256 amount
+    );
+    
+    event acceptBetEvent(
+       uint bet_id,
+       uint256 amount
+    );
+    
+    event distributeWinningsEvent(
+       uint bet_id,
+       uint8 winner
+    );
+    
+    event fallBackEvent(
+       string message
+    );
 
     mapping(uint256 => Bet) public betInfo;
     uint256[] public betIds;
 
 
-    function() external payable {}
+    function() external payable {
+        emit fallBackEvent("wtf -- callback called");
+    }
 
     // Smart contract constructor
     constructor() public payable {
@@ -51,6 +72,8 @@ contract SocialBetContract {
         betInfo[_betId].completed = false;
 
         betIds.push(_betId);
+        
+        emit createBetEvent(_betId, msg.value);
     }
 
     // Accept bet function
@@ -73,6 +96,8 @@ contract SocialBetContract {
         betInfo[_betId].accepted = true;
 
         betIds.push(_betId);
+        
+        emit acceptBetEvent(_betId, msg.value);
     }
 
     // Cancel bet function
@@ -101,7 +126,7 @@ contract SocialBetContract {
     function distributeWinnings(uint256 _betId, uint8 _winner) public {
 
         // Make sure bet exists
-        require(checkBetExists(_betId));
+        require(checkBetExists(_betId), "bet doesn't exist");
 
         // Make sure bet is accepted
         require(betInfo[_betId].accepted);
@@ -123,6 +148,9 @@ contract SocialBetContract {
         // Set completed
         betInfo[_betId].completed = true;
 
+        emit distributeWinningsEvent(_betId, _winner);
+
     }
 
 }
+

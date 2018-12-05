@@ -7,7 +7,8 @@ import json
 import sys
 import os
 
-contract_address = '0x39E1E1e40119f97f44208faF9E8797b98466dF8a'
+w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
+contract_address = w3.toChecksumAddress('0x1220Ca9421c859dae977c59433c85F31e2690705')
 
 def readCompiledFromJSON(j):
     compiled = json.loads(j)
@@ -34,9 +35,9 @@ def create_bet(bet_id, amount, users_private_key):
     #    {'from' : users_private_key}
     #)
     tx_hash = contract.functions.createBet(bet_id)
-    tx_hash = tx_hash.transact({'from': users_private_key, 'amount': Web3.toWei(amount, 'ether')} )
+    tx_hash = tx_hash.transact({'from': users_private_key, 'value': Web3.toWei(amount, 'ether') } )
     # Wait for transaction to be mined...
-    w3.eth.waitForTransactionReceipt(tx_hash)
+    print(w3.eth.waitForTransactionReceipt(tx_hash))
     
 
 def accept_bet(bet_id, amount, users_private_key):
@@ -48,9 +49,9 @@ def accept_bet(bet_id, amount, users_private_key):
     #    {'from' : users_private_key}
     #)
     tx_hash = contract.functions.acceptBet(bet_id)
-    tx_hash = tx_hash.transact({'from': users_private_key, 'amount': Web3.toWei(amount, 'ether')} )
+    tx_hash = tx_hash.transact({'from': users_private_key, 'value': Web3.toWei(amount, 'ether')} )
     # Wait for transaction to be mined...
-    w3.eth.waitForTransactionReceipt(tx_hash)
+    print(w3.eth.waitForTransactionReceipt(tx_hash))
  
 def distribute_winnings(bet_id, winner, users_private_key):
     # NOTE: winner should be 1 or 2
@@ -59,10 +60,10 @@ def distribute_winnings(bet_id, winner, users_private_key):
     w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
     contract = w3.eth.contract(address=contract_address, abi=abi)
     tx_hash = contract.functions.distributeWinnings(bet_id, winner)
-    tx_hash = tx_hash.transact({'from': users_private_key} )
+    tx_hash = tx_hash.transact({'from': users_private_key, 'value': 0} )
 
     # Wait for transaction to be mined...
-    w3.eth.waitForTransactionReceipt(tx_hash)
+    print(w3.eth.waitForTransactionReceipt(tx_hash))
 
 
 def deploy_smart_contract(contract_source):
