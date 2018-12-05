@@ -33,6 +33,7 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
     
     
     @IBAction func menuTapped() {
+        getNotifications()
         toggleSideMenu()
     }
     

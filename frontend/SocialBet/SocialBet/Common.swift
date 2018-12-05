@@ -19,8 +19,8 @@ class Common {
 
 var common = Common()
 
-
 // global methods
+
 extension UIViewController {
     func alert(message: String, title: String = "") {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -156,6 +156,12 @@ extension NSDictionary {
     }
 }
 
+func getNotifications() {
+    print("Get notifications function triggered")
+    let URI = addGETParams(path: "/api/teams/", search: "", needsUsername: true)
+    
+    
+}
 
 
 // data structure definitions

@@ -17,16 +17,16 @@ def get_games_and_scores():
 
 	games = db.get_games()
 	response = []
-	for g in games:
+	for i in range(0,len(games)):
 		game = {}
-		game['game_id'] = g[0]
-		game['team1'] = g[1]
-		game['team2'] = g[2]
-		game['team1_url'] = g[3]
-		game['team2_url'] = g[4]
-		game['record1'] = g[5]
-		game['record2'] = g[6]
-		game['game_time'] = g[7]
+		game['game_id'] = games[i][0]
+		game['team1'] = games[i][1]
+		game['team2'] = games[i][2]
+		game['team1_url'] = games[i][3]
+		game['team2_url'] = games[i][4]
+		game['record1'] = games[i][5]
+		game['record2'] = games[i][6]
+		game['game_time'] = games[i][7]
 		game['homeScore'] = None
 		game['awayScore'] = None
 		game['eventStartsAt'] = None
