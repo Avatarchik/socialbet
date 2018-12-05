@@ -18,8 +18,28 @@ def get_games_and_scores():
     if not authenticated:
        return create_http_response(errors=['unauthenticated user'])
 
-    
-    
     games = db.get_games()
+    response = []
+    for g in games:
+    	game = {}
+    	game['game_id'] = g[0]
+    	# not sure what to do with scores
+    	game['homeScore'] = 50
+    	game['awayScore'] = 75
+    	game['eventStartsAt'] = g[7]
+    	game['League'] = {
+    		'name': 'NFL'
+    	}
+    	# also dont have short names of teams
+    	game['AwayTeam'] = {
+    		'shortName' = g[2]
+    		'fullName' = g[2]
+    	}
+    	game['HomeTeam'] = {
+    		'shortName' = g[1]
+    		'fullName' = g[1]
+    	}
+    	response.append(game)
 
-	pass
+
+    return jsonify(response), 200,  {'ContentType': 'application/json'}
