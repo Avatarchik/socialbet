@@ -63,6 +63,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         }
     }
     @IBAction func menuTapped() {
+        getNotifications()
         toggleSideMenu()
     }
     

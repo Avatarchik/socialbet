@@ -20,12 +20,7 @@ class Common {
 var common = Common()
 
 // global methods
-/*
-let timer = Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true) { timer in
-    print("Timer works!")
-}
-RunLoop.current.add(timer, forMode: .common)
-*/
+
 extension UIViewController {
     func alert(message: String, title: String = "") {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -161,6 +156,12 @@ extension NSDictionary {
     }
 }
 
+func getNotifications() {
+    print("Get notifications function triggered")
+    let URI = addGETParams(path: "/api/teams/", search: "", needsUsername: true)
+    
+    
+}
 
 
 // data structure definitions
