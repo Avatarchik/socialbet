@@ -5,11 +5,13 @@ from solc import compile_source
 from web3.contract import ConciseContract
 import json
 import sys
+import os
 
 contract_address = '0x39E1E1e40119f97f44208faF9E8797b98466dF8a'
 def create_bet(bet_id, amount, users_private_key):
+    abi = os.system('solc --combined-json bin,abi SocialBetSmartContract.sol')
     w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
-    contract = w3.eth.contract(contract_address)
+    contract = w3.eth.contract(address=contract_address, abi=abi)
     contract.functions.createBet(bet_id).sendTransaction(
         {'from' : users_private_key}
     )

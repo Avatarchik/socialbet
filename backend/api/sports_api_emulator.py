@@ -1,15 +1,12 @@
-from flask import Flask, Blueprint
-from .api_utils import create_http_response
-from flask import request
+from flask import Flask, request, jsonify, Blueprint
 from db import db
-import requests
+import json
+from .api_utils import create_http_response
 
 app = Flask(__name__)
-games = Blueprint('sports_api_emulator', __name__)
+sports_api_emulator = Blueprint('sports_api_emulator', __name__)
 
-# function is emulating gold standard sports api
-# the api example can be found at: https://rapidapi.com/GoldStandard/api/gold-standard-sports
-@sports_api_emulator.route('/api/sports_api/')
+@sports_api_emulator.route('/api/sports_api_emulator/')
 def get_games_and_scores():
 
 	log_user = request.args.get('loguser')
