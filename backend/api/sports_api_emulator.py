@@ -39,7 +39,7 @@ def get_games_and_scores():
 		}
 		game['AwayTeam'] = {
 			'shortName': next_game['team2_url'],
-			'fullName' = next_game['team2']
+			'fullName' : next_game['team2']
 		}
 		game['HomeTeam'] = {
 			'shortName': next_game['team1_url'],
