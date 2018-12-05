@@ -41,7 +41,13 @@ VALUES
 (16, 'Indianapolis Colts', 'Dallas Cowboys', '/team_logos/colts.png', '/team_logos/cowboys.png', '6-6','7-5', '12/16/2018 1:00PM'),
 (17, 'Baltimore Ravens', 'Tampa Bay Buccaneers', '/team_logos/ravens.png', '/team_logos/buccaneers.png', '7-5', '5-7', '12/16/2018 1:00PM'),
 (18, 'Buffalo Bills', 'Detroit Lions', '/team_logos/bills.png', '/team_logos/lions.png', '4-8', '4-8', '12/16/2018 1:00PM'),
-(19, 'Chicago Bears', 'Green Bay Packers', '/team_logos/bears.png', '/team_logos/packers.png', '8-4', '4-7', '12/16/2018 1:00PM');
+(19, 'Chicago Bears', 'Green Bay Packers', '/team_logos/bears.png', '/team_logos/packers.png', '8-4', '4-7', '12/16/2018 1:00PM'),
+(20, 'Jacksonville Jaguars', 'Washington Redskins', '/team_logos/jaguars.png', '/team_logos/redskins.png', '4-8', '6-6', '12/16/2018 12:00PM'),
+(21, 'New York Giants', 'Tennessee Titans', '/team_logos/giants.png', '/team_logos/titans.png', '4-8','6-6','12/16/2018 12:00PM'),
+(22, 'San Francisco 49ers', 'Seattle Seahawks', '/team_logos/49ers.png', '/team_logos/seahawks.png', '2-9', '7-5', '12/16/2018 3:05PM'),
+(23, 'Pittsburgh Steelers', 'New England Patriots', '/team_logos/steelers.png', '/team_logos/patriots.png', '7-4', '9-3', '12/16/2018 3:25PM'),
+(24, 'Los Angeles Rams', 'Philadelphia Eagles', '/team_logos/rams.png', '/team_logos/eagles.png', '11-1', '6-6', '12/16/2018 7:20PM'),
+(25, 'Carolina Panthers', 'New Orleans Saints', '/team_logos/panthers.png', '/team_logos/saints.png','6-6', '10-2', '12/17/2018 7:15PM');
 
 # BETS
 # cterech = 1

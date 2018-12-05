@@ -32,11 +32,22 @@ def get_games():
     PARAMS['year'] = request.args.get('year')
 
     response = requests.get(url=URL, params=PARAMS)
-    data = response.json()
+    games = []
+    for g in response:
+        game = {}
+        game['game_id'] = g['game_id']
+        game['team1'] = g['HomeTeam']['fullName']
+        game['team2'] =  g['AwayTeam']['fullName']
+        game['team1_url'] = g['HomeTeam']['shortName']
+        game['team2_url'] = g['AwayTeam']['shortName']
+        game['game_time'] = g['eventStartsAt']
+        game['home_score'] = g['homeScore']
+        game['away_score'] = g['awayScore']
+        games.append(game)   
 
     return create_http_response(data=games)
 
-@games.route('/api/games/unnotified')
+@games.route('/api/games/unnotified/')
 def get_unnotified_games():
 
     log_user = request.args.get('loguser')
