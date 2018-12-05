@@ -33,11 +33,36 @@ def create_bet(bet_id, amount, users_private_key):
     #contract.functions.createBet(bet_id).sendTransaction(
     #    {'from' : users_private_key}
     #)
-    contract.functions.createBet(bet_id, transact={
-        'from': users_private_key,
-        'amount': amount
-    })
+    tx_hash = contract.functions.createBet(bet_id)
+    tx_hash = tx_hash.transact({'from': users_private_key, 'amount': Web3.toWei(amount, 'ether')} )
+    # Wait for transaction to be mined...
+    w3.eth.waitForTransactionReceipt(tx_hash)
+    
 
+def accept_bet(bet_id, amount, users_private_key):
+    source =os.popen('solc --combined-json bin,abi SocialBetSmartContract.sol').read()
+    abi = readCompiledFromJSON(source)['abi']
+    w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
+    contract = w3.eth.contract(address=contract_address, abi=abi)
+    #contract.functions.createBet(bet_id).sendTransaction(
+    #    {'from' : users_private_key}
+    #)
+    tx_hash = contract.functions.acceptBet(bet_id)
+    tx_hash = tx_hash.transact({'from': users_private_key, 'amount': Web3.toWei(amount, 'ether')} )
+    # Wait for transaction to be mined...
+    w3.eth.waitForTransactionReceipt(tx_hash)
+ 
+def distribute_winnings(bet_id, winner, users_private_key):
+    # NOTE: winner should be 1 or 2
+    source =os.popen('solc --combined-json bin,abi SocialBetSmartContract.sol').read()
+    abi = readCompiledFromJSON(source)['abi']
+    w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
+    contract = w3.eth.contract(address=contract_address, abi=abi)
+    tx_hash = contract.functions.distributeWinnings(bet_id, winner)
+    tx_hash = tx_hash.transact({'from': users_private_key} )
+
+    # Wait for transaction to be mined...
+    w3.eth.waitForTransactionReceipt(tx_hash)
 
 
 def deploy_smart_contract(contract_source):

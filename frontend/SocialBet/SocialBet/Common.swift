@@ -250,6 +250,13 @@ struct BetResults{
     let loser: UserInBet
 }
 
+struct GameResult {
+    let winner: UserInBet
+    let loser: UserInBet
+    let winnerScore: Int
+    let loserScore: Int
+}
+
 // POST response decode structs
 struct POSTResponseStruct: Decodable {
     let errors: [String]

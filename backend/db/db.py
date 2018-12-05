@@ -53,6 +53,20 @@ def get_user(user_name):
 
     return res
 
+def find_id(user_id):
+    db_config = get_db_config()
+    db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
+    cursor = db.cursor(pymysql.cursors.DictCursor)
+
+    sql = "SELECT * FROM users WHERE user_id = \"" + user_id + "\";"
+    cursor.execute(sql)
+
+    res = cursor.fetchone()
+
+    db.close()
+
+    return res
+
 # I NEED ALL USER INFO
 def create_user(data):
     db_config = get_db_config()
@@ -525,4 +539,25 @@ def cancel_bet(bet_id):
     db.close()
 
     return
+
+def unnotified_bets(loguser):
+
+    db_config = get_db_config()
+    db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
+    cursor = db.cursor(pymysql.cursors.DictCursor)
+
+    sql = "SELECT DISTINCT B.*, G.* FROM bets B "\
+            "INNER JOIN games G ON G.game_id = B.game_id"\
+            "WHERE accepted=1 AND winner IS NOT NULL AND notified=0 AND (B.user1=\" "+ loguser+ "\" OR B.user2=\"" + loguser + "\");"
+
+    cursor.execute(sql)
+
+    res = []
+    for row in cursor:
+        res.append(row)
+
+
+    db.close()
+
+    return res
 

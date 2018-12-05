@@ -1,4 +1,5 @@
 CREATE TABLE users (
+	user_id INT,
 	user_name VARCHAR(100) NOT NULL,
 	first_name VARCHAR(100) NOT NULL,
 	last_name VARCHAR(100) NOT NULL,
@@ -36,11 +37,14 @@ CREATE TABLE bets (
 	ammount FLOAT NOT NULL, 
 	user1 VARCHAR(50) NOT NULL,
 	user2 VARCHAR(50),
+	user1_id INT,
+	user2_id INT,
 	team1 VARCHAR(50) NOT NULL,
 	team2 VARCHAR(50) NOT NULL,
     direct INTEGER NOT NULL,
     accepted INTEGER NOT NULL,
     winner VARCHAR(50),
+    notified INT NOT NULL DEFAULT 0,
 	PRIMARY KEY(bet_id)
 );
 

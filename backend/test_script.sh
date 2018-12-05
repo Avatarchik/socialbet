@@ -40,6 +40,9 @@ if [ $1 = "between_us_bets" ]; then
     curl -X GET $url/api/feeds/between_us_bets/\?loguser=$loguser\&auth=$auth\&user2=$user2
 fi
 
+if [ $1 = "unnotified_bets" ]; then
+    curl -X GET $url/api/games/unnotified/\?loguser=$loguser\&auth=$auth
+fi
 
 # Teams endpoints
 ############################
@@ -52,8 +55,8 @@ fi
 ############################
 
 
-if [ $1 = "get_games" ]; then
-    curl -X GET $url/api/games/\?loguser=$loguser\&auth=$auth
+if [ $1 = "sports_api_emulator" ]; then
+    curl -X GET $url/api/sports_api_emulator/\?loguser=$loguser\&auth=$auth
 fi
 
 # User endpoints
