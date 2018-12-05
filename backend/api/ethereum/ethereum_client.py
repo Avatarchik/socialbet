@@ -27,16 +27,16 @@ def readCompiledFromJSON(j):
 
 def create_bet(bet_id, amount, users_private_key):
     source =os.popen('solc --combined-json bin,abi SocialBetSmartContract.sol').read()
-    print()
-    print()
-    print('SOURCE: ')
-    print(source)
     abi = readCompiledFromJSON(source)['abi']
     w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
     contract = w3.eth.contract(address=contract_address, abi=abi)
-    contract.functions.createBet(bet_id).sendTransaction(
-        {'from' : users_private_key}
-    )
+    #contract.functions.createBet(bet_id).sendTransaction(
+    #    {'from' : users_private_key}
+    #)
+    contract.functions.createBet(bet_id, transact={
+        'from': users_private_key,
+        'amount': amount
+    })
 
 
 
