@@ -60,7 +60,7 @@ def distribute_winnings_test(bet_id=1, winner=1, test_account=0):
     print('contract_balance: ' + str(get_contract_balance()))
 
 def full_test():
-    bet_id = 6
+    bet_id = 7
     user1_account = 1
     user2_account = 2
     winner = 2
