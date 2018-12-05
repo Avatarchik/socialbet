@@ -4,7 +4,7 @@ import json
 from .api_utils import create_http_response
 
 app = Flask(__name__)
-games = Blueprint('sports_api_emulator', __name__)
+sports_api_emulator = Blueprint('sports_api_emulator', __name__)
 
 @sports_api_emulator.route('/api/sports_api_emulator/')
 def get_games_and_scores():
