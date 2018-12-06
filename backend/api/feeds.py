@@ -14,8 +14,28 @@ def list_open_bets_by_game():
     if not db.authenticate(loguser, auth):
         return create_http_response(errors=['unauthenticated user'])
 
+    game_id = request.args.get('game_id')
     db_bets = db.get_open_bets(loguser)
-    print(db_bets)
+    bets = []
+    for bet in db_bets:
+        if bet['game_id'] == game_id:
+            db_user1 = db.get_user(bet['user1'])
+            user1 = {
+                'username': db_user1['user_name'],
+                'first_name': db_user1['first_name'],
+                'last_name': db_user1['last_name'],
+                'profile_pic_url': db_user1['profile_pic_url'],
+                'team': bet['team1']
+            }
+            bet['user1'] = user1
+            if 'user2' in bet: del bet['user2']
+            bets.append(bet)
+
+    result = {
+        'bets': bets
+    }
+    return create_http_response(data=result)
+
 
 @feeds.route('/api/feeds/open_bets/')
 def list_open_bets():
