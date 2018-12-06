@@ -87,7 +87,7 @@ def get_unnotified_games():
         bet['user2'] = user2
         response.append(bet)
         #print(bet)
-        db.set_bet_to_notified(bet['bet_id'])
+        db.set_bet_to_notified(db_bet['bet_id'])
 
     # Return JSON response
     result = {
