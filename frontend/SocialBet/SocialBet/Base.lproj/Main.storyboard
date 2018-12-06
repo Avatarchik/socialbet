@@ -696,12 +696,20 @@
                                     <segue destination="1DK-nt-SYw" kind="embed" id="JBt-pp-IAw"/>
                                 </connections>
                             </containerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Balance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afH-eI-wzt">
+                                <rect key="frame" x="123" y="162" width="129" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ce3-u4-apo" firstAttribute="centerX" secondItem="pKH-oH-D9S" secondAttribute="centerX" id="2g8-lK-Mop"/>
+                            <constraint firstItem="afH-eI-wzt" firstAttribute="centerX" secondItem="pKH-oH-D9S" secondAttribute="centerX" id="37F-qF-kWg"/>
                             <constraint firstItem="7ss-W6-pp7" firstAttribute="bottom" secondItem="pKH-oH-D9S" secondAttribute="bottom" id="9Qh-cM-0Pr"/>
                             <constraint firstItem="wFA-At-bqu" firstAttribute="centerX" secondItem="8sJ-iF-6jS" secondAttribute="centerX" id="Beg-fI-sMT"/>
+                            <constraint firstItem="afH-eI-wzt" firstAttribute="top" secondItem="fMx-81-JQe" secondAttribute="bottom" constant="10" id="CMR-ry-5lk"/>
                             <constraint firstItem="pKH-oH-D9S" firstAttribute="bottom" secondItem="ce3-u4-apo" secondAttribute="bottom" id="Ddf-PT-1VO"/>
                             <constraint firstItem="fiB-fn-M3C" firstAttribute="leading" secondItem="1bE-Uo-hGA" secondAttribute="trailing" id="EQZ-aN-r90"/>
                             <constraint firstItem="7ss-W6-pp7" firstAttribute="leading" secondItem="pKH-oH-D9S" secondAttribute="leading" constant="-200" id="HM8-W8-rJk"/>
@@ -731,6 +739,7 @@
                         <viewLayoutGuide key="safeArea" id="pKH-oH-D9S"/>
                     </view>
                     <connections>
+                        <outlet property="AccountBalance" destination="afH-eI-wzt" id="LsY-oq-8a4"/>
                         <outlet property="AddFriendButton" destination="wFA-At-bqu" id="AWx-yL-acq"/>
                         <outlet property="InitiateBetButton" destination="8sJ-iF-6jS" id="UGg-cB-21U"/>
                         <outlet property="LiveBetsObject" destination="1bE-Uo-hGA" id="WdC-ob-p1o"/>
@@ -1021,17 +1030,17 @@
             <objects>
                 <viewController id="pUr-gZ-3Sg" customClass="Settings" customModule="SocialBet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZpP-fS-25n">
-                        <rect key="frame" x="0.0" y="0.0" width="200" height="553"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fci-Le-2tE">
-                                <rect key="frame" x="64" y="40" width="72" height="24"/>
+                                <rect key="frame" x="151.5" y="40" width="72" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bfh-Vy-RWo">
-                                <rect key="frame" x="-50" y="186.5" width="300" height="200"/>
+                                <rect key="frame" x="37.5" y="243.5" width="300" height="200"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile Picture:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GOC-2X-11X">
                                         <rect key="frame" x="30" y="10" width="112" height="21"/>
@@ -1049,7 +1058,7 @@
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r7M-VB-nVO">
-                                <rect key="frame" x="165" y="196.5" width="55" height="55"/>
+                                <rect key="frame" x="252.5" y="253.5" width="55" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="AZo-6d-k2L"/>
                                     <constraint firstAttribute="width" constant="55" id="zCS-IF-NOf"/>
@@ -1192,11 +1201,13 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="kC9-NE-hGE"/>
+        <segue reference="yLX-52-rPy"/>
         <segue reference="TzK-3r-hYY"/>
         <segue reference="Qk1-uB-tbx"/>
         <segue reference="Fcy-jZ-kMu"/>
         <segue reference="WeN-mD-fOH"/>
         <segue reference="v6D-wu-qAY"/>
-        <segue reference="t63-IK-6oX"/>
+        <segue reference="H2g-UJ-TW7"/>
     </inferredMetricsTieBreakers>
 </document>

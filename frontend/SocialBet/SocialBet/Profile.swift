@@ -12,6 +12,8 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     @IBOutlet weak var UserName: UILabel!
     @IBOutlet weak var UserHandle: UILabel!
     @IBOutlet weak var ProfileBetFeed: UICollectionView!
+    @IBOutlet weak var AccountBalance: UILabel!
+    
     
     var BetweenUsObject: UIButton?
     var RequestsObject: UIButton?
@@ -49,14 +51,17 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         if (self.is_profile_self){
             InitiateBetButton.isHidden = true
             AddFriendButton.isHidden = true
+            AccountBalance.isHidden = false
             self.AddSelfFeeds()
         } else if (!self.is_friend) {
             InitiateBetButton.isHidden = true
             AddFriendButton.isHidden = false
+            AccountBalance.isHidden = true
             self.AddOtherFeeds()
         } else {
             InitiateBetButton.isHidden = false
             AddFriendButton.isHidden = true
+            AccountBalance.isHidden = true
             self.AddOtherFeeds()
         }
     }
@@ -616,6 +621,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             
             self.UserHandle.text = userData.username;
             self.UserName.text = userData.first_name + " " + userData.last_name;
+            //TODO set AccountBalance.text = ?? (something from db that we have or whatever)
             
             //TODO needs a slight tweak to allow for deleting friends, just not important for task at hand right now
             if (self.searchedUser! == common.username){
