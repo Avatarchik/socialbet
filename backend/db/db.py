@@ -560,7 +560,7 @@ def unnotified_bets(loguser):
     for row in cursor:
         res.append(row)
 
-    print(res)
+    # print(res)
 
 
     db.close()
@@ -572,7 +572,7 @@ def set_bet_to_notified(bet_id):
     db_config = get_db_config()
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
     cursor = db.cursor(pymysql.cursors.DictCursor)
-    print(bet_id)
+    # print(bet_id)
     sql = "UPDATE bets SET notified = 1 WHERE bet_id = " + str(bet_id) +  ";"
     cursor.execute(sql)
     db.close()
