@@ -93,4 +93,4 @@ def get_unnotified_games():
         'bets': response
     }
 
-    return create_http_response(data=response)
+    return create_http_response(data=result)
