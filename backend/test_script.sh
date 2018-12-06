@@ -1,4 +1,4 @@
-loguser="achapp"
+loguser="ncargill"
 auth="5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8"
 url="http://165.227.180.80:5000"
 
@@ -45,6 +45,10 @@ if [ $1 = "between_us_bets" ]; then
 fi
 
 if [ $1 = "unnotified_bets" ]; then
+    curl -X GET $url/api/games/unnotified/\?loguser=$loguser\&auth=$auth
+fi
+
+if [ $1 = "set_" ]; then
     curl -X GET $url/api/games/unnotified/\?loguser=$loguser\&auth=$auth
 fi
 
