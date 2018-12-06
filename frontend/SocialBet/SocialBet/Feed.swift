@@ -60,7 +60,7 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
                 else{
                     other_user = thisBet.user1.username
                 }
-                var message = "Bet against" + other_user + ":\n"
+                var message = "Bet against " + other_user + ":\n"
                 message = message + "You " + result_type + "!\n"
                 message = message + "See Results in Profile for more information."
                 self.alert(message: message)
