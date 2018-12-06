@@ -7,11 +7,11 @@ url="http://165.227.180.80:5000"
 ############################
 
 if [ $1 = "open_bets" ]; then
-    curl -X GET $url/api/feeds/open_bets/\?loguser=$loguser\&auth=$auth\&game_id=12
+    curl -X GET $url/api/feeds/open_bets/\?loguser=$loguser\&auth=$auth
 fi
 
 if [ $1 = "open_bets_by_game" ]; then
-    curl -X GET $url/api/feeds/open_bets_by_game/\?loguser=$loguser\&auth=$auth
+    curl -X GET $url/api/feeds/open_bets_by_game/\?loguser=$loguser\&auth=$auth\&game_id=12
 fi
 
 if [ $1 = "live_bets" ]; then
