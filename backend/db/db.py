@@ -546,9 +546,13 @@ def unnotified_bets(loguser):
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
     cursor = db.cursor(pymysql.cursors.DictCursor)
 
-    sql = "SELECT DISTINCT B.*, G.* FROM bets B "\
-            "INNER JOIN games G ON G.game_id = B.game_id"\
-            "WHERE accepted=1 AND winner IS NOT NULL AND notified=0 AND (B.user1=\" "+ loguser+ "\" OR B.user2=\"" + loguser + "\");"
+    sql = "SELECT DISTINCT B.*, T1.logo_url AS team1_logo_url, T2.logo_url AS team2_logo_url FROM bets B "\
+        "INNER JOIN teams T1 ON T1.team_full_name=B.team1 "\
+          "INNER JOIN teams T2 ON T2.team_full_name=B.team2 " \
+          "WHERE (user1=\"" + loguser + "\" OR user2=\"" + loguser + "\") " \
+          "AND notified=0 AND winner IS NOT NULL;"
+
+    print(sql)
 
     cursor.execute(sql)
 
@@ -556,8 +560,22 @@ def unnotified_bets(loguser):
     for row in cursor:
         res.append(row)
 
+    print(res)
+
 
     db.close()
 
     return res
+
+def set_bet_to_notified(bet_id):
+
+    db_config = get_db_config()
+    db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
+    cursor = db.cursor(pymysql.cursors.DictCursor)
+
+    sql = "UPDATE bets set notified = 1 WHERE bet_id = " + str(bet_id) +  ";"
+    cursor.execute(sql)
+    db.close()
+    return
+    
 

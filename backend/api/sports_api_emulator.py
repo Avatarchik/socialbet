@@ -8,17 +8,8 @@ sports_api_emulator = Blueprint('sports_api_emulator', __name__)
 
 @sports_api_emulator.route('/api/sports_api_emulator/', methods=['GET'])
 def get_games_and_scores():
-
-	log_user = request.args.get('loguser')
-	auth_token = request.args.get('auth')
-	authenticated = db.authenticate(log_user, auth_token)
-	if not authenticated:
-	   return create_http_response(errors=['unauthenticated user'])
-
-	print(request.args)
+	
 	games = db.get_games()
-	print(games[0])
-	print(games[0]['game_id'])
 	
 	response = []
 	for next_game in games:

@@ -1,15 +1,9 @@
 from flask import Flask
 import os
-from api import betting, feeds, games, users, teams#, sports_api_emulator
+from api import sports_api_emulator
 import logging
 app = Flask(__name__, instance_relative_config=True)
-app.register_blueprint(betting.betting)
-app.register_blueprint(feeds.feeds)
-app.register_blueprint(games.games)
-app.register_blueprint(users.users)
-#app.register_blueprint(coinbase.coinbase)
-app.register_blueprint(teams.teams)
-#app.register_blueprint(sports_api_emulator.sports_api_emulator)
+app.register_blueprint(sports_api_emulator.sports_api_emulator)
 
 # Create flask app
 def create_app(test_config=None):
@@ -43,4 +37,4 @@ if __name__ == '__main__':
 	}
 	create_app()
 
-	app.run()
+	app.run(port=5001)

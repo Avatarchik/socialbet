@@ -10,6 +10,10 @@ if [ $1 = "open_bets" ]; then
     curl -X GET $url/api/feeds/open_bets/\?loguser=$loguser\&auth=$auth
 fi
 
+if [ $1 = "open_bets_by_game" ]; then
+    curl -X GET $url/api/feeds/open_bets_by_game/\?loguser=$loguser\&auth=$auth\&game_id=12
+fi
+
 if [ $1 = "live_bets" ]; then
     curl -X GET $url/api/feeds/live_bets/\?loguser=$loguser\&auth=$auth
 fi
@@ -60,7 +64,7 @@ if [ $1 = "sports_api_emulator" ]; then
 fi
 
 if [ $1 = "get_games" ]; then
-    curl -X GET $url/api/games/\?loguser=$loguser\&auth=$auth\&league="NFL"\&day=10\&month="December"\&year=2018
+    curl -X GET $url/api/games/\?loguser=$loguser\&auth=$auth\&league="NFL"\&day="10"\&month="December"\&year="2018"
 fi
 
 # User endpoints
