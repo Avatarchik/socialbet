@@ -14,15 +14,12 @@ def list_open_bets_by_game():
     if not db.authenticate(loguser, auth):
         return create_http_response(errors=['unauthenticated user'])
 
-    game_id = request.args.get('game_id')
-    print(type(game_id))
+    game_id = int(request.args.get('game_id'))
     db_bets = db.get_open_bets(loguser)
     bets = []
     for db_bet in db_bets:
         bet = db_bet
-        print('bet game_id:', type(db_bet['game_id']))
         if db_bet['game_id'] == game_id:
-            print('here')
             db_user1 = db.get_user(bet['user1'])
             user1 = {
                 'username': db_user1['user_name'],
