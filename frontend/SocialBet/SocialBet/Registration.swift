@@ -21,7 +21,8 @@ class Registration: UIViewController {
     @IBOutlet weak var RegistrationPhoneNumber: UITextField!
     @IBOutlet weak var RegistrationFirstName: UITextField!
     @IBOutlet weak var RegistrationLastName: UITextField!
-    
+    @IBOutlet weak var PrivateKey: UITextField!
+    @IBOutlet weak var PublicKey: UITextField!
     @IBAction func RegistrationSubmit(_ sender: Any) {
         let username = RegistrationUsername.text;
         let password = RegistrationPassword.text;
