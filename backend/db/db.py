@@ -552,7 +552,7 @@ def unnotified_bets(loguser):
           "WHERE (user1=\"" + loguser + "\" OR user2=\"" + loguser + "\") " \
           "AND notified=0 AND winner IS NOT NULL;"
 
-    print(sql)
+    # print(sql)
 
     cursor.execute(sql)
 
