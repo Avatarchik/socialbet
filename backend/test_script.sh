@@ -10,6 +10,10 @@ if [ $1 = "open_bets" ]; then
     curl -X GET $url/api/feeds/open_bets/\?loguser=$loguser\&auth=$auth
 fi
 
+if [ $1 = "open_bets_by_game" ]; then
+    curl -X GET $url/api/feeds/open_bets_by_game/\?loguser=$loguser\&auth=$auth
+fi
+
 if [ $1 = "live_bets" ]; then
     curl -X GET $url/api/feeds/live_bets/\?loguser=$loguser\&auth=$auth
 fi

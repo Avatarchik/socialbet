@@ -6,6 +6,17 @@ app = Flask(__name__)
 feeds = Blueprint('feeds', __name__)
 
 
+@feeds.route('/api/feeds/open_bets_by_game/')
+def list_open_bets_by_game():
+    # Authenticate user
+    loguser = request.args.get('loguser')
+    auth = request.args.get('auth')
+    if not db.authenticate(loguser, auth):
+        return create_http_response(errors=['unauthenticated user'])
+
+    db_bets = db.get_open_bets(loguser)
+    print(db_bets)
+
 @feeds.route('/api/feeds/open_bets/')
 def list_open_bets():
 
