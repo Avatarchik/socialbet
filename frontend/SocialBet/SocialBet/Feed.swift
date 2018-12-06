@@ -33,7 +33,39 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
     
     
     @IBAction func menuTapped() {
-        getNotifications()
+        var betData: BetFeed?;
+        let fullURI = addGETParams(path: "/api/games/unnotified/", search: "", search_number: -1, needsUsername: false, needsUser_id: false)
+        sendGET(uri: fullURI, callback: { (httpresponse) in
+            let data: Data! = httpresponse.data
+            
+            guard let feedData = try? JSONDecoder().decode(BetFeed.self, from: data)
+                else {
+                    return
+            }
+            betData = feedData;
+            let num_results = betData!.bets.count
+            if(num_results != 0){
+                let thisBet = betData!.bets[0];
+                var other_user = "";
+                var result_type = "";
+                if (thisBet.winner == common.username){
+                    result_type = "won"
+                }
+                else{
+                    result_type = "lost"
+                }
+                if (common.username == thisBet.user1.username){
+                    other_user = thisBet.user2!.username
+                }
+                else{
+                    other_user = thisBet.user1.username
+                }
+                var message = "Bet against" + other_user + ":\n"
+                message = message + "You " + result_type + "!\n"
+                message = message + "See Results in Profile for more information."
+                self.alert(message: message)
+            }
+        })
         toggleSideMenu()
     }
     
@@ -49,7 +81,7 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
     var gamesData: GamesFeed?;
     var feedCount = 0
     var selected_game: Int?;
-    var selected_profile: Int?;
+    var selected_profile: String?;
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -77,8 +109,8 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
         }
         
         if let vc_prof = segue.destination as? Profile{
-            vc_prof.search_by_number = true;
-            vc_prof.searched_user_number = self.selected_profile!;
+            vc_prof.search_by_number = false;
+            vc_prof.searchedUser = self.selected_profile!;
         }
     }
     
@@ -86,8 +118,9 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
         self.viewDidLoad()
     }
     
-    @objc func GoToProfile(sender: UIImageView){
-        self.selected_profile = sender.tag;
+    @objc func GoToProfile(sender: ProfilePicTapGesture){
+        print("In the GoToProfile func")
+        self.selected_profile = sender.username!;
         performSegue(withIdentifier: "HomeToProfile", sender: self)
     }
     
@@ -106,7 +139,9 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
     
     @IBAction func LiveBetsButton(_ sender: Any) {
         // submit a GET request to get the live feed object
+        print(common.username)
         let fullURI = addGETParams(path: "/api/feeds/live_bets/", search: "", search_number: -1, needsUsername: false, needsUser_id: false)
+        print("FULL URI: " + fullURI)
         sendGET(uri: fullURI, callback: { (httpresponse) in
             let data: Data! = httpresponse.data
             
@@ -128,6 +163,7 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             }
             self.liveData = feedData;
             self.feedCount = self.liveData!.bets.count;
+            print("Feed Count is " + String(self.feedCount));
             //} else{
                 //self.alert(message: "There was an error processing your request.", title: "Network Error")
             //}
@@ -218,8 +254,8 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             cell?.User2Name.text = thisBet.user2!.first_name + " " + thisBet.user2!.last_name;
             getImageFromUrl(urlString: thisBet.user1.profile_pic_url, imageView: (cell?.User1Image)!);
             getImageFromUrl(urlString: thisBet.user2!.profile_pic_url, imageView: (cell?.User2Image)!);
-            cell?.User1Image.tag = thisBet.user1_id;
-            cell?.User2Image.tag = thisBet.user2_id!;
+            //cell?.User1Image.tag = thisBet.user1_id;
+            //cell?.User2Image.tag = thisBet.user2_id!;
             cell?.TeamName1.text = thisBet.team1;
             cell?.TeamName2.text = thisBet.team2;
             cell?.Message.text = thisBet.message;
@@ -230,12 +266,17 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             getImageFromUrl(urlString: thisBet.team2_logo_url, imageView: (cell?.Team2Image)!);
             cell?.WagerAmount.text = "";
             
-            let profileRecognizer = UITapGestureRecognizer(target: self, action: #selector(GoToProfile(sender:)))
-            profileRecognizer.delegate = self
+            let profileRecognizer1 = ProfilePicTapGesture(target: self, action: #selector(GoToProfile(sender:)))
+            profileRecognizer1.delegate = self
             cell?.User1Image.isUserInteractionEnabled = true
-            cell?.User1Image.addGestureRecognizer(profileRecognizer)
+            cell?.User1Image.addGestureRecognizer(profileRecognizer1)
+            profileRecognizer1.username = thisBet.user1.username;
+            
+            let profileRecognizer2 = ProfilePicTapGesture(target: self, action: #selector(GoToProfile(sender:)))
+            profileRecognizer2.delegate = self
             cell?.User2Image.isUserInteractionEnabled = true
-            cell?.User2Image.addGestureRecognizer(profileRecognizer)
+            cell?.User2Image.addGestureRecognizer(profileRecognizer2)
+            profileRecognizer2.username = thisBet.user2!.username;
             
             cell?.AcceptButton.setImage(nil, for: .normal)
             cell?.DeclineButton.setImage(nil, for: .normal)
@@ -259,11 +300,12 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             getImageFromUrl(urlString: thisBet.user1.profile_pic_url, imageView: (cell?.ProfilePic)!);
             getImageFromUrl(urlString: thisBet.team1_logo_url, imageView: (cell?.UserTeamLogo)!);
             getImageFromUrl(urlString: thisBet.team2_logo_url, imageView: (cell?.OtherTeamLogo)!);
-            cell?.ProfilePic.tag = thisBet.user1_id;
-            let profileRecognizer = UITapGestureRecognizer(target: self, action: #selector(GoToProfile(sender:)))
+            //cell?.ProfilePic.tag = thisBet.user1_id;
+            let profileRecognizer = ProfilePicTapGesture(target: self, action: #selector(GoToProfile(sender:)))
             profileRecognizer.delegate = self
             cell?.ProfilePic.isUserInteractionEnabled = true
             cell?.ProfilePic.addGestureRecognizer(profileRecognizer)
+            profileRecognizer.username = thisBet.user1.username;
             
             cell?.AcceptButton.tag = thisBet.bet_id
             cell?.AcceptButton.addTarget(self, action: #selector(OpenAcceptButtonPressed(sender:)), for: .touchUpInside)
@@ -297,7 +339,7 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             cell?.SeeOpenBets.isEnabled = true;
             
             cell?.SeeOpenBets.tag = thisGame.game_id;
-            cell?.SeeOpenBets.addTarget(self, action: #selector(GoToRelatedBets(sender:)), for: .touchUpInside)
+            cell?.SeeOpenBets.addTarget(self, action: #selector(self.GoToRelatedBets(sender:)), for: .touchUpInside)
             
             return cell!;
         }

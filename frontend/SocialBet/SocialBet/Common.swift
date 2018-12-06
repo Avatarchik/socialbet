@@ -160,13 +160,6 @@ extension NSDictionary {
     }
 }
 
-func getNotifications() {
-    print("Get notifications function triggered")
-    let URI = addGETParams(path: "/api/teams/", search: "", search_number: -1, needsUsername: true, needsUser_id: false)   
-    
-}
-
-
 // data structure definitions
 struct BetFeed: Decodable {
     let bets: [Bet]
@@ -194,8 +187,6 @@ struct Bet: Decodable {
     let team2: String
     let team2_logo_url: String
     let time_placed: String
-    let user1_id: Int;
-    let user2_id: Int?;
     let user1: UserInBet
     let user2: UserInBet?
     let winner: String?
@@ -255,3 +246,8 @@ struct POSTResponseStruct: Decodable {
     let errors: [String]
     let success_status: String
 }
+
+class ProfilePicTapGesture: UITapGestureRecognizer{
+    var username: String?
+}
+

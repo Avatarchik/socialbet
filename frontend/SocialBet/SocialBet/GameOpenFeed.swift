@@ -8,19 +8,23 @@
 
 import UIKit
 
-class GameOpenFeed: UIViewController {
+class GameOpenFeed: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIGestureRecognizerDelegate {
     
     var selected_game_id: Int?;
     var feedCount = 0;
     var openData: BetFeed?;
+    var selected_profile: String?;
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.BetsFeed.delegate = self
+        self.BetsFeed.dataSource = self
 
         // Do any additional setup after loading the view.
         self.BetsFeed.register(UINib(nibName: "OpenFeedCell", bundle:nil), forCellWithReuseIdentifier: "OpenFeedCell");
         
-        var fullURI = addGETParams(path: "/api/feeds/????/", search: "", search_number: -1, needsUsername: false, needsUser_id: false)
+        var fullURI = addGETParams(path: "/api/feeds/open_bets_by_game/", search: "", search_number: -1, needsUsername: false, needsUser_id: false)
         fullURI = fullURI + "&game_id=" + String(self.selected_game_id!);
         sendGET(uri: fullURI, callback: { (httpresponse) in
             let data: Data! = httpresponse.data
@@ -34,11 +38,25 @@ class GameOpenFeed: UIViewController {
                 }
                 self.openData = feedData;
                 self.feedCount = feedData.bets.count;
+                print(self.feedCount);
             } else{
                 self.alert(message: "There was an error processing your request.", title: "Network Error")
             }
             self.BetsFeed.reloadData();
         })
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? Profile{
+            vc.search_by_number = false;
+            vc.searchedUser = self.selected_profile;
+        }
+    }
+    
+    @objc func GoToProfile(sender: ProfilePicTapGesture){
+        print("In the GoToProfile func")
+        self.selected_profile = sender.username!;
+        performSegue(withIdentifier: "OpenFeedToProfile", sender: self)
     }
     
     @IBAction func GoHome(_ sender: UIButton) {
@@ -61,6 +79,7 @@ class GameOpenFeed: UIViewController {
     @IBOutlet weak var BetsFeed: UICollectionView!
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print("In population, feed count is: " + String(self.feedCount));
         return self.feedCount
     }
     
@@ -79,6 +98,13 @@ class GameOpenFeed: UIViewController {
         getImageFromUrl(urlString: thisBet.user1.profile_pic_url, imageView: (cell?.ProfilePic)!);
         getImageFromUrl(urlString: thisBet.team1_logo_url, imageView: (cell?.UserTeamLogo)!);
         getImageFromUrl(urlString: thisBet.team2_logo_url, imageView: (cell?.OtherTeamLogo)!);
+        
+        let profileRecognizer = ProfilePicTapGesture(target: self, action: #selector(GoToProfile(sender:)))
+        profileRecognizer.delegate = self
+        cell?.ProfilePic.isUserInteractionEnabled = true
+        cell?.ProfilePic.addGestureRecognizer(profileRecognizer)
+        profileRecognizer.username = thisBet.user1.username;
+        
         
         cell?.AcceptButton.tag = thisBet.bet_id
         cell?.AcceptButton.addTarget(self, action: #selector(OpenAcceptButtonPressed(sender:)), for: .touchUpInside)

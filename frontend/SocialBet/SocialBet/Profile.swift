@@ -6,7 +6,7 @@
 
 import UIKit
 
-class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var ProfilePic: UIImageView!
     @IBOutlet weak var UserName: UILabel!
@@ -73,8 +73,46 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         }
     }
     @IBAction func menuTapped() {
-        getNotifications()
+        var betData: BetFeed?;
+        let fullURI = addGETParams(path: "/api/games/unnotified/", search: "", search_number: -1, needsUsername: false, needsUser_id: false)
+        sendGET(uri: fullURI, callback: { (httpresponse) in
+            let data: Data! = httpresponse.data
+            
+            guard let feedData = try? JSONDecoder().decode(BetFeed.self, from: data)
+                else {
+                    return
+            }
+            betData = feedData;
+            let num_results = betData!.bets.count
+            if(num_results != 0){
+                let thisBet = betData!.bets[0];
+                var other_user = "";
+                var result_type = "";
+                if (thisBet.winner == common.username){
+                    result_type = "won"
+                }
+                else{
+                    result_type = "lost"
+                }
+                if (common.username == thisBet.user1.username){
+                    other_user = thisBet.user2!.username
+                }
+                else{
+                    other_user = thisBet.user1.username
+                }
+                var message = "Bet against" + other_user + ":\n"
+                message = message + "You " + result_type + "!\n"
+                message = message + "See Results in Profile for more information."
+                self.alert(message: message)
+            }
+        })
         toggleSideMenu()
+    }
+    
+    
+    @objc func GoToNewProfile(sender: ProfilePicTapGesture){
+        self.searchedUser = sender.username!;
+        self.viewDidLoad()
     }
     
     
@@ -409,6 +447,19 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             
             getImageFromUrl(urlString: thisBet.team1_logo_url, imageView: (cell?.Team1Image)!);
             getImageFromUrl(urlString: thisBet.team2_logo_url, imageView: (cell?.Team2Image)!);
+            
+            let profileRecognizer1 = ProfilePicTapGesture(target: self, action: #selector(GoToNewProfile(sender:)))
+            profileRecognizer1.delegate = self
+            cell?.User1Image.isUserInteractionEnabled = true
+            cell?.User1Image.addGestureRecognizer(profileRecognizer1)
+            profileRecognizer1.username = thisBet.user1.username;
+            
+            let profileRecognizer2 = ProfilePicTapGesture(target: self, action: #selector(GoToNewProfile(sender:)))
+            profileRecognizer2.delegate = self
+            cell?.User2Image.isUserInteractionEnabled = true
+            cell?.User2Image.addGestureRecognizer(profileRecognizer2)
+            profileRecognizer2.username = thisBet.user2!.username;
+            
             
             cell?.AcceptButton.isHidden = true;
             cell?.AcceptButton.isEnabled = false;
