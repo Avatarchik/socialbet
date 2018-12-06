@@ -17,7 +17,8 @@ def list_open_bets_by_game():
     game_id = request.args.get('game_id')
     db_bets = db.get_open_bets(loguser)
     bets = []
-    for bet in db_bets:
+    for db_bet in db_bets:
+        bet = db_bet
         if bet['game_id'] == game_id:
             db_user1 = db.get_user(bet['user1'])
             user1 = {
@@ -25,7 +26,7 @@ def list_open_bets_by_game():
                 'first_name': db_user1['first_name'],
                 'last_name': db_user1['last_name'],
                 'profile_pic_url': db_user1['profile_pic_url'],
-                'team': bet['team1']
+                'team': db_bet['team1']
             }
             bet['user1'] = user1
             if 'user2' in bet: del bet['user2']
@@ -34,7 +35,7 @@ def list_open_bets_by_game():
     result = {
         'bets': bets
     }
-    return create_http_response(data=result)
+    return create_http_response(data=result)\
 
 
 @feeds.route('/api/feeds/open_bets/')
