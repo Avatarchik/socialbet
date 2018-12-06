@@ -575,6 +575,7 @@ def set_bet_to_notified(bet_id):
     print(bet_id)
     sql = "UPDATE bets SET notified = 1 WHERE bet_id = " + str(bet_id) +  ";"
     cursor.execute(sql)
+    db.commit()
     db.close()
     return
     
