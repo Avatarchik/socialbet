@@ -124,6 +124,7 @@ def create_user():
     user_info['lastname'] = data['lastname']
     user_info['phonenumber'] = data['phonenumber']
     user_info['profile_pic_url'] = data['profile_pic_url']
+    user_info['private_key'] = data['private_key']
 
     worked = db.create_user(user_info)
     if worked:
