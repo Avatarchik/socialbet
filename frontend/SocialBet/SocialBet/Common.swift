@@ -61,14 +61,11 @@ func getImageFromUrl(urlString: String, imageView: UIImageView) {
     imageView.load(url: URL(string: url)!)
 }
 
-func addGETParams(path: String, search: String, search_number: Int, needsUsername: Bool, needsUser_id: Bool) -> String {
+func addGETParams(path: String, search: String, needsUsername: Bool) -> String {
     let params = "?loguser=" + common.username + "&auth=" + common.pwhash;
     var fullString = path + params;
     if (needsUsername){
         fullString = fullString + "&username=" + search;
-    }
-    if(needsUser_id){
-        fullString = fullString + "&user_id=" + String(search_number);
     }
     return fullString;
 }
@@ -86,7 +83,7 @@ func getTeamData() -> Teams? {
     
     var ret_val: Teams?
     
-    let URI = addGETParams(path: "/api/teams/", search: "", search_number: -1, needsUsername: false, needsUser_id: false)
+    let URI = addGETParams(path: "/api/teams/", search: "", needsUsername: false)
     sendGET(uri: URI, callback: { (httpresponse) in
         
         let data: Data! = httpresponse.data
@@ -198,6 +195,7 @@ struct User: Decodable {
     let last_name: String
     let profile_pic_url: String
     let friends: Bool
+    let balance: Float
 }
 
 struct UserExists: Decodable {

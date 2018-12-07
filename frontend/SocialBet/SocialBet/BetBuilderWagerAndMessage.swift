@@ -24,8 +24,6 @@ class BetBuilderWagerAndMessage: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.WagerAmountInput.addTarget(self, action: #selector(WagerInputChanged(sender:)), for: .editingChanged)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
 
@@ -74,24 +72,17 @@ class BetBuilderWagerAndMessage: UIViewController {
     func submitBet(alert: UIAlertAction!) {
         let direct = (self.selected_opponent! != "");
         var parameters: Dictionary<String, Any>;
+        var message = "";
+        if (!((MessageInput.text ?? "").isEmpty)){
+            message = MessageInput.text!;
+        }
         
-        parameters = ["loguser": common.username, "auth": common.pwhash, "game_id": self.selected_game_id!, "message": "", "amount": self.WagerAmountInput.text!, "user1": common.username, "user2": self.selected_opponent!, "team1": self.userTeamName!, "team2": self.otherTeamName!, "direct": direct, "accepted": false]
+        let wagerAmount = Float(self.WagerAmountInput.text!);
+        
+        parameters = ["loguser": common.username, "auth": common.pwhash, "game_id": self.selected_game_id!, "message": message, "amount": wagerAmount!, "user1": common.username, "user2": self.selected_opponent!, "team1": self.userTeamName!, "team2": self.otherTeamName!, "direct": direct, "accepted": false]
         
         sendPOST(uri: "/api/betting/place_bet/", parameters: parameters, callback: { (jsonDict) in
             print(jsonDict)
-            // parse the data
-            // TODOOOO
-            
-            // check for errors
-            /*if postresponse.HTTPsuccess! {
-             self.alert(message: "Your bet request was sent!", title: "Bet Successful");
-             //TODO - perform segue going back to feed
-             }
-             else{
-             // TODO: check HTML error codes
-             self.alert(message: "Bet unable to be placed", title: "Bet Error")
-             //TODO perform segue going back to beginning of bet builder
-             }*/
             print("Bet Submitted!");
             self.performSegue(withIdentifier: "WagerAndMessageToFeed", sender: nil)
             
@@ -106,24 +97,24 @@ class BetBuilderWagerAndMessage: UIViewController {
 
     @IBAction func OkClick(_ sender: Any) {
         
-        let wagerAmount = self.WagerAmountInput.text;
+        let wagerAmount = Float(self.WagerAmountInput.text!);
+        
+        //TODO actually check against balance, not 5 ETH
+        if (wagerAmount! > Float(5)){
+            self.alert(message: "For demo purposes, please keep bet amount below 5 ETH");
+            return
+        }
         
         var alertMessage = "Confirm the details of your bet as listed below.\n Opponent: ";
         alertMessage = alertMessage + self.selected_opponent! + "\n Your Team: "
         alertMessage = alertMessage + self.userTeamName! + "\n Other Team: "
-        alertMessage = alertMessage + self.otherTeamName! + "\n Wager Amount: " + wagerAmount!
+        alertMessage = alertMessage + self.otherTeamName! + "\n Wager Amount: " + String(wagerAmount!)
         alertMessage = alertMessage + "\n Message: " + self.MessageInput.text!;
         
         let alert = UIAlertController(title: "Bet Confirmation", message: alertMessage, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: submitBet))
         alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel it"), style: .default, handler: cancelBet))
         self.present(alert, animated: true, completion: nil)
-    }
-    
-    @objc func WagerInputChanged(sender: UITextField){
-        if let amountString = sender.text?.currencyInputFormatting() {
-            sender.text = amountString
-        }
     }
     
     @IBAction func GoBack(_ sender: Any) {

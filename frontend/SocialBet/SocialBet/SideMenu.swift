@@ -31,7 +31,7 @@ class SideMenu: UITableViewController{
     
     @IBAction func toFriendsProfile() {
         self.searched_user = enteredHandle.text;
-        var fullURI = addGETParams(path: "/api/users/find/", search: self.searched_user!, search_number: -1, needsUsername: true, needsUser_id: false)
+        let fullURI = addGETParams(path: "/api/users/find/", search: self.searched_user!, needsUsername: true)
         //fullURI = fullURI + "&friends=false";
         sendGET(uri: fullURI, callback: { (httpresponse) in
             let data: Data! = httpresponse.data

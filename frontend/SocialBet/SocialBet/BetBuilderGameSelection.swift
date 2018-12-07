@@ -26,33 +26,9 @@ class BetBuilderGameSelection: UIViewController, UICollectionViewDataSource, UIC
         
         self.BuilderGamesFeed.delegate = self
         self.BuilderGamesFeed.dataSource = self
-/*
-        // Do any additional setup after loading the view.
-        print("Opponent Handle: " + self.selectedOpponent!);
         
         // submit a GET request to get the game feed object
-        let fullURI = addGETParams(path: "/api/games/", search: "", needsUsername: false)
-        
-        // TODO go through this
-        sendGET(uri: fullURI, callback: { (httpresponse) in
-            let data: Data! = httpresponse.data
-            
-            // decode the information recieved
-            if httpresponse.HTTPsuccess! {
-                guard let feedData = try? JSONDecoder().decode(GamesFeed.self, from: data)
-                    else {
-                        self.alert(message: "There was an error while decoding the response.", title: "Malformed Response Error")
-                        return
-                }
-                self.gamesData = feedData;
-                self.feedCount = feedData.games.count;
-            } else{
-                self.alert(message: "There was an error processing your request.", title: "Network Error")
-            }
-        })*/
-        
-        // submit a GET request to get the game feed object
-        var fullURI = addGETParams(path: "/api/games/", search: "", search_number: -1, needsUsername: false, needsUser_id: false)
+        var fullURI = addGETParams(path: "/api/games/", search: "", needsUsername: false)
         fullURI = fullURI + "&league=NFL&day=12&month=November&year=2018"
         sendGET(uri: fullURI, callback: { (httpresponse) in
             let data: Data! = (httpresponse.data)
@@ -148,9 +124,5 @@ class BetBuilderGameSelection: UIViewController, UICollectionViewDataSource, UIC
             performSegue(withIdentifier: "GameSelectToTeamSelect", sender: self);
         }
     }
-    /*
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath){
-        
-    }*/
     
 }
