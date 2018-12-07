@@ -437,7 +437,7 @@ def place_bet(data):
 
     game_id = str(data['game_id'])
     message = data['message']
-    amount = data['amount'][1:].replace(',', '')
+    amount = str(data['amount'])
     direct = str(data['direct'])
     user1 = data['user1']
     if direct:
