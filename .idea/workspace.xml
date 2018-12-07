@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9aab021b-7ef8-44e4-a587-9ef6cfa6d657" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/backend/api/gold_std_sports_api_emulator.py" afterPath="$PROJECT_DIR$/backend/api/sports_api_emulator.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/api/ethereum/ethereum_client.py" afterPath="$PROJECT_DIR$/backend/api/ethereum/ethereum_client.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/api/ethereum/test_ethereum_client.py" afterPath="$PROJECT_DIR$/backend/api/ethereum/test_ethereum_client.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,10 +16,39 @@
       <file leaf-file-name="users.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/api/users.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+            <state relative-caret-position="-552">
+              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding>
-                <marker date="1543257298000" expanded="true" signature="0:34" ph="import ..." />
+                <element signature="e#0#64#0" expanded="true" />
+                <marker date="1544140482751" expanded="true" signature="0:34" ph="import ..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="db.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/db/db.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="44" column="37" lean-forward="false" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
+              <folding>
+                <marker date="1544140361642" expanded="true" signature="419:509" ph="SELECT user_... users" />
+                <marker date="1544140361642" expanded="true" signature="982:1001" ph="SELECT * FRO... users" />
+                <marker date="1544140361642" expanded="true" signature="1379:1438" ph="SELECT * FRO... users" />
+                <marker date="1544140361642" expanded="true" signature="1762:1817" ph="SELECT * FRO... users" />
+                <marker date="1544140361642" expanded="true" signature="2510:2640" ph="INSERT INTO users... " />
+                <marker date="1544140361642" expanded="true" signature="3080:3116" ph="DELETE FROM " />
+                <marker date="1544140361642" expanded="true" signature="3700:3759" ph="SELECT user2... friends" />
+                <marker date="1544140361642" expanded="true" signature="4129:4301" ph="SELECT * FRO... friends" />
+                <marker date="1544140361642" expanded="true" signature="4782:4836" ph="INSERT INTO friends... " />
+                <marker date="1544140361642" expanded="true" signature="5473:5492" ph="SELECT * FRO... games" />
+                <marker date="1544140361642" expanded="true" signature="5851:5885" ph="SELECT * FRO... games" />
+                <marker date="1544140361642" expanded="true" signature="6312:6331" ph="SELECT * FRO... teams" />
+                <marker date="1544140361642" expanded="true" signature="14465:14511" ph="SELECT user_... users" />
+                <marker date="1544140361642" expanded="true" signature="14914:14946" ph="SELECT * FRO... bets" />
+                <marker date="1544140361642" expanded="true" signature="15193:15219" ph="UPDATE bets " />
+                <marker date="1544140361642" expanded="true" signature="15677:15707" ph="DELETE FROM " />
+                <marker date="1544140361642" expanded="true" signature="16989:17033" ph="UPDATE bets " />
               </folding>
             </state>
           </provider>
@@ -38,11 +64,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ethereum_client.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ethereum_client.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/api/ethereum/ethereum_client.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="47" lean-forward="false" selection-start-line="13" selection-start-column="47" selection-end-line="13" selection-end-column="47" />
+            <state relative-caret-position="240">
+              <caret line="16" column="27" lean-forward="false" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -50,31 +76,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="contract_deployment_output.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/api/ethereum/contract_deployment_output.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="deploy_contract.sh" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/api/ethereum/deploy_contract.sh">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="83" lean-forward="false" selection-start-line="0" selection-start-column="83" selection-end-line="0" selection-end-column="83" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="test_ethereum_client.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/api/ethereum/test_ethereum_client.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="28" lean-forward="true" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
+            <state relative-caret-position="301">
+              <caret line="52" column="22" lean-forward="false" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="22" />
               <folding>
                 <element signature="e#0#22#0" expanded="true" />
               </folding>
@@ -82,11 +88,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SocialBetSmartContract.sol" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/api/ethereum/SocialBetSmartContract.sol">
+      <file leaf-file-name="data.sql" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/backend/db/data.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+            <state relative-caret-position="165">
+              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="schema.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/db/schema.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="34" lean-forward="false" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -130,7 +146,6 @@
         <option value="$PROJECT_DIR$/backend/smart-contract/SocialBetSmartContract.sol" />
         <option value="$PROJECT_DIR$/backend/api/api_utils.py" />
         <option value="$PROJECT_DIR$/backend/api/betting.py" />
-        <option value="$PROJECT_DIR$/backend/db/schema.sql" />
         <option value="$PROJECT_DIR$/backend/db/get_live_bets.sql" />
         <option value="$PROJECT_DIR$/backend/api/teams.py" />
         <option value="$PROJECT_DIR$/backend/db/reload.sql" />
@@ -138,11 +153,13 @@
         <option value="$PROJECT_DIR$/backend/api/feeds.py" />
         <option value="$PROJECT_DIR$/backend/db/db.py" />
         <option value="$PROJECT_DIR$/backend/test_script.sh" />
-        <option value="$PROJECT_DIR$/backend/api/users.py" />
         <option value="$PROJECT_DIR$/backend/api/coinbase.py" />
         <option value="$PROJECT_DIR$/backend/app.py" />
-        <option value="$PROJECT_DIR$/backend/api/ethereum/test_ethereum_client.py" />
         <option value="$PROJECT_DIR$/backend/api/ethereum/ethereum_client.py" />
+        <option value="$PROJECT_DIR$/backend/api/ethereum/test_ethereum_client.py" />
+        <option value="$PROJECT_DIR$/backend/api/users.py" />
+        <option value="$PROJECT_DIR$/backend/db/data.sql" />
+        <option value="$PROJECT_DIR$/backend/db/schema.sql" />
       </list>
     </option>
   </component>
@@ -235,9 +252,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18620269" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18437119" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -245,29 +261,17 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18321392" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18321392" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18321392" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18253969" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -310,9 +314,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="38" column="19" lean-forward="false" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -320,7 +321,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1050">
           <caret line="73" column="24" lean-forward="false" selection-start-line="73" selection-start-column="24" selection-end-line="73" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -335,9 +335,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="9" column="32" lean-forward="false" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#34#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -346,7 +343,8 @@
         <state relative-caret-position="360">
           <caret line="26" column="31" lean-forward="false" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
           <folding>
-            <marker date="1543257298000" expanded="true" signature="0:34" ph="import ..." />
+            <element signature="e#0#64#0" expanded="true" />
+            <marker date="1544140482751" expanded="true" signature="0:34" ph="import ..." />
           </folding>
         </state>
       </provider>
@@ -376,9 +374,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -393,7 +388,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -401,9 +395,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#34#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -412,7 +403,8 @@
         <state relative-caret-position="15">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding>
-            <marker date="1543257298000" expanded="true" signature="0:34" ph="import ..." />
+            <element signature="e#0#64#0" expanded="true" />
+            <marker date="1544140482751" expanded="true" signature="0:34" ph="import ..." />
           </folding>
         </state>
       </provider>
@@ -428,9 +420,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -479,14 +468,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/db/data.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="146" lean-forward="false" selection-start-line="9" selection-start-column="146" selection-end-line="9" selection-end-column="146" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/smart-contract/SocialBetSmartContract.sol" />
     <entry file="file://$PROJECT_DIR$/backend/api/api_utils.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -500,13 +481,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="12" lean-forward="true" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/db/schema.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="25" lean-forward="false" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -528,9 +502,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="18" column="15" lean-forward="false" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#34#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -547,27 +518,68 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/db/db.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="303" column="105" lean-forward="false" selection-start-line="303" selection-start-column="105" selection-end-line="303" selection-end-column="105" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/api/betting.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/api/users.py">
+    <entry file="file://$PROJECT_DIR$/backend/test_script.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="70" lean-forward="false" selection-start-line="1" selection-start-column="70" selection-end-line="1" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/api/feeds.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="721">
+          <caret line="139" column="26" lean-forward="false" selection-start-line="139" selection-start-column="26" selection-end-line="139" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/api/teams.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="23" column="47" lean-forward="false" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/api/ethereum/deploy_contract.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <caret line="0" column="83" lean-forward="false" selection-start-line="0" selection-start-column="83" selection-end-line="0" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/api/ethereum/contract_deployment_output.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/api/ethereum/SocialBetSmartContract.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2010">
+          <caret line="134" column="43" lean-forward="false" selection-start-line="134" selection-start-column="43" selection-end-line="134" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/api/ethereum/ethereum_client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="27" lean-forward="false" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
           <folding>
-            <marker date="1543257298000" expanded="true" signature="0:34" ph="import ..." />
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -580,133 +592,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/backend/api/users.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-552">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#64#0" expanded="true" />
+            <marker date="1544140482751" expanded="true" signature="0:34" ph="import ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/db/db.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="44" column="37" lean-forward="false" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
+          <folding>
+            <marker date="1544140361642" expanded="true" signature="419:509" ph="SELECT user_... users" />
+            <marker date="1544140361642" expanded="true" signature="982:1001" ph="SELECT * FRO... users" />
+            <marker date="1544140361642" expanded="true" signature="1379:1438" ph="SELECT * FRO... users" />
+            <marker date="1544140361642" expanded="true" signature="1762:1817" ph="SELECT * FRO... users" />
+            <marker date="1544140361642" expanded="true" signature="2510:2640" ph="INSERT INTO users... " />
+            <marker date="1544140361642" expanded="true" signature="3080:3116" ph="DELETE FROM " />
+            <marker date="1544140361642" expanded="true" signature="3700:3759" ph="SELECT user2... friends" />
+            <marker date="1544140361642" expanded="true" signature="4129:4301" ph="SELECT * FRO... friends" />
+            <marker date="1544140361642" expanded="true" signature="4782:4836" ph="INSERT INTO friends... " />
+            <marker date="1544140361642" expanded="true" signature="5473:5492" ph="SELECT * FRO... games" />
+            <marker date="1544140361642" expanded="true" signature="5851:5885" ph="SELECT * FRO... games" />
+            <marker date="1544140361642" expanded="true" signature="6312:6331" ph="SELECT * FRO... teams" />
+            <marker date="1544140361642" expanded="true" signature="14465:14511" ph="SELECT user_... users" />
+            <marker date="1544140361642" expanded="true" signature="14914:14946" ph="SELECT * FRO... bets" />
+            <marker date="1544140361642" expanded="true" signature="15193:15219" ph="UPDATE bets " />
+            <marker date="1544140361642" expanded="true" signature="15677:15707" ph="DELETE FROM " />
+            <marker date="1544140361642" expanded="true" signature="16989:17033" ph="UPDATE bets " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/backend/api/ethereum/test_ethereum_client.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="28" lean-forward="true" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
+        <state relative-caret-position="301">
+          <caret line="52" column="22" lean-forward="false" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="22" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/test_script.sh">
+    <entry file="file://$PROJECT_DIR$/backend/db/schema.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="70" lean-forward="false" selection-start-line="1" selection-start-column="70" selection-end-line="1" selection-end-column="70" />
-          <folding>
-            <marker date="1542569627000" expanded="true" signature="217:221" ph="http://165.227.180.80:5000" />
-            <marker date="1542569627000" expanded="true" signature="252:260" ph="ncargill" />
-            <marker date="1542569627000" expanded="true" signature="323:327" ph="http://165.227.180.80:5000" />
-            <marker date="1542569627000" expanded="true" signature="358:366" ph="ncargill" />
-            <marker date="1542569627000" expanded="true" signature="435:439" ph="http://165.227.180.80:5000" />
-            <marker date="1542569627000" expanded="true" signature="476:484" ph="ncargill" />
-            <marker date="1542569627000" expanded="true" signature="553:557" ph="http://165.227.180.80:5000" />
-            <marker date="1542569627000" expanded="true" signature="594:602" ph="ncargill" />
-            <marker date="1542569627000" expanded="true" signature="668:672" ph="http://165.227.180.80:5000" />
-            <marker date="1542569627000" expanded="true" signature="705:713" ph="ncargill" />
-            <marker date="1542569627000" expanded="true" signature="786:790" ph="http://165.227.180.80:5000" />
-            <marker date="1542569627000" expanded="true" signature="831:839" ph="ncargill" />
-            <marker date="1542569627000" expanded="true" signature="904:908" ph="http://165.227.180.80:5000" />
-            <marker date="1542569627000" expanded="true" signature="941:949" ph="ncargill" />
-            <marker date="1542569627000" expanded="true" signature="1038:1042" ph="http://165.227.180.80:5000" />
-            <marker date="1542569627000" expanded="true" signature="1079:1087" ph="ncargill" />
-            <marker date="1542569627000" expanded="true" signature="1213:1217" ph="http://165.227.180.80:5000" />
-            <marker date="1542569627000" expanded="true" signature="1238:1246" ph="ncargill" />
-            <marker date="1542569627000" expanded="true" signature="1358:1362" ph="http://165.227.180.80:5000" />
-            <marker date="1542569627000" expanded="true" signature="1383:1391" ph="ncargill" />
-            <marker date="1542569627000" expanded="true" signature="1716:1720" ph="http://165.227.180.80:5000" />
-            <marker date="1542569627000" expanded="true" signature="1795:1800" ph="testauth" />
-            <marker date="1542569627000" expanded="true" signature="1821:1831" ph="testfirstname" />
-            <marker date="1542569627000" expanded="true" signature="1851:1860" ph="testlastname" />
-            <marker date="1542569627000" expanded="true" signature="1883:1895" ph="testphonenumber" />
-            <marker date="1542569627000" expanded="true" signature="1922:1938" ph="testprofilepicurl" />
-            <marker date="1542569627000" expanded="true" signature="1997:2001" ph="http://165.227.180.80:5000" />
-            <marker date="1542569627000" expanded="true" signature="2029:2037" ph="ncargill" />
-            <marker date="1542569627000" expanded="true" signature="2133:2141" ph="ncargill" />
-            <marker date="1542569627000" expanded="true" signature="2152:2160" ph="ncargill" />
-            <marker date="1542569627000" expanded="true" signature="2234:2238" ph="http://165.227.180.80:5000" />
-            <marker date="1542569627000" expanded="true" signature="2338:2344" ph="$loguser" />
-            <marker date="1542569627000" expanded="true" signature="2444:2448" ph="http://165.227.180.80:5000" />
-            <marker date="1542569627000" expanded="true" signature="2474:2482" ph="ncargill" />
-            <marker date="1542569627000" expanded="true" signature="2808:2812" ph="http://165.227.180.80:5000" />
-            <marker date="1542569627000" expanded="true" signature="2866:2874" ph="ncargill" />
-            <marker date="1542569627000" expanded="true" signature="2914:2922" ph="3" />
-            <marker date="1542569627000" expanded="true" signature="2941:2949" ph="fuck yeah test worked" />
-            <marker date="1542569627000" expanded="true" signature="2967:2974" ph="\$420.69" />
-            <marker date="1542569627000" expanded="true" signature="2991:2999" ph="ncargill" />
-            <marker date="1542569627000" expanded="true" signature="3038:3045" ph="1" />
-            <marker date="1542569627000" expanded="true" signature="3061:3070" ph="0" />
-            <marker date="1542569627000" expanded="true" signature="3091:3103" ph="this is a date" />
-            <marker date="1542569627000" expanded="true" signature="3219:3223" ph="http://165.227.180.80:5000" />
-            <marker date="1542569627000" expanded="true" signature="3278:3286" ph="ncargill" />
-            <marker date="1542569627000" expanded="true" signature="3441:3445" ph="http://165.227.180.80:5000" />
-            <marker date="1542569627000" expanded="true" signature="3500:3508" ph="ncargill" />
-            <marker date="1542569627000" expanded="true" signature="3657:3661" ph="http://165.227.180.80:5000" />
-            <marker date="1542569627000" expanded="true" signature="3716:3724" ph="ncargill" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/api/feeds.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="721">
-          <caret line="139" column="26" lean-forward="false" selection-start-line="139" selection-start-column="26" selection-end-line="139" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/api/teams.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#55#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="23" column="47" lean-forward="false" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
+        <state relative-caret-position="120">
+          <caret line="8" column="34" lean-forward="false" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/api/ethereum/SocialBetSmartContract.sol">
+    <entry file="file://$PROJECT_DIR$/backend/db/data.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+        <state relative-caret-position="165">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/api/ethereum/contract_deployment_output.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/api/ethereum/deploy_contract.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="83" lean-forward="false" selection-start-line="0" selection-start-column="83" selection-end-line="0" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/api/ethereum/ethereum_client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="47" lean-forward="false" selection-start-line="13" selection-start-column="47" selection-end-line="13" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

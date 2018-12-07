@@ -3,6 +3,7 @@ from werkzeug.datastructures import ImmutableMultiDict
 from db import db
 from .api_utils import create_http_response
 import json
+from web3 import Web3
 
 app = Flask(__name__)
 users = Blueprint('users', __name__)
@@ -75,6 +76,8 @@ def find_user():
     result['last_name'] = user['last_name']
     result['profile_pic_url'] = user['profile_pic_url']
     result['friends'] = db.are_friends(log_user, username)
+    w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
+    result['balance'] = float(Web3.fromWei(w3.eth.getBalance(user['private_key']), 'ether'))
 
     return create_http_response(data=result)
 
@@ -121,6 +124,7 @@ def create_user():
     user_info['lastname'] = data['lastname']
     user_info['phonenumber'] = data['phonenumber']
     user_info['profile_pic_url'] = data['profile_pic_url']
+    user_info['private_key'] = data['private_key']
 
     worked = db.create_user(user_info)
     if worked:

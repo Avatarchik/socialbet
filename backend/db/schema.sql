@@ -1,11 +1,11 @@
 CREATE TABLE users (
-	user_id INT,
 	user_name VARCHAR(100) NOT NULL,
 	first_name VARCHAR(100) NOT NULL,
 	last_name VARCHAR(100) NOT NULL,
 	phone VARCHAR(100),
   	auth VARCHAR(1000) NOT NULL,
  	profile_pic_url VARCHAR(1000),
+ 	private_key VARCHAR(200) NOT NULL,
 	PRIMARY KEY(user_name)
 );
 
