@@ -24,7 +24,7 @@ class GameOpenFeed: UIViewController, UICollectionViewDataSource, UICollectionVi
         // Do any additional setup after loading the view.
         self.BetsFeed.register(UINib(nibName: "OpenFeedCell", bundle:nil), forCellWithReuseIdentifier: "OpenFeedCell");
         
-        var fullURI = addGETParams(path: "/api/feeds/open_bets_by_game/", search: "", search_number: -1, needsUsername: false, needsUser_id: false)
+        var fullURI = addGETParams(path: "/api/feeds/open_bets_by_game/", search: "", needsUsername: false)
         fullURI = fullURI + "&game_id=" + String(self.selected_game_id!);
         sendGET(uri: fullURI, callback: { (httpresponse) in
             let data: Data! = httpresponse.data
@@ -48,7 +48,6 @@ class GameOpenFeed: UIViewController, UICollectionViewDataSource, UICollectionVi
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? Profile{
-            vc.search_by_number = false;
             vc.searchedUser = self.selected_profile;
         }
     }

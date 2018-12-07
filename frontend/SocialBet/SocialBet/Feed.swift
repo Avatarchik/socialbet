@@ -34,7 +34,7 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
     
     @IBAction func menuTapped() {
         var betData: BetFeed?;
-        let fullURI = addGETParams(path: "/api/games/unnotified/", search: "", search_number: -1, needsUsername: false, needsUser_id: false)
+        let fullURI = addGETParams(path: "/api/games/unnotified/", search: "", needsUsername: false)
         sendGET(uri: fullURI, callback: { (httpresponse) in
             let data: Data! = httpresponse.data
             
@@ -109,7 +109,6 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
         }
         
         if let vc_prof = segue.destination as? Profile{
-            vc_prof.search_by_number = false;
             vc_prof.searchedUser = self.selected_profile!;
         }
     }
@@ -140,7 +139,7 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
     @IBAction func LiveBetsButton(_ sender: Any) {
         // submit a GET request to get the live feed object
         print(common.username)
-        let fullURI = addGETParams(path: "/api/feeds/live_bets/", search: "", search_number: -1, needsUsername: false, needsUser_id: false)
+        let fullURI = addGETParams(path: "/api/feeds/live_bets/", search: "", needsUsername: false)
         print("FULL URI: " + fullURI)
         sendGET(uri: fullURI, callback: { (httpresponse) in
             let data: Data! = httpresponse.data
@@ -178,7 +177,7 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
     
     @IBAction func OpenBetsButton(_ sender: Any) {
         // submit a GET request to get the open feed object
-        let fullURI = addGETParams(path: "/api/feeds/open_bets/", search: "", search_number: -1, needsUsername: false, needsUser_id: false)
+        let fullURI = addGETParams(path: "/api/feeds/open_bets/", search: "", needsUsername: false)
         sendGET(uri: fullURI, callback: { (httpresponse) in
             let data: Data! = httpresponse.data
             
@@ -206,7 +205,7 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
     
     @IBAction func GamesButton(_ sender: Any) {
         // submit a GET request to get the game feed object
-        var fullURI = addGETParams(path: "/api/games/", search: "", search_number: -1, needsUsername: false, needsUser_id: false)
+        var fullURI = addGETParams(path: "/api/games/", search: "", needsUsername: false)
         fullURI = fullURI + "&league=NFL&day=12&month=November&year=2018"
         sendGET(uri: fullURI, callback: { (httpresponse) in
             let data: Data! = (httpresponse.data)
@@ -264,7 +263,7 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             cell?.User2Image.setRounded()
             getImageFromUrl(urlString: thisBet.team1_logo_url, imageView: (cell?.Team1Image)!);
             getImageFromUrl(urlString: thisBet.team2_logo_url, imageView: (cell?.Team2Image)!);
-            cell?.WagerAmount.text = "";
+            cell?.WagerAmount.text = String(thisBet.ammount) + " ETH";
             
             let profileRecognizer1 = ProfilePicTapGesture(target: self, action: #selector(GoToProfile(sender:)))
             profileRecognizer1.delegate = self
@@ -306,6 +305,8 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             cell?.ProfilePic.isUserInteractionEnabled = true
             cell?.ProfilePic.addGestureRecognizer(profileRecognizer)
             profileRecognizer.username = thisBet.user1.username;
+            
+            cell?.BetAmount.text = String(thisBet.ammount) + " ETH";
             
             cell?.AcceptButton.tag = thisBet.bet_id
             cell?.AcceptButton.addTarget(self, action: #selector(OpenAcceptButtonPressed(sender:)), for: .touchUpInside)

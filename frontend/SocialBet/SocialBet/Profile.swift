@@ -24,26 +24,15 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     @IBOutlet weak var InitiateBetButton: UIButton!
     @IBOutlet weak var AddFriendButton: UIButton!
     
-    var searched_user_number: Int?;
-    var search_by_number = false;
     var searchedUser: String?
     var is_friend = false;
     var is_profile_self = false;
     
     func DetermineUser() {
-        if(!search_by_number){
-            if (searchedUser! == common.username) {
-                self.is_profile_self = true;
-            } else {
-                self.is_profile_self = false;
-            }
-        }
-        else{
-            if (searched_user_number! == common.user_id){
-                self.is_profile_self = true
-            } else {
-                self.is_profile_self = false;
-            }
+        if (searchedUser! == common.username) {
+            self.is_profile_self = true;
+        } else {
+            self.is_profile_self = false;
         }
     }
     
@@ -79,7 +68,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     }
     @IBAction func menuTapped() {
         var betData: BetFeed?;
-        let fullURI = addGETParams(path: "/api/games/unnotified/", search: "", search_number: -1, needsUsername: false, needsUser_id: false)
+        let fullURI = addGETParams(path: "/api/games/unnotified/", search: "", needsUsername: false)
         sendGET(uri: fullURI, callback: { (httpresponse) in
             let data: Data! = httpresponse.data
             
@@ -257,10 +246,10 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     @objc func LiveBets(sender: Any) {
         var fullURI: String;
         if(self.is_profile_self){
-            fullURI = addGETParams(path: "/api/feeds/users_live_bets/", search: common.username, search_number: -1, needsUsername: true, needsUser_id: false)
+            fullURI = addGETParams(path: "/api/feeds/users_live_bets/", search: common.username, needsUsername: true)
         }
         else{
-            fullURI = addGETParams(path: "/api/feeds/users_live_bets/", search: self.searchedUser!, search_number: -1, needsUsername: true, needsUser_id: false)
+            fullURI = addGETParams(path: "/api/feeds/users_live_bets/", search: self.searchedUser!, needsUsername: true)
         }
         sendGET(uri: fullURI, callback: { (httpresponse) in
             let data: Data! = httpresponse.data
@@ -289,10 +278,10 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     @objc func OpenBets(sender: Any) {
         var fullURI: String;
         if(self.is_profile_self){
-            fullURI = addGETParams(path: "/api/feeds/users_live_bets/", search: common.username, search_number: -1, needsUsername: true, needsUser_id: false)
+            fullURI = addGETParams(path: "/api/feeds/users_live_bets/", search: common.username, needsUsername: true)
         }
         else{
-            fullURI = addGETParams(path: "/api/feeds/users_open_bets/", search: self.searchedUser!, search_number: -1, needsUsername: true, needsUser_id: false)
+            fullURI = addGETParams(path: "/api/feeds/users_open_bets/", search: self.searchedUser!, needsUsername: true)
         }
         
         sendGET(uri: fullURI, callback: { (httpresponse) in
@@ -323,7 +312,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     }
     
     @objc func BetHistory(sender: Any) {
-        let fullURI = addGETParams(path: "/api/feeds/bet_history/", search: "", search_number: -1, needsUsername: false, needsUser_id: false)
+        let fullURI = addGETParams(path: "/api/feeds/bet_history/", search: "", needsUsername: false)
         sendGET(uri: fullURI, callback: { (httpresponse) in
             let data: Data! = httpresponse.data
             
@@ -347,7 +336,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     
     @objc func BetweenUs(sender: Any) {
         
-        var fullURI = addGETParams(path: "/api/feeds/between_us_bets/", search: "", search_number: -1, needsUsername: false, needsUser_id: false)
+        var fullURI = addGETParams(path: "/api/feeds/between_us_bets/", search: "", needsUsername: false)
         fullURI = fullURI + "&user2=" + self.searchedUser!;
         sendGET(uri: fullURI, callback: { (httpresponse) in
             let data: Data! = httpresponse.data
@@ -369,7 +358,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     }
     
     @objc func Requests(sender: Any) {
-        let fullURI = addGETParams(path: "/api/feeds/direct_bets_pending/", search: "", search_number: -1, needsUsername: false, needsUser_id: false)
+        let fullURI = addGETParams(path: "/api/feeds/direct_bets_pending/", search: "", needsUsername: false)
         sendGET(uri: fullURI, callback: { (httpresponse) in
             let data: Data! = httpresponse.data
             
@@ -448,7 +437,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             cell?.TeamName2.text = thisBet.user2!.team;
             cell?.Message.text = thisBet.message;
             cell?.GameTime.text = thisBet.game_time;
-            cell?.WagerAmount.text = "Amount: $" + String(thisBet.ammount);
+            cell?.WagerAmount.text = String(thisBet.ammount) + " ETH";
             
             getImageFromUrl(urlString: thisBet.team1_logo_url, imageView: (cell?.Team1Image)!);
             getImageFromUrl(urlString: thisBet.team2_logo_url, imageView: (cell?.Team2Image)!);
@@ -482,7 +471,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             cell?.UserTeamName.text = thisBet.user1.team;
             cell?.UserTeamLowerText.text = thisBet.user1.team;
             cell?.OtherTeamLowerText.text = thisBet.team2;
-            cell?.BetAmount.text = "Amount: $" + String(thisBet.ammount);
+            cell?.BetAmount.text = String(thisBet.ammount) + " ETH";
             cell?.GameTime.text = thisBet.game_time;
             
             getImageFromUrl(urlString: thisBet.team1_logo_url, imageView: (cell?.UserTeamLogo)!);
@@ -513,7 +502,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             cell?.WinningUserName.text = betResults.winner.first_name + " " + betResults.winner.last_name;
             getImageFromUrl(urlString: betResults.loser.profile_pic_url, imageView: (cell?.LosingUserPic)!);
             cell?.LosingUserName.text = betResults.loser.first_name + " " + betResults.loser.last_name;
-            cell?.WagerAmount.text = "Amount: $" + String(thisBet.ammount);
+            cell?.WagerAmount.text = String(thisBet.ammount) + " ETH";
             
             cell?.WinningUserPic!.setRounded();
             cell?.LosingUserPic!.setRounded();
@@ -534,7 +523,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             cell?.TeamName2.text = thisBet.user2!.team;
             cell?.Message.text = thisBet.message;
             cell?.GameTime.text = thisBet.game_time;
-            cell?.WagerAmount.text = "Amount: $" + String(thisBet.ammount);
+            cell?.WagerAmount.text = String(thisBet.ammount) + " ETH";
             cell?.bet_id = thisBet.bet_id;
             
             getImageFromUrl(urlString: thisBet.team1_logo_url, imageView: (cell?.Team1Image)!);
@@ -576,7 +565,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             cell?.WinningTeamName.text = betResults.winner.team;
             cell?.LosingTeamName.text = betResults.loser.team;
             cell?.GameDateTime.text = thisBet.game_time;
-            cell?.WagerAmount.text = "Amount: $" + String(thisBet.ammount);
+            cell?.WagerAmount.text = String(thisBet.ammount) + " ETH";
             
             var winningTeamUrl = "";
             var losingTeamUrl = "";
@@ -600,13 +589,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     }
     
     func loadProfileInfo(){
-        var fullURI = "";
-        if(!self.search_by_number){
-            fullURI = addGETParams(path: "/api/users/find/", search: self.searchedUser!, search_number: -1, needsUsername: true, needsUser_id: false)
-        }
-        else{
-            fullURI = addGETParams(path: "/api/users/find_id/", search: "", search_number: self.searched_user_number!, needsUsername: false, needsUser_id: true)
-        }
+        let fullURI = addGETParams(path: "/api/users/find/", search: self.searchedUser!, needsUsername: true)
         sendGET(uri: fullURI, callback: { (httpresponse) in
             let data: Data! = httpresponse.data
             
@@ -621,7 +604,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             
             self.UserHandle.text = userData.username;
             self.UserName.text = userData.first_name + " " + userData.last_name;
-            //TODO set AccountBalance.text = ?? (something from db that we have or whatever)
+            self.AccountBalance.text = String(userData.balance) + " ETH";
             
             //TODO needs a slight tweak to allow for deleting friends, just not important for task at hand right now
             if (self.searchedUser! == common.username){
