@@ -6,6 +6,7 @@ CREATE TABLE users (
 	phone VARCHAR(100),
   	auth VARCHAR(1000) NOT NULL,
  	profile_pic_url VARCHAR(1000),
+ 	private_key VARCHAR(200) NOT NULL,
 	PRIMARY KEY(user_name)
 );
 
