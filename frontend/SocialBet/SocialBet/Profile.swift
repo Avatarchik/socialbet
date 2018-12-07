@@ -473,6 +473,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             cell?.OtherTeamLowerText.text = thisBet.team2;
             cell?.BetAmount.text = String(thisBet.ammount) + " ETH";
             cell?.GameTime.text = thisBet.game_time;
+            cell?.Message.text = thisBet.message;
             
             getImageFromUrl(urlString: thisBet.team1_logo_url, imageView: (cell?.UserTeamLogo)!);
             getImageFromUrl(urlString: thisBet.team2_logo_url, imageView: (cell?.OtherTeamLogo)!);
@@ -559,6 +560,8 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             
             getImageFromUrl(urlString: betResults.winner.profile_pic_url, imageView: (cell?.WinningUserPic)!)
             getImageFromUrl(urlString: betResults.loser.profile_pic_url, imageView: (cell?.LosingUserPic)!)
+            cell?.WinningUserPic!.setRounded();
+            cell?.WinningUserPic!.setRounded();
             cell?.WinningUserName.text = betResults.winner.username;
             cell?.LosingUserName.text = betResults.loser.username;
             

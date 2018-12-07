@@ -295,6 +295,7 @@ class Feed: UIViewController, UICollectionViewDataSource, UICollectionViewDelega
             cell?.OtherTeamLowerText.text = thisBet.team2;
             cell?.BetAmount.text = "Amount: $" + String(thisBet.ammount);
             cell?.GameTime.text = thisBet.game_time;
+            cell?.Message.text = thisBet.message;
             cell?.ProfilePic.setRounded()
             getImageFromUrl(urlString: thisBet.user1.profile_pic_url, imageView: (cell?.ProfilePic)!);
             getImageFromUrl(urlString: thisBet.team1_logo_url, imageView: (cell?.UserTeamLogo)!);
