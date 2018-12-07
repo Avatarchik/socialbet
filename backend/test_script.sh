@@ -81,8 +81,9 @@ if [ $1 = "create_user" ]; then
     lastname="testlastname"
     phonenumber="testphonenumber"
     profile_pic_url="testprofilepicurl"
+    private_key="sdfsdfsdf"
     curl -X POST -H "Content-Type: application/json" $url/api/users/create/ \
-        -d "{\"username\": \"$username\", \"auth\": \"$auth\", \"firstname\": \"$firstname\", \"lastname\": \"$lastname\", \"phonenumber\": \"$phonenumber\", \"profile_pic_url\": \"$profile_pic_url\" }"
+        -d "{\"username\": \"$username\", \"auth\": \"$auth\", \"firstname\": \"$firstname\", \"lastname\": \"$lastname\", \"phonenumber\": \"$phonenumber\", \"profile_pic_url\": \"$profile_pic_url\", \"private_key\": \"$private_key\" }"
 
 fi
 
