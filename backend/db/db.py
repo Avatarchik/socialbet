@@ -531,6 +531,30 @@ def accept_bet(bet_id, loguser):
 
     return
 
+def win_bet(bet_id, winner, team1_score, team2_score):
+
+    # Determine if direct or open bet
+    bet = get_bet(bet_id)
+    direct_bet = bet['direct']
+
+    bet_id = str(bet_id)
+    winner = str(winner)
+    team1_score = str(team1_score)
+    team2_score = str(team2_score)
+
+    sql = 'UPDATE bets SET winner=\"' + winner + '\", team1_score=\"' + team1_score + '\"' + ', team2_score=\"' + team2_score + '\"' + ', notified=0 WHERE bet_id=' + bet_id + ';'
+
+    db_config = get_db_config()
+    db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
+    cursor = db.cursor()
+    cursor.execute(sql)
+    db.commit()
+    db.close()
+
+    return
+
+
+
 def cancel_bet(bet_id):
 
     # Determine if direct or open bet
