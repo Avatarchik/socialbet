@@ -192,16 +192,30 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     }
     
     @objc func AcceptButtonPressed(sender: UIButton) {
-        let parameters = ["loguser": common.username, "auth": common.pwhash, "bet_id": sender.tag as Any] as Dictionary<String, Any>;
+        // confirm that they intended to place this bet
+        let alert = UIAlertController(title: "Confirm", message: "Do you want to accept this bet?", preferredStyle: .alert)
         
-        sendPOST(uri: "/api/betting/accept_bet/", parameters: parameters, callback: { (postresponse) in
-            if postresponse["success_status"] as! String == "successful" {
-                self.Requests(sender: self)
-                self.alert(message: "You have accepted the bet!", title: "Bet Accepted");
-            } else {
-                self.alert(message: "Bet unable to be accepted", title: "Bet Acceptance Error")
-            }
-        })
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+            
+            let parameters = ["loguser": common.username, "auth": common.pwhash, "bet_id": sender.tag as Any] as Dictionary<String, Any>;
+            
+            sendPOST(uri: "/api/betting/accept_bet/", parameters: parameters, callback: { (postresponse) in
+                if postresponse["success_status"] as! String == "successful" {
+                    self.Requests(sender: self)
+                    self.alert(message: "You have accepted the bet!", title: "Bet Accepted");
+                } else {
+                    self.alert(message: "Bet unable to be accepted", title: "Bet Acceptance Error")
+                }
+            })
+        }))
+        
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.default, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+            return
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     @objc func DeclineButtonPressed(sender: UIButton) {
@@ -331,7 +345,6 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             self.feedType = .betHistory
             self.ProfileBetFeed.reloadData()
         })
-        
     }
     
     
@@ -355,7 +368,6 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             self.feedType = .betweenUs;
             self.ProfileBetFeed.reloadData();
         })
-        
     }
     
     @objc func Requests(sender: Any) {
