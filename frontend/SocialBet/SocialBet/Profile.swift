@@ -509,6 +509,9 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             cell?.WinningUserPic!.setRounded();
             cell?.LosingUserPic!.setRounded();
             
+            cell?.Team1Score!.text = String(thisBet.team1_score!);
+            cell?.Team2Score!.text = String(thisBet.team2_score!);
+            
             return cell!;
             
         case .request:
@@ -586,6 +589,9 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             
             getImageFromUrl(urlString: winningTeamUrl, imageView: (cell?.WinningTeamLogo)!)
             getImageFromUrl(urlString: losingTeamUrl, imageView: (cell?.LosingTeamLogo)!)
+            
+            cell?.Team1Score!.text = String(thisBet.team1_score!);
+            cell?.Team2Score!.text = String(thisBet.team2_score!);
             
             return cell!;
         }        

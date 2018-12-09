@@ -17,4 +17,6 @@ class ClosedFeedCell: UICollectionViewCell {
     @IBOutlet weak var LosingTeamName: UILabel!
     @IBOutlet weak var GameDateTime: UILabel!
     @IBOutlet weak var WagerAmount: UILabel!
+    @IBOutlet weak var Team1Score: UILabel!
+    @IBOutlet weak var Team2Score: UILabel!
 }

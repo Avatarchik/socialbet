@@ -187,18 +187,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTp-gT-Ne0">
-                                <rect key="frame" x="279" y="434.5" width="49" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Submit">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="RegistrationSubmit:" destination="dgd-zf-exj" eventType="touchUpInside" id="415-ux-FjV"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZKr-8T-loC">
-                                <rect key="frame" x="47" y="434.5" width="32" height="30"/>
+                                <rect key="frame" x="47" y="473" width="32" height="30"/>
                                 <state key="normal" title="Help">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -227,23 +217,40 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ethereum Public Key" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s8j-3p-4cz">
+                                <rect key="frame" x="47" y="433" width="281" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTp-gT-Ne0">
+                                <rect key="frame" x="279" y="473" width="49" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="RegistrationSubmit:" destination="dgd-zf-exj" eventType="touchUpInside" id="415-ux-FjV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="v4Y-B8-7uL" firstAttribute="top" secondItem="3SJ-b7-2Ll" secondAttribute="bottom" constant="7.5" id="2qB-wr-7kH"/>
                             <constraint firstItem="yAg-iT-8s2" firstAttribute="top" secondItem="8Jm-dj-3aS" secondAttribute="bottom" constant="8" id="4WA-Af-Xfc"/>
                             <constraint firstItem="BB9-fm-tbT" firstAttribute="centerX" secondItem="PLh-t2-Eac" secondAttribute="centerX" id="7oE-sF-fyn"/>
+                            <constraint firstItem="s8j-3p-4cz" firstAttribute="width" secondItem="QfT-df-dYt" secondAttribute="width" id="9dZ-55-wYb"/>
                             <constraint firstItem="QfT-df-dYt" firstAttribute="top" secondItem="BB9-fm-tbT" secondAttribute="bottom" constant="8.5" id="9tN-91-etc"/>
                             <constraint firstItem="8Jm-dj-3aS" firstAttribute="top" secondItem="3gJ-tJ-xKE" secondAttribute="top" constant="100" id="AnT-pI-1vS"/>
                             <constraint firstItem="ZKr-8T-loC" firstAttribute="leading" secondItem="BB9-fm-tbT" secondAttribute="leading" id="BkE-GM-kNu"/>
-                            <constraint firstItem="fTp-gT-Ne0" firstAttribute="top" secondItem="QfT-df-dYt" secondAttribute="bottom" constant="10" id="K54-3a-1gy"/>
+                            <constraint firstItem="s8j-3p-4cz" firstAttribute="height" secondItem="QfT-df-dYt" secondAttribute="height" id="FKI-Dl-zpy"/>
                             <constraint firstItem="QfT-df-dYt" firstAttribute="centerX" secondItem="BB9-fm-tbT" secondAttribute="centerX" id="L8G-UX-VOr"/>
                             <constraint firstItem="3SJ-b7-2Ll" firstAttribute="width" secondItem="yAg-iT-8s2" secondAttribute="width" id="LYy-Cp-uwr"/>
                             <constraint firstItem="QfT-df-dYt" firstAttribute="width" secondItem="BB9-fm-tbT" secondAttribute="width" id="La7-SS-mhg"/>
                             <constraint firstItem="fTp-gT-Ne0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ZKr-8T-loC" secondAttribute="trailing" constant="8" symbolic="YES" id="Lcc-3u-PzV"/>
                             <constraint firstItem="3gJ-tJ-xKE" firstAttribute="bottom" secondItem="5a3-Ce-nJo" secondAttribute="bottom" constant="80" id="M2p-G4-nIc"/>
-                            <constraint firstItem="ZKr-8T-loC" firstAttribute="top" secondItem="QfT-df-dYt" secondAttribute="bottom" constant="10" id="OOD-du-0nd"/>
                             <constraint firstItem="fTp-gT-Ne0" firstAttribute="trailing" secondItem="BB9-fm-tbT" secondAttribute="trailing" id="Od7-XE-KhR"/>
+                            <constraint firstItem="s8j-3p-4cz" firstAttribute="centerX" secondItem="QfT-df-dYt" secondAttribute="centerX" id="Osi-Wj-4FF"/>
                             <constraint firstItem="v4Y-B8-7uL" firstAttribute="width" secondItem="3SJ-b7-2Ll" secondAttribute="width" id="PrT-tp-Ziw"/>
                             <constraint firstItem="3SJ-b7-2Ll" firstAttribute="centerX" secondItem="yAg-iT-8s2" secondAttribute="centerX" id="Qmi-5Q-iev"/>
                             <constraint firstItem="8Jm-dj-3aS" firstAttribute="centerX" secondItem="3gJ-tJ-xKE" secondAttribute="centerX" id="TKl-6k-klK"/>
@@ -253,13 +260,16 @@
                             <constraint firstItem="PLh-t2-Eac" firstAttribute="top" secondItem="j4G-4K-c6A" secondAttribute="bottom" constant="8" id="Zlv-Cv-gGn"/>
                             <constraint firstItem="yAg-iT-8s2" firstAttribute="width" secondItem="jYN-qZ-KCw" secondAttribute="width" multiplier="0.75" id="bua-VL-BHC"/>
                             <constraint firstItem="PLh-t2-Eac" firstAttribute="centerX" secondItem="j4G-4K-c6A" secondAttribute="centerX" id="e3K-56-c0U"/>
+                            <constraint firstItem="fTp-gT-Ne0" firstAttribute="top" secondItem="s8j-3p-4cz" secondAttribute="bottom" constant="10" id="eef-TQ-o0M"/>
                             <constraint firstItem="BB9-fm-tbT" firstAttribute="width" secondItem="PLh-t2-Eac" secondAttribute="width" id="gVs-QF-jZO"/>
                             <constraint firstItem="PLh-t2-Eac" firstAttribute="width" secondItem="j4G-4K-c6A" secondAttribute="width" id="iC0-1Z-hcS"/>
                             <constraint firstItem="j4G-4K-c6A" firstAttribute="width" secondItem="v4Y-B8-7uL" secondAttribute="width" id="jPs-WC-sSQ"/>
                             <constraint firstItem="QfT-df-dYt" firstAttribute="height" secondItem="BB9-fm-tbT" secondAttribute="height" id="k3V-0Q-8gx"/>
                             <constraint firstItem="5a3-Ce-nJo" firstAttribute="centerX" secondItem="3gJ-tJ-xKE" secondAttribute="centerX" id="kv6-tN-TDo"/>
                             <constraint firstItem="BB9-fm-tbT" firstAttribute="top" secondItem="PLh-t2-Eac" secondAttribute="bottom" constant="8.5" id="lCB-Ts-Ubv"/>
+                            <constraint firstItem="s8j-3p-4cz" firstAttribute="top" secondItem="QfT-df-dYt" secondAttribute="bottom" constant="8.5" id="mLI-OF-lzJ"/>
                             <constraint firstItem="v4Y-B8-7uL" firstAttribute="centerX" secondItem="3SJ-b7-2Ll" secondAttribute="centerX" id="sdl-tW-m0q"/>
+                            <constraint firstItem="ZKr-8T-loC" firstAttribute="top" secondItem="s8j-3p-4cz" secondAttribute="bottom" constant="10" id="tC1-0H-U4R"/>
                             <constraint firstItem="fTp-gT-Ne0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3gJ-tJ-xKE" secondAttribute="leading" symbolic="YES" id="ugM-T2-nDa"/>
                             <constraint firstItem="j4G-4K-c6A" firstAttribute="top" secondItem="v4Y-B8-7uL" secondAttribute="bottom" constant="8.5" id="uhh-pY-uWK"/>
                         </constraints>
@@ -267,6 +277,7 @@
                     </view>
                     <connections>
                         <outlet property="PrivateKey" destination="QfT-df-dYt" id="X4m-Gj-8ni"/>
+                        <outlet property="PublicKey" destination="s8j-3p-4cz" id="c1Z-XV-XNS"/>
                         <outlet property="RegistrationConfirmPassword" destination="v4Y-B8-7uL" id="Hmw-4b-55k"/>
                         <outlet property="RegistrationFirstName" destination="PLh-t2-Eac" id="ckW-jo-zDq"/>
                         <outlet property="RegistrationLastName" destination="BB9-fm-tbT" id="xEY-JG-sDE"/>
@@ -438,7 +449,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Cc-pD-dFM">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username/Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Cc-pD-dFM">
                                                     <rect key="frame" x="5" y="5" width="190" height="38.5"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1215,8 +1226,8 @@
         <segue reference="TzK-3r-hYY"/>
         <segue reference="Qk1-uB-tbx"/>
         <segue reference="Ia1-YO-obj"/>
-        <segue reference="C4C-SM-klp"/>
+        <segue reference="wJx-Qc-0jA"/>
         <segue reference="JBt-pp-IAw"/>
-        <segue reference="LZe-Ez-tcL"/>
+        <segue reference="MEj-Ag-D1p"/>
     </inferredMetricsTieBreakers>
 </document>
