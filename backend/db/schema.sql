@@ -46,6 +46,8 @@ CREATE TABLE bets (
     accepted INTEGER NOT NULL,
     winner VARCHAR(50),
     notified INT,
+    team1_score VARCHAR(50),
+    team2_score VARCHAR(5),
 	PRIMARY KEY(bet_id)
 );
 
