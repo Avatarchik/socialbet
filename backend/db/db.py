@@ -80,6 +80,7 @@ def create_user(data):
     phonenumber = str(data['phonenumber'])
     profile_pic_url = str(data['profile_pic_url'])
     private_key = str(data['private_key'])
+    public_key = str(data['public_key'])
 
     print(username)
     print(firstname)
@@ -89,7 +90,7 @@ def create_user(data):
     print(profile_pic_url)
     print(private_key)
     
-    query = "INSERT INTO users VALUES ( '"+username+"', '"+firstname+"', '"+lastname+"', '"+phonenumber+"', '"+auth+"', '"+profile_pic_url+"', '"+ private_key +"')"
+    query = "INSERT INTO users VALUES ( '"+username+"', '"+firstname+"', '"+lastname+"', '"+phonenumber+"', '"+auth+"', '"+profile_pic_url +"', '"+ private_key + "', '" + public_key + "')"
     
     print(query)
     

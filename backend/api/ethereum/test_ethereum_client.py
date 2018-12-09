@@ -52,6 +52,7 @@ def distribute_winnings_test(bet_id=1, winner=1, test_account=0):
     print('##############################')
     w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
     test_account = w3.eth.accounts[test_account]
+    print(test_account)
     before_balance = w3.eth.getBalance(test_account)
     print('contract_balance: ' + str(get_contract_balance()))
     ethereum_client.distribute_winnings(bet_id, winner, test_account)
