@@ -17,7 +17,7 @@ def print_balance_change(before_balance, after_balance, eth=False):
     return eth_abs
    
 
-amount = 10
+amount = 2
 
 def create_bet_test(bet_id=1, test_account=0):
     print()
@@ -61,7 +61,7 @@ def distribute_winnings_test(bet_id=1, winner=1, test_account=0):
     print('contract_balance: ' + str(get_contract_balance()))
 
 def full_test():
-    bet_id = 7
+    bet_id = 7777
     user1_account = 1
     user2_account = 2
     winner = 2

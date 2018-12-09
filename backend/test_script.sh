@@ -1,4 +1,4 @@
-loguser="ncargill"
+loguser="isvidler"
 auth="5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8"
 url="http://165.227.180.80:5000"
 
@@ -103,7 +103,7 @@ if [ $1 = "add_friends" ]; then
 fi
 
 if [ $1 = "get_user_by_username" ]; then
-    username="isvidler"
+    username="$2"
     curl -X GET $url/api/users/find/\?loguser=$loguser\&auth=$auth\&username=$username
 fi
 
@@ -118,8 +118,8 @@ fi
 if [ $1 = "place_bet" ]; then
     game_id=13
     message="fuck yeah test worked"
-    amount="420.69"
-    user2="cterech"
+    amount="2"
+    user2="jkrieg"
     direct=1
     accepted=0
     time_placed="this is a date"
@@ -134,7 +134,8 @@ if [ $1 = "place_bet" ]; then
 fi
 
 if [ $1 = "accept_direct_bet" ]; then
-    bet_id=5
+    bet_id=24
+    loguser=jkrieg
 
     curl -X POST -H "Content-Type: application/json" $url/api/betting/accept_bet/ \
         -d "{\"loguser\": \"$loguser\", \"auth\": \"$auth\", \"bet_id\": $bet_id}"
