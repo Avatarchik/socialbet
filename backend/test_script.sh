@@ -102,8 +102,13 @@ if [ $1 = "add_friends" ]; then
         -d "{\"loguser\": \"$username\", \"auth\": \"$auth\", \"user1\": \"$user1\", \"user2\": \"$user2\" }"
 fi
 
-if [ $1 = "get_user" ]; then
+if [ $1 = "get_user_by_username" ]; then
     username="isvidler"
+    curl -X GET $url/api/users/find/\?loguser=$loguser\&auth=$auth\&username=$username
+fi
+
+if [ $1 = "get_user_by_phone" ]; then
+    username="734-498-0573"
     curl -X GET $url/api/users/find/\?loguser=$loguser\&auth=$auth\&username=$username
 fi
 
