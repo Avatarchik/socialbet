@@ -49,6 +49,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             self.AddOtherFeeds()
         } else {
             InitiateBetButton.isHidden = false
+            InitiateBetButton.addTarget(self, action: #selector(InitiateBet(sender:)), for: .touchUpInside)
             AddFriendButton.isHidden = true
             AccountBalance.isHidden = true
             self.AddOtherFeeds()
@@ -239,7 +240,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     
     //var feedType = ProfileFeedTypes.live;
     
-    @IBAction func InitiateBet(sender: Any) {
+    @objc func InitiateBet(sender: Any) {
         performSegue(withIdentifier: "ProfileToGameSelect", sender: self);
     }
     
