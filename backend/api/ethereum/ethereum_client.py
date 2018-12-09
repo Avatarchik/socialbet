@@ -69,6 +69,8 @@ def accept_bet(bet_id, amount, users_private_key):
  
 def distribute_winnings(bet_id, winner, users_private_key):
     # NOTE: winner should be 1 or 2
+    
+    bet_id = int(bet_id)
 
     dir_path = os.path.dirname(os.path.realpath(__file__))
     contract_path = dir_path + '/SocialBetSmartContract.sol'

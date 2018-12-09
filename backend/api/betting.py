@@ -40,24 +40,24 @@ def place_bet():
 
     return create_http_response(data=response_data)
 
-@betting.route('/api/betting/accept_bet/', methods=['POST'])
+@betting.route('/api/betting/accept_bet/', methods=['post'])
 def accept_bet():
     '''
-    Accepts bet
+    accepts bet
 
     :return:
     '''
 
-    # Load request json data as dict
+    # load request json data as dict
     data = json.loads(request.data)
 
-    # Authenticate user
+    # authenticate user
     loguser = data['loguser']
     auth = data['auth']
     if not db.authenticate(loguser, auth):
         return create_http_response(errors=['unauthenticated user'])
 
-    # Accept bet
+    # accept bet
     bet_id = data['bet_id']
     db.accept_bet(bet_id, loguser)
 
@@ -111,6 +111,12 @@ def win_bet():
     db.win_bet(bet_id, winner, team1_score, team2_score) 
 
     # Contract 
+    user = db.get_user(winner)
+    public_key = user['public_key']
+
+    bet = db.get_bet(bet_id)
+    winner = 1 if bet['user1'] == bet['winner'] else 2
+    ethereum_client.distribute_winnings(bet_id, winner, public_key)
 
     # Send json response
     return create_http_response()
