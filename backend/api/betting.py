@@ -96,3 +96,21 @@ def cancel_bet():
 
     # Send json response
     return create_http_response()
+
+@betting.route('/api/betting/win_bet/', methods=['POST'])
+def win_bet():
+    # Load request json data as dict
+    data = json.loads(request.data)
+
+    winner = data['winner']
+    bet_id = data['bet_id']
+    team1_score = data['team1_score']
+    team2_score = data['team2_score']
+
+    # Update database
+    db.win_bet(bet_id, winner, team1_score, team2_score) 
+
+    # Contract 
+
+    # Send json response
+    return create_http_response()
