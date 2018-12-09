@@ -35,23 +35,29 @@ def readCompiledFromJSON(j):
 
 
 def create_bet(bet_id, amount, users_private_key):
-    source =os.popen('solc --combined-json bin,abi SocialBetSmartContract.sol').read()
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    contract_path = dir_path + '/SocialBetSmartContract.sol'
+    source =os.popen('solc --combined-json bin,abi ' + contract_path).read()
     abi = readCompiledFromJSON(source)['abi']
     w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
+
+    users_private_key=w3.toChecksumAddress(users_private_key)
     contract = w3.eth.contract(address=contract_address, abi=abi)
-    #contract.functions.createBet(bet_id).sendTransaction(
-    #    {'from' : users_private_key}
-    #)
     tx_hash = contract.functions.createBet(bet_id)
     tx_hash = tx_hash.transact({'from': users_private_key, 'value': Web3.toWei(amount, 'ether') } )
+
     # Wait for transaction to be mined...
     print(w3.eth.waitForTransactionReceipt(tx_hash))
     
 
 def accept_bet(bet_id, amount, users_private_key):
-    source =os.popen('solc --combined-json bin,abi SocialBetSmartContract.sol').read()
+
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    contract_path = dir_path + '/SocialBetSmartContract.sol'
+    source =os.popen('solc --combined-json bin,abi ' + contract_path).read()
     abi = readCompiledFromJSON(source)['abi']
     w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
+    users_private_key=w3.toChecksumAddress(users_private_key)
     contract = w3.eth.contract(address=contract_address, abi=abi)
     #contract.functions.createBet(bet_id).sendTransaction(
     #    {'from' : users_private_key}
@@ -63,9 +69,13 @@ def accept_bet(bet_id, amount, users_private_key):
  
 def distribute_winnings(bet_id, winner, users_private_key):
     # NOTE: winner should be 1 or 2
-    source =os.popen('solc --combined-json bin,abi SocialBetSmartContract.sol').read()
+
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    contract_path = dir_path + '/SocialBetSmartContract.sol'
+    source =os.popen('solc --combined-json bin,abi ' + contract_path).read()
     abi = readCompiledFromJSON(source)['abi']
     w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
+    users_private_key=w3.toChecksumAddress(users_private_key)
     contract = w3.eth.contract(address=contract_address, abi=abi)
     tx_hash = contract.functions.distributeWinnings(bet_id, winner)
     tx_hash = tx_hash.transact({'from': users_private_key, 'value': 0} )

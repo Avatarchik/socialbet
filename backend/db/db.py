@@ -471,11 +471,12 @@ def place_bet(data):
     print(sql)
 
     cursor.execute(sql)
+    bet_id = cursor.lastrowid
 
     db.commit()
     db.close()
 
-    return
+    return bet_id
 
 # Returns True if count(user_name) > 0 otherwise false
 def user_exist(data):

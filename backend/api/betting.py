@@ -32,6 +32,12 @@ def place_bet():
     response_data = {
         'bet_id': bet_id
     }
+    
+    user = db.get_user(loguser)
+    public_key = user['public_key']
+    amount = float(data['amount'])
+    print(amount)
+    ethereum_client.create_bet(bet_id, amount, public_key)
 
     return create_http_response(data=response_data)
 
