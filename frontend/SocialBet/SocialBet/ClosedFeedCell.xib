@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.30.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.19.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -93,6 +93,18 @@
                             <constraint firstAttribute="height" constant="1" id="oZx-9w-uyR"/>
                         </constraints>
                     </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wxl-jb-zNp">
+                        <rect key="frame" x="11.5" y="130" width="52" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K0E-R3-Bm8">
+                        <rect key="frame" x="309" y="130" width="55" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -115,8 +127,10 @@
                 <constraint firstItem="Myk-ov-R2V" firstAttribute="leading" secondItem="dST-iA-DRK" secondAttribute="trailing" constant="3" id="TH7-Ua-3zd"/>
                 <constraint firstItem="Qej-Nn-nZt" firstAttribute="top" secondItem="dST-iA-DRK" secondAttribute="top" id="U13-Sd-seY"/>
                 <constraint firstItem="Uau-RD-KAe" firstAttribute="top" secondItem="8Dh-ym-UJX" secondAttribute="top" constant="20" id="Xob-jp-CMT"/>
+                <constraint firstItem="Wxl-jb-zNp" firstAttribute="centerX" secondItem="LEP-f2-62P" secondAttribute="centerX" id="Y3W-gn-iD5"/>
                 <constraint firstItem="rPf-Uj-8Zw" firstAttribute="centerX" secondItem="zP3-1T-P0P" secondAttribute="centerX" id="YK4-ZD-iUd"/>
                 <constraint firstItem="d3c-7I-V1b" firstAttribute="centerX" secondItem="8Dh-ym-UJX" secondAttribute="centerX" id="aVu-u6-D3s"/>
+                <constraint firstItem="K0E-R3-Bm8" firstAttribute="top" secondItem="rPf-Uj-8Zw" secondAttribute="bottom" constant="5" id="bhM-kf-l6L"/>
                 <constraint firstItem="8Dh-ym-UJX" firstAttribute="trailing" secondItem="zP3-1T-P0P" secondAttribute="trailing" constant="10" id="eh6-7S-fUi"/>
                 <constraint firstItem="8Dh-ym-UJX" firstAttribute="trailing" secondItem="FFl-2e-f2T" secondAttribute="trailing" constant="5" id="hcS-AR-H0Z"/>
                 <constraint firstItem="FFl-2e-f2T" firstAttribute="leading" secondItem="8Dh-ym-UJX" secondAttribute="leading" constant="5" id="iRW-93-gt5"/>
@@ -125,7 +139,9 @@
                 <constraint firstItem="LEP-f2-62P" firstAttribute="centerX" secondItem="Uau-RD-KAe" secondAttribute="centerX" id="nxQ-a6-MgG"/>
                 <constraint firstItem="q9H-XQ-9ur" firstAttribute="top" secondItem="5ni-uF-nQf" secondAttribute="bottom" constant="5" id="oC6-f3-jrY"/>
                 <constraint firstItem="5ni-uF-nQf" firstAttribute="centerX" secondItem="8Dh-ym-UJX" secondAttribute="centerX" id="ohd-gB-cm5"/>
+                <constraint firstItem="Wxl-jb-zNp" firstAttribute="top" secondItem="LEP-f2-62P" secondAttribute="bottom" constant="5" id="pWL-3o-JFZ"/>
                 <constraint firstItem="LEP-f2-62P" firstAttribute="top" secondItem="Uau-RD-KAe" secondAttribute="bottom" constant="5" id="rS0-UE-eXh"/>
+                <constraint firstItem="K0E-R3-Bm8" firstAttribute="centerX" secondItem="rPf-Uj-8Zw" secondAttribute="centerX" id="uhy-RR-4F8"/>
                 <constraint firstItem="3Ju-7o-1Sa" firstAttribute="top" secondItem="d3c-7I-V1b" secondAttribute="bottom" constant="3" id="v0w-Gd-Men"/>
                 <constraint firstItem="zP3-1T-P0P" firstAttribute="width" secondItem="Uau-RD-KAe" secondAttribute="width" id="xiC-xT-AlE"/>
             </constraints>
@@ -137,6 +153,8 @@
                 <outlet property="LosingTeamName" destination="43h-sh-bSK" id="O7B-fd-PUX"/>
                 <outlet property="LosingUserName" destination="Myk-ov-R2V" id="uT5-3j-Yic"/>
                 <outlet property="LosingUserPic" destination="zP3-1T-P0P" id="j9I-7N-TvA"/>
+                <outlet property="Team1Score" destination="Wxl-jb-zNp" id="RpE-8w-dm9"/>
+                <outlet property="Team2Score" destination="K0E-R3-Bm8" id="Bo4-TW-E0z"/>
                 <outlet property="WagerAmount" destination="q9H-XQ-9ur" id="C2f-7o-fjy"/>
                 <outlet property="WinningTeamLogo" destination="LEP-f2-62P" id="C0y-1o-eWt"/>
                 <outlet property="WinningTeamName" destination="d3c-7I-V1b" id="kY9-hH-2mX"/>
