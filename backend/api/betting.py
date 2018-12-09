@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify, Blueprint
 from db import db
 import json
 from .api_utils import create_http_response
+from .ethereum import ethereum_client
 
 app = Flask(__name__)
 betting = Blueprint('betting', __name__)

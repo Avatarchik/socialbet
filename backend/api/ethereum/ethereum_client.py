@@ -9,7 +9,8 @@ import os
 
 if __name__ != "__main__":
     w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
-    file = open("contract_deployment_output.txt", "r") 
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    file = open(dir_path + "/contract_deployment_output.txt", "r") 
     contents = file.read()
     start_index = contents.find("contractAddress\': \'") + len("contractAddress\': \'") + 2
     address = contents[start_index:]
