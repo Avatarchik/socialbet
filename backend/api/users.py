@@ -77,7 +77,8 @@ def find_user():
     result['profile_pic_url'] = user['profile_pic_url']
     result['friends'] = db.are_friends(log_user, username)
     w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
-    result['balance'] = float(Web3.fromWei(w3.eth.getBalance(user['private_key']), 'ether'))
+    public_address = w3.toChecksumAddress(user['public_key'])
+    result['balance'] = float(Web3.fromWei(w3.eth.getBalance(public_address), 'ether'))
 
     return create_http_response(data=result)
 
