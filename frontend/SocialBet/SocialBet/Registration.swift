@@ -22,6 +22,8 @@ class Registration: UIViewController {
     @IBOutlet weak var RegistrationFirstName: UITextField!
     @IBOutlet weak var RegistrationLastName: UITextField!
     @IBOutlet weak var PrivateKey: UITextField!
+    @IBOutlet weak var PublicKey: UITextField!
+    
     @IBAction func RegistrationSubmit(_ sender: Any) {
         let username = RegistrationUsername.text;
         let password = RegistrationPassword.text;
@@ -30,6 +32,7 @@ class Registration: UIViewController {
         let firstName = RegistrationFirstName.text;
         let lastName = RegistrationLastName.text;
         let privateKey = PrivateKey.text;
+        let publicKey = PublicKey.text;
         
         if (password != confirmPassword){
             self.alert(message: "The password and ConfirmPassword fields must match", title: "Registration Error")
@@ -38,7 +41,7 @@ class Registration: UIViewController {
         
         let auth = sha256(data: (password!).data(using: String.Encoding.utf8)! as NSData);
         
-        let parameters = ["username": username, "auth": auth, "phonenumber": phoneNumber, "firstname": firstName, "lastname": lastName, "profile_pic_url": common.default_pic, "private_key": privateKey] as! Dictionary<String, String>
+        let parameters = ["username": username, "auth": auth, "phonenumber": phoneNumber, "firstname": firstName, "lastname": lastName, "profile_pic_url": common.default_pic, "private_key": privateKey, "public_key": publicKey] as! Dictionary<String, String>
         
         // create and send a POST request
         sendPOST(uri: "/api/users/create/", parameters: parameters, callback: { (postresponse) in
