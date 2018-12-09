@@ -7,8 +7,15 @@ import json
 import sys
 import os
 
-w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
-contract_address = w3.toChecksumAddress('0x1220Ca9421c859dae977c59433c85F31e2690705')
+if __name__ != "__main__":
+    w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
+    file = open("contract_deployment_output.txt", "r") 
+    contents = file.read()
+    start_index = contents.find("contractAddress\': \'") + len("contractAddress\': \'") + 2
+    address = contents[start_index:]
+    end_index = address.find("\'")
+    address = address[0:end_index]
+    contract_address = w3.toChecksumAddress(address)
 
 def readCompiledFromJSON(j):
     compiled = json.loads(j)
