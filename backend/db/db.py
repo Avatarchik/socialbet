@@ -279,6 +279,23 @@ def get_live_bets(loguser):
 
     return res
 
+def get_all_bets():
+    db_config = get_db_config()
+    db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
+    cursor = db.cursor(pymysql.cursors.DictCursor)
+
+    sql = 'SELECT * FROM bets;'
+    cursor.execute(sql)
+
+    res = []
+    for row in cursor:
+        res.append(row)
+
+
+    db.close()
+
+    return res
+
 def get_open_bets(loguser):
     db_config = get_db_config()
     db = pymysql.connect(db_config['host'], db_config['username'], db_config['password'], db_config['database_name'])
