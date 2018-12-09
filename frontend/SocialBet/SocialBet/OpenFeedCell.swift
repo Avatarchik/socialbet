@@ -16,6 +16,8 @@ class OpenFeedCell: UICollectionViewCell {
     
     @IBOutlet weak var BetAmount: UILabel!
     
+    @IBOutlet weak var Message: UILabel!
+    
     @IBOutlet weak var UserTeamLogo: UIImageView!
     
     @IBOutlet weak var OtherTeamLogo: UIImageView!
