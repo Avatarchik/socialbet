@@ -100,10 +100,10 @@ class BetBuilderWagerAndMessage: UIViewController {
         let wagerAmount = Float(self.WagerAmountInput.text!);
         
         //TODO actually check against balance, not 5 ETH
-        if (wagerAmount! > Float(5)){
+        /*if (wagerAmount! > Float(5)){
             self.alert(message: "For demo purposes, please keep bet amount below 5 ETH");
             return
-        }
+        }*/
         
         var alertMessage = "Confirm the details of your bet as listed below.\n Opponent: ";
         alertMessage = alertMessage + self.selected_opponent! + "\n Your Team: "

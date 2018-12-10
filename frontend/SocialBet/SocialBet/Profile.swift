@@ -626,7 +626,7 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             
             self.UserHandle.text = userData.username;
             self.UserName.text = userData.first_name + " " + userData.last_name;
-           
+            print(userData.balance);
             
             self.AccountBalance.text = userData.balance.avoidNotation + " ETH";
             
