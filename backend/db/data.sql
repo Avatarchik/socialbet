@@ -70,7 +70,9 @@ VALUES
 (20,6,'11/16/2018 4:19PM', '11/18/2018 1:00PM', 0, 'We love sports betting', 100.0, 'achapp', 'jkrieg',5,6,'Cincinnati Bengals', 'Baltimore Ravens', 1, 0, NULL, 0, NULL, NULL),
 (21,12,'11/16/2018 4:19PM', '11/19/2018 8:15PM', 1, 'Lets settle this', 10.0, 'achapp', 'jkrieg',5,6,'Kansas City Chiefs', 'Los Angeles Rams', 0, 0, NULL, 0, NULL, NULL),
 (22,12,'11/16/2018 3:52PM', '11/19/2018 8:15PM', 1, 'Youre on, pal!', 5.0, 'achapp', 'cterech',5,1,'Kansas City Chiefs', 'Los Angeles Rams', 0, 0, NULL, 0, NULL, NULL),
-(23,12,'11/16/2018 4:19PM', '11/19/2018 8:15PM', 0, 'Ittai is going to lose!', 5.0, 'achapp', 'jkrieg',5,6,'Kansas City Chiefs', 'Los Angeles Rams', 0, 0, NULL, 0, NULL, NULL);
+(23,12,'11/16/2018 4:19PM', '11/19/2018 8:15PM', 0, 'Ittai is going to lose!', 5.0, 'achapp', 'jkrieg',5,6,'Kansas City Chiefs', 'Los Angeles Rams', 0, 0, NULL, 0, NULL, NULL),
+(24,12,'11/16/2018 4:19PM', '11/19/2018 8:15PM', 0, 'Ittai is going to lose!', 5.0, 'isvidler', 'achapp',5,6,'Kansas City Chiefs', 'Los Angeles Rams', 1, 0, NULL, 0, NULL, NULL);
+
 
 # ADDING TEAM INFO INTO DATABASE
 INSERT INTO teams (team_full_name, logo_url) VALUES
