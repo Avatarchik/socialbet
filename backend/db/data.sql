@@ -48,7 +48,7 @@ VALUES
 # twartz = 7
 INSERT INTO bets (bet_id, game_id, time_placed, game_time, num_comments, message, ammount, user1, user2, user1_id, user2_id, team1, team2, direct, accepted, winner, notified, team1_score, team2_score)
 VALUES
-(1,1,'11/13/2018 3:52PM', '11/18/2018 1:00PM', 0, 'Chapp is going down!', 20.0, 'achapp', 'cterech', 5, 1, 'Tennessee Titans', 'Indianapolis Colts', 1, 1,NULL, 0, '30', '70'), 
+(1,1,'11/13/2018 3:52PM', '11/18/2018 1:00PM', 0, 'Chapp is going down!', 2000.0, 'achapp', 'cterech', 5, 1, 'Tennessee Titans', 'Indianapolis Colts', 1, 1,NULL, 0, '30', '70'), 
 (2,4,'11/13/2018 4:19PM', '11/18/2018 1:00PM', 1, 'Ittai is going down!', 100.0, 'achapp', 'jkrieg', 5, 6, 'Carolina Panthers', 'Detroit Lions', 1, 0,NULL, 0, NULL, NULL),
 (3,7,'11/13/2018 3:52PM', '11/18/2018 1:00PM', 0, 'This will be easy!', 5.0, 'achapp', 'cterech', 5,1, 'Houston Texans', 'Washington Redskins', 0, 1, 'cterech', 0, '21', '71'), 
 (4,2,'11/13/2018 4:19PM', '11/18/2018 1:00PM', 2, 'Lets go!!!!!', 10.0, 'ncargill', 'rshelly', 3,2,'Tampa Bay Buccaneers', 'New York Giants', 1, 1, 'rshelly', 0, '7', '32'),
@@ -57,7 +57,7 @@ VALUES
 (7,4,'11/13/2018 3:52PM', '11/18/2018 1:00PM', 1, 'Lets ride', 20.0, 'ncargill', 'tswartz', 3,7, 'Carolina Panthers', 'Detroit Lions', 0, 0, NULL, 0, NULL, NULL), 
 (8,4,'11/13/2018 4:19PM', '11/18/2018 1:00PM', 0, 'Matchup of the century', 10.0, 'tswartz', 'jkrieg', 7,6, 'Carolina Panthers', 'Detroit Lions', 1, 0,NULL, 0, NULL, NULL),
 (9,10,'11/14/2018 3:52PM', '11/18/2018 4:25PM', 7, 'Just two sports enthusiasts going after it', 50.0, 'jkrieg', 'rshelly',6,2, 'Philadelphia Eagles', 'New Oreleans Saints', 0, 1, 'jkrieg', 1, '7', '0'), 
-(10,12,'11/14/2018 4:19PM', '11/19/2018 8:15PM', 0, 'The Michigan boys', 10.0, 'achapp', 'jkrieg', 5,6,'Kansas City Chiefs', 'Los Angeles Rams', 0, 0, NULL, 0, NULL, NULL),
+(10,1,'11/14/2018 4:19PM', '11/19/2018 8:15PM', 0, 'The Michigan boys', 10.0, 'achapp', 'jkrieg', 5,6,'Kansas City Chiefs', 'Los Angeles Rams', 0, 0, NULL, 0, NULL, NULL),
 (11,2,'11/14/2018 3:52PM', '11/18/2018 1:00PM', 0, 'Detroit and Michigan football forever', 5.0, 'achapp', 'cterech',5,1, 'Tampa Bay Buccaneers', 'New York Giants', 1, 1, 'cterech', 1, '7', '42'), 
 (12,11,'11/14/2018 4:19PM', '11/18/2018 8:20PM', 0, 'Need to win my rent money back!', 15.0, 'achapp', 'jkrieg', 5,6,'Minnesota Vikings', 'Chicago Bears', 1, 0, NULL, 0, NULL, NULL),
 (13,8,'11/14/2018 3:52PM', '11/18/2018 4:05PM', 1, 'This should be interesting', 25.0, 'achapp', 'cterech',5,1, 'Oakland Raiders', 'Arizona Cardinals', 0, 1, 'cterech', 1, '21', '23'), 
@@ -68,10 +68,15 @@ VALUES
 (18,1,'11/16/2018 4:19PM', '11/18/2018 1:00PM', 0, 'Settling this once and for all', 10.0, 'achapp', 'jkrieg', 5,6,'Tennessee Titans', 'Indianapolis Colts', 1, 1, 'achapp', 1, '21', '7'),
 (19,6,'11/16/2018 3:52PM', '11/18/2018 1:00PM', 4, 'This will be easy', 50.0, 'achapp', 'cterech',5,1, 'Cincinnati Bengals', 'Baltimore Ravens', 0, 1, 'cterech', 1, '7', '21'), 
 (20,6,'11/16/2018 4:19PM', '11/18/2018 1:00PM', 0, 'We love sports betting', 100.0, 'achapp', 'jkrieg',5,6,'Cincinnati Bengals', 'Baltimore Ravens', 1, 0, NULL, 0, NULL, NULL),
-(21,12,'11/16/2018 4:19PM', '11/19/2018 8:15PM', 1, 'Lets settle this', 10.0, 'achapp', 'jkrieg',5,6,'Kansas City Chiefs', 'Los Angeles Rams', 0, 0, NULL, 0, NULL, NULL),
-(22,12,'11/16/2018 3:52PM', '11/19/2018 8:15PM', 1, 'Youre on, pal!', 5.0, 'achapp', 'cterech',5,1,'Kansas City Chiefs', 'Los Angeles Rams', 0, 0, NULL, 0, NULL, NULL),
-(23,12,'11/16/2018 4:19PM', '11/19/2018 8:15PM', 0, 'Ittai is going to lose!', 5.0, 'achapp', 'jkrieg',5,6,'Kansas City Chiefs', 'Los Angeles Rams', 0, 0, NULL, 0, NULL, NULL),
-(24,12,'11/16/2018 4:19PM', '11/19/2018 8:15PM', 0, 'Ittai is going to lose!', 5.0, 'isvidler', 'achapp',5,6,'Kansas City Chiefs', 'Los Angeles Rams', 1, 0, NULL, 0, NULL, NULL);
+(21,1,'11/16/2018 4:19PM', '11/19/2018 8:15PM', 1, 'Lets settle this', 10.0, 'achapp', 'jkrieg',5,6,'Kansas City Chiefs', 'Los Angeles Rams', 0, 0, NULL, 0, NULL, NULL),
+(22,1,'11/16/2018 3:52PM', '11/19/2018 8:15PM', 1, 'Youre on, pal!', 5.0, 'achapp', 'cterech',5,1,'Kansas City Chiefs', 'Los Angeles Rams', 0, 0, NULL, 0, NULL, NULL),
+(23,1,'11/16/2018 4:19PM', '11/19/2018 8:15PM', 0, 'Ittai is going to lose!', 5.0, 'achapp', 'jkrieg',5,6,'Kansas City Chiefs', 'Los Angeles Rams', 0, 0, NULL, 0, NULL, NULL),
+(24,1,'11/16/2018 4:19PM', '11/19/2018 8:15PM', 0, 'Ittai is going to lose!', 5000.0, 'isvidler', 'achapp',5,6,'Kansas City Chiefs', 'Los Angeles Rams', 1, 0, NULL, 0, NULL, NULL),
+(25,1,'11/16/2018 4:19PM', '11/19/2018 8:15PM', 0, 'u. suck.', 6000.0, 'jkrieg', 'achapp',5,6,'Kansas City Chiefs', 'Los Angeles Rams', 1, 0, NULL, 0, NULL, NULL),
+(26,6,'11/16/2018 4:19PM', '11/18/2018 1:00PM', 0, 'We love sports betting', 1000.0, 'ncargill', 'achapp',5,6,'Cincinnati Bengals', 'Baltimore Ravens', 1, 0, NULL, 0, NULL, NULL),
+(27,3,'11/15/2018 3:52PM', '11/18/2018 1:00PM', 3, 'hey babe!', 500.0, 'cterech', NULL , 5,1, 'Pittsburgh Steelers', 'Jacksonville Jaguars', 0, 0, NULL, 0, NULL, NULL), 
+(28,12,'11/15/2018 3:52PM', '11/18/2018 1:00PM', 3, 'hey babe!', 500.0, 'cterech', NULL , 5,1, 'Seattle Seahawks', 'Minnesota Vikings', 0, 0, NULL, 0, NULL, NULL); 
+
 
 
 # ADDING TEAM INFO INTO DATABASE
