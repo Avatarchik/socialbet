@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,10 @@
 		01F20EF9217A67F700F2F713 /* SocialBetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F20EF8217A67F700F2F713 /* SocialBetUITests.swift */; };
 		105994D79E66BFD6988066AA /* Pods_SocialBetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72C3BB868BB6122AFD5627E0 /* Pods_SocialBetTests.framework */; };
 		A3443AC12182CE98005037BA /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3443AC02182CE98005037BA /* Registration.swift */; };
+		A34D116C21BEA66B003CC62A /* 167.png in Resources */ = {isa = PBXBuildFile; fileRef = A34D116821BEA669003CC62A /* 167.png */; };
+		A34D116D21BEA66B003CC62A /* 1024.png in Resources */ = {isa = PBXBuildFile; fileRef = A34D116921BEA66A003CC62A /* 1024.png */; };
+		A34D116E21BEA66B003CC62A /* 120.png in Resources */ = {isa = PBXBuildFile; fileRef = A34D116A21BEA66A003CC62A /* 120.png */; };
+		A34D116F21BEA66B003CC62A /* 152.png in Resources */ = {isa = PBXBuildFile; fileRef = A34D116B21BEA66B003CC62A /* 152.png */; };
 		A384B5E8219A7F66005B7031 /* decline.png in Resources */ = {isa = PBXBuildFile; fileRef = A384B5E6219A7F65005B7031 /* decline.png */; };
 		A384B5E9219A7F66005B7031 /* accept.png in Resources */ = {isa = PBXBuildFile; fileRef = A384B5E7219A7F66005B7031 /* accept.png */; };
 		A384B5EC219A820B005B7031 /* defaultProfilePic.png in Resources */ = {isa = PBXBuildFile; fileRef = A384B5EB219A820A005B7031 /* defaultProfilePic.png */; };
@@ -81,6 +85,10 @@
 		695B9CEA6275A69BC7F26B62 /* Pods-SocialBetUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialBetUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialBetUITests/Pods-SocialBetUITests.release.xcconfig"; sourceTree = "<group>"; };
 		72C3BB868BB6122AFD5627E0 /* Pods_SocialBetTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialBetTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3443AC02182CE98005037BA /* Registration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
+		A34D116821BEA669003CC62A /* 167.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 167.png; sourceTree = "<group>"; };
+		A34D116921BEA66A003CC62A /* 1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1024.png; sourceTree = "<group>"; };
+		A34D116A21BEA66A003CC62A /* 120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 120.png; sourceTree = "<group>"; };
+		A34D116B21BEA66B003CC62A /* 152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 152.png; sourceTree = "<group>"; };
 		A384B5E6219A7F65005B7031 /* decline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = decline.png; sourceTree = "<group>"; };
 		A384B5E7219A7F66005B7031 /* accept.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = accept.png; sourceTree = "<group>"; };
 		A384B5EB219A820A005B7031 /* defaultProfilePic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultProfilePic.png; sourceTree = "<group>"; };
@@ -165,6 +173,10 @@
 		01F20ED7217A67F500F2F713 /* SocialBet */ = {
 			isa = PBXGroup;
 			children = (
+				A34D116A21BEA66A003CC62A /* 120.png */,
+				A34D116B21BEA66B003CC62A /* 152.png */,
+				A34D116821BEA669003CC62A /* 167.png */,
+				A34D116921BEA66A003CC62A /* 1024.png */,
 				A3A2F2D32195FEA8001240E5 /* Bridging-Header.h */,
 				01F20EE4217A67F700F2F713 /* Info.plist */,
 				A384B5E7219A7F66005B7031 /* accept.png */,
@@ -332,7 +344,7 @@
 				};
 			};
 			buildConfigurationList = 01F20ED0217A67F500F2F713 /* Build configuration list for PBXProject "SocialBet" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -356,11 +368,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A34D116E21BEA66B003CC62A /* 120.png in Resources */,
 				01F20EE3217A67F700F2F713 /* LaunchScreen.storyboard in Resources */,
 				A39C10582191411D005DAAD6 /* OpenFeedCell.xib in Resources */,
 				A39C1056219126FD005DAAD6 /* LiveFeedCell.xib in Resources */,
+				A34D116C21BEA66B003CC62A /* 167.png in Resources */,
 				A384B5E9219A7F66005B7031 /* accept.png in Resources */,
 				A384B5E8219A7F66005B7031 /* decline.png in Resources */,
+				A34D116D21BEA66B003CC62A /* 1024.png in Resources */,
+				A34D116F21BEA66B003CC62A /* 152.png in Resources */,
 				A39C105A21915036005DAAD6 /* GamesFeedCell.xib in Resources */,
 				A39E26AF21924B0C00612E81 /* ClosedFeedCell.xib in Resources */,
 				01F20EE0217A67F700F2F713 /* Assets.xcassets in Resources */,
@@ -673,7 +689,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D3ACCA9CDAEA4B8DB1A4A12F /* Pods-SocialBet.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FR66G5YC2W;
@@ -683,7 +700,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.umich.SocialBet.eecs441.fall18;
+				PRODUCT_BUNDLE_IDENTIFIER = com.socialbet.jpkrieg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SocialBet/Bridging-Header.h";
@@ -696,7 +713,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EE5AD83B1C363C4188AC4BC7 /* Pods-SocialBet.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FR66G5YC2W;
@@ -706,7 +724,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.umich.SocialBet.eecs441.fall18;
+				PRODUCT_BUNDLE_IDENTIFIER = com.socialbet.jpkrieg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SocialBet/Bridging-Header.h";
