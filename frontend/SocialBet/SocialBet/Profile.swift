@@ -626,7 +626,9 @@ class Profile: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             
             self.UserHandle.text = userData.username;
             self.UserName.text = userData.first_name + " " + userData.last_name;
-            self.AccountBalance.text = String(userData.balance) + " ETH";
+           
+            
+            self.AccountBalance.text = userData.balance.avoidNotation + " ETH";
             
             //TODO needs a slight tweak to allow for deleting friends, just not important for task at hand right now
             if (self.searchedUser! == common.username){

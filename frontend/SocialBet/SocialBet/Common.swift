@@ -56,6 +56,16 @@ extension UIImageView {
         }
     }
 }
+
+extension Float {
+    var avoidNotation: String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.maximumFractionDigits = 8
+        numberFormatter.numberStyle = .decimal
+        return numberFormatter.string(for: self) ?? ""
+    }
+}
+
 func getImageFromUrl(urlString: String, imageView: UIImageView) {
     let url = "http://socialbet.jpkrieg.com:5000/" + urlString
     imageView.load(url: URL(string: url)!)
